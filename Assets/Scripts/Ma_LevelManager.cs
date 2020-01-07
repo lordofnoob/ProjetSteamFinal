@@ -12,7 +12,6 @@ public class Ma_LevelManager : MonoBehaviour
     float timeToCount;
     int currentTimeIndex =0;
    
-
     private void Start()
     {
         instance = this;

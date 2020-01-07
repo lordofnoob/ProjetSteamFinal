@@ -25,6 +25,17 @@ public class Mb_Connection : MonoBehaviour
         
     }
 
+    public void StartDrawing()
+    {
+        lr.enabled = true;
+        collider.enabled = true;
+    }
+    public void StopDrawing()
+    {
+        lr.enabled = false;
+        collider.enabled = false;
+    }
+
     public void SetStartLinePosition(Vector3 startPos)
     {
         lr.SetPosition(0, startPos);
@@ -35,6 +46,12 @@ public class Mb_Connection : MonoBehaviour
     {
         lr.SetPosition(lr.positionCount - 1, endPos);
         CenteredCollider();
+    }
+
+    public void SetLineColor(Color color, float alpha)
+    {
+        lr.endColor = new Color(color.r, color.g, color.b, alpha);
+        lr.startColor = new Color(color.r, color.g, color.b, alpha);
     }
 
     public void CenteredCollider()
