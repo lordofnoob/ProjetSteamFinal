@@ -9,7 +9,7 @@ public class Mb_Trial : MonoBehaviour
     public Sc_TrialParameters trialRules;
     [HideInInspector] public float trialAccomplishment;
     public List<Mb_PlayerControler> listOfUser;
-    public bool canInteract;
+   
 
     [Header("UIPART")]
     [SerializeField] Image uiToFill;
@@ -34,6 +34,13 @@ public class Mb_Trial : MonoBehaviour
        // if 
     }
 
+    public bool canInteract()
+    {
+        if (listOfUser.Count >= trialRules.numberOfPlayerNeeded)
+            return true;
+        else
+            return false;
+    }
     public void AddAvancement(float accomplishmentToAdd)
     {
         trialAccomplishment += trialRules.accomplishmentToAdd;
@@ -50,7 +57,7 @@ public class Mb_Trial : MonoBehaviour
     {
         trialAccomplishment = 0;
         UpdateFillAmount(trialAccomplishment);
-        canInteract = false;
+       
     }
     //user Gestion
     public void AddUser(Mb_PlayerControler playerToAdd)
