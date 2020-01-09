@@ -6,6 +6,7 @@ using UnityEngine;
 public class Sc_PlayerCharact : ScriptableObject
 {
     public PlayerMovementParameters baseCharacterMovement;
+    [SerializeField] AnimationCurve throwGrowingStrengh;
 }
 
 [System.Serializable]

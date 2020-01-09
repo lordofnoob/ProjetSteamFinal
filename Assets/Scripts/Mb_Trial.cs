@@ -7,6 +7,8 @@ using TMPro;
 
 public class Mb_Trial : MonoBehaviour
 {
+    //trials parameters
+    [Header("Trial Parameters")]
     public Sc_TrialParameters trialRules;
     [HideInInspector] public float trialAccomplishment;
     public List<Mb_PlayerControler> listOfUser;
@@ -17,7 +19,8 @@ public class Mb_Trial : MonoBehaviour
     [SerializeField] TextMeshProUGUI textUser;
     [SerializeField] Image uiToTrigger;
     [SerializeField] float appearenceTime = 0.5f;
-    bool beingUsed;
+
+    //Timer before decay
     float timeBeforeDecay;
 
     private void FixedUpdate()
@@ -39,7 +42,7 @@ public class Mb_Trial : MonoBehaviour
 
     }
 
-    
+    //Accomplissement
     public bool canInteract()
     {
         if (listOfUser.Count >= trialRules.numberOfPlayerNeeded)
@@ -67,9 +70,21 @@ public class Mb_Trial : MonoBehaviour
     public void ResetAccomplishment()
     {
         trialAccomplishment = 0;
-        UpdateFillAmount();
-       
+        UpdateFillAmount(); 
     }
+
+    public void Decay()
+    {
+        timeBeforeDecay += Time.fixedDeltaTime;
+
+        if (timeBeforeDecay >= trialRules.timeToWaitBeforeDecay)
+        {
+            trialAccomplishment -= trialRules.decaying * Time.fixedDeltaTime;
+            UpdateFillAmount();
+        }
+        trialAccomplishment -= trialRules.forceDecay * Time.fixedDeltaTime;
+    }
+
     //user Gestion
     public void AddUser(Mb_PlayerControler playerToAdd)
     {
@@ -91,11 +106,6 @@ public class Mb_Trial : MonoBehaviour
         }
     }
 
-   void UpdateUserCount()
-    {
-        textUser.text = listOfUser.Count + " / " + trialRules.numberOfPlayerNeeded;
-    }
-
     //UIFUNCTIONS
     public void UiAppearence()
     {
@@ -107,21 +117,15 @@ public class Mb_Trial : MonoBehaviour
         uiToTrigger.transform.DOScaleY(0, appearenceTime);
     }
 
-   public void UpdateFillAmount()
+    public void UpdateFillAmount()
     {
         float fillAmount = trialAccomplishment / trialRules.accomplishmentNeeded;
         uiToFill.DOFillAmount(fillAmount,0.1f);
     }
 
-   public void Decay()
+    void UpdateUserCount()
     {
-        timeBeforeDecay += Time.fixedDeltaTime;
-
-        if (timeBeforeDecay >= trialRules.timeToWaitBeforeDecay)
-        {
-            trialAccomplishment -= trialRules.decaying * Time.fixedDeltaTime;
-            UpdateFillAmount();
-        }
+        textUser.text = listOfUser.Count + " / " + trialRules.numberOfPlayerNeeded;
     }
 
 }

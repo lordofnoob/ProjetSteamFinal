@@ -5,14 +5,21 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewTrialParameters", menuName = "CreateNewTrialParameters")]
 public class Sc_TrialParameters : ScriptableObject
 {
+    [Header("TrialSpecs")]
     public int trialPriority;
-    public int accomplishmentNeeded;
-    public int numberOfPlayerNeeded;
-    public ToolType[] toolsNeeded;
     public TrialType trialType;
+    public ToolType[] toolsNeeded;
+    
+    [Header("Progression")]
+    public int accomplishmentNeeded;
+
     public float accomplishmentToAdd;
-    public float decaying;
-    public float timeToWaitBeforeDecay;
+    public int numberOfPlayerNeeded;
+
+    [Header("Decay")]
+    public float timeToWaitBeforeDecay = 1;
+    public float decaying = 1;
+    public float forceDecay = 0;
 }
 
 public enum TrialType

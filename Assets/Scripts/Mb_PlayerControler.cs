@@ -19,7 +19,7 @@ public class Mb_PlayerControler : MonoBehaviour
     List<Mb_Trial> CurrentTrialsOverlaped = new List<Mb_Trial>();
     public Mb_Item itemHold;
     float throwTime;
-    [SerializeField] AnimationCurve throwGrowingStrengh;
+
 
     [Header("GraphPart")]
     public Transform rightHandHandle, leftHandHandle, backHandle;
@@ -114,7 +114,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void ThrowItem()
     {
-        itemHold.GetComponent<Rigidbody>().velocity = transform.localRotation.eulerAngles * throwGrowingStrengh.Evaluate(throwTime);
+        //itemHold.GetComponent<Rigidbody>().velocity = transform.localRotation.eulerAngles * throwGrowingStrengh.Evaluate(throwTime);
         itemHold = null;
         throwTime = 0;
     }
