@@ -11,6 +11,8 @@ public class Sc_TrialParameters : ScriptableObject
     public ToolType[] toolsNeeded;
     public TrialType trialType;
     public float accomplishmentToAdd;
+    public float decaying;
+    public float timeToWaitBeforeDecay;
 }
 
 public enum TrialType
