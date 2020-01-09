@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewTrialParameters", menuName = "CreateNewTrialParameters")]
+[CreateAssetMenu(fileName = "NewTrialParameters", menuName = "Create NewTrial Parameters/Base Interaction")]
 public class Sc_TrialParameters : ScriptableObject
 {
     [Header("TrialSpecs")]

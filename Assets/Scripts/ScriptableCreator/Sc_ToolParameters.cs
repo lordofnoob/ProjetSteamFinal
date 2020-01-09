@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mb_Item : Mb_Trial
+[CreateAssetMenu(fileName = "NewToolParameters", menuName = "Create NewTrial Parameters/Tool Interaction")]
+public class Sc_ToolParameters : Sc_TrialParameters
 {
     public ToolType toolType;
-  
 }
+
 public enum ToolType
 {
     crowbar, drill

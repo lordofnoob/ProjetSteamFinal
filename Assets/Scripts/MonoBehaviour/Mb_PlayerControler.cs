@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XInputDotNetPure;
+using UnityEngine.UI;
 
 public class Mb_PlayerControler : MonoBehaviour
 {
@@ -20,11 +21,16 @@ public class Mb_PlayerControler : MonoBehaviour
     public Mb_Item itemHold;
     float throwTime;
 
+    [Header("ThrowItemPart")]
+    public Transform placeToThrow;
 
     [Header("GraphPart")]
-    public Transform rightHandHandle, leftHandHandle, backHandle;
-
+    public Transform itemHandle;
     Animator rAnimator;
+
+    [Header("Ui")]
+    public Image strengthBar;
+
     float floorAnim = 0.5f;
 
     void Start()
@@ -34,6 +40,7 @@ public class Mb_PlayerControler : MonoBehaviour
         liveParameters = playerCharacts.baseCharacterMovement;
 
         controlerUsedState = GamePad.GetState(playerIndex);
+        UpdateThrowUI();
     }
 
     void Update()
@@ -67,15 +74,15 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void SetAnimFloat()
     {
-        rAnimator.SetFloat("Speed", body.velocity.magnitude / playerCharacts.baseCharacterMovement.MoveSpeed);
+ 
 
         // anim
         if (CurrentStickDirectionNormalized().magnitude > 0)
         {
             // if(ne porte rien)
             //anim
-            rAnimator.SetBool("Idle00_To_Move", true);
-            ;
+            //rAnimator.SetBool("Idle00_To_Move", true);
+            
         }
         else
         {
@@ -90,7 +97,7 @@ public class Mb_PlayerControler : MonoBehaviour
         transform.localRotation = Quaternion.Euler(new Vector3(0, RotY(), 0));
     }
 
-    float RotY()
+    public float RotY()
     {
         return Mathf.Atan2(CurrentStickDirectionNormalized().x, CurrentStickDirectionNormalized().z)* Mathf.Rad2Deg - 90;
     }
@@ -99,29 +106,32 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void APress()
     {
-        if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed && CurrentTrialsOverlaped.Count >0 && usedTrial().trialRules.trialType == TrialType.Mashing&& usedTrial().canInteract() == true)
+        if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed 
+            && CurrentTrialsOverlaped.Count >0 && usedTrial().trialRules.trialType == TrialType.Mashing&& usedTrial().canInteract() == true)
         {
             // DO SHIT 
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
         }
-        else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().canInteract() ==true  )
+        else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed 
+            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().canInteract() ==true  )
         {
             // DO SHIT 
             //A corriger ca marche pas // il faut caller ça par seconde
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
         }
-        else if(itemHold != null && controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed)
-        {
-            PrepThrowItem();
-        }
-       
+ 
+
     }
 
     private void XPress()
     {
-        if (controlerUsedOldState.Buttons.X == ButtonState.Released && controlerUsedState.Buttons.X == ButtonState.Pressed)
+        if (itemHold != null && controlerUsedOldState.Buttons.X == ButtonState.Pressed && controlerUsedState.Buttons.X == ButtonState.Pressed && CurrentTrialsOverlaped.Count == 0)
         {
-            // DO SHIT 
+            PrepThrowItem();
+        }
+        else if (itemHold != null && controlerUsedOldState.Buttons.X == ButtonState.Pressed && controlerUsedState.Buttons.X == ButtonState.Released && CurrentTrialsOverlaped.Count == 0)
+        {
+            ThrowItem();
         }
     }
 
@@ -135,14 +145,17 @@ public class Mb_PlayerControler : MonoBehaviour
 
     public void PrepThrowItem()
     {
-       // throwTime += 
+        throwTime += Time.fixedDeltaTime;
+        UpdateThrowUI();
+
     }
 
     private void ThrowItem()
     {
-        //itemHold.GetComponent<Rigidbody>().velocity = transform.localRotation.eulerAngles * throwGrowingStrengh.Evaluate(throwTime);
+        itemHold.Throw(Vector3.Normalize(transform.position - placeToThrow.position), playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh);
         itemHold = null;
         throwTime = 0;
+        UpdateThrowUI();
     }
 
     //INTERACTIONPART
@@ -164,7 +177,6 @@ public class Mb_PlayerControler : MonoBehaviour
 
     public void AddOverlapedTrial(Mb_Trial trialToAdd)
     {
-        print(trialToAdd);
         CurrentTrialsOverlaped.Add(trialToAdd);
     }
 
@@ -172,6 +184,13 @@ public class Mb_PlayerControler : MonoBehaviour
     {
         CurrentTrialsOverlaped.Remove(trialToRemove);
     }
+
+    //UI UPDATE
+    public void UpdateThrowUI()
+    {
+        strengthBar.fillAmount = playerCharacts.throwGrowingStrengh.Evaluate(throwTime);
+    }
+
     //VECTOR MANNETTE REGION
     #region
     public Vector3 CurrentStickDirection()

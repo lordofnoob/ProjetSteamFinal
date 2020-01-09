@@ -10,7 +10,7 @@ public class Mb_Trial : MonoBehaviour
     //trials parameters
     [Header("Trial Parameters")]
     public Sc_TrialParameters trialRules;
-    [HideInInspector] public float trialAccomplishment;
+    public float trialAccomplishment;
     public List<Mb_PlayerControler> listOfUser;
    
 
@@ -48,13 +48,16 @@ public class Mb_Trial : MonoBehaviour
         if (listOfUser.Count >= trialRules.numberOfPlayerNeeded)
             return true;
         else
-            return false;
+            return true;
     }
 
     public void AddAvancement(float accomplishmentToAdd)
     {
         if (trialRules.trialType == TrialType.Time)
+        {
             trialAccomplishment += trialRules.accomplishmentToAdd * Time.fixedDeltaTime;
+        }
+            
         else if (trialRules.trialType == TrialType.Mashing)
             trialAccomplishment += trialRules.accomplishmentToAdd;
 
@@ -62,6 +65,7 @@ public class Mb_Trial : MonoBehaviour
         {
             EndTrial();
         }
+
         UpdateFillAmount();
 
         timeBeforeDecay = 0;
@@ -75,14 +79,18 @@ public class Mb_Trial : MonoBehaviour
 
     public void Decay()
     {
+        //si l accomplissement est superieur a zero on tente de le decay si le decay est ready
         timeBeforeDecay += Time.fixedDeltaTime;
-
-        if (timeBeforeDecay >= trialRules.timeToWaitBeforeDecay)
+        if (trialAccomplishment >= 0)
         {
-            trialAccomplishment -= trialRules.decaying * Time.fixedDeltaTime;
-            UpdateFillAmount();
+            if (timeBeforeDecay >= trialRules.timeToWaitBeforeDecay)
+            {
+                trialAccomplishment -= trialRules.decaying * Time.fixedDeltaTime;
+                UpdateFillAmount();
+            }
+
+            trialAccomplishment -= trialRules.forceDecay * Time.fixedDeltaTime;
         }
-        trialAccomplishment -= trialRules.forceDecay * Time.fixedDeltaTime;
     }
 
     //user Gestion
@@ -93,8 +101,6 @@ public class Mb_Trial : MonoBehaviour
 
         listOfUser.Add(playerToAdd);
         UpdateUserCount();
-
-
     }
 
     public void RemoveUser(Mb_PlayerControler playerToRemove)
