@@ -57,25 +57,32 @@ public class Mb_PlayerControler : MonoBehaviour
     private void Move()
     {
         body.velocity = liveParameters.MoveSpeed * liveParameters.AccelerationRate.Evaluate(CurrentStickDirection().magnitude) * CurrentStickDirectionNormalized();
-        rAnimator.SetFloat("Speed", body.velocity.magnitude / playerCharacts.baseCharacterMovement.MoveSpeed);
-        // anim
-        if (CurrentStickDirectionNormalized().magnitude>0)
-        {
-            // if(ne porte rien)
-            //anim
-            rAnimator.SetBool("Idle00_To_Move", true);
-          ;
-        }
-        else
-        {
-           /*
-                if (rAnimator.GetFloat("Speed") > floorAnim)
-                rAnimator.SetFloat("Speed", Mathf.Lerp(rAnimator.GetFloat("Speed"), 0, 0.3f));*/
-        }
+
+        SetAnimFloat();
 
         if (CurrentStickDirection() != Vector3.zero)
             UpdateRotation();
 
+    }
+
+    private void SetAnimFloat()
+    {
+        rAnimator.SetFloat("Speed", body.velocity.magnitude / playerCharacts.baseCharacterMovement.MoveSpeed);
+
+        // anim
+        if (CurrentStickDirectionNormalized().magnitude > 0)
+        {
+            // if(ne porte rien)
+            //anim
+            rAnimator.SetBool("Idle00_To_Move", true);
+            ;
+        }
+        else
+        {
+            /*
+                 if (rAnimator.GetFloat("Speed") > floorAnim)
+                 rAnimator.SetFloat("Speed", Mathf.Lerp(rAnimator.GetFloat("Speed"), 0, 0.3f));*/
+        }
     }
 
     void UpdateRotation()
