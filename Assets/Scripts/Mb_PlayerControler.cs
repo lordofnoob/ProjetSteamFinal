@@ -24,9 +24,13 @@ public class Mb_PlayerControler : MonoBehaviour
     [Header("GraphPart")]
     public Transform rightHandHandle, leftHandHandle, backHandle;
 
+    Animator rAnimator;
+    float floorAnim = 0.5f;
+
     void Start()
     {
         body = GetComponent<Rigidbody>();
+        rAnimator = transform.GetChild(0).GetComponent<Animator>();
         liveParameters = playerCharacts.baseCharacterMovement;
 
         controlerUsedState = GamePad.GetState(playerIndex);
@@ -54,9 +58,31 @@ public class Mb_PlayerControler : MonoBehaviour
     {
         body.velocity = liveParameters.MoveSpeed * liveParameters.AccelerationRate.Evaluate(CurrentStickDirection().magnitude) * CurrentStickDirectionNormalized();
 
+        SetAnimFloat();
+
         if (CurrentStickDirection() != Vector3.zero)
             UpdateRotation();
 
+    }
+
+    private void SetAnimFloat()
+    {
+        rAnimator.SetFloat("Speed", body.velocity.magnitude / playerCharacts.baseCharacterMovement.MoveSpeed);
+
+        // anim
+        if (CurrentStickDirectionNormalized().magnitude > 0)
+        {
+            // if(ne porte rien)
+            //anim
+            rAnimator.SetBool("Idle00_To_Move", true);
+            ;
+        }
+        else
+        {
+            /*
+                 if (rAnimator.GetFloat("Speed") > floorAnim)
+                 rAnimator.SetFloat("Speed", Mathf.Lerp(rAnimator.GetFloat("Speed"), 0, 0.3f));*/
+        }
     }
 
     void UpdateRotation()
