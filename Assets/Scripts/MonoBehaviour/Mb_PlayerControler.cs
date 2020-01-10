@@ -125,11 +125,13 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void XPress()
     {
-        if (itemHold != null && controlerUsedOldState.Buttons.X == ButtonState.Pressed && controlerUsedState.Buttons.X == ButtonState.Pressed && CurrentTrialsOverlaped.Count == 0)
+        if (itemHold != null && controlerUsedOldState.Buttons.X == ButtonState.Pressed
+            && controlerUsedState.Buttons.X == ButtonState.Pressed && CurrentTrialsOverlaped.Count == 0)
         {
             PrepThrowItem();
         }
-        else if (itemHold != null && controlerUsedOldState.Buttons.X == ButtonState.Pressed && controlerUsedState.Buttons.X == ButtonState.Released && CurrentTrialsOverlaped.Count == 0)
+        else if (itemHold != null && controlerUsedOldState.Buttons.X == ButtonState.Pressed 
+            && controlerUsedState.Buttons.X == ButtonState.Released && CurrentTrialsOverlaped.Count == 0)
         {
             ThrowItem();
         }
@@ -152,7 +154,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void ThrowItem()
     {
-        itemHold.Throw(Vector3.Normalize(transform.position - placeToThrow.position), playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh);
+        itemHold.Throw(transform.right, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh);
         itemHold = null;
         throwTime = 0;
         UpdateThrowUI();

@@ -8,7 +8,7 @@ public class Sc_TrialParameters : ScriptableObject
     [Header("TrialSpecs")]
     public int trialPriority;
     public TrialType trialType;
-    public ToolType[] toolsNeeded;
+    public ItemType[] toolsNeeded;
     
     [Header("Progression")]
     public int accomplishmentNeeded;
