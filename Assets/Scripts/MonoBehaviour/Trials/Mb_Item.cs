@@ -5,16 +5,14 @@ using TMPro;
 
 public class Mb_Item : Mb_Trial
 {
-    Mb_TrialCollider collOfTheItem;
     Collider coll;
     Rigidbody body;
-    [SerializeField] Collider triggerCollider;
+    [SerializeField] Mb_TrialCollider triggerCollider;
     Mb_PlayerControler user;
     public ItemType itemType;
 
     protected virtual void Awake()
     {
-        collOfTheItem = GetComponent<Mb_TrialCollider>();
         coll = GetComponent<Collider>();
         body = GetComponent<Rigidbody>();
     }
@@ -27,10 +25,9 @@ public class Mb_Item : Mb_Trial
         user.RemoveOverlapedTrial(this);
 
         //desactiver les composents de trial de l objet a recup
-        collOfTheItem.enabled = false;
 
         //Set sa position sur le handle du joueur et le parent
-        transform.SetParent(collOfTheItem.currentUser.itemHandle);
+        transform.SetParent(user.itemHandle);
         transform.localPosition = new Vector3(0, 0, 0);
         transform.localRotation = Quaternion.identity;
 
@@ -46,13 +43,10 @@ public class Mb_Item : Mb_Trial
    
         transform.position = user.placeToThrow.position;
         transform.rotation = user.placeToThrow.rotation;
-        collOfTheItem.enabled = true;
         transform.SetParent(null);
         coll.enabled = true;
         body.isKinematic =false;
         triggerCollider.enabled = true;
-
-  
     }
 
     public void Throw(Vector3 direction, float strength)

@@ -43,12 +43,34 @@ public class Mb_Trial : MonoBehaviour
     }
 
     //Accomplissement
-    public bool canInteract()
+    public virtual bool CanInterract()
     {
-        if (listOfUser.Count >= trialRules.numberOfPlayerNeeded)
-            return true;
-        else
-            return true;
+        bool interactionAvaible = true;
+
+        if (trialRules.toolsNeeded.Length > 0)
+        {
+            if (listOfUser[0].itemHold != null)
+            {
+                for (int i = 0; i < trialRules.toolsNeeded.Length; i++)
+                {
+                    for (int y = 0; y < listOfUser.Count; y++)
+                        if (listOfUser[y].itemHold.itemType == trialRules.toolsNeeded[i])
+                        {
+                            interactionAvaible = true;
+                            break;
+                        }
+                }
+            }
+            else
+                return false;
+        }
+  
+       //rajouter 1 parce que j update la lust que après avoir la condition ps: jui con
+        if (listOfUser.Count +1 < trialRules.numberOfPlayerNeeded)
+            interactionAvaible = false;
+ 
+
+        return interactionAvaible;
     }
 
     public void AddAvancement(float accomplishmentToAdd)
@@ -96,7 +118,7 @@ public class Mb_Trial : MonoBehaviour
     //user Gestion
     public void AddUser(Mb_PlayerControler playerToAdd)
     {
-        if (listOfUser.Count == 0)
+     //   if (listOfUser.Count == 0)
             UiAppearence();
 
         listOfUser.Add(playerToAdd);
@@ -115,7 +137,9 @@ public class Mb_Trial : MonoBehaviour
     //UIFUNCTIONS
     public void UiAppearence()
     {
-        uiToTrigger.transform.DOScaleY(1, appearenceTime);
+        
+        if(CanInterract()==true)
+            uiToTrigger.transform.DOScaleY(1, appearenceTime);
     }
 
     public void UiDisaparence()
