@@ -166,7 +166,7 @@ public class Mb_PlayerControler : MonoBehaviour
         if (CurrentTrialsOverlaped.Count != 0)
         {
             Mb_Trial trial = CurrentTrialsOverlaped[0]; ;
-            for (int i = 0; i < CurrentTrialsOverlaped.Count; i++)
+            for (int i = 0; i < CurrentTrialsOverlaped.Count; i++) 
             {
                 if (trial.trialRules.trialPriority <= CurrentTrialsOverlaped[i].trialRules.trialPriority)
                     trial = CurrentTrialsOverlaped[i];
