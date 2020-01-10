@@ -26,7 +26,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     [Header("GraphPart")]
     public Transform itemHandle;
-    Animator rAnimator;
+    [SerializeField] Animator rAnimator;
 
     [Header("Ui")]
     public Image strengthBar;
@@ -36,7 +36,7 @@ public class Mb_PlayerControler : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody>();
-        rAnimator = transform.GetChild(0).GetComponent<Animator>();
+       // rAnimator = transform.GetChild(0).GetComponent<Animator>();
         liveParameters = playerCharacts.baseCharacterMovement;
 
         controlerUsedState = GamePad.GetState(playerIndex);
@@ -74,21 +74,21 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void SetAnimFloat()
     {
- 
+
+        rAnimator.SetFloat("Speed", body.velocity.magnitude);
 
         // anim
         if (CurrentStickDirectionNormalized().magnitude > 0)
         {
             // if(ne porte rien)
             //anim
-            //rAnimator.SetBool("Idle00_To_Move", true);
+            rAnimator.SetBool("Idle00_To_Move", true);
             
         }
         else
         {
-            /*
-                 if (rAnimator.GetFloat("Speed") > floorAnim)
-                 rAnimator.SetFloat("Speed", Mathf.Lerp(rAnimator.GetFloat("Speed"), 0, 0.3f));*/
+            if (rAnimator.GetFloat("Speed") > floorAnim)
+            rAnimator.SetFloat("Speed", Mathf.Lerp(rAnimator.GetFloat("Speed"), 0, 0.3f));
         }
     }
 
