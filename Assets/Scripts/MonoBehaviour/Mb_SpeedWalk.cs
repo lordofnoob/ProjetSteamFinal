@@ -6,7 +6,13 @@ public class Mb_SpeedWalk : MonoBehaviour
 {
     [SerializeField] float rollingForce;
     List<Mb_Speedable> toMove = new List<Mb_Speedable>();
+    Material conveyMat;
 
+    private void Awake()
+    {
+        conveyMat = GetComponent<MeshRenderer>().material;
+        conveyMat.SetFloat("_Speed", rollingForce);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,7 +39,7 @@ public class Mb_SpeedWalk : MonoBehaviour
         }
 
         rollingForce *= forceModifier;
-
+        conveyMat.SetFloat("_Speed", rollingForce);
         for (int i =0; i < toMove.Count; i++)
         {
             print(transform.forward * 2 * rollingForce);
