@@ -118,8 +118,8 @@ public class Mb_Trial : MonoBehaviour
     //user Gestion
     public void AddUser(Mb_PlayerControler playerToAdd)
     {
-     //   if (listOfUser.Count == 0)
-            UiAppearence();
+        //   if (listOfUser.Count == 0)
+
 
         listOfUser.Add(playerToAdd);
         UpdateUserCount();

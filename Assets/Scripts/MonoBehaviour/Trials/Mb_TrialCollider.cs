@@ -18,7 +18,9 @@ public class Mb_TrialCollider : MonoBehaviour
 
             playerOccupying.AddOverlapedTrial(trialAssociated);
 
+
             trialAssociated.AddUser(currentUser);
+            trialAssociated.UiAppearence();
         }
     }
 
