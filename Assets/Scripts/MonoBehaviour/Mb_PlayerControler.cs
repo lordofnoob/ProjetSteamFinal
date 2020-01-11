@@ -107,13 +107,13 @@ public class Mb_PlayerControler : MonoBehaviour
     private void APress()
     {
         if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed 
-            && CurrentTrialsOverlaped.Count >0 && usedTrial().trialRules.trialType == TrialType.Mashing&& usedTrial().canInteract() == true)
+            && CurrentTrialsOverlaped.Count >0 && usedTrial().trialRules.trialType == TrialType.Mashing&& usedTrial().CanInterract() == true)
         {
             // DO SHIT 
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
         }
         else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed 
-            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().canInteract() ==true  )
+            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() ==true  )
         {
             // DO SHIT 
             //A corriger ca marche pas // il faut caller ça par seconde
