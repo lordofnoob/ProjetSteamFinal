@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3300226}
   - component: {fileID: 2343798}
   - component: {fileID: 2961347851714192765}
+  - component: {fileID: 6913106977135642288}
   m_Layer: 0
   m_Name: SM_Prop_ATM_01
   m_TagString: Untagged
@@ -104,6 +105,19 @@ MonoBehaviour:
   - {fileID: 0}
   yToAdd: -5
   timeToDo: 1
+--- !u!65 &6913106977135642288
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.56982386, y: 1.6201032, z: 0.5462512}
+  m_Center: {x: -0.000000059604645, y: 0.8100516, z: -0.000000059604645}
 --- !u!1 &113066609503803267
 GameObject:
   m_ObjectHideFlags: 0
