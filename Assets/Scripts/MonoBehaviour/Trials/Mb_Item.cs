@@ -10,6 +10,7 @@ public class Mb_Item : Mb_Trial
     [SerializeField] Mb_TrialCollider triggerCollider;
     Mb_PlayerControler user;
     public ItemType itemType;
+    public int itemValue;
 
     protected virtual void Awake()
     {

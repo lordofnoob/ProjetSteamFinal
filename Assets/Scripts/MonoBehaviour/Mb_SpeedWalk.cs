@@ -4,26 +4,40 @@ using UnityEngine;
 
 public class Mb_SpeedWalk : MonoBehaviour
 {
-    List<Rigidbody> allItemInterracted = new List<Rigidbody>();
     [SerializeField] float rollingForce;
+    List<Mb_Speedable> toMove = new List<Mb_Speedable>();
+
 
     private void OnTriggerEnter(Collider other)
     {
-        Rigidbody bodyToAdd = other.GetComponent<Rigidbody>();
-        allItemInterracted.Add(bodyToAdd);
+
+        Mb_Speedable itemToMove = other.GetComponent<Mb_Speedable>();
+        toMove.Add(itemToMove);
+        if (itemToMove != null)
+            itemToMove.strengthApplied += transform.forward * rollingForce;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Rigidbody bodyToRemove = other.GetComponent<Rigidbody>();
-        allItemInterracted.Remove(bodyToRemove);
+        Mb_Speedable itemToStopMoving = other.GetComponent<Mb_Speedable>();
+        toMove.Remove(itemToStopMoving);
+        if (itemToStopMoving != null)
+            itemToStopMoving.strengthApplied -= transform.forward * rollingForce;
     }
 
-    private void FixedUpdate()
+   public void Swap(float forceModifier)
     {
-        for (int i = 0; i < allItemInterracted.Count; i++)
+        for (int i = 0; i < toMove.Count; i++)
         {
-            allItemInterracted[i].transform.position += transform.forward * rollingForce * Time.fixedDeltaTime;
+            toMove[i].strengthApplied -=  transform.forward * rollingForce;
+        }
+
+        rollingForce *= forceModifier;
+
+        for (int i =0; i < toMove.Count; i++)
+        {
+            print(transform.forward * 2 * rollingForce);
+            toMove[i].strengthApplied += transform.forward *rollingForce;
         }
     }
 }
