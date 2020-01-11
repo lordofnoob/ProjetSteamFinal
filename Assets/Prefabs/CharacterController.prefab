@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 7966433378149928928}
   - component: {fileID: 7966433378149928930}
   - component: {fileID: 7966433378149928929}
+  - component: {fileID: 6618188853846927868}
   m_Layer: 10
   m_Name: CharacterController
   m_TagString: Untagged
@@ -273,7 +274,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &7966433378149928929
 MonoBehaviour:
@@ -288,12 +289,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
-  playerCharacts: {fileID: 11400000, guid: 246c484b425ad5d4eb003520beeb1d99, type: 2}
+  playerCharacts: {fileID: 11400000, guid: 31028255549a5fd4198f5d8bcc188a9c, type: 2}
   itemHold: {fileID: 0}
   placeToThrow: {fileID: 8451626645360395799}
   itemHandle: {fileID: 1432589878397624668}
   rAnimator: {fileID: 4017962663874504422}
   strengthBar: {fileID: 4467580380560863775}
+--- !u!114 &6618188853846927868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966433378149928931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f899ce5e2fbc5c84e8d6e1d5f547abee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strengthApplied: {x: 0, y: 0, z: 0}
 --- !u!1001 &7966433378458298528
 PrefabInstance:
   m_ObjectHideFlags: 0
