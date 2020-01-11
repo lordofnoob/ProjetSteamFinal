@@ -13,7 +13,7 @@ public class Sc_TrialParameters : ScriptableObject
     [Header("Progression")]
     public int accomplishmentNeeded;
 
-    public float accomplishmentToAdd;
+   [HideInInspector] public float accomplishmentToAdd=1;
     public int numberOfPlayerNeeded;
 
     [Header("Decay")]
