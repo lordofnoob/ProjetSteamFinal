@@ -29,8 +29,18 @@ public class Ma_UiManager : MonoBehaviour
         canvasToDesctivate.SetActive(false);
     }
 
-    public void UpdateTimeRemainingText(float RemainingTime)
+    public void UpdateTimeRemainingText(float remainingTime)
     {
-        timeRemainingText.text = Mathf.RoundToInt(RemainingTime / 60) + " / "+ Mathf.RoundToInt(RemainingTime - Mathf.RoundToInt(RemainingTime / 60)*60); 
+        float minuteRemaining, secondsRemaining;
+        minuteRemaining = Mathf.Clamp(Mathf.FloorToInt(remainingTime / 60),0,9999999);
+        secondsRemaining = Mathf.Clamp(Mathf.RoundToInt(remainingTime - minuteRemaining * 60), 0, 59);
+        string timeSpentToDisplay;
+
+        if (secondsRemaining > 10)
+            timeSpentToDisplay = minuteRemaining + " : " + secondsRemaining;
+        else
+            timeSpentToDisplay = minuteRemaining + " : 0" + secondsRemaining;
+
+        timeRemainingText.text = timeSpentToDisplay;
     }
 }

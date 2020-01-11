@@ -6,7 +6,7 @@ using UnityEngine;
 public class Sc_LevelParameters : ScriptableObject
 {
     //  public Sc_Objective[] objectivesOfTheLevel;
-    public Mb_Item itemToGet1, itemToGet2;
+    public Sc_TrialParameters itemToGet1, itemToGet2;
     public int moneyToSteal;
     public float timeToDoTheLevel;
 

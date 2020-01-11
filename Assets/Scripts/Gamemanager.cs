@@ -9,6 +9,7 @@ public class Gamemanager : MonoBehaviour
     float moneyStolen;
     float timeRemaining;
     bool isPause;
+    bool objectiveItem1, objectiveItem2, objectiveMoney;
 
     private void Awake()
     {
@@ -24,26 +25,27 @@ public class Gamemanager : MonoBehaviour
 
     public void CheckItemToGet(Mb_Item itemStolen)
     {
-        if (itemStolen==levelParameters.itemToGet1)
+        if (itemStolen.trialRules ==levelParameters.itemToGet1)
         {
-
+            objectiveItem1 = true;
         }
-        else if (itemStolen == levelParameters.itemToGet2)
+        else if (itemStolen.trialRules == levelParameters.itemToGet2)
         {
-
+            objectiveItem2 = true;
         }
     }
 
     public void AddMoney(int moneyToAdd)
     {
         moneyStolen += moneyToAdd;
+        CheckMoney();
     }
 
     public void CheckMoney()
     {
-        if (moneyStolen> levelParameters.moneyToSteal)
+        if (moneyStolen >= levelParameters.moneyToSteal)
         {
-
+            objectiveMoney = true;
         }
     }
 
