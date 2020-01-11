@@ -139,7 +139,7 @@ public class Mb_Trial : MonoBehaviour
     {
         
         if(CanInterract()==true)
-            uiToTrigger.transform.DOScaleY(1, appearenceTime);
+            uiToTrigger.transform.DOScaleY(2, appearenceTime);
     }
 
     public void UiDisaparence()
