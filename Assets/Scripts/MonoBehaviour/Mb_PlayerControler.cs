@@ -84,6 +84,7 @@ public class Mb_PlayerControler : MonoBehaviour
             //anim
             rAnimator.SetFloat("Speed", animCourseValue());
             rAnimator.SetBool("Idle00_To_Move", true);
+
             
         }
         else
@@ -196,7 +197,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     float animCourseValue()
     {
-        return playerCharacts.baseCharacterMovement.AccelerationRate.Evaluate(CurrentStickDirection().magnitude); ;
+        return playerCharacts.baseCharacterMovement.AccelerationRate.Evaluate(CurrentStickDirection().magnitude-0.04f); ;
     }
 
     //VECTOR MANNETTE REGION
