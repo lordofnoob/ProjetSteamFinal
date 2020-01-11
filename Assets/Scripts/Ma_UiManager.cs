@@ -6,10 +6,12 @@ using TMPro;
 
 public class Ma_UiManager : MonoBehaviour
 {
-    public GameObject StartCanvas;
-    public GameObject EndCanvas;
+    [SerializeField] GameObject StartCanvas;
+    [SerializeField] GameObject EndCanvas;
+    [SerializeField] 
     public TextMeshProUGUI timeRemainingText;
     public static Ma_UiManager instance;
+
     private void Awake()
 
     {
@@ -19,14 +21,19 @@ public class Ma_UiManager : MonoBehaviour
             Destroy(this);
     }
 
-        public void SetActiveCanvas(GameObject canvasToActivate)
+    public void SetActiveEndCanvas()
     {
-        canvasToActivate.SetActive(true);
+        EndCanvas.SetActive(true);
     }
 
-    public void DesactiveCanvas(GameObject canvasToDesctivate)
+    public void SetActiveStartCanvas()
     {
-        canvasToDesctivate.SetActive(false);
+        StartCanvas.SetActive(true);
+    }
+
+    public void SetDesactiveStartCanvas()
+    {
+        StartCanvas.SetActive(false);
     }
 
     public void UpdateTimeRemainingText(float remainingTime)
@@ -43,4 +50,13 @@ public class Ma_UiManager : MonoBehaviour
 
         timeRemainingText.text = timeSpentToDisplay;
     }
+
+    public void SetupEndPannel(float moneyAmount, bool firstObjective, bool secondObjectve, bool thirdObjective)
+    {
+        Mb_EndPannel.instance.moneySpot.text = moneyAmount + "$";
+        Mb_EndPannel.instance.firstStar.gameObject.SetActive(firstObjective);
+        Mb_EndPannel.instance.secondStar.gameObject.SetActive(secondObjectve);
+        Mb_EndPannel.instance.thirdStar.gameObject.SetActive(thirdObjective);
+    }
+
 }

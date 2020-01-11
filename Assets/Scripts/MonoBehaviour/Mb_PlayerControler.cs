@@ -76,15 +76,14 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void SetAnimFloat()
     {
-
-    
-
+        
         // anim
+        rAnimator.SetFloat("Speed", animCourseValue());
         if (CurrentStickDirectionNormalized().magnitude > 0)
         {
             // if(ne porte rien)
             //anim
-            rAnimator.SetFloat("Speed", animCourseValue());
+           
             rAnimator.SetBool("Idle00_To_Move", true);
 
             
@@ -123,7 +122,7 @@ public class Mb_PlayerControler : MonoBehaviour
             //A corriger ca marche pas // il faut caller ça par seconde
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
         }
-        else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed
+         else if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
             && CurrentTrialsOverlaped.Count == 0 && itemHold !=null)
             ThrowItem();
 

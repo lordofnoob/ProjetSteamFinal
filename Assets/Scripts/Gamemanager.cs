@@ -75,7 +75,8 @@ public class Gamemanager : MonoBehaviour
 
     void EndGame()
     {
-
+        Ma_UiManager.instance.SetupEndPannel(moneyStolen, objectiveItem1, objectiveItem2, objectiveMoney);
+        Ma_UiManager.instance.SetActiveEndCanvas();
     }
 
     public void PauseTimer()
