@@ -75,13 +75,14 @@ public class Mb_PlayerControler : MonoBehaviour
     private void SetAnimFloat()
     {
 
-        rAnimator.SetFloat("Speed", body.velocity.magnitude);
+    
 
         // anim
         if (CurrentStickDirectionNormalized().magnitude > 0)
         {
             // if(ne porte rien)
             //anim
+            rAnimator.SetFloat("Speed", animCourseValue());
             rAnimator.SetBool("Idle00_To_Move", true);
             
         }
@@ -191,6 +192,11 @@ public class Mb_PlayerControler : MonoBehaviour
     public void UpdateThrowUI()
     {
         strengthBar.fillAmount = playerCharacts.throwGrowingStrengh.Evaluate(throwTime);
+    }
+
+    float animCourseValue()
+    {
+        return playerCharacts.baseCharacterMovement.AccelerationRate.Evaluate(CurrentStickDirection().magnitude); ;
     }
 
     //VECTOR MANNETTE REGION
