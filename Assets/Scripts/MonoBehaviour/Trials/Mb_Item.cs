@@ -67,7 +67,7 @@ public class Mb_Item : Mb_Trial
 
 public enum ItemType
 {
-    Loot, Drill, Crowbar, Pass1, Pass2, Pass3, Tablet
+    Loot, Drill, Crowbar, Pass1, Pass2, Pass3, Tablet, Diamand
 }
 
 
