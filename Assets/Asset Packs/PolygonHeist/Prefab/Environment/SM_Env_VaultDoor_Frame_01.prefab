@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 437760}
   - component: {fileID: 3303466}
   - component: {fileID: 2393534}
+  - component: {fileID: 7247823790747302637}
   m_Layer: 0
   m_Name: SM_Env_VaultDoor_Frame_01
   m_TagString: Untagged
@@ -235,6 +236,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7247823790747302637
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 3.0000005, z: 0.38138342}
+  m_Center: {x: -2.5, y: 1.5, z: 0.19069171}
 --- !u!1 &196966
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +260,7 @@ GameObject:
   - component: {fileID: 433068}
   - component: {fileID: 3323356}
   - component: {fileID: 2391582}
+  - component: {fileID: 2387912911727798639}
   m_Layer: 0
   m_Name: SM_Env_VaultDoor_Lid_01
   m_TagString: Untagged
@@ -315,3 +330,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2387912911727798639
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8190546, y: 2.5045695, z: 0.85672235}
+  m_Center: {x: -1.2497334, y: 0.3535229, z: -0.009596705}

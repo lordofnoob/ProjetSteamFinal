@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 444508}
   - component: {fileID: 3339212}
   - component: {fileID: 2355318}
+  - component: {fileID: 3404305648391619469}
   m_Layer: 0
   m_Name: SM_Env_Wall_Exterior_Ground_01
   m_TagString: Untagged
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3404305648391619469
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187544}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.000002, y: 3.0000002, z: 0.22838402}
+  m_Center: {x: -2.499999, y: 1.5000001, z: 0.1141901}

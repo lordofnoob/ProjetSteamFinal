@@ -15,6 +15,7 @@ public class Mb_PlayerControler : MonoBehaviour
     [SerializeField] Sc_PlayerCharact playerCharacts;
     PlayerMovementParameters liveParameters;
     Rigidbody body;
+    Mb_Speedable moveInfluence;
 
     [Header("InteractionPart")]
     List<Mb_Trial> CurrentTrialsOverlaped = new List<Mb_Trial>();
@@ -36,7 +37,8 @@ public class Mb_PlayerControler : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody>();
-       // rAnimator = transform.GetChild(0).GetComponent<Animator>();
+        moveInfluence = GetComponent<Mb_Speedable>();
+        // rAnimator = transform.GetChild(0).GetComponent<Animator>();
         liveParameters = playerCharacts.baseCharacterMovement;
 
         controlerUsedState = GamePad.GetState(playerIndex);
@@ -63,7 +65,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void Move()
     {
-        body.velocity = liveParameters.MoveSpeed * liveParameters.AccelerationRate.Evaluate(CurrentStickDirection().magnitude) * CurrentStickDirectionNormalized();
+        body.velocity = liveParameters.MoveSpeed * liveParameters.AccelerationRate.Evaluate(CurrentStickDirection().magnitude) * CurrentStickDirectionNormalized() + moveInfluence.strengthApplied;
 
         SetAnimFloat();
 
@@ -74,16 +76,16 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void SetAnimFloat()
     {
-
-    
-
+        
         // anim
+        rAnimator.SetFloat("Speed", animCourseValue());
         if (CurrentStickDirectionNormalized().magnitude > 0)
         {
             // if(ne porte rien)
             //anim
-            rAnimator.SetFloat("Speed", animCourseValue());
+           
             rAnimator.SetBool("Idle00_To_Move", true);
+
             
         }
         else
@@ -107,20 +109,24 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void APress()
     {
-        if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed 
-            && CurrentTrialsOverlaped.Count >0 && usedTrial().trialRules.trialType == TrialType.Mashing&& usedTrial().CanInterract() == true)
+        if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Released
+            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
         {
             // DO SHIT 
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
         }
-        else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed 
-            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() ==true  )
+        else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed
+            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() == true)
         {
             // DO SHIT 
             //A corriger ca marche pas // il faut caller ça par seconde
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
         }
- 
+         else if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
+            && CurrentTrialsOverlaped.Count == 0 && itemHold !=null)
+            ThrowItem();
+
+
 
     }
 
@@ -196,7 +202,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     float animCourseValue()
     {
-        return playerCharacts.baseCharacterMovement.AccelerationRate.Evaluate(CurrentStickDirection().magnitude); ;
+        return playerCharacts.baseCharacterMovement.AccelerationRate.Evaluate(CurrentStickDirection().magnitude-0.04f); ;
     }
 
     //VECTOR MANNETTE REGION
