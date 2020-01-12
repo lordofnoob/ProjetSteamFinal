@@ -74,26 +74,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     }
 
-    private void SetAnimFloat()
-    {
-        
-        // anim
-        rAnimator.SetFloat("Speed", animCourseValue());
-        if (CurrentStickDirectionNormalized().magnitude > 0)
-        {
-            // if(ne porte rien)
-            //anim
-           
-            rAnimator.SetBool("Idle00_To_Move", true);
 
-            
-        }
-        else
-        {
-            if (rAnimator.GetFloat("Speed") > floorAnim)
-            rAnimator.SetFloat("Speed", Mathf.Lerp(rAnimator.GetFloat("Speed"), 0, 0.3f));
-        }
-    }
 
     void UpdateRotation()
     {
@@ -114,13 +95,15 @@ public class Mb_PlayerControler : MonoBehaviour
         {
             // DO SHIT 
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
+            SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
         }
         else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed
             && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() == true)
         {
             // DO SHIT 
-            //A corriger ca marche pas // il faut caller ça par seconde
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
+            //setup ui
+            SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
         }
          else if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
             && CurrentTrialsOverlaped.Count == 0 && itemHold !=null)
@@ -226,4 +209,61 @@ public class Mb_PlayerControler : MonoBehaviour
         return Vector3.Normalize(new Vector3(controlerUsedOldState.ThumbSticks.Left.X, 0, controlerUsedOldState.ThumbSticks.Left.Y));
     }
     #endregion
+
+    //AnimFonction
+
+    private void SetAnimFloat()
+    {
+
+        // anim
+        rAnimator.SetFloat("Speed", animCourseValue());
+        if (CurrentStickDirectionNormalized().magnitude > 0)
+        {
+            // if(ne porte rien)
+            //anim
+
+            rAnimator.SetBool("Idle00_To_Move", true);
+
+
+        }
+        else
+        {
+            if (rAnimator.GetFloat("Speed") > floorAnim)
+                rAnimator.SetFloat("Speed", Mathf.Lerp(rAnimator.GetFloat("Speed"), 0, 0.3f));
+        }
+    }
+
+
+
+    // SET ICI LES TRIGGER D ANIMATIONS
+    void SetAnimTrigger(ItemType toolAnimToProck, animationInteractionType animType)
+    {
+        if (usedTrial().trialRules.toolsNeeded.Length > 0)
+        {
+            for (int i = 0; i < usedTrial().trialRules.toolsNeeded.Length; i++)
+                if (toolAnimToProck == usedTrial().trialRules.toolsNeeded[i])
+                {
+                    switch (toolAnimToProck)
+                    {
+                        case ItemType.Crowbar:
+                            rAnimator.SetTrigger("CrowbarTrialValidation");
+                            break;
+                        case ItemType.Drill:
+                            rAnimator.SetTrigger("DrillTrialValidation");
+                            break;
+                    }
+                }
+        }
+        else
+        {
+            switch (animType)
+            {
+                case animationInteractionType.Button:
+                    rAnimator.SetTrigger("PushButton");
+                    break;
+            }
+           
+        }
+    }
+
 }
