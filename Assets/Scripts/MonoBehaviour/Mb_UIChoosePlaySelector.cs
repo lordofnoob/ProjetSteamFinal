@@ -4,32 +4,45 @@ using UnityEngine;
 using XInputDotNetPure;
 using UnityEngine.UI;
 using System;
+using System.Linq;
+using TMPro;
 
 public class Mb_UIChoosePlaySelector : MonoBehaviour
 {
     [Header("Manette")]
     public PlayerIndex playerIndex;
+    public Color playerColor;
     GamePadState controlerUsedOldState;
     GamePadState controlerUsedState;
 
     [Header("Prefabs")]
     public List<GameObject> listOfAllSkins;
-    public List<GameObject> listOfAllMasks;
 
     [Header("UI")]
-    public GameObject playerConnectedPanel, playerNotConnectedPanel;
+    public TextMeshProUGUI playerIndexText;
+    public GameObject playerConnectedPanel;
+    public GameObject playerNotConnectedPanel;
     public GameObject prefabsContainer;
     public GameObject maskArrowsPanel, skinArrowsPanel;
+    public GameObject playerIsReadyPanel, playerIsNotReadyPanel;
 
     private GameObject activeArrows;
     private GameObject activeSkin;
-    private GameObject activeMask;
+    private Mb_HoldingMasks activeMaskHolder;
+    private bool playerIsReady = false;
 
     private void Start()
     {
+        playerIsNotReadyPanel.SetActive(!playerIsReady);
+        playerIsReadyPanel.SetActive(playerIsReady);
+        playerIsReadyPanel.GetComponentInParent<Image>().color = playerColor;
+
+        Debug.Log(Input.GetJoystickNames()[0]);
         SetActiveArrows(skinArrowsPanel);
-        SetActiveSkin(listOfAllSkins[0]);
-        SetActiveMask(listOfAllMasks[0]);
+        SetActiveSkin(listOfAllSkins[(int)playerIndex]);
+        activeMaskHolder.SetActiveMask(activeMaskHolder.listOfAllMasks[(int)playerIndex]);
+
+        playerIndexText.text = ((int)playerIndex +1).ToString();
     }
 
     private void Update()
@@ -37,74 +50,86 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         controlerUsedOldState = controlerUsedState;
         controlerUsedState = GamePad.GetState(playerIndex);
 
-        int currentStickYAxis = CurrentYAxis();
-        int currentStickXAxis = CurrentXAxis();
-        int oldStickYAxis = OldYAxis();
-        int oldStickXAxis = OldXAxis();
-
-        if (currentStickYAxis != 0 && currentStickYAxis != oldStickYAxis)
+        if (!playerIsReady)
         {
-            switch (currentStickYAxis)
-            {
-                case 1:
-                    SetActiveArrows(maskArrowsPanel);
-                    break;
 
-                case -1:
-                    SetActiveArrows(skinArrowsPanel);
-                    break;
-            }
-        }
+            int currentStickYAxis = CurrentYAxis();
+            int currentStickXAxis = CurrentXAxis();
+            int oldStickYAxis = OldYAxis();
+            int oldStickXAxis = OldXAxis();
 
-        if(currentStickXAxis != 0 && currentStickXAxis != oldStickXAxis)
-        {
-            if (activeArrows == skinArrowsPanel)
+            if (currentStickYAxis != 0 && currentStickYAxis != oldStickYAxis)
             {
-                if(listOfAllSkins.IndexOf(activeSkin) == listOfAllSkins.Count - 1 && currentStickXAxis == 1)
+                switch (currentStickYAxis)
                 {
-                    SetActiveSkin(listOfAllSkins[0]);
-                }
-                else if(listOfAllSkins.IndexOf(activeSkin) == 0 && currentStickXAxis == -1)
-                {
-                    SetActiveSkin(listOfAllSkins[listOfAllSkins.Count - 1]);
-                }
-                else
-                {
-                    SetActiveSkin(listOfAllSkins[listOfAllSkins.IndexOf(activeSkin) + currentStickXAxis]);
+                    case 1:
+                        SetActiveArrows(maskArrowsPanel);
+                        break;
+
+                    case -1:
+                        SetActiveArrows(skinArrowsPanel);
+                        break;
                 }
             }
-            else if(activeArrows == maskArrowsPanel)
+
+            if (currentStickXAxis != 0 && currentStickXAxis != oldStickXAxis)
             {
-                if (listOfAllMasks.IndexOf(activeMask) == listOfAllMasks.Count - 1 && currentStickXAxis == 1)
+                if (activeArrows == skinArrowsPanel)
                 {
-                    SetActiveSkin(listOfAllMasks[0]);
+                    if (listOfAllSkins.IndexOf(activeSkin) == listOfAllSkins.Count - 1 && currentStickXAxis == 1)
+                    {
+                        SetActiveSkin(listOfAllSkins[0]);
+                    }
+                    else if (listOfAllSkins.IndexOf(activeSkin) == 0 && currentStickXAxis == -1)
+                    {
+                        SetActiveSkin(listOfAllSkins[listOfAllSkins.Count - 1]);
+                    }
+                    else
+                    {
+                        SetActiveSkin(listOfAllSkins[listOfAllSkins.IndexOf(activeSkin) + currentStickXAxis]);
+                    }
                 }
-                else if (listOfAllMasks.IndexOf(activeMask) == 0 && currentStickXAxis == -1)
+                else if (activeArrows == maskArrowsPanel)
                 {
-                    SetActiveSkin(listOfAllMasks[listOfAllMasks.Count - 1]);
-                }
-                else
-                {
-                    SetActiveSkin(listOfAllMasks[listOfAllMasks.IndexOf(activeMask) + currentStickXAxis]);
+                    if (activeMaskHolder.listOfAllMasks.IndexOf(activeMaskHolder.GetActiveMask()) == activeMaskHolder.listOfAllMasks.Count - 1 && currentStickXAxis == 1)
+                    {
+                        activeMaskHolder.SetActiveMask(activeMaskHolder.listOfAllMasks[0]);
+                    }
+                    else if (activeMaskHolder.listOfAllMasks.IndexOf(activeMaskHolder.GetActiveMask()) == 0 && currentStickXAxis == -1)
+                    {
+                        activeMaskHolder.SetActiveMask(activeMaskHolder.listOfAllMasks[activeMaskHolder.listOfAllMasks.Count - 1]);
+                    }
+                    else
+                    {
+                        activeMaskHolder.SetActiveMask(activeMaskHolder.listOfAllMasks[activeMaskHolder.listOfAllMasks.IndexOf(activeMaskHolder.GetActiveMask()) + currentStickXAxis]);
+                    }
                 }
             }
+
+            XPress();
         }
     }
 
-    private void SetActiveMask(GameObject newActiveMask)
-    {
-        Debug.Log("CHANGER DE MASK : activeMaskIndex : " + listOfAllMasks.IndexOf(activeMask));
-        activeMask = newActiveMask;
-    }
 
     private void SetActiveSkin(GameObject newActiveSkin)
     {
-        Debug.Log("CHANGER DE SKIN : activeSkinIndex : " + listOfAllSkins.IndexOf(activeSkin));
         if(activeSkin != null)
             activeSkin.SetActive(false);
         activeSkin = newActiveSkin;
         activeSkin.SetActive(true);
-        // TODO :METTRE A JOUR listOfAllMasks
+
+        if(activeMaskHolder != null)
+        {
+            int activeMaskIndex = activeMaskHolder.listOfAllMasks.IndexOf(activeMaskHolder.GetActiveMask());
+            activeMaskHolder = activeSkin.GetComponent<Mb_HoldingMasks>();
+            activeMaskHolder.SetActiveMask(activeMaskHolder.listOfAllMasks[activeMaskIndex]);
+        }
+        else
+        {
+            activeMaskHolder = activeSkin.GetComponent<Mb_HoldingMasks>();
+        }
+
+        //Debug.Log("CHANGER DE SKIN : activeSkinIndex : " + listOfAllSkins.IndexOf(activeSkin));
     }
 
     public void SetActiveArrows(GameObject activePanel)
@@ -122,6 +147,11 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         {
             i.color = new Color(i.color.r, i.color.g, i.color.b, 1f);
         }
+    }
+
+    public bool IsReady()
+    {
+        return playerIsReady;
     }
 
     //VECTOR GAMEPAD REGION
@@ -187,6 +217,21 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         else
         {
             return 0;
+        }
+    }
+
+    public void XPress()
+    {
+        if(controlerUsedState.Buttons.X == ButtonState.Pressed)
+        {
+            playerIsReady = true;
+            playerIsNotReadyPanel.SetActive(false);
+            playerIsReadyPanel.SetActive(true);
+
+            foreach (Image i in activeArrows.GetComponentsInChildren<Image>())
+            {
+                i.color = new Color(i.color.r, i.color.g, i.color.b, 0.5f);
+            }
         }
     }
     #endregion
