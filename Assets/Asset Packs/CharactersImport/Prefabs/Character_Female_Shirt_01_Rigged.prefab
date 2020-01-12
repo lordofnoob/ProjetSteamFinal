@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4019142656843277116}
   - component: {fileID: 6434763373796642374}
-  - component: {fileID: 7966433380034726500}
+  - component: {fileID: 3897089118499411034}
   m_Layer: 0
   m_Name: Character_Female_Shirt_01_Rigged
   m_TagString: Untagged
@@ -84,33 +84,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7966433380034726500
+--- !u!114 &3897089118499411034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116395586543259951}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1baf86eaa40df149b154790a8d32b1e, type: 3}
+  m_Script: {fileID: 11500000, guid: b26fff1239696f84b93bbab80cb981e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  speed: 0
-  idleType: 0
-  lowTrial: 0
-  open: 0
-  Hacking: 0
-  idleToMove: 0
-  carryingToMove: 0
-  idleToLowTrial: 0
-  carryingToLowTrial: 0
-  idleToOpen: 0
-  carryingToOpen: 0
-  idleToHacking: 0
-  carryingToHacking: 0
-  death: 0
 --- !u!1 &118276581554431306
 GameObject:
   m_ObjectHideFlags: 0
