@@ -8,7 +8,7 @@ public class Mb_PlayerControler : MonoBehaviour
 {
     [Header("Manette")]
     public PlayerIndex playerIndex;
-    GamePadState controlerUsedState;
+    [HideInInspector] public GamePadState controlerUsedState;
     GamePadState controlerUsedOldState;
 
     [Header("Movement")]
@@ -16,6 +16,7 @@ public class Mb_PlayerControler : MonoBehaviour
     PlayerMovementParameters liveParameters;
     Rigidbody body;
     Mb_Speedable moveInfluence;
+    bool canMove = true;
 
     [Header("InteractionPart")]
     List<Mb_Trial> CurrentTrialsOverlaped = new List<Mb_Trial>();
@@ -49,9 +50,12 @@ public class Mb_PlayerControler : MonoBehaviour
     {
         controlerUsedOldState = controlerUsedState;
         controlerUsedState = GamePad.GetState(playerIndex);
-        
+
         //recup des inputs a la frame
-        Move();
+        if (canMove == true)
+            Move();
+        else
+            body.velocity = moveInfluence.strengthApplied;
 
      
     }
@@ -83,27 +87,55 @@ public class Mb_PlayerControler : MonoBehaviour
 
     public float RotY()
     {
-        return Mathf.Atan2(CurrentStickDirectionNormalized().x, CurrentStickDirectionNormalized().z)* Mathf.Rad2Deg - 90;
+        return Mathf.Atan2(CurrentStickDirectionNormalized().x, CurrentStickDirectionNormalized().z)* Mathf.Rad2Deg;
     }
 
     //INPUT THINGY
 
     private void APress()
     {
-        if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Released
-            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
+
+        if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
+            && CurrentTrialsOverlaped.Count > 0  && usedTrial().CanInterract() == true)
         {
+            Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
+            if (isItem == null)
+                SetCanMove(false);
+        }
+
+       else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Released
+            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
+
+        {
+            //setup du trigger de l anim si tu porte un objet ou pas
+            if (itemHold != null)
+            {
+                SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+            }
+            else
+                SetAnimTrigger(ItemType.Null, usedTrial().animationType);
             // DO SHIT 
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
-            SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+
+ 
+
         }
         else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed
             && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() == true)
         {
+
+            //setup du trigger de l anim si tu porte un objet ou pas
+            if (itemHold != null)
+                SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+            else
+                SetAnimTrigger(ItemType.Null, usedTrial().animationType);
+
             // DO SHIT 
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
-            //setup ui
-            SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+
+
+
+   
         }
          else if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
             && CurrentTrialsOverlaped.Count == 0 && itemHold !=null)
@@ -144,11 +176,18 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void ThrowItem()
     {
-        itemHold.Throw(transform.right, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh);
+        itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh);
         itemHold = null;
         throwTime = 0;
         UpdateThrowUI();
     }
+
+    //MOVINGWAIT
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
+    }
+
 
     //INTERACTIONPART
     Mb_Trial usedTrial()
@@ -219,11 +258,6 @@ public class Mb_PlayerControler : MonoBehaviour
         rAnimator.SetFloat("Speed", animCourseValue());
         if (CurrentStickDirectionNormalized().magnitude > 0)
         {
-            // if(ne porte rien)
-            //anim
-
-            rAnimator.SetBool("Idle00_To_Move", true);
-
 
         }
         else
@@ -251,6 +285,7 @@ public class Mb_PlayerControler : MonoBehaviour
                         case ItemType.Drill:
                             rAnimator.SetTrigger("DrillTrialValidation");
                             break;
+                       
                     }
                 }
         }
@@ -261,9 +296,16 @@ public class Mb_PlayerControler : MonoBehaviour
                 case animationInteractionType.Button:
                     rAnimator.SetTrigger("PushButton");
                     break;
+                case animationInteractionType.PickUp:
+                    break;
+                case animationInteractionType.Hacking:
+                    break;
+                case animationInteractionType.InteractionClassic:
+                    break;
             }
            
         }
     }
+
 
 }

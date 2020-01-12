@@ -1,12 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
+using DG.Tweening;
 
 public class Mb_TrialCollider : MonoBehaviour
 {
     [SerializeField] Mb_Trial trialAssociated;
     public Mb_PlayerControler currentUser;
-   // List<Mb_PlayerControler> listOfUser;
+    GamePadState controlerOfTheUser;
+    [SerializeField] Transform PositionToLookAndPut;
+    bool isAnItem = false;
+    // List<Mb_PlayerControler> listOfUser;
+
+    private void Start()
+    {
+        if (trialAssociated.GetComponent<Mb_Item>())
+            isAnItem = true;
+    }
+
 
     private void OnTriggerEnter (Collider other)
     {
@@ -39,6 +51,26 @@ public class Mb_TrialCollider : MonoBehaviour
                 trialAssociated.ResetAccomplishment();
 
             currentUser = null;
+        }
+    }
+
+    private void Update()
+    {
+        if (isAnItem == false)
+            SetupLookAndPosition();
+    }
+
+    public void SetupLookAndPosition()
+    {
+        if (currentUser != null)
+        {
+            controlerOfTheUser = currentUser.controlerUsedState;
+            if (controlerOfTheUser.Buttons.A == ButtonState.Pressed)
+            {
+                currentUser.transform.DORotate(new Vector3(0, Mathf.Atan2(PositionToLookAndPut.rotation.x, PositionToLookAndPut.rotation.z) * Mathf.Rad2Deg + 90,0), .5f);
+                currentUser.transform.DOMove(PositionToLookAndPut.transform.position, 0.5f);
+
+            }
         }
     }
 }
