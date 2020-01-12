@@ -13,6 +13,7 @@ public class Mb_Item : Mb_Trial
     Mb_PlayerControler user;
     public ItemType itemType;
     public int itemValue;
+   //[HideInInspector]
     public bool thrown = false;
     Mb_Speedable speedInfluencer;
 
@@ -74,6 +75,7 @@ public class Mb_Item : Mb_Trial
 
     public void Throw(Vector3 direction, float strength)
     {
+        print(direction * strength);
         ResetInteraction();
         body.AddForce(direction * strength, ForceMode.Impulse);
     }  
@@ -81,7 +83,7 @@ public class Mb_Item : Mb_Trial
 
 public enum ItemType
 {
-    Loot, Drill, Crowbar, Pass1, Pass2, Pass3, Tablet, Diamand
+    Loot, Drill, Crowbar, Pass1, Pass2, Pass3, Tablet, Null
 }
 
 

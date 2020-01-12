@@ -78,10 +78,13 @@ public class Mb_Trial : MonoBehaviour
         if (trialRules.trialType == TrialType.Time)
         {
             trialAccomplishment += trialRules.accomplishmentToAdd * Time.fixedDeltaTime;
+
         }
-            
+
         else if (trialRules.trialType == TrialType.Mashing)
+        {
             trialAccomplishment += trialRules.accomplishmentToAdd;
+        }
 
         if (trialAccomplishment >= trialRules.accomplishmentNeeded)
         {
@@ -163,5 +166,5 @@ public class Mb_Trial : MonoBehaviour
 [System.Serializable]
 public enum animationInteractionType
 {
-    Button, InteractionClassic, Hacking
+    Button, InteractionClassic, Hacking, PickUp
 }

@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5095548661642880941}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: -4358799211202049915, guid: 075863020c169074cba8bdc73651a724, type: 3}
 --- !u!23 &5095548661641132583
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 60d108c1758e69f4b9a274acaffda3f2, type: 2}
+  - {fileID: 2100000, guid: 7daa1e099d60495448b54bf998e27d66, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,11 +110,12 @@ MonoBehaviour:
   trialRules: {fileID: 11400000, guid: 7f86b12653502c144ae394a692abe8a4, type: 2}
   trialAccomplishment: 0
   listOfUser: []
+  animationType: 0
   uiToFill: {fileID: 8097176161225348868}
   textUser: {fileID: 8796824681671990247}
   uiToTrigger: {fileID: 6281311613267471813}
   appearenceTime: 0.5
-  triggerCollider: {fileID: 2518801460581407884}
+  triggerCollider: {fileID: 0}
   itemType: 7
   itemValue: 2000
   thrown: 0
@@ -202,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.397
+      value: 0.214
       objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
@@ -252,7 +253,7 @@ PrefabInstance:
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.968
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
