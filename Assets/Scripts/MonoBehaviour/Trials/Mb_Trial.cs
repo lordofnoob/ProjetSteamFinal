@@ -12,7 +12,7 @@ public class Mb_Trial : MonoBehaviour
     public Sc_TrialParameters trialRules;
     public float trialAccomplishment;
     public List<Mb_PlayerControler> listOfUser;
-   
+    public animationInteractionType animationType;
 
     [Header("UIPART")]
     [SerializeField] Image uiToFill;
@@ -31,15 +31,15 @@ public class Mb_Trial : MonoBehaviour
     //trial Accomplishment
     public void EndTrial()
     {
-        ResetAccomplishment();
-        UiDisaparence();
+     
         DoThings();
     }
 
     //trial Result
     public virtual void DoThings()
     {
-
+        UiDisaparence();
+        ResetAccomplishment();
     }
 
     //Accomplissement
@@ -78,10 +78,13 @@ public class Mb_Trial : MonoBehaviour
         if (trialRules.trialType == TrialType.Time)
         {
             trialAccomplishment += trialRules.accomplishmentToAdd * Time.fixedDeltaTime;
+
         }
-            
+
         else if (trialRules.trialType == TrialType.Mashing)
+        {
             trialAccomplishment += trialRules.accomplishmentToAdd;
+        }
 
         if (trialAccomplishment >= trialRules.accomplishmentNeeded)
         {
@@ -137,14 +140,12 @@ public class Mb_Trial : MonoBehaviour
     //UIFUNCTIONS
     public void UiAppearence()
     {
-        
-        if(CanInterract()==true)
-            uiToTrigger.transform.DOScaleY(2, appearenceTime);
+         uiToTrigger.transform.DOScaleY(1, appearenceTime);
     }
 
     public void UiDisaparence()
     {
-        uiToTrigger.transform.DOScaleY(0, appearenceTime);
+        uiToTrigger.transform.DOScaleY(0, 0);
     }
 
     public void UpdateFillAmount()
@@ -158,4 +159,10 @@ public class Mb_Trial : MonoBehaviour
         textUser.text = listOfUser.Count + " / " + trialRules.numberOfPlayerNeeded;
     }
 
+}
+
+[System.Serializable]
+public enum animationInteractionType
+{
+    Button, InteractionClassic, Hacking, PickUp
 }

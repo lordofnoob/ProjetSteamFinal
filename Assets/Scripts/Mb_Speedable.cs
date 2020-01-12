@@ -10,17 +10,25 @@ public class Mb_Speedable : MonoBehaviour
     
     private void Start()
     {
-        itemAttachedTo= GetComponent<Mb_Item>();
+       
 
         if (!GetComponent<Mb_PlayerControler>())
         {
             body = GetComponent<Rigidbody>();
+            itemAttachedTo = GetComponent<Mb_Item>();
         }
     }
 
     private void FixedUpdate()
     {
         if (body != null && itemAttachedTo.thrown == false)
-            body.velocity = new Vector3(strengthApplied.x, body.velocity.y, strengthApplied.z);
+        {
+            body.velocity = new Vector3(strengthApplied.x, body.velocity.y, strengthApplied.z) ;
+        }
+    }
+
+    public void ResetStrenghApplied()
+    {
+        strengthApplied = Vector3.zero;
     }
 }

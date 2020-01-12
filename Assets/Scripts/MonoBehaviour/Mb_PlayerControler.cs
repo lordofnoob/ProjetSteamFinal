@@ -8,7 +8,7 @@ public class Mb_PlayerControler : MonoBehaviour
 {
     [Header("Manette")]
     public PlayerIndex playerIndex;
-    GamePadState controlerUsedState;
+    [HideInInspector] public GamePadState controlerUsedState;
     GamePadState controlerUsedOldState;
 
     [Header("Movement")]
@@ -16,6 +16,7 @@ public class Mb_PlayerControler : MonoBehaviour
     PlayerMovementParameters liveParameters;
     Rigidbody body;
     Mb_Speedable moveInfluence;
+    bool canMove = true;
 
     [Header("InteractionPart")]
     List<Mb_Trial> CurrentTrialsOverlaped = new List<Mb_Trial>();
@@ -49,11 +50,12 @@ public class Mb_PlayerControler : MonoBehaviour
     {
         controlerUsedOldState = controlerUsedState;
         controlerUsedState = GamePad.GetState(playerIndex);
-        
-        //recup des inputs a la frame
-        Move();
 
-     
+        //recup des inputs a la frame
+        if (canMove == true)
+            Move();
+        else
+            body.velocity = moveInfluence.strengthApplied;
     }
 
     private void FixedUpdate()
@@ -74,26 +76,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     }
 
-    private void SetAnimFloat()
-    {
-        
-        // anim
-        rAnimator.SetFloat("Speed", animCourseValue());
-        if (CurrentStickDirectionNormalized().magnitude > 0)
-        {
-            // if(ne porte rien)
-            //anim
-           
-            rAnimator.SetBool("Idle00_To_Move", true);
 
-            
-        }
-        else
-        {
-            if (rAnimator.GetFloat("Speed") > floorAnim)
-            rAnimator.SetFloat("Speed", Mathf.Lerp(rAnimator.GetFloat("Speed"), 0, 0.3f));
-        }
-    }
 
     void UpdateRotation()
     {
@@ -102,25 +85,55 @@ public class Mb_PlayerControler : MonoBehaviour
 
     public float RotY()
     {
-        return Mathf.Atan2(CurrentStickDirectionNormalized().x, CurrentStickDirectionNormalized().z)* Mathf.Rad2Deg - 90;
+        return Mathf.Atan2(CurrentStickDirectionNormalized().x, CurrentStickDirectionNormalized().z)* Mathf.Rad2Deg;
     }
 
     //INPUT THINGY
 
     private void APress()
     {
-        if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Released
-            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
+
+        if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
+            && CurrentTrialsOverlaped.Count > 0  && usedTrial().CanInterract() == true)
         {
-            // DO SHIT 
-            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
+            Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
+            if (isItem == null)
+                SetCanMove(false);
+            StartCoroutine(WaitAfterInteract());
+            print(usedTrial());
         }
-        else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed
-            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() == true)
+
+       else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Released
+       && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
         {
-            // DO SHIT 
-            //A corriger ca marche pas // il faut caller ça par seconde
+            //setup du trigger de l anim si tu porte un objet ou pas
+            if (itemHold != null)
+            {
+                SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+            }
+            else
+                SetAnimTrigger(ItemType.Null, usedTrial().animationType);
+
+
+            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
+
+            StartCoroutine(WaitAfterInteract());
+        }
+
+        else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed
+        && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() == true)
+        {
+
+            //setup du trigger de l anim si tu porte un objet ou pas
+            if (itemHold != null)
+                SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+            else
+                SetAnimTrigger(ItemType.Null, usedTrial().animationType);
+
+            
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
+
+            StartCoroutine(WaitAfterInteract());
         }
          else if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
             && CurrentTrialsOverlaped.Count == 0 && itemHold !=null)
@@ -128,6 +141,12 @@ public class Mb_PlayerControler : MonoBehaviour
 
 
 
+    }
+
+    IEnumerator WaitAfterInteract()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canMove = true;
     }
 
     private void XPress()
@@ -161,11 +180,18 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void ThrowItem()
     {
-        itemHold.Throw(transform.right, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh);
+        itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh);
         itemHold = null;
         throwTime = 0;
         UpdateThrowUI();
     }
+
+    //MOVINGWAIT
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
+    }
+
 
     //INTERACTIONPART
     Mb_Trial usedTrial()
@@ -200,11 +226,7 @@ public class Mb_PlayerControler : MonoBehaviour
         strengthBar.fillAmount = playerCharacts.throwGrowingStrengh.Evaluate(throwTime);
     }
 
-    float animCourseValue()
-    {
-        return playerCharacts.baseCharacterMovement.AccelerationRate.Evaluate(CurrentStickDirection().magnitude-0.04f); ;
-    }
-
+  
     //VECTOR MANNETTE REGION
     #region
     public Vector3 CurrentStickDirection()
@@ -226,4 +248,74 @@ public class Mb_PlayerControler : MonoBehaviour
         return Vector3.Normalize(new Vector3(controlerUsedOldState.ThumbSticks.Left.X, 0, controlerUsedOldState.ThumbSticks.Left.Y));
     }
     #endregion
+
+    //AnimFonction
+
+    private void SetAnimFloat()
+    {
+
+        // anim
+        rAnimator.SetFloat("Speed", animCourseValue());
+        if (CurrentStickDirectionNormalized().magnitude > 0)
+        {
+
+        }
+        else
+        {
+            if (rAnimator.GetFloat("Speed") > floorAnim)
+                rAnimator.SetFloat("Speed", Mathf.Lerp(rAnimator.GetFloat("Speed"), 0, 0.3f));
+        }
+    }
+
+    float animCourseValue()
+    {
+        return playerCharacts.baseCharacterMovement.AccelerationRate.Evaluate(CurrentStickDirection().magnitude - 0.04f); ;
+    }
+
+    // SET ICI LES TRIGGER D ANIMATIONS
+    void SetAnimTrigger(ItemType toolAnimToProck, animationInteractionType animType)
+    {
+        if (usedTrial().trialRules.toolsNeeded.Length > 0)
+        {
+            for (int i = 0; i < usedTrial().trialRules.toolsNeeded.Length; i++)
+                if (toolAnimToProck == usedTrial().trialRules.toolsNeeded[i])
+                {
+                    switch (toolAnimToProck)
+                    {
+                        case ItemType.Crowbar:
+                            
+                            rAnimator.SetTrigger("CrowbarTrialValidation");
+                            break;
+                        case ItemType.Drill:
+                            rAnimator.SetTrigger("PushButton");
+                            break;
+                        case ItemType.Tablet:
+                            rAnimator.SetTrigger("  ");
+                            break;
+
+                    }
+                }
+        }
+        else
+        {
+            switch (animType)
+            {
+                case animationInteractionType.Button:
+                    rAnimator.SetTrigger("PushButton");
+                    break;
+                case animationInteractionType.PickUp:
+                    rAnimator.SetTrigger("PushButton");
+                    break;
+                case animationInteractionType.Hacking:
+                    rAnimator.SetTrigger("PushButton");
+                    break;
+                case animationInteractionType.InteractionClassic:
+                    rAnimator.SetTrigger("PushButton");
+                    break;
+            }
+           
+        }
+    }
+
+
 }
