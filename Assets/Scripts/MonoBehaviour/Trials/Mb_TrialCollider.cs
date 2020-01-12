@@ -8,19 +8,18 @@ public class Mb_TrialCollider : MonoBehaviour
     public Mb_PlayerControler currentUser;
    // List<Mb_PlayerControler> listOfUser;
 
-    private void OnTriggerStay (Collider other)
+    private void OnTriggerEnter (Collider other)
     {
         Mb_PlayerControler playerOccupying = other.GetComponent<Mb_PlayerControler>();
-
-        if (currentUser ==null && playerOccupying!= null)
+        if (playerOccupying != null)
         {
-            currentUser = playerOccupying;
-
-            playerOccupying.AddOverlapedTrial(trialAssociated);
-
-
-            trialAssociated.AddUser(currentUser);
             trialAssociated.UiAppearence();
+            if (currentUser == null)
+            {
+                playerOccupying.AddOverlapedTrial(trialAssociated);
+                currentUser = playerOccupying;
+                trialAssociated.AddUser(currentUser);
+            }
         }
     }
 
