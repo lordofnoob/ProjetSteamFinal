@@ -64,11 +64,9 @@ MonoBehaviour:
   trialRules: {fileID: 11400000, guid: 0352f4b752b21a24886f49956aef2c1b, type: 2}
   trialAccomplishment: 0
   listOfUser: []
-  animationType: 0
-  uiToFill: {fileID: 7574171738481997284, guid: 3afaa58f9bdcf9a40bc2ecfde7918c96,
-    type: 3}
-  textUser: {fileID: 7158109528539412743, guid: 3afaa58f9bdcf9a40bc2ecfde7918c96,
-    type: 3}
+  animationType: 3
+  uiToFill: {fileID: 0}
+  textUser: {fileID: 0}
   uiToTrigger: {fileID: 0}
   appearenceTime: 0.5
   triggerCollider: {fileID: 7678266537152638523}
@@ -225,8 +223,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.49
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.3381865
+  m_Center: {x: -0.0036001604, y: 0, z: 0.068654776}
 --- !u!114 &677912714850350853
 MonoBehaviour:
   m_ObjectHideFlags: 0
