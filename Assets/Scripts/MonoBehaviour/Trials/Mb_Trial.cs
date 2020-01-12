@@ -12,7 +12,7 @@ public class Mb_Trial : MonoBehaviour
     public Sc_TrialParameters trialRules;
     public float trialAccomplishment;
     public List<Mb_PlayerControler> listOfUser;
-   
+    public animationInteractionType animationType;
 
     [Header("UIPART")]
     [SerializeField] Image uiToFill;
@@ -39,7 +39,7 @@ public class Mb_Trial : MonoBehaviour
     //trial Result
     public virtual void DoThings()
     {
-
+        UiDisaparence();
     }
 
     //Accomplissement
@@ -158,4 +158,10 @@ public class Mb_Trial : MonoBehaviour
         textUser.text = listOfUser.Count + " / " + trialRules.numberOfPlayerNeeded;
     }
 
+}
+
+[System.Serializable]
+public enum animationInteractionType
+{
+    Button, InteractionClassic, Hacking
 }

@@ -14,6 +14,7 @@ public class Mb_UiFollowMovingObject : MonoBehaviour
 
     private void Update()
     {
-        //transform.position = new Vector3(transformToFollow.position.x, transformToFollow.position.y, transformToFollow.position.z) + offset;
+        transform.position = new Vector3(transformToFollow.position.x, transformToFollow.position.y, transformToFollow.position.z) + offset;
     }
 }
+ 

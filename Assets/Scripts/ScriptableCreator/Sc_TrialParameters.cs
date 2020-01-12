@@ -26,3 +26,5 @@ public enum TrialType
 {
     Time, Mashing
 }
+
+
