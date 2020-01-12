@@ -22,9 +22,8 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
     public TextMeshProUGUI playerIndexText;
     public GameObject playerConnectedPanel;
     public GameObject playerNotConnectedPanel;
-    public GameObject prefabsContainer;
     public GameObject maskArrowsPanel, skinArrowsPanel;
-    public GameObject playerIsReadyPanel, playerIsNotReadyPanel;
+    public GameObject playerIsReadyPanel, playerIsNotReadyPanel, playerReadyParentPanel;
 
     private GameObject activeArrows;
     private GameObject activeSkin;
@@ -35,9 +34,9 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
     {
         playerIsNotReadyPanel.SetActive(!playerIsReady);
         playerIsReadyPanel.SetActive(playerIsReady);
-        playerIsReadyPanel.GetComponentInParent<Image>().color = playerColor;
+        playerReadyParentPanel.GetComponent<Image>().color = playerColor;
 
-        Debug.Log(Input.GetJoystickNames()[0]);
+        //Debug.Log(Input.GetJoystickNames()[0]);
         SetActiveArrows(skinArrowsPanel);
         SetActiveSkin(listOfAllSkins[(int)playerIndex]);
         activeMaskHolder.SetActiveMask(activeMaskHolder.listOfAllMasks[(int)playerIndex]);

@@ -30,13 +30,13 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
     public void Update()
     {
         //Simuler une nouvelle manette connectée
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             gamepadConnected++;
             gamepadConnected = Mathf.Clamp(gamepadConnected, 0, 4);
             UpdatePlayerSelectorPanel();
-        }
 
+        }else*/ 
         if(Input.GetJoystickNames() != currentGamepad)
         {
             currentGamepad = Input.GetJoystickNames();
