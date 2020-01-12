@@ -31,8 +31,7 @@ public class Mb_Trial : MonoBehaviour
     //trial Accomplishment
     public void EndTrial()
     {
-        ResetAccomplishment();
-        UiDisaparence();
+     
         DoThings();
     }
 
@@ -40,6 +39,7 @@ public class Mb_Trial : MonoBehaviour
     public virtual void DoThings()
     {
         UiDisaparence();
+        ResetAccomplishment();
     }
 
     //Accomplissement
@@ -140,14 +140,12 @@ public class Mb_Trial : MonoBehaviour
     //UIFUNCTIONS
     public void UiAppearence()
     {
-        
-        if(CanInterract()==true)
-            uiToTrigger.transform.DOScaleY(1, appearenceTime);
+         uiToTrigger.transform.DOScaleY(1, appearenceTime);
     }
 
     public void UiDisaparence()
     {
-        uiToTrigger.transform.DOScaleY(0, appearenceTime);
+        uiToTrigger.transform.DOScaleY(0, 0);
     }
 
     public void UpdateFillAmount()

@@ -56,8 +56,6 @@ public class Mb_PlayerControler : MonoBehaviour
             Move();
         else
             body.velocity = moveInfluence.strengthApplied;
-
-     
     }
 
     private void FixedUpdate()
@@ -101,11 +99,12 @@ public class Mb_PlayerControler : MonoBehaviour
             Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
             if (isItem == null)
                 SetCanMove(false);
+            StartCoroutine(WaitAfterInteract());
+            print(usedTrial());
         }
 
        else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Released
-            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
-
+       && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
         {
             //setup du trigger de l anim si tu porte un objet ou pas
             if (itemHold != null)
@@ -114,14 +113,15 @@ public class Mb_PlayerControler : MonoBehaviour
             }
             else
                 SetAnimTrigger(ItemType.Null, usedTrial().animationType);
-            // DO SHIT 
+
+
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
 
- 
-
+            StartCoroutine(WaitAfterInteract());
         }
+
         else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed
-            && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() == true)
+        && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() == true)
         {
 
             //setup du trigger de l anim si tu porte un objet ou pas
@@ -130,12 +130,10 @@ public class Mb_PlayerControler : MonoBehaviour
             else
                 SetAnimTrigger(ItemType.Null, usedTrial().animationType);
 
-            // DO SHIT 
+            
             usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
 
-
-
-   
+            StartCoroutine(WaitAfterInteract());
         }
          else if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
             && CurrentTrialsOverlaped.Count == 0 && itemHold !=null)
@@ -143,6 +141,12 @@ public class Mb_PlayerControler : MonoBehaviour
 
 
 
+    }
+
+    IEnumerator WaitAfterInteract()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canMove = true;
     }
 
     private void XPress()
@@ -222,11 +226,7 @@ public class Mb_PlayerControler : MonoBehaviour
         strengthBar.fillAmount = playerCharacts.throwGrowingStrengh.Evaluate(throwTime);
     }
 
-    float animCourseValue()
-    {
-        return playerCharacts.baseCharacterMovement.AccelerationRate.Evaluate(CurrentStickDirection().magnitude-0.04f); ;
-    }
-
+  
     //VECTOR MANNETTE REGION
     #region
     public Vector3 CurrentStickDirection()
@@ -267,7 +267,10 @@ public class Mb_PlayerControler : MonoBehaviour
         }
     }
 
-
+    float animCourseValue()
+    {
+        return playerCharacts.baseCharacterMovement.AccelerationRate.Evaluate(CurrentStickDirection().magnitude - 0.04f); ;
+    }
 
     // SET ICI LES TRIGGER D ANIMATIONS
     void SetAnimTrigger(ItemType toolAnimToProck, animationInteractionType animType)
@@ -280,12 +283,16 @@ public class Mb_PlayerControler : MonoBehaviour
                     switch (toolAnimToProck)
                     {
                         case ItemType.Crowbar:
+                            
                             rAnimator.SetTrigger("CrowbarTrialValidation");
                             break;
                         case ItemType.Drill:
-                            rAnimator.SetTrigger("DrillTrialValidation");
+                            rAnimator.SetTrigger("PushButton");
                             break;
-                       
+                        case ItemType.Tablet:
+                            rAnimator.SetTrigger("  ");
+                            break;
+
                     }
                 }
         }
@@ -297,10 +304,13 @@ public class Mb_PlayerControler : MonoBehaviour
                     rAnimator.SetTrigger("PushButton");
                     break;
                 case animationInteractionType.PickUp:
+                    rAnimator.SetTrigger("PushButton");
                     break;
                 case animationInteractionType.Hacking:
+                    rAnimator.SetTrigger("PushButton");
                     break;
                 case animationInteractionType.InteractionClassic:
+                    rAnimator.SetTrigger("PushButton");
                     break;
             }
            
