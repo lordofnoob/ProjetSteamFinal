@@ -11,7 +11,7 @@ public class Sc_TrialParameters : ScriptableObject
     public ItemType[] toolsNeeded;
     
     [Header("Progression")]
-    public int accomplishmentNeeded;
+    public float accomplishmentNeeded;
 
    [HideInInspector] public float accomplishmentToAdd=1;
     public int numberOfPlayerNeeded;
