@@ -1924,7 +1924,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5862679244604991412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.165, y: 0.353, z: -6.883}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4734993632164919877}
@@ -3026,11 +3026,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4734993632164919877}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 0c750708e67e67e448c365ea19d0356f,
-        type: 3}
-      propertyPath: m_Name
-      value: EcrinDiams
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0c750708e67e67e448c365ea19d0356f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3100,6 +3095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0c750708e67e67e448c365ea19d0356f,
+        type: 3}
+      propertyPath: m_Name
+      value: EcrinDiams
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750708e67e67e448c365ea19d0356f, type: 3}
