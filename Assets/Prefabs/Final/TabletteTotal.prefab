@@ -48,7 +48,7 @@ PrefabInstance:
         type: 3}
       propertyPath: transformToFollow
       value: 
-      objectReference: {fileID: 574187449890788033}
+      objectReference: {fileID: 892810745720752655}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -167,6 +167,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2389672059447203812}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3038830525646423148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+    type: 3}
+  m_PrefabInstance: {fileID: 2389672059447203812}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325840d8199b63149adf7b10f9b247f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5021094234120040657 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
@@ -235,6 +247,11 @@ PrefabInstance:
       propertyPath: textUser
       value: 
       objectReference: {fileID: 7534988692555417331}
+    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
+        type: 3}
+      propertyPath: uiLinked
+      value: 
+      objectReference: {fileID: 3038830525646423148}
     - target: {fileID: 7688694927001054172, guid: f444ce363c877424f9e4159ee8294154,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -298,18 +315,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7408524638581989843}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &574187449890788033 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
-    type: 3}
-  m_PrefabInstance: {fileID: 7408524638581989843}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b80c57a081874f479c64ed7a5b3b95c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &6707457509151652362 stripped
 SphereCollider:
   m_CorrespondingSourceObject: {fileID: 4307113570944555993, guid: f444ce363c877424f9e4159ee8294154,

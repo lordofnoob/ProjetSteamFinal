@@ -6,16 +6,33 @@ using UnityEngine.SceneManagement;
 
 public class Mb_GamepadManagerMenu : MonoBehaviour
 {
+    [Header("TEST & DEBUG")]
+    //public List<Mb_LoadSkinAndMask> players;
+
+    public static Mb_GamepadManagerMenu instance;
+
+    [Header("Player Selection Menu List")]
     public Mb_UIChoosePlaySelector[] playerList = new Mb_UIChoosePlaySelector[4];
-    public bool[] aPressed = { false, false, false, false };
+    bool[] aPressed = { false, false, false, false };
     GamePadState[] gamepadsState = new GamePadState[4];
     GamePadState[] prevGamepadsState = new GamePadState[4];
 
-    private int gamepadConnected = 0;
-    private string[] currentGamepad;
+    [HideInInspector] public int readyPlayerNbr = 0;
+    private bool skinsAndMasksSaved = false;
 
     [Header("Scene to Load")]
     public string sceneToLoad;
+
+    [Header("Scriptables Player Skin & Mask")]
+    public Sc_PlayerSkinAndMask[] scriptables;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
 
     public void Start()
     {
@@ -24,21 +41,12 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
     public void Update()
     {
-        //Simuler une nouvelle manette connectée
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            gamepadConnected++;
-            gamepadConnected = Mathf.Clamp(gamepadConnected, 0, 4);
-            UpdatePlayerSelectorPanel();
-
-        }else*/
-
         prevGamepadsState = gamepadsState;
 
         for (int i = 0; i < 4; ++i)
         {
             gamepadsState[i] = GamePad.GetState((PlayerIndex)i);
-            if (!gamepadsState[i].IsConnected)
+            if (gamepadsState[i].IsConnected != prevGamepadsState[i].IsConnected && !gamepadsState[i].IsConnected)
             {
                 aPressed[i] = false;
                 UpdatePlayerSelectorPanel();
@@ -47,9 +55,30 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
         APress();
 
-        if (ReadyPlayerNumber() == gamepadConnected)
+        Debug.Log("ReadyPlayerNbr : " + readyPlayerNbr + "/" + GetConnectedPlayerNbr());
+        if (!skinsAndMasksSaved && readyPlayerNbr != 0 && readyPlayerNbr == GetConnectedPlayerNbr())
         {
-            SceneManager.LoadScene(sceneToLoad);
+            for(int i = 0; i < playerList.Length; i++)
+            {
+                if (playerList[i].playerIsConnected)
+                    playerList[i].SaveSkinAndMask(scriptables[i]);
+                else
+                {
+                    scriptables[i].skinIndex = -1;
+                    scriptables[i].maskIndex = -1;
+                }
+            }
+
+            skinsAndMasksSaved = true;
+
+            if(sceneToLoad != "")
+                SceneManager.LoadScene(sceneToLoad);
+
+            //TEST &DEBUG
+            /*foreach(Mb_LoadSkinAndMask player in players)
+            {
+                player.LoadSkinAndMask();
+            }*/
         }
     }
 
@@ -62,26 +91,17 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
             {
                 //PlayerConnectedPanel TRUE
                 playerList[i].playerConnectedPanel.SetActive(true);
+                playerList[i].playerIsConnected = true;
                 playerList[i].playerNotConnectedPanel.SetActive(false);
             }
             else
             {
                 //PlayerConnectedPanel FALSE
                 playerList[i].playerConnectedPanel.SetActive(false);
+                playerList[i].playerIsConnected = false;
                 playerList[i].playerNotConnectedPanel.SetActive(true);
             }
         }
-    }
-
-    public int ReadyPlayerNumber()
-    {
-        int res = 0;
-        for(int i = 0; i < playerList.Length; i++)
-        {
-            if (playerList[i].IsReady())
-                res++;
-        }
-        return res;
     }
 
     public void APress()
@@ -94,5 +114,16 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
                 UpdatePlayerSelectorPanel();
             }
         }
+    }
+
+    public int GetConnectedPlayerNbr()
+    {
+        int res = 0;
+        foreach(bool playerIsConnected in aPressed)
+        {
+            if (playerIsConnected)
+                res++;
+        }
+        return res;
     }
 }

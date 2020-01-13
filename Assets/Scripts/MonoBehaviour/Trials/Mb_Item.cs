@@ -16,7 +16,6 @@ public class Mb_Item : Mb_Trial
    //[HideInInspector]
     public bool thrown = false;
     Mb_Speedable speedInfluencer;
-    [SerializeField] Mb_UiFollowMovingObject uiLinked; 
 
     protected virtual void Awake()
     {

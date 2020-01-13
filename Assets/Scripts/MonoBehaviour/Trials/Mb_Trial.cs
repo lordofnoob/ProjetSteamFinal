@@ -17,7 +17,7 @@ public class Mb_Trial : MonoBehaviour
     [Header("UIPART")]
     [SerializeField] Image uiToFill;
     [SerializeField] TextMeshProUGUI textUser;
-    [SerializeField] Image uiToTrigger;
+    public Image uiToTrigger;
     [SerializeField] float appearenceTime = 0.5f;
 
     //Timer before decay
