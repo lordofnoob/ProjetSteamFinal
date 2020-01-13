@@ -1,29 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
+using UnityEngine.SceneManagement;
 
 public class Mb_GamepadManagerMenu : MonoBehaviour
 {
     public Mb_UIChoosePlaySelector[] playerList = new Mb_UIChoosePlaySelector[4];
+    public bool[] aPressed = { false, false, false, false };
+    GamePadState[] gamepadsState = new GamePadState[4];
+    GamePadState[] prevGamepadsState = new GamePadState[4];
+
     private int gamepadConnected = 0;
     private string[] currentGamepad;
 
+    [Header("Scene to Load")]
+    public string sceneToLoad;
+
     public void Start()
     {
-        currentGamepad = Input.GetJoystickNames();
-
-        if(currentGamepad.Length > 1)
-        {
-            gamepadConnected = currentGamepad.Length;
-        }
-        else if(currentGamepad.Length == 1)
-        {
-            if (currentGamepad[0] == "")
-                gamepadConnected = 0;
-            else
-                gamepadConnected = 1;
-        }
-
         UpdatePlayerSelectorPanel();
     }
 
@@ -36,28 +31,25 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
             gamepadConnected = Mathf.Clamp(gamepadConnected, 0, 4);
             UpdatePlayerSelectorPanel();
 
-        }else*/ 
-        if(Input.GetJoystickNames() != currentGamepad)
-        {
-            currentGamepad = Input.GetJoystickNames();
-            if (currentGamepad.Length > 1)
-            {
-                gamepadConnected = currentGamepad.Length;
-            }
-            else if (currentGamepad.Length == 1)
-            {
-                if (currentGamepad[0] == "")
-                    gamepadConnected = 0;
-                else
-                    gamepadConnected = 1;
-            }
+        }else*/
 
-            UpdatePlayerSelectorPanel();
+        prevGamepadsState = gamepadsState;
+
+        for (int i = 0; i < 4; ++i)
+        {
+            gamepadsState[i] = GamePad.GetState((PlayerIndex)i);
+            if (!gamepadsState[i].IsConnected)
+            {
+                aPressed[i] = false;
+                UpdatePlayerSelectorPanel();
+            }
         }
 
-        if(ReadyPlayerNumber() == gamepadConnected)
+        APress();
+
+        if (ReadyPlayerNumber() == gamepadConnected)
         {
-            // TODO CHANGE SCENE
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 
@@ -66,7 +58,7 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
         //Debug.Log(gamepadConnected);
         for(int i = 0; i < 4; i++)
         {
-            if(i < gamepadConnected)
+            if(aPressed[i])
             {
                 //PlayerConnectedPanel TRUE
                 playerList[i].playerConnectedPanel.SetActive(true);
@@ -90,5 +82,17 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
                 res++;
         }
         return res;
+    }
+
+    public void APress()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            if (gamepadsState[i].Buttons.A == ButtonState.Pressed)
+            {
+                aPressed[i] = true;
+                UpdatePlayerSelectorPanel();
+            }
+        }
     }
 }

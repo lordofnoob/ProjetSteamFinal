@@ -36,7 +36,6 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         playerIsReadyPanel.SetActive(playerIsReady);
         playerReadyParentPanel.GetComponent<Image>().color = playerColor;
 
-        //Debug.Log(Input.GetJoystickNames()[0]);
         SetActiveArrows(skinArrowsPanel);
         SetActiveSkin(listOfAllSkins[(int)playerIndex]);
         activeMaskHolder.SetActiveMask(activeMaskHolder.listOfAllMasks[(int)playerIndex]);
@@ -157,66 +156,76 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
     #region
     public int CurrentXAxis()
     {
+        int res;
         if (controlerUsedState.ThumbSticks.Left.X > 0 || controlerUsedState.DPad.Right == ButtonState.Pressed)
         {
-            return 1;
+            res = 1;
         }
         else if (controlerUsedState.ThumbSticks.Left.X < 0 || controlerUsedState.DPad.Left == ButtonState.Pressed)
         {
-            return -1;
+            res = -1;
         }
         else
         {
-            return 0;
+            res = 0;
         }
+        //Debug.Log("Player " + ((int)playerIndex) + " : X Axis : " + res);
+        return res;
     }
 
     public int OldXAxis()
     {
+        int res;
         if (controlerUsedOldState.ThumbSticks.Left.X > 0 || controlerUsedOldState.DPad.Right == ButtonState.Pressed)
         {
-            return 1;
+            res = 1;
         }
         else if (controlerUsedOldState.ThumbSticks.Left.X < 0 || controlerUsedOldState.DPad.Left == ButtonState.Pressed)
         {
-            return -1;
+            res = -1;
         }
         else
         {
-            return 0;
+            res = 0;
         }
+        return res;
     }
 
     public int CurrentYAxis()
     {
-        if(controlerUsedState.ThumbSticks.Left.Y > 0 || controlerUsedState.DPad.Up == ButtonState.Pressed)
+        int res;
+        if (controlerUsedState.ThumbSticks.Left.Y > 0 || controlerUsedState.DPad.Up == ButtonState.Pressed)
         {
-            return 1;
+            res = 1;
         }
         else if(controlerUsedState.ThumbSticks.Left.Y < 0 || controlerUsedState.DPad.Down == ButtonState.Pressed)
         {
-            return -1;
+            res = -1;
         }
         else
         {
-            return 0;
+            res = 0;
         }
+        //Debug.Log("Player "+((int)playerIndex) + " : Y Axis : " + res);
+        return res;
     }
 
     public int OldYAxis()
     {
-        if(controlerUsedOldState.ThumbSticks.Left.Y > 0 || controlerUsedOldState.DPad.Up == ButtonState.Pressed)
+        int res;
+        if (controlerUsedOldState.ThumbSticks.Left.Y > 0 || controlerUsedOldState.DPad.Up == ButtonState.Pressed)
         {
-            return 1;
+            res = 1;
         }
         else if(controlerUsedOldState.ThumbSticks.Left.Y < 0 || controlerUsedOldState.DPad.Down == ButtonState.Pressed)
         {
-            return -1;
+            res = -1;
         }
         else
         {
-            return 0;
+            res = 0;
         }
+        return res;
     }
 
     public void XPress()
@@ -227,10 +236,8 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
             playerIsNotReadyPanel.SetActive(false);
             playerIsReadyPanel.SetActive(true);
 
-            foreach (Image i in activeArrows.GetComponentsInChildren<Image>())
-            {
-                i.color = new Color(i.color.r, i.color.g, i.color.b, 0.5f);
-            }
+            maskArrowsPanel.SetActive(false);
+            skinArrowsPanel.SetActive(false);
         }
     }
     #endregion
