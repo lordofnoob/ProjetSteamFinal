@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Mb_GamepadManagerMenu : MonoBehaviour
 {
     public Mb_UIChoosePlaySelector[] playerList = new Mb_UIChoosePlaySelector[4];
-    public bool[] aPressed = { false, false, false, false };
+    bool[] aPressed = { false, false, false, false };
     GamePadState[] gamepadsState = new GamePadState[4];
     GamePadState[] prevGamepadsState = new GamePadState[4];
 
@@ -16,6 +16,9 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
     [Header("Scene to Load")]
     public string sceneToLoad;
+
+    [Header("Scriptables Player Skin & Mask")]
+    public Sc_PlayerSkinAndMask[] scriptables;
 
     public void Start()
     {
@@ -49,7 +52,13 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
         if (ReadyPlayerNumber() == gamepadConnected)
         {
-            SceneManager.LoadScene(sceneToLoad);
+            for(int i = 0; i < playerList.Length; i++)
+            {
+                playerList[i].SaveSkinAndMask(scriptables[i]);
+            }
+
+            if(sceneToLoad != "")
+                SceneManager.LoadScene(sceneToLoad);
         }
     }
 

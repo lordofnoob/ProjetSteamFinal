@@ -152,6 +152,12 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         return playerIsReady;
     }
 
+    public void SaveSkinAndMask(Sc_PlayerSkinAndMask scriptable)
+    {
+        scriptable.skinIndex = listOfAllSkins.IndexOf(activeSkin);
+        scriptable.maskIndex = activeMaskHolder.listOfAllMasks.IndexOf(activeMaskHolder.GetActiveMask());
+    }
+
     //VECTOR GAMEPAD REGION
     #region
     public int CurrentXAxis()
