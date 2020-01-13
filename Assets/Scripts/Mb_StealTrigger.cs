@@ -27,6 +27,7 @@ public class Mb_StealTrigger : MonoBehaviour
     {
         Gamemanager.instance.AddMoney(itemToCheck.itemValue);
         Gamemanager.instance.CheckItemToGet(itemToCheck);
+        Destroy(itemToCheck.uiToTrigger.transform.parent.gameObject);
         Destroy(itemToCheck.gameObject);
     }
 }
