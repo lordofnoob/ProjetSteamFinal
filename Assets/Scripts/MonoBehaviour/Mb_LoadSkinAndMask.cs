@@ -20,28 +20,42 @@ public class Mb_LoadSkinAndMask : MonoBehaviour
     {
         for(int i = 0; i < allSkins.Count; i++)
         {
-            if(allScriptable[(int)playerController.playerIndex].skinIndex == i)
+            if(allScriptable[(int)playerController.playerIndex].skinIndex != -1)
             {
-                allSkins[i].SetActive(true);
-                Mb_HoldingMasks maskHolder = allSkins[i].GetComponent<Mb_HoldingMasks>();
-                playerController.itemHandle = maskHolder.handler;
-                playerController.rAnimator = maskHolder.animator;
-
-                for (int y = 0; y < allSkins.Count; y++)
+                if (allScriptable[(int)playerController.playerIndex].skinIndex == i)
                 {
-                    if(allScriptable[(int)playerController.playerIndex].maskIndex == y)
+                    allSkins[i].SetActive(true);
+                    Mb_HoldingMasks maskHolder = allSkins[i].GetComponent<Mb_HoldingMasks>();
+                    playerController.itemHandle = maskHolder.handler;
+                    playerController.rAnimator = maskHolder.animator;
+
+                    for (int y = 0; y < allSkins.Count; y++)
                     {
-                        maskHolder.listOfAllMasks[y].SetActive(true);
-                    }
-                    else
-                    {
-                        maskHolder.listOfAllMasks[y].SetActive(false);
+                        if(allScriptable[(int)playerController.playerIndex].maskIndex != -1)
+                        {
+                            if (allScriptable[(int)playerController.playerIndex].maskIndex == y)
+                            {
+                                maskHolder.listOfAllMasks[y].SetActive(true);
+                            }
+                            else
+                            {
+                                maskHolder.listOfAllMasks[y].SetActive(false);
+                            }
+                        }
+                        else if(allScriptable[(int)playerController.playerIndex].maskIndex == -1)
+                        {
+                            gameObject.SetActive(false);
+                        }
                     }
                 }
+                else
+                {
+                    allSkins[i].SetActive(false);
+                }
             }
-            else
+            else if(allScriptable[(int)playerController.playerIndex].skinIndex == -1)
             {
-                allSkins[i].SetActive(false);
+                gameObject.SetActive(false);
             }
         }
     }
