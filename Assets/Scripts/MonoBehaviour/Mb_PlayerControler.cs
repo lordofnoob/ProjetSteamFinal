@@ -28,7 +28,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     [Header("GraphPart")]
     public Transform itemHandle;
-    [SerializeField] Animator rAnimator;
+    public Animator rAnimator;
 
     [Header("Ui")]
     public Image strengthBar;

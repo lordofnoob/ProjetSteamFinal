@@ -7,7 +7,7 @@ using DG.Tweening;
 public class Mb_TrialCollider : MonoBehaviour
 {
     [SerializeField] Mb_Trial trialAssociated;
-    [HideInInspector] public Mb_PlayerControler currentUser;
+    public Mb_PlayerControler currentUser;
     GamePadState controlerOfTheUser;
     [SerializeField] Transform PositionToLookAndPut;
     bool isAnItem = false;
