@@ -6,7 +6,7 @@ using DG.Tweening;
 public class Mb_Chest : Mb_Trial
 {
     [Header("ItemToDrop")]
-    [SerializeField] Mb_Item[] allItemToDrop;
+    [SerializeField] GameObject[] allItemToDrop;
 
     [Header("ResolutionPart Travel")]
     [SerializeField] Transform itemCreationSpot;
@@ -14,7 +14,7 @@ public class Mb_Chest : Mb_Trial
     [SerializeField] float randomRangePosition;
     [SerializeField] float timeToGetToSpot;
     bool used = false;
-    List<GameObject> gameObjectToGive;
+    List<GameObject> gameObjectToGive= new List<GameObject>();
 
 
     public override bool CanInterract()
@@ -29,9 +29,10 @@ public class Mb_Chest : Mb_Trial
     {
         for (int i = 0; i < allItemToDrop.Length; i++)
         {
-            Mb_Item newItem = Instantiate(allItemToDrop[i], itemCreationSpot.position, Quaternion.identity, null);
+            GameObject newItem = Instantiate(allItemToDrop[i], itemCreationSpot.position, Quaternion.identity, null);
+            gameObjectToGive.Add(newItem);
+            
             newItem.gameObject.SetActive(false);
-            gameObjectToGive.Add(newItem.gameObject);
         }
     }
 

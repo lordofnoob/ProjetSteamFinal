@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6522061746511979955}
   m_Layer: 0
-  m_Name: DiamantFinal
+  m_Name: RubisFinal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ PrefabInstance:
         type: 3}
       propertyPath: transformToFollow
       value: 
-      objectReference: {fileID: 7845503363808641479}
+      objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -167,18 +167,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 634599391251851643}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &273389822091786995 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
-    type: 3}
-  m_PrefabInstance: {fileID: 634599391251851643}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325840d8199b63149adf7b10f9b247f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7803010002792517198 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
@@ -286,7 +274,7 @@ PrefabInstance:
         type: 3}
       propertyPath: trialRules
       value: 
-      objectReference: {fileID: 11400000, guid: 2a78b243c92177549a54d10671900d7e,
+      objectReference: {fileID: 11400000, guid: 7f86b12653502c144ae394a692abe8a4,
         type: 2}
     - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
@@ -313,11 +301,6 @@ PrefabInstance:
       propertyPath: itemValue
       value: 10000
       objectReference: {fileID: 0}
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: uiLinked
-      value: 
-      objectReference: {fileID: 273389822091786995}
     - target: {fileID: 2161071232825507603, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: m_Mesh
@@ -328,7 +311,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7daa1e099d60495448b54bf998e27d66, type: 2}
+      objectReference: {fileID: 2100000, guid: a5a654b3112e368428a3a35a0017e728, type: 2}
     - target: {fileID: 8628381931933811242, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -61,21 +61,19 @@ public class Mb_TrialCollider : MonoBehaviour
 
     private void Update()
     {
-        if (isAnItem == false && trialAssociated.CanInterract())
+        if (isAnItem == false && trialAssociated.CanInterract() && currentUser != null)
             SetupLookAndPosition();
     }
 
     public void SetupLookAndPosition()
     {
-        if (currentUser != null)
-        {
-            controlerOfTheUser = currentUser.controlerUsedState;
+        controlerOfTheUser = currentUser.controlerUsedState;
             if (controlerOfTheUser.Buttons.A == ButtonState.Pressed)
             {
                 currentUser.transform.DORotate(new Vector3(0, Mathf.Atan2(PositionToLookAndPut.rotation.x, PositionToLookAndPut.rotation.z) * Mathf.Rad2Deg + 90,0), .5f);
                 currentUser.transform.DOMove(new Vector3(PositionToLookAndPut.transform.position.x, currentUser.transform.position.y, PositionToLookAndPut.transform.position.z), 0.5f);
 
             }
-        }
+        
     }
 }

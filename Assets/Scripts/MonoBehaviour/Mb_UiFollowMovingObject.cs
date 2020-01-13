@@ -9,12 +9,12 @@ public class Mb_UiFollowMovingObject : MonoBehaviour
 
     private void Awake()
     {
-        offset = transform.position - transformToFollow.position;
+        offset = transform.position - transformToFollow.transform.position;
     }
 
     private void Update()
     {
-        transform.position = new Vector3(transformToFollow.position.x, transformToFollow.position.y, transformToFollow.position.z) + offset;
+        transform.position = transform.position + offset;
     }
 }
  

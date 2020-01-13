@@ -47,7 +47,7 @@ public class Mb_Trial : MonoBehaviour
     {
         bool interactionAvaible = true;
 
-        if (trialRules.toolsNeeded.Length > 0)
+        if (trialRules.toolsNeeded.Length > 0 && listOfUser.Count >0)
         {
             if (listOfUser[0].itemHold != null)
             {

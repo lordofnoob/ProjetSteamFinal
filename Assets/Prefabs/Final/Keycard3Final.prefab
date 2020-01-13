@@ -103,7 +103,7 @@ PrefabInstance:
         type: 3}
       propertyPath: trialRules
       value: 
-      objectReference: {fileID: 11400000, guid: 0e5a6b2ae81547a4084c08cd888604ca,
+      objectReference: {fileID: 11400000, guid: 0d8cfa02d7062d64ba3a455dafe99edb,
         type: 2}
     - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
@@ -135,6 +135,11 @@ PrefabInstance:
       propertyPath: triggerCollider
       value: 
       objectReference: {fileID: 5898102780628212929}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: uiLinked
+      value: 
+      objectReference: {fileID: 1555327639960136173}
     - target: {fileID: 2161071232825507603, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: m_Mesh
@@ -160,12 +165,6 @@ SphereCollider:
     type: 3}
   m_PrefabInstance: {fileID: 712963527523701780}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7584722458921537841 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6964443440883828005, guid: d9dabb62b900ede43857624cfe2e0344,
-    type: 3}
-  m_PrefabInstance: {fileID: 712963527523701780}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2202375043834034789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,6 +177,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrialUI
       objectReference: {fileID: 0}
+    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 5624286258431554146}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -289,11 +293,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 0a2cdb5a51ce6ce4e8bcbfd91aca01b6,
         type: 3}
-    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: transformToFollow
-      value: 
-      objectReference: {fileID: 7584722458921537841}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
 --- !u!224 &2776829204711534978 stripped
@@ -302,6 +301,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2202375043834034789}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1555327639960136173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+    type: 3}
+  m_PrefabInstance: {fileID: 2202375043834034789}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325840d8199b63149adf7b10f9b247f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8797562961285864784 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
