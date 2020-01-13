@@ -16,6 +16,7 @@ public class Mb_Item : Mb_Trial
    //[HideInInspector]
     public bool thrown = false;
     Mb_Speedable speedInfluencer;
+    [SerializeField] Mb_UiFollowMovingObject uiLinked; 
 
     protected virtual void Awake()
     {
@@ -33,7 +34,7 @@ public class Mb_Item : Mb_Trial
     public override void DoThings()
     {
         //On recupere l objet, on le set comme objet pour joueur et on lui d arreter d objet
-        user = listOfUser[0];
+        
         speedInfluencer.ResetStrenghApplied();
         SetThrown(false);
 
@@ -45,16 +46,13 @@ public class Mb_Item : Mb_Trial
         body.isKinematic = true;
         //desactiver les composents de trial de l objet a recup
         triggerCollider.enabled = false;
-        base.DoThings();
+  
 
         //Set sa position sur le handle du joueur et le parent
         transform.SetParent(user.itemHandle);
         transform.localPosition = new Vector3(0, 0, 0);
         transform.localRotation = Quaternion.identity;
-
-
-
-        
+        base.DoThings();
     }
 
     public void ResetInteraction()
@@ -78,7 +76,19 @@ public class Mb_Item : Mb_Trial
         print(direction * strength);
         ResetInteraction();
         body.AddForce(direction * strength, ForceMode.Impulse);
-    }  
+    }
+
+    public override bool CanInterract()
+    {
+        user = listOfUser[0];
+        if (user.itemHold != null)
+        {
+            return false;
+        }
+
+
+        return base.CanInterract();
+    }
 }
 
 public enum ItemType
