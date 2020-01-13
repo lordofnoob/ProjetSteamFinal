@@ -29,6 +29,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
     private GameObject activeSkin;
     private Mb_HoldingMasks activeMaskHolder;
     private bool playerIsReady = false;
+    [HideInInspector]public bool playerIsConnected = false;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         controlerUsedOldState = controlerUsedState;
         controlerUsedState = GamePad.GetState(playerIndex);
 
-        if (!playerIsReady)
+        if (!playerIsReady && playerIsConnected)
         {
 
             int currentStickYAxis = CurrentYAxis();
@@ -152,6 +153,13 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         return playerIsReady;
     }
 
+    public void SaveSkinAndMask(Sc_PlayerSkinAndMask scriptable)
+    {
+        scriptable.skinIndex = listOfAllSkins.IndexOf(activeSkin);
+        scriptable.maskIndex = activeMaskHolder.listOfAllMasks.IndexOf(activeMaskHolder.GetActiveMask());
+        Debug.Log("Skin & Mask SAVED for Player " + (int)playerIndex);
+    }
+
     //VECTOR GAMEPAD REGION
     #region
     public int CurrentXAxis()
@@ -233,6 +241,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         if(controlerUsedState.Buttons.X == ButtonState.Pressed)
         {
             playerIsReady = true;
+            Mb_GamepadManagerMenu.instance.readyPlayerNbr++;
             playerIsNotReadyPanel.SetActive(false);
             playerIsReadyPanel.SetActive(true);
 
