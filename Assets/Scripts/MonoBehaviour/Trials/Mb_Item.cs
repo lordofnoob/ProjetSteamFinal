@@ -17,9 +17,6 @@ public class Mb_Item : Mb_Trial
     public bool thrown = false;
     Mb_Speedable speedInfluencer;
 
-    [Header("SpriteOfTheItem")]
-    public Sprite spriteAssociated;
-
     protected virtual void Awake()
     {
         coll = GetComponent<Collider>();
@@ -48,8 +45,8 @@ public class Mb_Item : Mb_Trial
         body.isKinematic = true;
         //desactiver les composents de trial de l objet a recup
         triggerCollider.enabled = false;
+  
 
-        Mb_InGameInterface.instance.UpdatePlayerUi(user.playerIndex, spriteAssociated);
         //Set sa position sur le handle du joueur et le parent
         transform.SetParent(user.itemHandle);
         transform.localPosition = new Vector3(0, 0, 0);
@@ -59,7 +56,6 @@ public class Mb_Item : Mb_Trial
 
     public void ResetInteraction()
     {
-        Mb_InGameInterface.instance.UpdatePlayerUi(user.playerIndex, null);
         SetThrown(true);
         transform.position = user.placeToThrow.position;
         transform.rotation = user.placeToThrow.rotation;

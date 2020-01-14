@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewTrialParameters", menuName = "Create NewTrial Parameters/Base Interaction")]
 public class Sc_TrialParameters : ScriptableObject
 {
-   [Header("TrialSpecs")]
+    [Header("TrialSpecs")]
     public int trialPriority;
     public TrialType trialType;
     public ItemType[] toolsNeeded;
