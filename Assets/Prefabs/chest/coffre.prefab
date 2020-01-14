@@ -147,8 +147,9 @@ GameObject:
   - component: {fileID: 627636286517375894}
   - component: {fileID: 5890522472461125179}
   - component: {fileID: 2192219495173069724}
+  - component: {fileID: 463124516161282741}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: TriggerZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 8538425655713894995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.01, y: 0, z: -0.89}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.65, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8470942343227021259}
   m_RootOrder: 0
@@ -226,7 +227,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!114 &2192219495173069724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +243,28 @@ MonoBehaviour:
   trialAssociated: {fileID: 8627313181416424005}
   currentUser: {fileID: 0}
   PositionToLookAndPut: {fileID: 1170072581331091319}
+--- !u!114 &463124516161282741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538425655713894995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: f20927165f207194b858023552d1672f, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.865
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_AffectsTransparency: 0
+  m_Offset: {x: 0, y: 0, z: 0.50000024}
+  m_Size: {x: 1.65, y: 1.0000002, z: 1}
+  m_FadeFactor: 1
+  m_Version: 1
 --- !u!1001 &5599244522129558829
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1176150526201805849}
   - component: {fileID: 2773116176850944518}
   - component: {fileID: 3661626331720449366}
-  - component: {fileID: 7269074459799968029}
+  - component: {fileID: 5801126763194109064}
   m_Layer: 0
   m_Name: door to move
   m_TagString: Untagged
@@ -79,8 +79,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &7269074459799968029
-MeshCollider:
+--- !u!65 &5801126763194109064
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,10 +89,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 1f3e51bad2359c44eacafc049f037546, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.4608727, y: 3, z: 0.12853372}
+  m_Center: {x: 0.7304363, y: 1.5, z: 0.000000059604645}
 --- !u!1 &6002306396281511732
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +211,7 @@ GameObject:
   - component: {fileID: 5958460922773897890}
   - component: {fileID: 6775307314181000347}
   - component: {fileID: 4476552393143817436}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
