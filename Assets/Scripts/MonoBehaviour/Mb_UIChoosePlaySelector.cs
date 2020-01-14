@@ -107,6 +107,8 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
 
             XPress();
         }
+
+        BPress();
     }
 
 
@@ -137,7 +139,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         {
             foreach (Image i in activeArrows.GetComponentsInChildren<Image>())
             {
-                i.color = new Color(i.color.r, i.color.g, i.color.b, 0.5f);
+                i.color = new Color(i.color.r, i.color.g, i.color.b, 0.05f);
             }
         }
 
@@ -247,6 +249,31 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
 
             maskArrowsPanel.SetActive(false);
             skinArrowsPanel.SetActive(false);
+        }
+    }
+
+    public void BPress()
+    {
+        if(controlerUsedOldState.Buttons.B == ButtonState.Released && controlerUsedState.Buttons.B == ButtonState.Pressed)
+        {
+            if (playerIsReady)
+            {
+                playerIsReady = false;
+                
+                Mb_GamepadManagerMenu.instance.readyPlayerNbr--;
+                playerIsNotReadyPanel.SetActive(true);
+                playerIsReadyPanel.SetActive(false);
+
+                maskArrowsPanel.SetActive(true);
+                skinArrowsPanel.SetActive(true);
+
+            }
+            else if (playerIsConnected)
+            {
+                playerIsConnected = false;
+                Mb_GamepadManagerMenu.instance.aPressed[(int)playerIndex] = false;
+                Mb_GamepadManagerMenu.instance.UpdatePlayerSelectorPanel();
+            }
         }
     }
     #endregion

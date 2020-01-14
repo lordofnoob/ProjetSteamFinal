@@ -13,7 +13,7 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
     [Header("Player Selection Menu List")]
     public Mb_UIChoosePlaySelector[] playerList = new Mb_UIChoosePlaySelector[4];
-    bool[] aPressed = { false, false, false, false };
+    [HideInInspector]public bool[] aPressed = { false, false, false, false };
     GamePadState[] gamepadsState = new GamePadState[4];
     GamePadState[] prevGamepadsState = new GamePadState[4];
 
