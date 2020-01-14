@@ -44,11 +44,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrialUI
       objectReference: {fileID: 0}
-    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: transformToFollow
-      value: 
-      objectReference: {fileID: 892810745720752655}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,6 +154,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 892810745720752655}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
 --- !u!224 &1815228893652425731 stripped
@@ -227,31 +227,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item_tablet
       objectReference: {fileID: 0}
-    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
-        type: 3}
-      propertyPath: triggerCollider
-      value: 
-      objectReference: {fileID: 6707457509151652362}
-    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
-        type: 3}
-      propertyPath: uiToTrigger
-      value: 
-      objectReference: {fileID: 5021094234120040657}
-    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
-        type: 3}
-      propertyPath: uiToFill
-      value: 
-      objectReference: {fileID: 7123502649394219536}
-    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
-        type: 3}
-      propertyPath: textUser
-      value: 
-      objectReference: {fileID: 7534988692555417331}
-    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
-        type: 3}
-      propertyPath: uiLinked
-      value: 
-      objectReference: {fileID: 3038830525646423148}
     - target: {fileID: 7688694927001054172, guid: f444ce363c877424f9e4159ee8294154,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -307,6 +282,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
+        type: 3}
+      propertyPath: triggerCollider
+      value: 
+      objectReference: {fileID: 6707457509151652362}
+    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
+        type: 3}
+      propertyPath: uiToTrigger
+      value: 
+      objectReference: {fileID: 5021094234120040657}
+    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
+        type: 3}
+      propertyPath: uiToFill
+      value: 
+      objectReference: {fileID: 7123502649394219536}
+    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
+        type: 3}
+      propertyPath: textUser
+      value: 
+      objectReference: {fileID: 7534988692555417331}
+    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
+        type: 3}
+      propertyPath: uiLinked
+      value: 
+      objectReference: {fileID: 3038830525646423148}
+    - target: {fileID: 7000759419299623698, guid: f444ce363c877424f9e4159ee8294154,
+        type: 3}
+      propertyPath: spriteOfTheItem
+      value: 
+      objectReference: {fileID: 21300000, guid: f5b059bcb2babde4ebb397c3d33652dc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f444ce363c877424f9e4159ee8294154, type: 3}
 --- !u!4 &892810745720752655 stripped

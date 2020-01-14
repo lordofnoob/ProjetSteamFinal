@@ -44,11 +44,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrialUI
       objectReference: {fileID: 0}
-    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: transformToFollow
-      value: 
-      objectReference: {fileID: 7845503363808641479}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,6 +154,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 7845503363808641479}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
 --- !u!224 &3519461767746265756 stripped
@@ -318,6 +318,12 @@ PrefabInstance:
       propertyPath: uiLinked
       value: 
       objectReference: {fileID: 273389822091786995}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: spriteOfTheItem
+      value: 
+      objectReference: {fileID: 21300000, guid: f42c5fbc382e01d4e9d9334966c35b0a,
+        type: 3}
     - target: {fileID: 2161071232825507603, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: m_Mesh

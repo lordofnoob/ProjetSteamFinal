@@ -20,7 +20,7 @@ public class Mb_InGameInterface : MonoBehaviour
     }
 
 
-    public void UpdatePlayerUi(PlayerIndex playerToUpdate, Sprite itemHoldSprite)
+    public void UpdatePlayerUiItem(PlayerIndex playerToUpdate, Sprite itemHoldSprite)
     {
         switch (playerToUpdate)
         {
