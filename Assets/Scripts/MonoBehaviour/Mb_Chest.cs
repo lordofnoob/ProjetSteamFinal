@@ -19,10 +19,13 @@ public class Mb_Chest : Mb_Trial
 
     public override bool CanInterract()
     {
+       
         if (base.CanInterract() == true && used == false)
             return true;
         else
+        {
             return false;
+        }
     }
 
     private void Awake()
@@ -50,8 +53,6 @@ public class Mb_Chest : Mb_Trial
 
     void LerpItem(Vector3 PositionToLerp, GameObject itemToLerp)
     {
-        print(PositionToLerp);
-      //  itemToLerp.transform.DOMoveX(PositionToLerp.x, timeToGetToSpot);
         itemToLerp.transform.DOMove(new Vector3(PositionToLerp.x,transform.position.y, PositionToLerp.z), timeToGetToSpot);
     }
 }

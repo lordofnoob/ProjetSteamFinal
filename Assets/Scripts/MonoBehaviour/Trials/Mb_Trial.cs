@@ -49,25 +49,28 @@ public class Mb_Trial : MonoBehaviour
 
         if (trialRules.toolsNeeded.Length > 0 && listOfUser.Count >0)
         {
-            if (listOfUser[0].itemHold != null)
+            if (listOfUser[0].itemHold != null && trialRules.toolsNeeded[0] == listOfUser[0].itemHold.itemType)
             {
+                /*
                 for (int i = 0; i < trialRules.toolsNeeded.Length; i++)
                 {
                     for (int y = 0; y < listOfUser.Count; y++)
                         if (listOfUser[y].itemHold.itemType == trialRules.toolsNeeded[i])
-                        {
+                        {*/
+                          //  print(trialRules.toolsNeeded[i]);
                             interactionAvaible = true;
-                            break;
-                        }
-                }
+                          //  break;
+                /*        }
+                }*/
             }
             else
                 return false;
         }
   
        //rajouter 1 parce que j update la lust que après avoir la condition ps: jui con
-        if (listOfUser.Count +1 < trialRules.numberOfPlayerNeeded)
+        if (listOfUser.Count < trialRules.numberOfPlayerNeeded)
             interactionAvaible = false;
+
  
 
         return interactionAvaible;

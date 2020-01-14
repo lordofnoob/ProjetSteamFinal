@@ -25,15 +25,31 @@ public class Mb_InGameInterface : MonoBehaviour
         switch (playerToUpdate)
         {
             case PlayerIndex.One:
+                if (itemHoldSprite == null)
+                    allPlayerItemSpot[0].gameObject.SetActive(false);
+                else
+                    allPlayerItemSpot[0].gameObject.SetActive(true);
                 allPlayerItemSpot[0].sprite = itemHoldSprite;
                 break;
             case PlayerIndex.Two:
+                if (itemHoldSprite == null)
+                    allPlayerItemSpot[1].gameObject.SetActive(false);
+                else
+                    allPlayerItemSpot[1].gameObject.SetActive(true);
                 allPlayerItemSpot[1].sprite = itemHoldSprite;
                 break;
             case PlayerIndex.Three:
+                if (itemHoldSprite == null)
+                    allPlayerItemSpot[2].gameObject.SetActive(false);
+                else
+                    allPlayerItemSpot[2].gameObject.SetActive(true);
                 allPlayerItemSpot[2].sprite = itemHoldSprite;
                 break;
             case PlayerIndex.Four:
+                if (itemHoldSprite == null)
+                    allPlayerItemSpot[3].gameObject.SetActive(false);
+                else
+                    allPlayerItemSpot[3].gameObject.SetActive(true);
                 allPlayerItemSpot[3].sprite = itemHoldSprite;
                 break;
         }
@@ -44,15 +60,31 @@ public class Mb_InGameInterface : MonoBehaviour
         switch (playerToUpdate)
         {
             case PlayerIndex.One:
+             
                 allPlayerPicture[0].sprite = playerPicture;
                 break;
             case PlayerIndex.Two:
+                if (playerPicture == null)
+                    allPlayerPicture[1].gameObject.SetActive(false);
+                else
+                    allPlayerPicture[1].gameObject.SetActive(true);
                 allPlayerPicture[1].sprite = playerPicture;
+            
                 break;
             case PlayerIndex.Three:
+                if (playerPicture == null)
+                    allPlayerPicture[2].gameObject.SetActive(false);
+                else
+                    allPlayerPicture[2].gameObject.SetActive(true);
                 allPlayerPicture[2].sprite = playerPicture;
+
                 break;
             case PlayerIndex.Four:
+                if (playerPicture == null)
+                    allPlayerPicture[3].gameObject.SetActive(false);
+                else
+                    allPlayerPicture[3].gameObject.SetActive(true);
+
                 allPlayerPicture[3].sprite = playerPicture;
                 break;
         }
