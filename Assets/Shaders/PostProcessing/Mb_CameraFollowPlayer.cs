@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class Mb_CameraFollowPlayer : MonoBehaviour
 {
+    [SerializeField] Transform itemToFollow;
+    private Vector3 offset;
 
-    public Vector3 rotation;
-    private Transform myTransform;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        myTransform = transform;
+       offset = transform.position - itemToFollow.position;
     }
 
     // Update is called once per frame
@@ -25,6 +23,6 @@ public class Mb_CameraFollowPlayer : MonoBehaviour
 
     public void Follow()
     {
-        myTransform.rotation = Quaternion.Euler(rotation);
+        transform.position = itemToFollow.position + offset;
     }
 }

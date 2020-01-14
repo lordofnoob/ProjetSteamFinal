@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mb_CameraSplitScreen : MonoBehaviour
+[ExecuteInEditMode]
+public class Mb_EditorCameraSplitScreen1 : MonoBehaviour
 {
     public bool splitScreen;
     public bool twoPlayers;
