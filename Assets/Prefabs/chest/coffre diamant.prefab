@@ -249,7 +249,7 @@ PrefabInstance:
     - target: {fileID: 480056002650775746, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 480056002650775746, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
         type: 3}
@@ -259,7 +259,7 @@ PrefabInstance:
     - target: {fileID: 480056002650775746, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 480056002650775746, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
         type: 3}
@@ -274,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 480056002650775746, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 480056002650775746, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
         type: 3}
@@ -301,11 +301,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrialUI
       objectReference: {fileID: 0}
-    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: transformToFollow
-      value: 
-      objectReference: {fileID: 8392177507749747456}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -417,6 +412,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 69adc1ea8e863d0458ef3d3a9bef3e79,
         type: 3}
+    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 8392177507749747456}
     m_RemovedComponents:
     - {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
