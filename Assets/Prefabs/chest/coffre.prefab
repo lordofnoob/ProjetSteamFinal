@@ -125,6 +125,7 @@ MonoBehaviour:
   trialAccomplishment: 0
   listOfUser: []
   animationType: 1
+  animatorAssociated: {fileID: 2507139129099905676}
   uiToFill: {fileID: 1028670932268421337}
   textUser: {fileID: 291882277846817850}
   uiToTrigger: {fileID: 2968949348499450392}
@@ -272,11 +273,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8470942343227021259}
     m_Modifications:
-    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Name
-      value: TrialUI
-      objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -382,6 +378,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Name
+      value: TrialUI
+      objectReference: {fileID: 0}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
@@ -457,6 +458,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8470942343227021259}
     m_Modifications:
+    - target: {fileID: 8780845131023761581, guid: 119c1cbba9ec4ec41b5434183a333961,
+        type: 3}
+      propertyPath: m_Name
+      value: MetalCrate
+      objectReference: {fileID: 0}
     - target: {fileID: 5728734612959867582, guid: 119c1cbba9ec4ec41b5434183a333961,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -512,11 +518,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8780845131023761581, guid: 119c1cbba9ec4ec41b5434183a333961,
-        type: 3}
-      propertyPath: m_Name
-      value: MetalCrate
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 119c1cbba9ec4ec41b5434183a333961, type: 3}
 --- !u!1 &33995978468769896 stripped
@@ -528,6 +529,12 @@ GameObject:
 --- !u!4 &3901136461834662523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5728734612959867582, guid: 119c1cbba9ec4ec41b5434183a333961,
+    type: 3}
+  m_PrefabInstance: {fileID: 8764870423013720261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2507139129099905676 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6586574889689606729, guid: 119c1cbba9ec4ec41b5434183a333961,
     type: 3}
   m_PrefabInstance: {fileID: 8764870423013720261}
   m_PrefabAsset: {fileID: 0}

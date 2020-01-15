@@ -158,6 +158,7 @@ MonoBehaviour:
   trialAccomplishment: 0
   listOfUser: []
   animationType: 1
+  animatorAssociated: {fileID: 0}
   uiToFill: {fileID: 8342601284997159328}
   textUser: {fileID: 8758573335556822339}
   uiToTrigger: {fileID: 6103396580821820257}
@@ -432,11 +433,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2575411896955721771}
     m_Modifications:
-    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Name
-      value: TrialUI
-      objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -542,6 +538,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Name
+      value: TrialUI
+      objectReference: {fileID: 0}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
@@ -565,6 +566,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e4408e33bfb8856488be243a0e2a8dfd,
         type: 3}
+    - target: {fileID: 8165662012216527944, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165091868671301596, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
