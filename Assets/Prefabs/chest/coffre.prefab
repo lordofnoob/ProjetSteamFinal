@@ -393,6 +393,18 @@ PrefabInstance:
       propertyPath: transformToFollow
       value: 
       objectReference: {fileID: 8470942343227021259}
+    - target: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5971be30365854a43841dda2c8e32b22,
+        type: 3}
+    - target: {fileID: 4895995507470802420, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e4408e33bfb8856488be243a0e2a8dfd,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
@@ -445,11 +457,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8470942343227021259}
     m_Modifications:
-    - target: {fileID: 8780845131023761581, guid: 119c1cbba9ec4ec41b5434183a333961,
-        type: 3}
-      propertyPath: m_Name
-      value: MetalCrate
-      objectReference: {fileID: 0}
     - target: {fileID: 5728734612959867582, guid: 119c1cbba9ec4ec41b5434183a333961,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -504,6 +511,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780845131023761581, guid: 119c1cbba9ec4ec41b5434183a333961,
+        type: 3}
+      propertyPath: m_Name
+      value: MetalCrate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 119c1cbba9ec4ec41b5434183a333961, type: 3}
