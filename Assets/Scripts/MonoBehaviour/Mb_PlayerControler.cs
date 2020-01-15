@@ -15,6 +15,7 @@ public class Mb_PlayerControler : MonoBehaviour
     [SerializeField] Sc_PlayerCharact playerCharacts;
     PlayerMovementParameters liveParameters;
     Rigidbody body;
+    Collider collider;
     Mb_Speedable moveInfluence;
     bool canMove = true;
 
@@ -45,6 +46,7 @@ public class Mb_PlayerControler : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody>();
+        collider = GetComponent<Collider>();
         moveInfluence = GetComponent<Mb_Speedable>();
         // rAnimator = transform.GetChild(0).GetComponent<Animator>();
         liveParameters = playerCharacts.baseCharacterMovement;
@@ -77,7 +79,18 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void Move()
     {
-        body.velocity = liveParameters.MoveSpeed * liveParameters.AccelerationRate.Evaluate(CurrentStickDirection().magnitude) * CurrentStickDirectionNormalized() + moveInfluence.strengthApplied;
+        Vector3 moveDir = CurrentStickDirectionNormalized();
+        Vector3 targetMovePosition = liveParameters.MoveSpeed * liveParameters.AccelerationRate.Evaluate(CurrentStickDirection().magnitude) * moveDir + moveInfluence.strengthApplied;
+
+        RaycastHit hit;
+        bool raycastHit = Physics.Raycast(transform.position, moveDir, out hit, 1);
+
+        if (raycastHit)
+        {
+            targetMovePosition = Vector3.ProjectOnPlane(targetMovePosition, hit.normal);
+        }
+
+        body.velocity = targetMovePosition;
 
         SetAnimFloat();
 
