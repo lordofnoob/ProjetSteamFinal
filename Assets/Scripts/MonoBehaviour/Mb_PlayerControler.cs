@@ -35,11 +35,11 @@ public class Mb_PlayerControler : MonoBehaviour
 
     float floorAnim = 0.5f;
 
-    [Header("Input")]
-    [SerializeField] KeyCode interactInput, throwInput, deposeInput;
+  //  [Header("Input")]
+   // [SerializeField] KeyCode interactInput, throwInput, deposeInput;
 
     //A SUPPR APRES 
-    float throwTimePressed;
+   // float throwTimePressed;
 
 
     void Start()
@@ -70,9 +70,9 @@ public class Mb_PlayerControler : MonoBehaviour
         APress();
         XPress();
         BPress();
-        InterractiveInput();
-        DeposeInput();
-        ThrowInput();
+     //   InterractiveInput();
+      //  DeposeInput();
+       // ThrowInput();
     }
 
     private void Move()
@@ -149,7 +149,7 @@ public class Mb_PlayerControler : MonoBehaviour
             && CurrentTrialsOverlaped.Count == 0 && itemHold !=null)
             ThrowItem();
     }
-
+    /*
     void InterractiveInput()
     {
         if ( Input.GetKeyDown(interactInput) && CurrentTrialsOverlaped.Count > 0 && usedTrial().CanInterract() == true)
@@ -204,7 +204,7 @@ public class Mb_PlayerControler : MonoBehaviour
         {
             ThrowItem();
         }
-    }
+    }*/
     IEnumerator WaitAfterInteract()
     {
         yield return new WaitForSeconds(0.2f);
@@ -293,21 +293,21 @@ public class Mb_PlayerControler : MonoBehaviour
     #region
     public Vector3 CurrentStickDirection()
     {
-        if (Input.GetAxis("Horizontal")!=0 || Input.GetAxis("Vertical") != 0)
+       /* if (Input.GetAxis("Horizontal")!=0 || Input.GetAxis("Vertical") != 0)
         {
             return new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         }
-        else
+        else*/
         return new Vector3(controlerUsedState.ThumbSticks.Left.X, 0, controlerUsedState.ThumbSticks.Left.Y);
     }
 
     public Vector3 CurrentStickDirectionNormalized()
     {
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+       /* if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             return Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
-        }
-        else
+        }/*
+        else*/
             return Vector3.Normalize(new Vector3(controlerUsedState.ThumbSticks.Left.X, 0, controlerUsedState.ThumbSticks.Left.Y));
     }
 
