@@ -39,7 +39,7 @@ public class Mb_PlayerControler : MonoBehaviour
     [SerializeField] KeyCode interactInput, throwInput, deposeInput;*/
 
     //A SUPPR APRES 
-    float throwTimePressed;
+   // float throwTimePressed;
 
 
     void Start()
@@ -292,21 +292,21 @@ public class Mb_PlayerControler : MonoBehaviour
     #region
     public Vector3 CurrentStickDirection()
     {
-        if (Input.GetAxis("Horizontal")!=0 || Input.GetAxis("Vertical") != 0)
+       /* if (Input.GetAxis("Horizontal")!=0 || Input.GetAxis("Vertical") != 0)
         {
             return new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         }
-        else
+        else*/
         return new Vector3(controlerUsedState.ThumbSticks.Left.X, 0, controlerUsedState.ThumbSticks.Left.Y);
     }
 
     public Vector3 CurrentStickDirectionNormalized()
     {
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+       /* if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             return Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
-        }
-        else
+        }/*
+        else*/
             return Vector3.Normalize(new Vector3(controlerUsedState.ThumbSticks.Left.X, 0, controlerUsedState.ThumbSticks.Left.Y));
     }
 

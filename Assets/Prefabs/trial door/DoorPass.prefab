@@ -158,7 +158,7 @@ MonoBehaviour:
   trialRules: {fileID: 0}
   trialAccomplishment: 0
   listOfUser: []
-  animationType: 1
+  animationType: 0
   uiToFill: {fileID: 4832657999758192755}
   textUser: {fileID: 5285932359175306384}
   uiToTrigger: {fileID: 7233992286106258098}
@@ -198,6 +198,19 @@ Transform:
   m_Father: {fileID: 6002306396281778730}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4081292159268634949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292913287916874881}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7636968, y: 3, z: 0.13683325}
+  m_Center: {x: -4.118155, y: 1.5, z: -0}
 --- !u!1 &7980755693825941055
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,11 +509,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6002306396281778730}
     m_Modifications:
-    - target: {fileID: 4766932333251986294, guid: 5428383d5e28089488e753413e750f4f,
-        type: 3}
-      propertyPath: m_Name
-      value: Lecteurpasscard
-      objectReference: {fileID: 0}
     - target: {fileID: 8393815164802691429, guid: 5428383d5e28089488e753413e750f4f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -556,6 +564,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4766932333251986294, guid: 5428383d5e28089488e753413e750f4f,
+        type: 3}
+      propertyPath: m_Name
+      value: Lecteurpasscard
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5428383d5e28089488e753413e750f4f, type: 3}
 --- !u!4 &3021958486817351351 stripped
@@ -571,10 +584,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6002306396281778730}
     m_Modifications:
-    - target: {fileID: 165128, guid: 065269f34c1c3894bbe95c53b10d259d, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_VaultGate_Frame_01 (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 429746, guid: 065269f34c1c3894bbe95c53b10d259d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7555555
@@ -631,8 +640,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 165128, guid: 065269f34c1c3894bbe95c53b10d259d, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_VaultGate_Frame_01 (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 065269f34c1c3894bbe95c53b10d259d, type: 3}
+--- !u!1 &7292913287916874881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 165128, guid: 065269f34c1c3894bbe95c53b10d259d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7292913287916710281}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7292913287917135675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 429746, guid: 065269f34c1c3894bbe95c53b10d259d,
