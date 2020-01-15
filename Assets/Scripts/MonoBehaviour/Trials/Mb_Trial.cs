@@ -12,12 +12,12 @@ public class Mb_Trial : MonoBehaviour
     public Sc_TrialParameters trialRules;
     public float trialAccomplishment;
     public List<Mb_PlayerControler> listOfUser;
-   
+    public animationInteractionType animationType;
 
     [Header("UIPART")]
     [SerializeField] Image uiToFill;
     [SerializeField] TextMeshProUGUI textUser;
-    [SerializeField] Image uiToTrigger;
+    public Image uiToTrigger;
     [SerializeField] float appearenceTime = 0.5f;
 
     //Timer before decay
@@ -31,15 +31,15 @@ public class Mb_Trial : MonoBehaviour
     //trial Accomplishment
     public void EndTrial()
     {
-        ResetAccomplishment();
-        UiDisaparence();
+     
         DoThings();
     }
 
     //trial Result
     public virtual void DoThings()
     {
-
+        UiDisaparence();
+        ResetAccomplishment();
     }
 
     //Accomplissement
@@ -47,27 +47,30 @@ public class Mb_Trial : MonoBehaviour
     {
         bool interactionAvaible = true;
 
-        if (trialRules.toolsNeeded.Length > 0)
+        if (trialRules.toolsNeeded.Length > 0 && listOfUser.Count >0)
         {
-            if (listOfUser[0].itemHold != null)
+            if (listOfUser[0].itemHold != null && trialRules.toolsNeeded[0] == listOfUser[0].itemHold.itemType)
             {
+                /*
                 for (int i = 0; i < trialRules.toolsNeeded.Length; i++)
                 {
                     for (int y = 0; y < listOfUser.Count; y++)
                         if (listOfUser[y].itemHold.itemType == trialRules.toolsNeeded[i])
-                        {
+                        {*/
+                          //  print(trialRules.toolsNeeded[i]);
                             interactionAvaible = true;
-                            break;
-                        }
-                }
+                          //  break;
+                /*        }
+                }*/
             }
             else
                 return false;
         }
   
        //rajouter 1 parce que j update la lust que après avoir la condition ps: jui con
-        if (listOfUser.Count +1 < trialRules.numberOfPlayerNeeded)
+        if (listOfUser.Count < trialRules.numberOfPlayerNeeded)
             interactionAvaible = false;
+
  
 
         return interactionAvaible;
@@ -78,10 +81,13 @@ public class Mb_Trial : MonoBehaviour
         if (trialRules.trialType == TrialType.Time)
         {
             trialAccomplishment += trialRules.accomplishmentToAdd * Time.fixedDeltaTime;
+
         }
-            
+
         else if (trialRules.trialType == TrialType.Mashing)
+        {
             trialAccomplishment += trialRules.accomplishmentToAdd;
+        }
 
         if (trialAccomplishment >= trialRules.accomplishmentNeeded)
         {
@@ -137,14 +143,12 @@ public class Mb_Trial : MonoBehaviour
     //UIFUNCTIONS
     public void UiAppearence()
     {
-        
-        if(CanInterract()==true)
-            uiToTrigger.transform.DOScaleY(2, appearenceTime);
+         uiToTrigger.transform.DOScaleY(1, appearenceTime);
     }
 
     public void UiDisaparence()
     {
-        uiToTrigger.transform.DOScaleY(0, appearenceTime);
+        uiToTrigger.transform.DOScaleY(0, 0);
     }
 
     public void UpdateFillAmount()
@@ -158,4 +162,10 @@ public class Mb_Trial : MonoBehaviour
         textUser.text = listOfUser.Count + " / " + trialRules.numberOfPlayerNeeded;
     }
 
+}
+
+[System.Serializable]
+public enum animationInteractionType
+{
+    Button, InteractionClassic, Hacking, PickUp
 }

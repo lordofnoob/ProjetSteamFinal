@@ -62,6 +62,7 @@ public class Gamemanager : MonoBehaviour
         {
             timeRemaining -= Time.deltaTime;
             Ma_UiManager.instance.UpdateTimeRemainingText(timeRemaining);
+            Ma_UiManager.instance.UpdateTimeBar(timeRemaining / levelParameters.timeToDoTheLevel);
         }
         else
             EndGame();

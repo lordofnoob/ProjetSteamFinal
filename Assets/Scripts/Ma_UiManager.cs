@@ -8,7 +8,7 @@ public class Ma_UiManager : MonoBehaviour
 {
     [SerializeField] GameObject StartCanvas;
     [SerializeField] GameObject EndCanvas;
-    [SerializeField] 
+    [SerializeField] Image TimeBar;
     public TextMeshProUGUI timeRemainingText;
     public static Ma_UiManager instance;
 
@@ -49,6 +49,11 @@ public class Ma_UiManager : MonoBehaviour
             timeSpentToDisplay = minuteRemaining + " : 0" + secondsRemaining;
 
         timeRemainingText.text = timeSpentToDisplay;
+    }
+
+   public  void UpdateTimeBar(float fillAmount)
+    {
+        TimeBar.fillAmount = fillAmount;
     }
 
     public void SetupEndPannel(float moneyAmount, bool firstObjective, bool secondObjectve, bool thirdObjective)
