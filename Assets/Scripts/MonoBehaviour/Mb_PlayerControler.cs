@@ -35,8 +35,8 @@ public class Mb_PlayerControler : MonoBehaviour
 
     float floorAnim = 0.5f;
 
-    [Header("Input")]
-    [SerializeField] KeyCode interactInput, throwInput, deposeInput;
+ /*   [Header("Input")]
+    [SerializeField] KeyCode interactInput, throwInput, deposeInput;*/
 
     //A SUPPR APRES 
     float throwTimePressed;
@@ -70,9 +70,9 @@ public class Mb_PlayerControler : MonoBehaviour
         APress();
         XPress();
         BPress();
-        InterractiveInput();
+      /*  InterractiveInput();
         DeposeInput();
-        ThrowInput();
+        ThrowInput();*/
     }
 
     private void Move()
@@ -144,66 +144,6 @@ public class Mb_PlayerControler : MonoBehaviour
 
             StartCoroutine(WaitAfterInteract());
         }
-        
-         else if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
-            && CurrentTrialsOverlaped.Count == 0 && itemHold !=null)
-            ThrowItem();
-    }
-
-    void InterractiveInput()
-    {
-        if ( Input.GetKeyDown(interactInput) && CurrentTrialsOverlaped.Count > 0 && usedTrial().CanInterract() == true)
-        {
-            Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
-            if (isItem == null)
-                SetCanMove(false);
-            StartCoroutine(WaitAfterInteract());
-            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
-        }
-        else if(Input.GetKeyUp(interactInput) && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
-        {
-            //setup du trigger de l anim si tu porte un objet ou pas
-            if (itemHold != null)
-            {
-                SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
-            }
-            else
-                SetAnimTrigger(ItemType.Null, usedTrial().animationType);
-
-
-            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
-
-            StartCoroutine(WaitAfterInteract());
-        }
-        else if (Input.GetKeyDown(interactInput) && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
-        { //setup du trigger de l anim si tu porte un objet ou pas
-            if (itemHold != null)
-                SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
-            else
-                SetAnimTrigger(ItemType.Null, usedTrial().animationType);
-
-
-            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
-
-            StartCoroutine(WaitAfterInteract());
-        }
-    }
-    void DeposeInput()
-    {
-        if (Input.GetKeyDown(deposeInput))
-            ThrowItem();
-    }
-    void ThrowInput()
-    {
-        if (Input.GetKey(throwInput))
-        {
-            throwTime += Time.fixedDeltaTime;
-            UpdateThrowUI();
-        }
-        else if (Input.GetKeyUp(throwInput))
-        {
-            ThrowItem();
-        }
     }
     IEnumerator WaitAfterInteract()
     {
@@ -218,7 +158,7 @@ public class Mb_PlayerControler : MonoBehaviour
         {
             PrepThrowItem();
         }
-        else if (itemHold != null && controlerUsedOldState.Buttons.X == ButtonState.Pressed 
+        else if (itemHold != null && controlerUsedOldState.Buttons.X == ButtonState.Pressed
             && controlerUsedState.Buttons.X == ButtonState.Released && CurrentTrialsOverlaped.Count == 0)
         {
             ThrowItem();
@@ -233,6 +173,65 @@ public class Mb_PlayerControler : MonoBehaviour
         }
     }
 
+    /*
+        void InterractiveInput()
+        {
+            if ( Input.GetKeyDown(interactInput) && CurrentTrialsOverlaped.Count > 0 && usedTrial().CanInterract() == true)
+            {
+                Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
+                if (isItem == null)
+                    SetCanMove(false);
+                StartCoroutine(WaitAfterInteract());
+                usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
+            }
+            else if(Input.GetKeyUp(interactInput) && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
+            {
+                //setup du trigger de l anim si tu porte un objet ou pas
+                if (itemHold != null)
+                {
+                    SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+                }
+                else
+                    SetAnimTrigger(ItemType.Null, usedTrial().animationType);
+
+
+                usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
+
+                StartCoroutine(WaitAfterInteract());
+            }
+            else if (Input.GetKeyDown(interactInput) && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
+            { //setup du trigger de l anim si tu porte un objet ou pas
+                if (itemHold != null)
+                    SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+                else
+                    SetAnimTrigger(ItemType.Null, usedTrial().animationType);
+
+
+                usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
+
+                StartCoroutine(WaitAfterInteract());
+            }
+        }
+        void DeposeInput()
+        {
+            if (Input.GetKeyDown(deposeInput))
+                ThrowItem();
+        }
+        void ThrowInput()
+        {
+            if (Input.GetKey(throwInput))
+            {
+                throwTime += Time.fixedDeltaTime;
+                UpdateThrowUI();
+            }
+            else if (Input.GetKeyUp(throwInput))
+            {
+                ThrowItem();
+            }
+        }
+
+       
+        */
     public void PrepThrowItem()
     {
         throwTime += Time.fixedDeltaTime;
@@ -359,10 +358,10 @@ public class Mb_PlayerControler : MonoBehaviour
                             rAnimator.SetTrigger("CrowbarTrialValidation");
                             break;
                         case ItemType.Drill:
-                            rAnimator.SetTrigger("PushButton");
+                            rAnimator.SetTrigger("CrowbarTrialValidation");
                             break;
                         case ItemType.Tablet:
-                            rAnimator.SetTrigger("  ");
+                            rAnimator.SetTrigger("HackingTrial");
                             break;
 
                     }
@@ -379,7 +378,7 @@ public class Mb_PlayerControler : MonoBehaviour
                     rAnimator.SetTrigger("PushButton");
                     break;
                 case animationInteractionType.Hacking:
-                    rAnimator.SetTrigger("PushButton");
+                    rAnimator.SetTrigger("HackingTrial");
                     break;
                 case animationInteractionType.InteractionClassic:
                     rAnimator.SetTrigger("PushButton");

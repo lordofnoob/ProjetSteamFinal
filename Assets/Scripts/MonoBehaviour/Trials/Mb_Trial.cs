@@ -13,7 +13,8 @@ public class Mb_Trial : MonoBehaviour
     public float trialAccomplishment;
     public List<Mb_PlayerControler> listOfUser;
     public animationInteractionType animationType;
-
+    [SerializeField] Animator animatorAssociated;
+    [SerializeField] Animator uiAnimator;
     [Header("UIPART")]
     [SerializeField] Image uiToFill;
     [SerializeField] TextMeshProUGUI textUser;
@@ -38,6 +39,7 @@ public class Mb_Trial : MonoBehaviour
     //trial Result
     public virtual void DoThings()
     {
+        animatorAssociated.SetTrigger("DoThings");
         UiDisaparence();
         ResetAccomplishment();
     }
@@ -64,7 +66,11 @@ public class Mb_Trial : MonoBehaviour
                 }*/
             }
             else
-                return false;
+            {
+                uiAnimator
+                        return false;
+            }
+            
         }
   
        //rajouter 1 parce que j update la lust que après avoir la condition ps: jui con
