@@ -50,6 +50,8 @@ MonoBehaviour:
   trialAccomplishment: 0
   listOfUser: []
   animationType: 2
+  animatorAssociated: {fileID: 0}
+  uiAnimator: {fileID: 4687283783502340635}
   uiToFill: {fileID: 2338489287591384358}
   textUser: {fileID: 3042621627182045637}
   uiToTrigger: {fileID: 506297541843628007}
@@ -280,11 +282,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 453260}
     m_Modifications:
-    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Name
-      value: TrialUI
-      objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -390,6 +387,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Name
+      value: TrialUI
+      objectReference: {fileID: 0}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
@@ -419,6 +421,12 @@ PrefabInstance:
 --- !u!224 &6600242387533890357 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
+    type: 3}
+  m_PrefabInstance: {fileID: 7170269811283609810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4687283783502340635 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2489779910401288905, guid: 176652a470417194c82f0c5bcac95a05,
     type: 3}
   m_PrefabInstance: {fileID: 7170269811283609810}
   m_PrefabAsset: {fileID: 0}

@@ -159,6 +159,7 @@ MonoBehaviour:
   listOfUser: []
   animationType: 1
   animatorAssociated: {fileID: 0}
+  uiAnimator: {fileID: 1349311807513357981}
   uiToFill: {fileID: 8342601284997159328}
   textUser: {fileID: 8758573335556822339}
   uiToTrigger: {fileID: 6103396580821820257}
@@ -569,7 +570,7 @@ PrefabInstance:
     - target: {fileID: 8165662012216527944, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4165091868671301596, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
@@ -582,6 +583,12 @@ PrefabInstance:
 --- !u!224 &589374858683928499 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
+    type: 3}
+  m_PrefabInstance: {fileID: 3473628071612744788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1349311807513357981 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2489779910401288905, guid: 176652a470417194c82f0c5bcac95a05,
     type: 3}
   m_PrefabInstance: {fileID: 3473628071612744788}
   m_PrefabAsset: {fileID: 0}

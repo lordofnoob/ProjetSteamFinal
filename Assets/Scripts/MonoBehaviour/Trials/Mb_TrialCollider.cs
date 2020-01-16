@@ -26,10 +26,11 @@ public class Mb_TrialCollider : MonoBehaviour
       
         if (playerOccupying != null)
         {
-            trialAssociated.UiAppearence();
+         
 
             if (currentUser == null)
             {
+                trialAssociated.UiAppearence();
                 playerOccupying.AddOverlapedTrial(trialAssociated);
                 currentUser = playerOccupying;
                 trialAssociated.AddUser(currentUser);
@@ -72,7 +73,6 @@ public class Mb_TrialCollider : MonoBehaviour
             {
                 currentUser.transform.DORotate(new Vector3(0, Mathf.Atan2(PositionToLookAndPut.rotation.x, PositionToLookAndPut.rotation.z) * Mathf.Rad2Deg + 90,0), .5f);
                 currentUser.transform.DOMove(new Vector3(PositionToLookAndPut.transform.position.x, currentUser.transform.position.y, PositionToLookAndPut.transform.position.z), 0.5f);
-
             }
         
     }

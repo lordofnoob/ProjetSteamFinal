@@ -146,6 +146,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 0a2cdb5a51ce6ce4e8bcbfd91aca01b6,
         type: 3}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: uiAnimator
+      value: 
+      objectReference: {fileID: 4255760074058474463}
     - target: {fileID: 4985317737431245708, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: PositionToLookAndPut
@@ -183,11 +188,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9018457164163985803}
     m_Modifications:
-    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Name
-      value: TrialUI
-      objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -293,6 +293,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Name
+      value: TrialUI
+      objectReference: {fileID: 0}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
@@ -309,6 +314,12 @@ PrefabInstance:
 --- !u!224 &2421574864423846641 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
+    type: 3}
+  m_PrefabInstance: {fileID: 1838038875202963734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4255760074058474463 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2489779910401288905, guid: 176652a470417194c82f0c5bcac95a05,
     type: 3}
   m_PrefabInstance: {fileID: 1838038875202963734}
   m_PrefabAsset: {fileID: 0}
