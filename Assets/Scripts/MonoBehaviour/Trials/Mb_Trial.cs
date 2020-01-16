@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -67,8 +67,7 @@ public class Mb_Trial : MonoBehaviour
             }
             else
             {
-                uiAnimator
-                        return false;
+                return false;
             }
             
         }
