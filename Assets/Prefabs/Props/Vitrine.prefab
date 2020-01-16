@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 902051016317271552}
   - component: {fileID: 6610001001619233940}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 50426215794413282}
   - component: {fileID: 6468775086299566058}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 477274275498847630}
   - component: {fileID: 594475738159559160}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1529,7 +1529,7 @@ GameObject:
   - component: {fileID: 296800690905141621}
   - component: {fileID: 4474115055994345731}
   m_Layer: 0
-  m_Name: Cube (7)
+  m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2395,7 +2395,7 @@ GameObject:
   - component: {fileID: 646557834751581203}
   - component: {fileID: 3538653022443969662}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2487,7 +2487,7 @@ GameObject:
   - component: {fileID: 2525240267966973434}
   - component: {fileID: 3475211315555369654}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2671,7 +2671,7 @@ GameObject:
   - component: {fileID: 4609867944356134817}
   - component: {fileID: 5898977194153550500}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2763,7 +2763,7 @@ GameObject:
   - component: {fileID: 68206254373855170}
   - component: {fileID: 8907586355707258971}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3026,6 +3026,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4734993632164919877}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 0c750708e67e67e448c365ea19d0356f,
+        type: 3}
+      propertyPath: m_Name
+      value: EcrinDiams
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0c750708e67e67e448c365ea19d0356f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3095,11 +3100,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 0c750708e67e67e448c365ea19d0356f,
-        type: 3}
-      propertyPath: m_Name
-      value: EcrinDiams
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750708e67e67e448c365ea19d0356f, type: 3}

@@ -82,8 +82,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6037708586261380522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.11}
+  m_LocalRotation: {x: -0.7071068, y: -9.3132246e-10, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -2.3283064e-10, y: 0.11000004, z: 0.000000014901161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7365630512091425442}
@@ -102,8 +102,9 @@ GameObject:
   - component: {fileID: 8065638163188263304}
   - component: {fileID: 6322466817578906405}
   - component: {fileID: 410804174461761263}
+  - component: {fileID: 6270800400012383414}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: TriggerZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,8 +117,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8356710225144755562}
-  m_LocalRotation: {x: -0, y: -0.99996763, z: -0, w: 0.008047292}
-  m_LocalPosition: {x: -0.04, y: 0.66000175, z: 0.86}
+  m_LocalRotation: {x: 0.0056902952, y: -0.70708394, z: 0.70708394, w: 0.0056902952}
+  m_LocalPosition: {x: -0.006, y: 0.472, z: 0.747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3202042739915626499}
@@ -198,6 +199,28 @@ MonoBehaviour:
   trialAssociated: {fileID: 2961347851714192765}
   currentUser: {fileID: 0}
   PositionToLookAndPut: {fileID: 3202042739915626499}
+--- !u!114 &6270800400012383414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356710225144755562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: f20927165f207194b858023552d1672f, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_AffectsTransparency: 0
+  m_Offset: {x: 0, y: 0, z: 0.5000002}
+  m_Size: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_FadeFactor: 0.4
+  m_Version: 1
 --- !u!1001 &3443683991194862998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,6 +228,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 453260}
     m_Modifications:
+    - target: {fileID: 1576991031498788218, guid: 5bc6998b888fd4744b6b6956cbbad5c0,
+        type: 3}
+      propertyPath: m_Name
+      value: InterfaceElectronique
+      objectReference: {fileID: 0}
     - target: {fileID: 1576991031498788219, guid: 5bc6998b888fd4744b6b6956cbbad5c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -259,11 +287,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1576991031498788218, guid: 5bc6998b888fd4744b6b6956cbbad5c0,
-        type: 3}
-      propertyPath: m_Name
-      value: InterfaceElectronique
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bc6998b888fd4744b6b6956cbbad5c0, type: 3}
@@ -390,17 +413,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f5b059bcb2babde4ebb397c3d33652dc,
-        type: 3}
-    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: transformToFollow
-      value: 
-      objectReference: {fileID: 4190868442031114477}
     - target: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
@@ -413,6 +425,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e4408e33bfb8856488be243a0e2a8dfd,
         type: 3}
+    - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f5b059bcb2babde4ebb397c3d33652dc,
+        type: 3}
+    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 4190868442031114477}
     m_RemovedComponents:
     - {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
