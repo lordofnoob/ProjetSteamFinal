@@ -11,6 +11,8 @@ public class Gamemanager : MonoBehaviour
     bool isPause;
     bool objectiveItem1, objectiveItem2, objectiveMoney;
 
+    [SerializeField] float timeSpentEvent1, timeSpentEvent2, timeSpentEvent3;
+
     private void Awake()
     {
         if (instance == null)
@@ -38,6 +40,7 @@ public class Gamemanager : MonoBehaviour
     public void AddMoney(int moneyToAdd)
     {
         moneyStolen += moneyToAdd;
+        Ma_UiManager.instance.UpdateMoney(moneyToAdd);
         CheckMoney();
     }
 
@@ -63,6 +66,7 @@ public class Gamemanager : MonoBehaviour
             timeRemaining -= Time.deltaTime;
             Ma_UiManager.instance.UpdateTimeRemainingText(timeRemaining);
             Ma_UiManager.instance.UpdateTimeBar(timeRemaining / levelParameters.timeToDoTheLevel);
+            CheckEvent();
         }
         else
             EndGame();
@@ -90,4 +94,18 @@ public class Gamemanager : MonoBehaviour
         isPause = false;
     }
 
+    void CheckEvent()
+    {
+        if (timeSpentEvent1 < timeRemaining)
+        {
+            if (timeSpentEvent2< timeSpentEvent2)
+            {
+                if (timeSpentEvent3< timeRemaining)
+                {
+
+                }
+            }
+        }
+    }
 }
+
