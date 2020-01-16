@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +13,8 @@ public class Mb_Trial : MonoBehaviour
     public float trialAccomplishment;
     public List<Mb_PlayerControler> listOfUser;
     public animationInteractionType animationType;
-
+    [SerializeField] Animator animatorAssociated;
+    [SerializeField] Animator uiAnimator;
     [Header("UIPART")]
     [SerializeField] Image uiToFill;
     [SerializeField] TextMeshProUGUI textUser;
@@ -38,6 +39,8 @@ public class Mb_Trial : MonoBehaviour
     //trial Result
     public virtual void DoThings()
     {
+        if (animatorAssociated!= null)
+            animatorAssociated.SetTrigger("DoThings");
         UiDisaparence();
         ResetAccomplishment();
     }
@@ -64,14 +67,21 @@ public class Mb_Trial : MonoBehaviour
                 }*/
             }
             else
-                return false;
+            {
+                uiAnimator.SetBool("WrongItem", true);
+                        return false;
+            }
+            
         }
-  
-       //rajouter 1 parce que j update la lust que après avoir la condition ps: jui con
+
+        //rajouter 1 parce que j update la lust que après avoir la condition ps: jui con
         if (listOfUser.Count < trialRules.numberOfPlayerNeeded)
             interactionAvaible = false;
 
- 
+        if (interactionAvaible == true)
+            uiAnimator.SetBool("WrongItem", false);
+        else
+            uiAnimator.SetBool("WrongItem", true);
 
         return interactionAvaible;
     }
@@ -144,6 +154,16 @@ public class Mb_Trial : MonoBehaviour
     public void UiAppearence()
     {
          uiToTrigger.transform.DOScaleY(1, appearenceTime);
+    }
+
+    public void UiDisactivate()
+    {
+        uiToTrigger.gameObject.SetActive(false);
+    }
+
+    public void UiActivate()
+    {
+        uiToTrigger.gameObject.SetActive(true);
     }
 
     public void UiDisaparence()

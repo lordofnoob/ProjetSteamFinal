@@ -15,7 +15,7 @@ public class Mb_Chest : Mb_Trial
     [SerializeField] float timeToGetToSpot;
     bool used = false;
     List<GameObject> gameObjectToGive= new List<GameObject>();
-
+    
 
     public override bool CanInterract()
     {
