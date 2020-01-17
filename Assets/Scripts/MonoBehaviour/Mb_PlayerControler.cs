@@ -83,7 +83,7 @@ public class Mb_PlayerControler : MonoBehaviour
         Vector3 targetMovePosition = liveParameters.MoveSpeed * liveParameters.AccelerationRate.Evaluate(CurrentStickDirection().magnitude) * moveDir + moveInfluence.strengthApplied;
 
         RaycastHit hit;
-        bool raycastHit = Physics.Raycast(new Vector3(transform.position.x, 0f, transform.position.z), moveDir, out hit,1 & (1 ^9));
+        bool raycastHit = Physics.Raycast(new Vector3(transform.position.x, 0f, transform.position.z), moveDir, out hit, 1);
 
 
         if (raycastHit && hit.collider.transform.tag != "TriggerZone")

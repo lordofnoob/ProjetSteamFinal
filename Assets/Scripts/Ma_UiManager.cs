@@ -6,6 +6,7 @@ using TMPro;
 
 public class Ma_UiManager : MonoBehaviour
 {
+    public Canvas inGameCanvas;
     [SerializeField] GameObject StartCanvas;
     [SerializeField] GameObject EndCanvas;
     [SerializeField] Image TimeBar;
