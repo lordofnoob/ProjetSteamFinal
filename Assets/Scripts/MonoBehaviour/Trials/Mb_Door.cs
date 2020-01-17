@@ -7,11 +7,15 @@ public class Mb_Door : Mb_Trial
 {
     [Header("TrialEffect")]
     [SerializeField] Transform[] doorToMove;
+    [SerializeField] Transform[] desynchronisedDoor;
     [SerializeField] float yToAdd;
     [SerializeField] float timeToDo;
-    [SerializeField] bool reapeatable;
     List<Vector3> endPose = new List<Vector3>();
     List<Vector3> beginPose = new List<Vector3>();
+
+    List<Vector3> endPoseDesynch = new List<Vector3>();
+    List<Vector3> beginPoseDesynch = new List<Vector3>();
+
     bool open = false;
 
     private void Awake()
@@ -20,7 +24,13 @@ public class Mb_Door : Mb_Trial
         {
             endPose.Add(doorToMove[i].position+ new Vector3(0, yToAdd,0));
             beginPose.Add(doorToMove[i].position);
-        }          
+        }
+
+        for (int i = 0; i < doorToMove.Length; i++)
+        {
+            endPoseDesynch.Add(desynchronisedDoor[i].position - new Vector3(0, yToAdd, 0));
+            beginPoseDesynch.Add(desynchronisedDoor[i].position);
+        }
 
     }
     public override void DoThings()
@@ -28,20 +38,13 @@ public class Mb_Door : Mb_Trial
     
         if (open == false)
         {
-            for (int i = 0; i < doorToMove.Length; i++)
-                doorToMove[i].DOMove(endPose[i], timeToDo);
-
+            OpenDoor();
         }
         else
         {
-            for (int i = 0; i < doorToMove.Length; i++)
-                doorToMove[i].DOMove(beginPose[i], timeToDo);
-
+            CloseDoor();
         }
-
-
-        if (reapeatable == false)
-            open = !open;
+     
 
         base.DoThings();
     }
@@ -53,4 +56,20 @@ public class Mb_Door : Mb_Trial
         return base.CanInterract();
     }
 
+    public void OpenDoor()
+    {
+        for (int i = 0; i < doorToMove.Length; i++)
+            doorToMove[i].DOMove(endPose[i], timeToDo);
+        for (int i = 0; i < doorToMove.Length; i++)
+            desynchronisedDoor[i].DOMove(beginPoseDesynch[i], timeToDo);
+        open = !open;
+    }
+    public void CloseDoor()
+    {
+        for (int i = 0; i < doorToMove.Length; i++)
+            doorToMove[i].DOMove(beginPoseDesynch[i], timeToDo);
+        for (int i = 0; i < doorToMove.Length; i++)
+            desynchronisedDoor[i].DOMove(endPoseDesynch[i], timeToDo);
+        open = !open;
+    }
 }

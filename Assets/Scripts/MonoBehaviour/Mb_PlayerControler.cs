@@ -83,11 +83,12 @@ public class Mb_PlayerControler : MonoBehaviour
         Vector3 targetMovePosition = liveParameters.MoveSpeed * liveParameters.AccelerationRate.Evaluate(CurrentStickDirection().magnitude) * moveDir + moveInfluence.strengthApplied;
 
         RaycastHit hit;
-        bool raycastHit = Physics.Raycast(new Vector3(transform.position.x, 0f, transform.position.z), moveDir, out hit, 1);
+        bool raycastHit = Physics.Raycast(new Vector3(transform.position.x, 0f, transform.position.z), moveDir, out hit,1, ~(1 << 9));
 
 
-        if (raycastHit && hit.collider.transform.tag != "TriggerZone")
-        { 
+        if (raycastHit)
+        {
+            Debug.Log("hit");
             targetMovePosition = Vector3.ProjectOnPlane(targetMovePosition, hit.normal);
         }
 
@@ -255,7 +256,13 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void ThrowItem()
     {
-        itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh);
+        RaycastHit hit;
+        bool didHit = Physics.Raycast(transform.position, transform.position - placeToThrow.position, out hit, 2, ~(1 << 9 |10 ));
+        if (didHit)
+            itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, hit.transform.position);
+        else
+            itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, placeToThrow.position);
+
         itemHold = null;
         throwTime = 0;
         UpdateThrowUI();
