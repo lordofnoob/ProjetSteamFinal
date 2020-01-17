@@ -305,8 +305,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.65580726, y: 1.4182305, z: 0.7534891}
+  m_Center: {x: -0.019249022, y: -0.20911483, z: 0.12325558}
 --- !u!114 &4476552393143817436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,11 +337,11 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: f20927165f207194b858023552d1672f, type: 2}
   m_DrawDistance: 1000
   m_FadeScale: 0.9
-  m_UVScale: {x: 1, y: 1}
-  m_UVBias: {x: 0, y: 0}
+  m_UVScale: {x: 1.1831254, y: 0.87509733}
+  m_UVBias: {x: -0.15595365, y: 0.124902606}
   m_AffectsTransparency: 0
   m_Offset: {x: 0, y: 0, z: 0.40000013}
-  m_Size: {x: 2.2891164, y: 0.8, z: 0.8}
+  m_Size: {x: 1.1831254, y: 0.87509733, z: 1}
   m_FadeFactor: 0.4
   m_Version: 1
 --- !u!1001 &63926851315035527
@@ -351,6 +351,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6002306396281778730}
     m_Modifications:
+    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Name
+      value: TrialUI
+      objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -470,11 +475,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2500005
-      objectReference: {fileID: 0}
-    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Name
-      value: TrialUI
       objectReference: {fileID: 0}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
