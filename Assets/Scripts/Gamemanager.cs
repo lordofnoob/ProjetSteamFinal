@@ -11,6 +11,9 @@ public class Gamemanager : MonoBehaviour
     bool isPause;
     bool objectiveItem1, objectiveItem2, objectiveMoney;
 
+
+    public Mb_Door[] doorToCloseOnEvent;
+
     [SerializeField] float timeSpentEvent1, timeSpentEvent2, timeSpentEvent3;
 
     private void Awake()
@@ -98,7 +101,7 @@ public class Gamemanager : MonoBehaviour
     {
         if (timeSpentEvent1 < timeRemaining)
         {
-            if (timeSpentEvent2< timeSpentEvent2)
+            if (timeSpentEvent2 < timeRemaining)
             {
                 if (timeSpentEvent3< timeRemaining)
                 {
@@ -106,6 +109,22 @@ public class Gamemanager : MonoBehaviour
                 }
             }
         }
+    }
+
+    void RandomEvent()
+    {
+        Random.Range(0, 1);
+
+    }
+
+    void CloseDoor()
+    {
+
+    }
+
+    void LightOut()
+    {
+
     }
 }
 

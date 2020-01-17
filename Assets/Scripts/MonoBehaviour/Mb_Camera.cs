@@ -16,7 +16,6 @@ public class Mb_Camera : MonoBehaviour
 
            canSee = false;
            ActivateDoor();
-
             // anim.SetTrigger("DoThings");
             StartCoroutine("WaitBeforeReactivation");
 
@@ -27,6 +26,7 @@ public class Mb_Camera : MonoBehaviour
     {
         for (int i = 0; i < trialToActivate.Length; i++)
             trialToActivate[i].DoThings();
+      
     }
 
     IEnumerator WaitBeforeReactivation()

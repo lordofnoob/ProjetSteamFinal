@@ -28,20 +28,13 @@ public class Mb_Door : Mb_Trial
     
         if (open == false)
         {
-            for (int i = 0; i < doorToMove.Length; i++)
-                doorToMove[i].DOMove(endPose[i], timeToDo);
-
+            OpenDoor();
         }
         else
         {
-            for (int i = 0; i < doorToMove.Length; i++)
-                doorToMove[i].DOMove(beginPose[i], timeToDo);
-
+            CloseDoor();
         }
-
-
-        if (reapeatable == false)
-            open = !open;
+     
 
         base.DoThings();
     }
@@ -53,4 +46,16 @@ public class Mb_Door : Mb_Trial
         return base.CanInterract();
     }
 
+    public void OpenDoor()
+    {
+        for (int i = 0; i < doorToMove.Length; i++)
+            doorToMove[i].DOMove(endPose[i], timeToDo);
+        open = !open;
+    }
+    public void CloseDoor()
+    {
+        for (int i = 0; i < doorToMove.Length; i++)
+            doorToMove[i].DOMove(beginPose[i], timeToDo);
+        open = !open;
+    }
 }
