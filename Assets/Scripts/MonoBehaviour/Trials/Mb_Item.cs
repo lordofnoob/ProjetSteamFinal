@@ -61,12 +61,12 @@ public class Mb_Item : Mb_Trial
     
     }
 
-    public void ResetInteraction()
+    public void ResetInteraction(Vector3 newPos)
     {
         UiActivate();
         Mb_InGameInterface.instance.UpdatePlayerUiItem(user.playerIndex,null);
         SetThrown(true);
-        transform.position = user.placeToThrow.position;
+        transform.position = newPos;
         transform.rotation = user.placeToThrow.rotation;
         transform.SetParent(null);
         coll.enabled = true;
@@ -79,10 +79,9 @@ public class Mb_Item : Mb_Trial
         thrown = throwValue;
     }
 
-    public void Throw(Vector3 direction, float strength)
+    public void Throw(Vector3 direction, float strength, Vector3 basePosition)
     {
-        print(direction * strength);
-        ResetInteraction();
+        ResetInteraction(basePosition);
         body.AddForce(direction * strength, ForceMode.Impulse);
     }
 

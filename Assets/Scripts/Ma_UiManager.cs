@@ -6,10 +6,11 @@ using TMPro;
 
 public class Ma_UiManager : MonoBehaviour
 {
+    public Canvas inGameCanvas;
     [SerializeField] GameObject StartCanvas;
     [SerializeField] GameObject EndCanvas;
     [SerializeField] Image TimeBar;
-    public TextMeshProUGUI timeRemainingText;
+    public TextMeshProUGUI moneyText;
     public static Ma_UiManager instance;
 
     private void Awake()
@@ -39,7 +40,7 @@ public class Ma_UiManager : MonoBehaviour
     public void UpdateTimeRemainingText(float remainingTime)
     {
         float minuteRemaining, secondsRemaining;
-        minuteRemaining = Mathf.Clamp(Mathf.FloorToInt(remainingTime / 60),0,9999999);
+        minuteRemaining = Mathf.Clamp(Mathf.FloorToInt(remainingTime / 60), 0, 9999999);
         secondsRemaining = Mathf.Clamp(Mathf.RoundToInt(remainingTime - minuteRemaining * 60), 0, 59);
         string timeSpentToDisplay;
 
@@ -47,8 +48,6 @@ public class Ma_UiManager : MonoBehaviour
             timeSpentToDisplay = minuteRemaining + " : " + secondsRemaining;
         else
             timeSpentToDisplay = minuteRemaining + " : 0" + secondsRemaining;
-
-        timeRemainingText.text = timeSpentToDisplay;
     }
 
    public  void UpdateTimeBar(float fillAmount)
@@ -62,6 +61,11 @@ public class Ma_UiManager : MonoBehaviour
         Mb_EndPannel.instance.firstStar.gameObject.SetActive(firstObjective);
         Mb_EndPannel.instance.secondStar.gameObject.SetActive(secondObjectve);
         Mb_EndPannel.instance.thirdStar.gameObject.SetActive(thirdObjective);
+    }
+
+    public void UpdateMoney(float moneyAmount)
+    {
+        moneyText.text = moneyAmount.ToString();
     }
 
 }
