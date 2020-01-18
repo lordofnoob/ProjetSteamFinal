@@ -86,8 +86,6 @@ GameObject:
   - component: {fileID: 6276324102639755931}
   - component: {fileID: 5107057508230559539}
   - component: {fileID: 2489779910401288905}
-  - component: {fileID: 794263356474266504}
-  - component: {fileID: 674990028}
   m_Layer: 0
   m_Name: TrialUI
   m_TagString: Untagged
@@ -104,7 +102,7 @@ RectTransform:
   m_GameObject: {fileID: 658906820054824294}
   m_LocalRotation: {x: -0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 8165662012216527944}
   m_Father: {fileID: 0}
@@ -194,31 +192,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &794263356474266504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 658906820054824294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325840d8199b63149adf7b10f9b247f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transformToFollow: {fileID: 0}
---- !u!114 &674990028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 658906820054824294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33c7ddec80c08794bb84610729d106e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3963614026357529125
 GameObject:
   m_ObjectHideFlags: 0

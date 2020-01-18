@@ -39,11 +39,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8806105119628149496}
     m_Modifications:
-    - target: {fileID: 8937344457059923798, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: m_Name
-      value: script objet
-      objectReference: {fileID: 0}
     - target: {fileID: 5181828979722577526, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -99,6 +94,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937344457059923798, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: m_Name
+      value: script objet
+      objectReference: {fileID: 0}
     - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: trialRules
@@ -146,17 +146,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 0a2cdb5a51ce6ce4e8bcbfd91aca01b6,
         type: 3}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: uiAnimator
+      value: 
+      objectReference: {fileID: 4331637984969805996}
+    - target: {fileID: 4985317737431245708, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: PositionToLookAndPut
+      value: 
+      objectReference: {fileID: 8806105119628149496}
+    - target: {fileID: 5674856301497861098, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 672d738ce386128409b4e8bf3a9ba2e0, type: 2}
     - target: {fileID: 2161071232825507603, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 6822136259458115956, guid: 213c59448f9eff6488d32b6707183091,
         type: 3}
-    - target: {fileID: 5674856301497861098, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 672d738ce386128409b4e8bf3a9ba2e0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9dabb62b900ede43857624cfe2e0344, type: 3}
 --- !u!4 &5624286258431554146 stripped
@@ -178,11 +188,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8806105119628149496}
     m_Modifications:
-    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Name
-      value: TrialUI
-      objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -288,6 +293,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Name
+      value: TrialUI
+      objectReference: {fileID: 0}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
@@ -304,6 +314,12 @@ PrefabInstance:
 --- !u!224 &2776829204711534978 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
+    type: 3}
+  m_PrefabInstance: {fileID: 2202375043834034789}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4331637984969805996 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2489779910401288905, guid: 176652a470417194c82f0c5bcac95a05,
     type: 3}
   m_PrefabInstance: {fileID: 2202375043834034789}
   m_PrefabAsset: {fileID: 0}

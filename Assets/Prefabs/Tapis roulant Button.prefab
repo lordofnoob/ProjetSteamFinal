@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6073915693104091070}
   - component: {fileID: 6948839218437597957}
   - component: {fileID: 7142197648828486409}
+  - component: {fileID: 9207761922415857461}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -108,6 +109,28 @@ MonoBehaviour:
   trialAssociated: {fileID: 2849619498797583186}
   currentUser: {fileID: 0}
   PositionToLookAndPut: {fileID: 1266590868415224154}
+--- !u!114 &9207761922415857461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431314428086906513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: f20927165f207194b858023552d1672f, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_AffectsTransparency: 0
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.0000005, z: 1.0000005}
+  m_FadeFactor: 0.4
+  m_Version: 1
 --- !u!1 &623201937621764410
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +242,8 @@ MonoBehaviour:
   trialAccomplishment: 0
   listOfUser: []
   animationType: 0
+  animatorAssociated: {fileID: 0}
+  uiAnimator: {fileID: 3399849200879089178}
   uiToFill: {fileID: 5643529919056101671}
   textUser: {fileID: 4907713230497598916}
   uiToTrigger: {fileID: 7576349793730837478}
@@ -250,7 +275,7 @@ PrefabInstance:
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.49223518
+      value: 0.583
       objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
@@ -295,12 +320,12 @@ PrefabInstance:
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -7.791609
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 19.713554
+      value: -0.069
       objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
@@ -386,6 +411,12 @@ PrefabInstance:
 --- !u!224 &3871660176196966196 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
+    type: 3}
+  m_PrefabInstance: {fileID: 982850656032546003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3399849200879089178 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2489779910401288905, guid: 176652a470417194c82f0c5bcac95a05,
     type: 3}
   m_PrefabInstance: {fileID: 982850656032546003}
   m_PrefabAsset: {fileID: 0}

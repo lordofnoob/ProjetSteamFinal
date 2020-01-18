@@ -36,7 +36,11 @@ public class Mb_Item : Mb_Trial
     public override void DoThings()
     {
         //On recupere l objet, on le set comme objet pour joueur et on lui d arreter d objet
-        
+        triggerCollider.enabled = false;
+        base.DoThings();
+        UiDisactivate();
+        coll.enabled = false;
+        body.isKinematic = true;
         speedInfluencer.ResetStrenghApplied();
         SetThrown(false);
 
@@ -44,24 +48,25 @@ public class Mb_Item : Mb_Trial
         user.RemoveOverlapedTrial(this); //virer le trial de la liste des trials overlap pour qu'il puisse interagir avec autre chose
 
         //desactiver le coll physiquede l objet
-        coll.enabled = false;
-        body.isKinematic = true;
+        
         //desactiver les composents de trial de l objet a recup
-        triggerCollider.enabled = false;
-        Mb_InGameInterface.instance.UpdatePlayerUiItem(user.playerIndex, spriteOfTheItem);
 
+     
+        Mb_InGameInterface.instance.UpdatePlayerUiItem(user.playerIndex, spriteOfTheItem);
+   
         //Set sa position sur le handle du joueur et le parent
         transform.SetParent(user.itemHandle);
         transform.localPosition = new Vector3(0, 0, 0);
         transform.localRotation = Quaternion.identity;
-        base.DoThings();
+    
     }
 
-    public void ResetInteraction()
+    public void ResetInteraction(Vector3 newPos)
     {
+        UiActivate();
         Mb_InGameInterface.instance.UpdatePlayerUiItem(user.playerIndex,null);
         SetThrown(true);
-        transform.position = user.placeToThrow.position;
+        transform.position = newPos;
         transform.rotation = user.placeToThrow.rotation;
         transform.SetParent(null);
         coll.enabled = true;
@@ -74,10 +79,9 @@ public class Mb_Item : Mb_Trial
         thrown = throwValue;
     }
 
-    public void Throw(Vector3 direction, float strength)
+    public void Throw(Vector3 direction, float strength, Vector3 basePosition)
     {
-        print(direction * strength);
-        ResetInteraction();
+        ResetInteraction(basePosition);
         body.AddForce(direction * strength, ForceMode.Impulse);
     }
 
