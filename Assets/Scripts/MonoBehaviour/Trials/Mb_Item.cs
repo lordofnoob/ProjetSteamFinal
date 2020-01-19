@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class Mb_Item : Mb_Trial
 {
@@ -30,7 +31,7 @@ public class Mb_Item : Mb_Trial
     private void OnCollisionEnter(Collision collision)
     {
         SetThrown(false);
-
+        //transform.DOMove(new Vector3(transform.position.x, 1, transform.position.z), 1);
     }
 
     public override void DoThings()
@@ -96,6 +97,7 @@ public class Mb_Item : Mb_Trial
 
         return base.CanInterract();
     }
+
 }
 
 public enum ItemType
