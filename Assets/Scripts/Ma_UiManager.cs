@@ -24,6 +24,7 @@ public class Ma_UiManager : MonoBehaviour
 
     public void SetActiveEndCanvas()
     {
+        inGameCanvas.gameObject.SetActive(false);
         EndCanvas.SetActive(true);
     }
 
@@ -57,7 +58,8 @@ public class Ma_UiManager : MonoBehaviour
 
     public void SetupEndPannel(float moneyAmount, bool firstObjective, bool secondObjectve, bool thirdObjective)
     {
-        Mb_EndPannel.instance.moneySpot.text = moneyAmount + "$";
+        Mb_EndPannel.instance.objectiveText.text = "Steal at least" + Gamemanager.instance.levelParameters.moneyToSteal + " $";
+        Mb_EndPannel.instance.moneySpot.text = moneyAmount + "$ Stolen";
         Mb_EndPannel.instance.firstStar.gameObject.SetActive(firstObjective);
         Mb_EndPannel.instance.secondStar.gameObject.SetActive(secondObjectve);
         Mb_EndPannel.instance.thirdStar.gameObject.SetActive(thirdObjective);
@@ -66,6 +68,7 @@ public class Ma_UiManager : MonoBehaviour
     public void UpdateMoney(float moneyAmount)
     {
         moneyText.text = moneyAmount.ToString();
+        print("moneyAmount");
     }
 
 }

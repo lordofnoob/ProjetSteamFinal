@@ -9,6 +9,7 @@ public class Mb_EndPannel : MonoBehaviour
     public static Mb_EndPannel instance;
 
     public Image firstStar, secondStar, thirdStar;
+    public TextMeshProUGUI objectiveText;
     public TextMeshProUGUI moneySpot;
 
     private void Awake()

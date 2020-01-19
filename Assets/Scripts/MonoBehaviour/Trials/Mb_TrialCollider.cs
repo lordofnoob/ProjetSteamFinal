@@ -26,8 +26,6 @@ public class Mb_TrialCollider : MonoBehaviour
       
         if (playerOccupying != null)
         {
-         
-
             if (currentUser == null)
             {
                 trialAssociated.UiAppearence();

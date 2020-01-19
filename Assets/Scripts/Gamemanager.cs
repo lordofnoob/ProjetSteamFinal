@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gamemanager : MonoBehaviour
 {
     public static Gamemanager instance;
-    [SerializeField] Sc_LevelParameters levelParameters;
+    public Sc_LevelParameters levelParameters;
     float moneyStolen;
     float timeRemaining;
     bool isPause;
