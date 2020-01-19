@@ -52,6 +52,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1557725946944923172}
     m_Modifications:
+    - target: {fileID: 5580236710283130774, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 2727130433576248389}
     - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Name
@@ -187,18 +192,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 4148483117949867333}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3645546499969468109 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
-    type: 3}
-  m_PrefabInstance: {fileID: 4148483117949867333}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325840d8199b63149adf7b10f9b247f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6707284689069093488 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
@@ -402,7 +395,7 @@ PrefabInstance:
         type: 3}
       propertyPath: uiLinked
       value: 
-      objectReference: {fileID: 3645546499969468109}
+      objectReference: {fileID: 0}
     - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: spriteOfTheItem

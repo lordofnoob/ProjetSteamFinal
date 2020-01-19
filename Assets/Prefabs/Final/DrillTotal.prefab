@@ -39,6 +39,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8861652799414605815}
     m_Modifications:
+    - target: {fileID: 2762809260966064534, guid: 8906f5e0e1eefae4f867e64e497cc810,
+        type: 3}
+      propertyPath: m_Name
+      value: DrillItem
+      objectReference: {fileID: 0}
     - target: {fileID: 2762809260966265486, guid: 8906f5e0e1eefae4f867e64e497cc810,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -94,11 +99,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2762809260966064534, guid: 8906f5e0e1eefae4f867e64e497cc810,
-        type: 3}
-      propertyPath: m_Name
-      value: DrillItem
-      objectReference: {fileID: 0}
     - target: {fileID: 3297605485043243584, guid: 8906f5e0e1eefae4f867e64e497cc810,
         type: 3}
       propertyPath: uiToFill
@@ -118,7 +118,7 @@ PrefabInstance:
         type: 3}
       propertyPath: uiLinked
       value: 
-      objectReference: {fileID: 1301856713015650334}
+      objectReference: {fileID: 0}
     - target: {fileID: 3297605485043243584, guid: 8906f5e0e1eefae4f867e64e497cc810,
         type: 3}
       propertyPath: spriteOfTheItem
@@ -160,6 +160,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8861652799414605815}
     m_Modifications:
+    - target: {fileID: 5580236710283130774, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 3773701133056599677}
+    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Name
+      value: TrialUI
+      objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -270,11 +280,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Name
-      value: TrialUI
-      objectReference: {fileID: 0}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
@@ -300,18 +305,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1807304203237030806}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1301856713015650334 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
-    type: 3}
-  m_PrefabInstance: {fileID: 1807304203237030806}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325840d8199b63149adf7b10f9b247f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9048722385225194659 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
