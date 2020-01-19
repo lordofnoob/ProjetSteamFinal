@@ -24,17 +24,11 @@ public class Mb_Trial : MonoBehaviour
     //Timer before decay
     float timeBeforeDecay;
 
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         Decay();
     }
 
-    //trial Accomplishment
-    public void EndTrial()
-    {
-     
-        DoThings();
-    }
 
     //trial Result
     public virtual void DoThings()
@@ -101,7 +95,7 @@ public class Mb_Trial : MonoBehaviour
 
         if (trialAccomplishment >= trialRules.accomplishmentNeeded)
         {
-            EndTrial();
+            DoThings();
         }
 
         UpdateFillAmount();
