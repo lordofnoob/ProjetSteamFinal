@@ -47,8 +47,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.049635887, y: 0.23684168, z: 1.0460329}
-  m_Center: {x: -0.019648552, y: 0.07958341, z: 0.03703451}
+  m_Size: {x: 0.05, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &623295665270533790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +65,8 @@ MonoBehaviour:
   trialAccomplishment: 0
   listOfUser: []
   animationType: 0
+  animatorAssociated: {fileID: 0}
+  uiAnimator: {fileID: 0}
   uiToFill: {fileID: 0}
   textUser: {fileID: 0}
   uiToTrigger: {fileID: 0}
@@ -73,6 +75,7 @@ MonoBehaviour:
   itemType: 2
   itemValue: 500
   thrown: 0
+  spriteOfTheItem: {fileID: 0}
 --- !u!54 &1265627429655428227
 Rigidbody:
   m_ObjectHideFlags: 0
