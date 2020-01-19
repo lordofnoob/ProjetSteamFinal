@@ -25,12 +25,12 @@ public class Mb_Door : Mb_Trial
             endPose.Add(doorToMove[i].position+ new Vector3(0, yToAdd,0));
             beginPose.Add(doorToMove[i].position);
         }
-
-        for (int i = 0; i < doorToMove.Length; i++)
-        {
-            endPoseDesynch.Add(desynchronisedDoor[i].position - new Vector3(0, yToAdd, 0));
-            beginPoseDesynch.Add(desynchronisedDoor[i].position);
-        }
+        if (desynchronisedDoor.Length >0)
+            for (int i = 0; i < doorToMove.Length; i++)
+            {
+                endPoseDesynch.Add(desynchronisedDoor[i].position - new Vector3(0, yToAdd, 0));
+                beginPoseDesynch.Add(desynchronisedDoor[i].position);
+            }
 
     }
     public override void DoThings()
@@ -60,16 +60,26 @@ public class Mb_Door : Mb_Trial
     {
         for (int i = 0; i < doorToMove.Length; i++)
             doorToMove[i].DOMove(endPose[i], timeToDo);
-        for (int i = 0; i < doorToMove.Length; i++)
-            desynchronisedDoor[i].DOMove(beginPoseDesynch[i], timeToDo);
+
+        if (desynchronisedDoor.Length>0)
+            for (int i = 0; i < doorToMove.Length; i++)
+                desynchronisedDoor[i].DOMove(beginPoseDesynch[i], timeToDo);
         open = !open;
     }
     public void CloseDoor()
     {
         for (int i = 0; i < doorToMove.Length; i++)
-            doorToMove[i].DOMove(beginPoseDesynch[i], timeToDo);
-        for (int i = 0; i < doorToMove.Length; i++)
-            desynchronisedDoor[i].DOMove(endPoseDesynch[i], timeToDo);
+            doorToMove[i].DOMove(beginPose[i], timeToDo);
+
+        if (desynchronisedDoor.Length > 0)
+            for (int i = 0; i < doorToMove.Length; i++)
+                desynchronisedDoor[i].DOMove(endPoseDesynch[i], timeToDo);
+
         open = !open;
+    }
+
+    public virtual void ResetParameters()
+    {
+
     }
 }
