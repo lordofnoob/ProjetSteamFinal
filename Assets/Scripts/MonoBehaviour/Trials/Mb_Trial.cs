@@ -24,7 +24,7 @@ public class Mb_Trial : MonoBehaviour
     //Timer before decay
     float timeBeforeDecay;
 
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         Decay();
     }

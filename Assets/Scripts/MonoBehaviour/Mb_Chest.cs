@@ -45,9 +45,7 @@ public class Mb_Chest : Mb_Trial
 
     public override void DoThings()
     {
-        print("Before" + currentItemToGiveIndex);
         currentItemToGiveIndex += allItemToDrop[currentInteractionIndex].itemToDrop.Length;
-        print("After" + currentItemToGiveIndex);
         for (int i= currentItemIndex; i < currentItemToGiveIndex; i++)
         {
            
