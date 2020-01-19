@@ -83,12 +83,11 @@ public class Mb_PlayerControler : MonoBehaviour
         Vector3 targetMovePosition = liveParameters.MoveSpeed * liveParameters.AccelerationRate.Evaluate(CurrentStickDirection().magnitude) * moveDir + moveInfluence.strengthApplied;
 
         RaycastHit hit;
-        bool raycastHit = Physics.Raycast(new Vector3(transform.position.x, 0f, transform.position.z), moveDir, out hit,1, ~(1 << 9));
+        bool raycastHit = Physics.Raycast(new Vector3(transform.position.x, 0f, transform.position.z), moveDir, out hit,.5f, ~(1 << 9));
 
 
         if (raycastHit)
         {
-            Debug.Log("hit");
             targetMovePosition = Vector3.ProjectOnPlane(targetMovePosition, hit.normal);
         }
 
@@ -127,9 +126,10 @@ public class Mb_PlayerControler : MonoBehaviour
         }
 
 
-       else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Released
+       else if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
        && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
         {
+            print("uesg");
             //setup du trigger de l anim si tu porte un objet ou pas
             if (itemHold != null)
             {

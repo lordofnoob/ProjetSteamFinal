@@ -29,12 +29,6 @@ public class Mb_Trial : MonoBehaviour
         Decay();
     }
 
-    //trial Accomplishment
-    public void EndTrial()
-    {
-     
-        DoThings();
-    }
 
     //trial Result
     public virtual void DoThings()
@@ -101,7 +95,7 @@ public class Mb_Trial : MonoBehaviour
 
         if (trialAccomplishment >= trialRules.accomplishmentNeeded)
         {
-            EndTrial();
+            DoThings();
         }
 
         UpdateFillAmount();
