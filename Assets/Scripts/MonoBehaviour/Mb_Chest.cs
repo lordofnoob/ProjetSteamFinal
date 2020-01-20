@@ -30,7 +30,7 @@ public class Mb_Chest : Mb_Trial
         }
     }
 
-    private void Awake()
+    public override void Awake()
     {
         for (int i = 0; i < allItemToDrop.Length; i++)
         {
@@ -41,6 +41,7 @@ public class Mb_Chest : Mb_Trial
                 newItem.gameObject.SetActive(false);
             }
         }
+        base.Awake();
     }
 
     public override void DoThings()

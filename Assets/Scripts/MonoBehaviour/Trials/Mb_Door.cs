@@ -18,7 +18,7 @@ public class Mb_Door : Mb_Trial
 
     bool open = false;
 
-    private void Awake()
+    public override void Awake()
     {
         for (int i = 0; i < doorToMove.Length; i++)
         {
@@ -31,6 +31,7 @@ public class Mb_Door : Mb_Trial
                 endPoseDesynch.Add(desynchronisedDoor[i].position - new Vector3(0, yToAdd, 0));
                 beginPoseDesynch.Add(desynchronisedDoor[i].position);
             }
+        base.Awake();
 
     }
     public override void DoThings()

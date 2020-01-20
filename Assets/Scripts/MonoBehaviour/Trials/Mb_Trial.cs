@@ -28,7 +28,11 @@ public class Mb_Trial : MonoBehaviour
     {
         Decay();
     }
-
+    
+    public virtual void Awake()
+    {
+        listOfUser = new List<Mb_PlayerControler>();
+    }
 
     //trial Result
     public virtual void DoThings()
