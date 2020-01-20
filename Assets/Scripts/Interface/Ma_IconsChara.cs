@@ -6,7 +6,9 @@ public class Ma_IconsChara : MonoBehaviour
 {
 
     public Animator[] animator;
+    
 
+    
     private void OnEnable()
     {
         SetIdleUI();
@@ -16,7 +18,7 @@ public class Ma_IconsChara : MonoBehaviour
     {
         for (int i = 0; i < animator.Length; i++)
         {
-            animator[i].SetTrigger("IdleUI");
+            animator[i].SetFloat("Offset", Random.Range(0.0f, 1.0f));
         }
     }
 }
