@@ -5,6 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
+    [SerializeField] Sc_SoundParameters soundParameters;
     AudioSource source;
 
     private void Awake()
@@ -20,6 +21,6 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(AudioClip soundToPlay, float volume)
     {
-        source.PlayOneShot(soundToPlay, volume);
+        source.PlayOneShot(soundToPlay, volume*soundParameters.effectVolume);
     }
 }

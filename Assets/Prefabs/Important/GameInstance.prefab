@@ -45,6 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelParameters: {fileID: 11400000, guid: 61b7cba2bd8694043b4e9988aac564c4, type: 2}
   doorToCloseOnEvent: []
+  allLightToSwitchOff: []
+  waitBeforeLight: 0
+  wallToGetUp: []
   timeSpentEvent1: 0
   timeSpentEvent2: 0
   timeSpentEvent3: 0
@@ -188,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4c2c04e90e3d14884b436c3b9ba78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundParameters: {fileID: 11400000, guid: 592b8a2e804629743b09d71a9e8f90aa, type: 2}
 --- !u!1 &2597393162314548645
 GameObject:
   m_ObjectHideFlags: 0

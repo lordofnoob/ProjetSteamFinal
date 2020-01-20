@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Gamemanager : MonoBehaviour
 {
     public static Gamemanager instance;
     public Sc_LevelParameters levelParameters;
+    bool objectiveItem1, objectiveItem2, objectiveMoney;
     float moneyStolen;
     float timeRemaining;
     bool isPause;
-    bool objectiveItem1, objectiveItem2, objectiveMoney;
+   
 
-
+    [Header("DoorEvent")]
     public Mb_Door[] doorToCloseOnEvent;
+
+    [Header("LightEvent")]
+    public Light[] allLightToSwitchOff;
+    [SerializeField] float waitBeforeLight;
+
+    [Header("WallToDeploy")]
+    [SerializeField] Mb_Door[] wallToGetUp;
 
     [SerializeField] float timeSpentEvent1, timeSpentEvent2, timeSpentEvent3;
 
@@ -25,8 +34,6 @@ public class Gamemanager : MonoBehaviour
 
         timeRemaining = levelParameters.timeToDoTheLevel;
     }
-
-       
 
     public void CheckItemToGet(Mb_Item itemStolen)
     {
@@ -113,18 +120,53 @@ public class Gamemanager : MonoBehaviour
 
     void RandomEvent()
     {
-        Random.Range(0, 1);
+       int eventToTrigger = Random.Range(0, 1);
 
+        if (eventToTrigger == 0)
+            CloseDoor();
+        else if (eventToTrigger == 1)
+            LightOut();
     }
 
     void CloseDoor()
     {
-
+        for (int i = 0; i < doorToCloseOnEvent.Length; i++)
+        {
+            doorToCloseOnEvent[i].CloseDoor();
+        }
     }
 
+    void WallDeclenchment()
+    {
+        for (int i = 0; i < wallToGetUp.Length; i++)
+        {
+            wallToGetUp[i].CloseDoor();
+        }
+    }
+    //Light Event
+    #region
     void LightOut()
     {
-
+        for (int i =0; i <allLightToSwitchOff.Length; i++)
+        {
+            allLightToSwitchOff[i].DOIntensity(0, 2);
+        }
+        StartCoroutine("WaitBeforeLightOn");
     }
+
+    void LightOn()
+    {
+        for (int i = 0; i < allLightToSwitchOff.Length; i++)
+        {
+            allLightToSwitchOff[i].DOIntensity(1, 2);
+        } 
+    }
+
+    IEnumerator WaitBeforeLightOn()
+    {
+        yield return new WaitForSeconds(waitBeforeLight);
+        LightOn();
+    }
+    #endregion
 }
 
