@@ -7,16 +7,17 @@ using DG.Tweening;
 public class Mb_TrialCollider : MonoBehaviour
 {
     [SerializeField] Mb_Trial trialAssociated;
-    public Mb_PlayerControler currentUser;
     GamePadState controlerOfTheUser;
     [SerializeField] Transform PositionToLookAndPut;
     bool isAnItem = false;
+    public Mb_PlayerControler currentUser;
     // List<Mb_PlayerControler> listOfUser;
 
     private void Start()
     {
         if (trialAssociated.GetComponent<Mb_Item>())
             isAnItem = true;
+        currentUser = null;
     }
 
 
@@ -28,7 +29,7 @@ public class Mb_TrialCollider : MonoBehaviour
         {
             if (currentUser == null)
             {
-                trialAssociated.UiAppearence();
+                trialAssociated.UiAppearence(); trialAssociated.UiActivate();
                 playerOccupying.AddOverlapedTrial(trialAssociated);
                 currentUser = playerOccupying;
                 trialAssociated.AddUser(currentUser);
@@ -39,19 +40,16 @@ public class Mb_TrialCollider : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Mb_PlayerControler playerLeaving = other.GetComponent<Mb_PlayerControler>();
+        trialAssociated.RemoveUser(playerLeaving);
+        playerLeaving.RemoveOverlapedTrial(trialAssociated);
 
         if (currentUser == playerLeaving)
         {
-            playerLeaving.RemoveOverlapedTrial(trialAssociated);
-
-            trialAssociated.RemoveUser(playerLeaving);
-
-            /*if (trialAssociated.listOfUser.Count == 0)
-                trialAssociated.ResetAccomplishment();*/
-            if (currentUser == null)
+            if (trialAssociated.listOfUser.Count==0)
             {
                 trialAssociated.ResetAccomplishment();
                 trialAssociated.UiDisaparence();
+                trialAssociated.UiDisactivate();
             }
 
             currentUser = null;

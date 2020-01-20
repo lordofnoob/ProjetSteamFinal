@@ -21,11 +21,12 @@ public class Mb_Item : Mb_Trial
     [Header("ItemSprite")]
     [SerializeField] Sprite spriteOfTheItem;
 
-    protected virtual void Awake()
+   public override void Awake()
     {
         coll = GetComponent<Collider>();
         body = GetComponent<Rigidbody>();
         speedInfluencer = GetComponent<Mb_Speedable>();
+        base.Awake();
     }
 
     private void OnCollisionEnter(Collision collision)
