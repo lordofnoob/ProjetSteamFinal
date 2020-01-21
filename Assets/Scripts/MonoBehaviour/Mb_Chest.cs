@@ -55,8 +55,13 @@ public class Mb_Chest : Mb_Trial
             LerpItem(positionToLerpItem, gameObjectToGive[i]);
         }
 
+
         currentItemIndex = currentItemToGiveIndex;
         currentInteractionIndex++;
+        if (currentInteractionIndex < allItemToDrop.Length)
+            animatorAssociated.SetBool("StillFull", true);
+        else
+            animatorAssociated.SetBool("StillFull", false);
 
         base.DoThings();
     }
