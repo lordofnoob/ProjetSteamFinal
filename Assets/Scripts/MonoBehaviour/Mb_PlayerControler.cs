@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Mb_PlayerControler : MonoBehaviour
 {
     [Header("Manette")]
-    public PlayerIndex playerIndex;
+    [HideInInspector] public PlayerIndex playerIndex;
     [HideInInspector]public Ma_InputController inputController;
 
     [Header("Movement")]
