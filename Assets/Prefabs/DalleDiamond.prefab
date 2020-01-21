@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1713395620184874709}
   - component: {fileID: 1713395620184874710}
   - component: {fileID: 1713395620184874711}
-  - component: {fileID: 1713395620184874708}
   m_Layer: 0
   m_Name: MetalBorders
   m_TagString: Untagged
@@ -27,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713395620184874706}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.000013601035}
-  m_LocalPosition: {x: -0.0000076293945, y: -0.17799997, z: 0.8264904}
+  m_LocalPosition: {x: -0.0000076293945, y: -0.17799997, z: 0.4324904}
   m_LocalScale: {x: 1, y: 0.345556, z: 0.06}
   m_Children: []
   m_Father: {fileID: 1713395620691061301}
@@ -79,19 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1713395620184874708
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713395620184874706}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1713395620569611429
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +89,6 @@ GameObject:
   - component: {fileID: 1713395620569611428}
   - component: {fileID: 1713395620569611449}
   - component: {fileID: 1713395620569611430}
-  - component: {fileID: 1713395620569611431}
   m_Layer: 0
   m_Name: MetalBorders
   m_TagString: Untagged
@@ -119,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713395620569611429}
   m_LocalRotation: {x: -0, y: 0.7071037, z: -0, w: 0.7071098}
-  m_LocalPosition: {x: 0.46970367, y: -0.17799997, z: 0.3615017}
+  m_LocalPosition: {x: 0.46970367, y: -0.17799997, z: -0.0324983}
   m_LocalScale: {x: 0.87098324, y: 0.345556, z: 0.06}
   m_Children: []
   m_Father: {fileID: 1713395620691061301}
@@ -171,19 +156,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1713395620569611431
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713395620569611429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1713395620611560403
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713395620611560403}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.38}
+  m_LocalPosition: {x: 0, y: 0, z: -0.014}
   m_LocalScale: {x: 1, y: 1, z: 0.86389}
   m_Children: []
   m_Father: {fileID: 1713395620691061301}
@@ -248,7 +220,6 @@ GameObject:
   - component: {fileID: 1713395620685880375}
   - component: {fileID: 1713395620685880328}
   - component: {fileID: 1713395620685880329}
-  - component: {fileID: 1713395620685880374}
   m_Layer: 0
   m_Name: MetalBorders
   m_TagString: Untagged
@@ -264,7 +235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713395620685880372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.17799997, z: -0.044}
+  m_LocalPosition: {x: 0, y: -0.17799997, z: -0.43799996}
   m_LocalScale: {x: 1, y: 0.345556, z: 0.06}
   m_Children: []
   m_Father: {fileID: 1713395620691061301}
@@ -316,19 +287,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1713395620685880374
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713395620685880372}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1713395620691061298
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1713395620691061301}
+  - component: {fileID: 5268062504224722289}
   m_Layer: 0
   m_Name: DalleDiamond
   m_TagString: Untagged
@@ -365,6 +324,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5268062504224722289
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713395620691061298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!1 &1713395620914658389
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +348,6 @@ GameObject:
   - component: {fileID: 1713395620914658388}
   - component: {fileID: 1713395620914658345}
   - component: {fileID: 1713395620914658390}
-  - component: {fileID: 1713395620914658391}
   m_Layer: 0
   m_Name: WoodenCenter
   m_TagString: Untagged
@@ -392,7 +363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713395620914658389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0114, y: -0.15208, z: 0.4043}
+  m_LocalPosition: {x: -0.0114, y: -0.15208, z: 0.01030001}
   m_LocalScale: {x: 0.8865179, y: 0.23185241, z: 0.8764663}
   m_Children: []
   m_Father: {fileID: 1713395620691061301}
@@ -444,19 +415,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1713395620914658391
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713395620914658389}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1713395621454819294
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +426,6 @@ GameObject:
   - component: {fileID: 1713395621454819281}
   - component: {fileID: 1713395621454819282}
   - component: {fileID: 1713395621454819283}
-  - component: {fileID: 1713395621454819280}
   m_Layer: 0
   m_Name: MetalBorders
   m_TagString: Untagged
@@ -484,7 +441,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713395621454819294}
   m_LocalRotation: {x: -0, y: -0.70710015, z: -0, w: 0.70711344}
-  m_LocalPosition: {x: -0.4697, y: -0.17799997, z: 0.421}
+  m_LocalPosition: {x: -0.4697, y: -0.17799997, z: 0.02700001}
   m_LocalScale: {x: 0.87098324, y: 0.345556, z: 0.06}
   m_Children: []
   m_Father: {fileID: 1713395620691061301}
@@ -536,16 +493,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1713395621454819280
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713395621454819294}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

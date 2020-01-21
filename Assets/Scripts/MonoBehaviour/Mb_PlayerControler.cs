@@ -8,7 +8,7 @@ public class Mb_PlayerControler : MonoBehaviour
 {
     [Header("Manette")]
     [HideInInspector] public PlayerIndex playerIndex;
-    [HideInInspector]public Ma_InputController inputController;
+    public Ma_InputController inputController;
 
     [Header("Movement")]
     [SerializeField] Sc_PlayerCharact playerCharacts;

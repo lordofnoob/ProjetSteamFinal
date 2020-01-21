@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 5107057508230559539}
   - component: {fileID: 2489779910401288905}
   - component: {fileID: 2911681783612762112}
+  - component: {fileID: 9085445533082485328}
   m_Layer: 0
   m_Name: TrialUI
   m_TagString: Untagged
@@ -206,6 +207,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UiScale: 50
+--- !u!114 &9085445533082485328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658906820054824294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d9acc9c06255a41b4e84ff432fd01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToFollow: {fileID: 0}
 --- !u!1 &3963614026357529125
 GameObject:
   m_ObjectHideFlags: 0

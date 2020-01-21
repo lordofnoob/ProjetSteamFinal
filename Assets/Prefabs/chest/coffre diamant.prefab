@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trialAssociated: {fileID: 8521807158821637774}
-  currentUser: {fileID: 0}
   PositionToLookAndPut: {fileID: 1280494560946369468}
+  currentUser: {fileID: 0}
 --- !u!114 &3677369870100105740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,11 +261,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8392177507749747456}
     m_Modifications:
-    - target: {fileID: 5862679244604991412, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
-        type: 3}
-      propertyPath: m_Name
-      value: Vitrine
-      objectReference: {fileID: 0}
     - target: {fileID: 480056002650775746, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -305,6 +300,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862679244604991412, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
+        type: 3}
+      propertyPath: m_Name
+      value: Vitrine
       objectReference: {fileID: 0}
     - target: {fileID: 3208227012825105531, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
         type: 3}
@@ -501,29 +501,34 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5971be30365854a43841dda2c8e32b22,
-        type: 3}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 0345cf9de9284a440b2c33a301e73ff2,
         type: 3}
+    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 8392177507749747456}
     - target: {fileID: 4895995507470802420, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e4408e33bfb8856488be243a0e2a8dfd,
         type: 3}
-    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+    - target: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
-      propertyPath: transformToFollow
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8392177507749747456}
+      objectReference: {fileID: 21300000, guid: 5971be30365854a43841dda2c8e32b22,
+        type: 3}
+    - target: {fileID: 9085445533082485328, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: itemToFollow
+      value: 
+      objectReference: {fileID: 4147061386348554149}
     m_RemovedComponents:
     - {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}

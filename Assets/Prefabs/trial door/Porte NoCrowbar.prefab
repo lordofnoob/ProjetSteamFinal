@@ -275,8 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trialAssociated: {fileID: 5962358891725596924}
-  currentUser: {fileID: 0}
   PositionToLookAndPut: {fileID: 3894122007974810991}
+  currentUser: {fileID: 0}
 --- !u!1001 &6713242629846073266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -434,6 +434,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8396297803024005456}
     m_Modifications:
+    - target: {fileID: 5580236710283130774, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 8396297803024005456}
     - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Name
@@ -544,27 +549,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8165662012216527944, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165091868671301596, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: 
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165091868671301596, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5971be30365854a43841dda2c8e32b22,
-        type: 3}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -582,11 +566,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e4408e33bfb8856488be243a0e2a8dfd,
         type: 3}
-    - target: {fileID: 5580236710283130774, guid: 176652a470417194c82f0c5bcac95a05,
+    - target: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
-      propertyPath: transformToFollow
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8396297803024005456}
+      objectReference: {fileID: 21300000, guid: 5971be30365854a43841dda2c8e32b22,
+        type: 3}
+    - target: {fileID: 8165662012216527944, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165091868671301596, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: 
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165091868671301596, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085445533082485328, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: itemToFollow
+      value: 
+      objectReference: {fileID: 7355965901621817566}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
 --- !u!224 &6851653351270641352 stripped
