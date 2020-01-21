@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Mb_GamepadManagerMenu : MonoBehaviour
 {
-    [Header("TEST & DEBUG")]
+    //[Header("TEST & DEBUG")]
     //public List<Mb_LoadSkinAndMask> players;
 
     public static Mb_GamepadManagerMenu instance;
@@ -31,6 +31,30 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+        }
+
+        Ma_InputController[] inputControllers = GetComponents<Ma_InputController>();
+        for(int i = 0; i < inputControllers.Length; i++)
+        {
+            switch (inputControllers[i].playerIndex)
+            {
+                case PlayerIndex.One:
+                    playerList[0].inputController = inputControllers[i];
+                    break;
+
+                case PlayerIndex.Two:
+                    playerList[1].inputController = inputControllers[i];
+                    break;
+
+                case PlayerIndex.Three:
+                    playerList[2].inputController = inputControllers[i];
+                    break;
+
+                case PlayerIndex.Four:
+                    playerList[3].inputController = inputControllers[i];
+                    break;
+
+            }
         }
     }
 

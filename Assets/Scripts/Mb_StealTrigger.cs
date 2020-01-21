@@ -14,8 +14,11 @@ public class Mb_StealTrigger : MonoBehaviour
         if (itemEntering != null && itemEntering.itemType == ItemType.Loot)
         {
             CheckItem(itemEntering);
-            particleToPop.transform.position = other.transform.position;
-            particleToPop.Play();
+            if(particleToPop != null)
+            {
+                particleToPop.transform.position = other.transform.position;
+                particleToPop.Play();
+            }
         }
         else if (itemEntering != null)
         {

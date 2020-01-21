@@ -75,11 +75,13 @@ public class Mb_Trial : MonoBehaviour
         //rajouter 1 parce que j update la lust que après avoir la condition ps: jui con
         if (listOfUser.Count < trialRules.numberOfPlayerNeeded)
             interactionAvaible = false;
-
-        if (interactionAvaible == true)
-            uiAnimator.SetBool("WrongItem", false);
-        else
-            uiAnimator.SetBool("WrongItem", true);
+        if(uiAnimator != null)
+        {
+            if (interactionAvaible == true)
+                uiAnimator.SetBool("WrongItem", false);
+            else
+                uiAnimator.SetBool("WrongItem", true);
+        }
 
         return interactionAvaible;
     }

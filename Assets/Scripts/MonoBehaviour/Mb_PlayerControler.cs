@@ -31,6 +31,9 @@ public class Mb_PlayerControler : MonoBehaviour
     public Transform itemHandle;
     public Animator rAnimator;
 
+    [Header("Particle System Part")]
+    public ParticleSystem ps_retournement;
+
     [Header("Ui")]
     public Image strengthBar;
 
@@ -85,10 +88,17 @@ public class Mb_PlayerControler : MonoBehaviour
         RaycastHit hit;
         bool raycastHit = Physics.Raycast(new Vector3(transform.position.x, 0f, transform.position.z), moveDir, out hit,.5f, ~(1 << 9));
 
-
         if (raycastHit)
         {
             targetMovePosition = Vector3.ProjectOnPlane(targetMovePosition, hit.normal);
+        }
+
+        // /!\ DETECT RETOURNEMENT -> if(retournement) particleSystem.setActive(true)
+        Vector3 oldMoveDir = OldStickDirectionNormalized();
+        //Debug.Log(" OldMovDir : " + oldMoveDir + ", currentMovDir : " + moveDir);
+        if(oldMoveDir != moveDir && oldMoveDir == moveDir * -1)
+        {
+            Debug.Log("#RETOURNEMENT# OldMovDir : " + oldMoveDir + ", currentMovDir : " + moveDir);
         }
 
         body.velocity = targetMovePosition;

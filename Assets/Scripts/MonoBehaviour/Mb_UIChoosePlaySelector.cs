@@ -12,8 +12,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
     [Header("Manette")]
     public PlayerIndex playerIndex;
     public Color playerColor;
-    GamePadState controlerUsedOldState;
-    GamePadState controlerUsedState;
+    public Ma_InputController inputController;
 
     [Header("Prefabs")]
     public List<GameObject> listOfAllSkins;
@@ -46,8 +45,6 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
 
     private void Update()
     {
-        controlerUsedOldState = controlerUsedState;
-        controlerUsedState = GamePad.GetState(playerIndex);
 
         if (!playerIsReady && playerIsConnected)
         {
@@ -167,11 +164,11 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
     public int CurrentXAxis()
     {
         int res;
-        if (controlerUsedState.ThumbSticks.Left.X > 0 || controlerUsedState.DPad.Right == ButtonState.Pressed)
+        if (inputController.LeftThumbStick.x > 0 || inputController.DpadRight == ButtonState.Pressed)
         {
             res = 1;
         }
-        else if (controlerUsedState.ThumbSticks.Left.X < 0 || controlerUsedState.DPad.Left == ButtonState.Pressed)
+        else if (inputController.LeftThumbStick.x < 0 || inputController.DpadLeft == ButtonState.Pressed)
         {
             res = -1;
         }
@@ -186,11 +183,11 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
     public int OldXAxis()
     {
         int res;
-        if (controlerUsedOldState.ThumbSticks.Left.X > 0 || controlerUsedOldState.DPad.Right == ButtonState.Pressed)
+        if (inputController.OldLeftThumbStick.x > 0 || inputController.OldDpadRight == ButtonState.Pressed)
         {
             res = 1;
         }
-        else if (controlerUsedOldState.ThumbSticks.Left.X < 0 || controlerUsedOldState.DPad.Left == ButtonState.Pressed)
+        else if (inputController.OldLeftThumbStick.x < 0 || inputController.OldDpadRight == ButtonState.Pressed)
         {
             res = -1;
         }
@@ -204,11 +201,11 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
     public int CurrentYAxis()
     {
         int res;
-        if (controlerUsedState.ThumbSticks.Left.Y > 0 || controlerUsedState.DPad.Up == ButtonState.Pressed)
+        if (inputController.LeftThumbStick.z > 0 || inputController.DPadUp == ButtonState.Pressed)
         {
             res = 1;
         }
-        else if(controlerUsedState.ThumbSticks.Left.Y < 0 || controlerUsedState.DPad.Down == ButtonState.Pressed)
+        else if(inputController.LeftThumbStick.z < 0 || inputController.DpadDown == ButtonState.Pressed)
         {
             res = -1;
         }
@@ -223,11 +220,11 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
     public int OldYAxis()
     {
         int res;
-        if (controlerUsedOldState.ThumbSticks.Left.Y > 0 || controlerUsedOldState.DPad.Up == ButtonState.Pressed)
+        if (inputController.OldLeftThumbStick.z > 0 || inputController.OldDPadUp == ButtonState.Pressed)
         {
             res = 1;
         }
-        else if(controlerUsedOldState.ThumbSticks.Left.Y < 0 || controlerUsedOldState.DPad.Down == ButtonState.Pressed)
+        else if(inputController.OldLeftThumbStick.z < 0 || inputController.OldDpadDown == ButtonState.Pressed)
         {
             res = -1;
         }
@@ -240,7 +237,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
 
     public void XPress()
     {
-        if(controlerUsedState.Buttons.X == ButtonState.Pressed)
+        if(inputController.XButton == ButtonState.Pressed)
         {
             playerIsReady = true;
             Mb_GamepadManagerMenu.instance.readyPlayerNbr++;
@@ -254,7 +251,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
 
     public void BPress()
     {
-        if(controlerUsedOldState.Buttons.B == ButtonState.Released && controlerUsedState.Buttons.B == ButtonState.Pressed)
+        if(inputController.BButton == ButtonState.Released && inputController.OldBButton == ButtonState.Pressed)
         {
             if (playerIsReady)
             {
