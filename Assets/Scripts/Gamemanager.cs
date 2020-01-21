@@ -93,7 +93,7 @@ public class Gamemanager : MonoBehaviour
     public void AddMoney(int moneyToAdd)
     {
         moneyStolen += moneyToAdd;
-        Ma_UiManager.instance.UpdateMoney(moneyToAdd);
+        Ma_UiManager.instance.UpdateMoney(moneyStolen);
         CheckMoney();
     }
 
