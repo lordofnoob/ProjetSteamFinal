@@ -7,17 +7,16 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fade
+  m_Name: fade - Yellow 1
   m_Shader: {fileID: -6465566751694194690, guid: 413e4d0a2d4e8de45b565c819a39aecd,
     type: 3}
-  m_ShaderKeywords: _BLENDMODE_PRE_MULTIPLY _DOUBLESIDED_ON _SURFACE_TYPE_TRANSPARENT
+  m_ShaderKeywords: _DOUBLESIDED_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 2750
+  m_CustomRenderQueue: 2000
   stringTagMap:
     MotionVector: User
-    RenderType: Transparent
   disabledShaderPasses:
   - TransparentBackface
   - MOTIONVECTORS
@@ -117,9 +116,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_9DA46B2: 2
+    - Boolean_3BE1F00F: 0
+    - Vector1_9DA46B2: 0.5
     - Vector1_D4499731: 1
-    - Vector1_EDF29356: 1
+    - Vector1_EDF29356: 0.65
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -130,7 +130,7 @@ Material:
     - _AlphaCutoffPostpass: 0.5
     - _AlphaCutoffPrepass: 0.5
     - _AlphaCutoffShadow: 0.5
-    - _AlphaDstBlend: 10
+    - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
     - _BlendMode: 4
@@ -163,7 +163,7 @@ Material:
     - _DistortionVectorScale: 2
     - _DoubleSidedEnable: 1
     - _DoubleSidedNormalMode: 1
-    - _DstBlend: 10
+    - _DstBlend: 0
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
@@ -187,6 +187,7 @@ Material:
     - _Ior: 1
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
+    - _IsActive: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
@@ -199,7 +200,7 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _ReceivesSSR: 0
     - _RefractionModel: 0
-    - _RenderQueueType: 4
+    - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _SSRefractionProjectionModel: 0
     - _Smoothness: 0.5
@@ -220,7 +221,7 @@ Material:
     - _StencilWriteMaskMV: 176
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
-    - _SurfaceType: 1
+    - _SurfaceType: 0
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
@@ -237,15 +238,16 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _ZTestDepthEqualForOpaque: 0
+    - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestModeDistortion: 8
     - _ZTestTransparent: 0
     - _ZWrite: 1
     m_Colors:
-    - Color_A44CEAE4: {r: 0.7735849, g: 0.22988607, b: 0.22988607, a: 1}
-    - Color_CFE1B0D3: {r: 0.5849056, g: 0.31176573, b: 0.3278328, a: 1}
+    - Color_A44CEAE4: {r: 0.8207547, g: 0.5267202, b: 0, a: 1}
+    - Color_CFE1B0D3: {r: 1, g: 1, b: 1, a: 1}
     - Vector2_195B5BCE: {r: 5.05, g: 1, b: 0, a: 0}
+    - Vector4_FE58AB6E: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -262,3 +264,4 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
+    - _Vector2: {r: 0.21, g: 1, b: 0, a: 0}
