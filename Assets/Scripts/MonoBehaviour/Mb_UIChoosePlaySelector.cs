@@ -70,6 +70,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
 
             if (currentStickXAxis != 0 && currentStickXAxis != oldStickXAxis)
             {
+                Debug.Log("CurrentXAxis : " + currentStickXAxis + ", OldXAxis : " + oldStickXAxis);
                 if (activeArrows == skinArrowsPanel)
                 {
                     if (listOfAllSkins.IndexOf(activeSkin) == listOfAllSkins.Count - 1 && currentStickXAxis == 1)
@@ -187,7 +188,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         {
             res = 1;
         }
-        else if (inputController.OldLeftThumbStick.x < 0 || inputController.OldDpadRight == ButtonState.Pressed)
+        else if (inputController.OldLeftThumbStick.x < 0 || inputController.OldDpadLeft == ButtonState.Pressed)
         {
             res = -1;
         }

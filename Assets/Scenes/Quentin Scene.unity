@@ -480,8 +480,10 @@ GameObject:
   m_Component:
   - component: {fileID: 449796326}
   - component: {fileID: 449796325}
+  - component: {fileID: 449796328}
+  - component: {fileID: 449796327}
   m_Layer: 0
-  m_Name: UI Manager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -518,6 +520,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449796327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449796324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a554b44e2a67347b0ae3c5194e5fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelParameters: {fileID: 11400000, guid: bfcf8f46da97ac44e810b2a44543d8d1, type: 2}
+  players:
+  - {fileID: 2140799879}
+  LoadSkinAndMask: 0
+  doorToCloseOnEvent: []
+  allLightToSwitchOff: []
+  waitBeforeLight: 0
+  wallToGetUp: []
+  timeSpentEvent1: 0
+  timeSpentEvent2: 0
+  timeSpentEvent3: 0
+--- !u!114 &449796328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449796324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707fe551f60742b4c949164674205519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 0
+  AButton: 0
+  BButton: 0
+  XButton: 0
+  YButton: 0
+  StartButton: 0
+  DPadUp: 0
+  DpadRight: 0
+  DpadDown: 0
+  DpadLeft: 0
+  OldAButton: 0
+  OldBButton: 0
+  OldXButton: 0
+  OldYButton: 0
+  OldStartButton: 0
+  OldDPadUp: 0
+  OldDpadRight: 0
+  OldDpadDown: 0
+  OldDpadLeft: 0
+  LeftThumbStick: {x: 0, y: 0, z: 0}
+  RightThumbStick: {x: 0, y: 0, z: 0}
+  OldLeftThumbStick: {x: 0, y: 0, z: 0}
+  OldRightThumbStick: {x: 0, y: 0, z: 0}
 --- !u!1001 &699907927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1504,3 +1564,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 229788423f97b4b4fb2bd8ba6450e9ec, type: 3}
+--- !u!114 &2140799879 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7966433378149928929, guid: b7192a15e48df9a4e9d2d7a9b1d3d025,
+    type: 3}
+  m_PrefabInstance: {fileID: 924886554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e364dbce2014654790b9c69e4818025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

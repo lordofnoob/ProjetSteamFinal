@@ -53,7 +53,8 @@ public class Ma_UiManager : MonoBehaviour
 
    public  void UpdateTimeBar(float fillAmount)
     {
-        TimeBar.fillAmount = fillAmount;
+        if(TimeBar != null)
+            TimeBar.fillAmount = fillAmount;
     }
 
     public void SetupEndPannel(float moneyAmount, bool firstObjective, bool secondObjectve, bool thirdObjective)

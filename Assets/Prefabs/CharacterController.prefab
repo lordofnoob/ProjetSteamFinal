@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
+  inputController: {fileID: 0}
   playerCharacts: {fileID: 11400000, guid: 31028255549a5fd4198f5d8bcc188a9c, type: 2}
   itemHold: {fileID: 0}
   placeToThrow: {fileID: 8451626645360395799}
@@ -422,6 +423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PS_Retournement
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214052585042935277, guid: c4be65902e794af43b24f142c24c0b93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 584815859852761660, guid: c4be65902e794af43b24f142c24c0b93,
         type: 3}
@@ -814,11 +820,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7966433378149928941}
     m_Modifications:
-    - target: {fileID: 6752896383240926918, guid: 0c66b83c72e0ae44db338c697defdc3f,
-        type: 3}
-      propertyPath: m_Name
-      value: "PS_Fum\xE9e Marron"
-      objectReference: {fileID: 0}
     - target: {fileID: 2511838956497101384, guid: 0c66b83c72e0ae44db338c697defdc3f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -873,6 +874,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752896383240926918, guid: 0c66b83c72e0ae44db338c697defdc3f,
+        type: 3}
+      propertyPath: m_Name
+      value: "PS_Fum\xE9e Marron"
       objectReference: {fileID: 0}
     - target: {fileID: 1979000188406806977, guid: 0c66b83c72e0ae44db338c697defdc3f,
         type: 3}

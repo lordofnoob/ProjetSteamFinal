@@ -64,8 +64,7 @@ public class Mb_TrialCollider : MonoBehaviour
 
     public void SetupLookAndPosition()
     {
-        controlerOfTheUser = currentUser.controlerUsedState;
-            if (controlerOfTheUser.Buttons.A == ButtonState.Pressed)
+            if (currentUser.inputController.AButton == ButtonState.Pressed)
             {
                 currentUser.transform.DORotate(new Vector3(0, Mathf.Atan2(PositionToLookAndPut.rotation.x, PositionToLookAndPut.rotation.z) * Mathf.Rad2Deg + 90,0), .5f);
                 currentUser.transform.DOMove(new Vector3(PositionToLookAndPut.transform.position.x, currentUser.transform.position.y, PositionToLookAndPut.transform.position.z), 0.5f);

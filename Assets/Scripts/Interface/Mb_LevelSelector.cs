@@ -46,7 +46,7 @@ public class Mb_LevelSelector : MonoBehaviour
 
         if (currentStickYAxis != 0 && currentStickYAxis != oldStickYAxis)
         {
-            Debug.Log("Current Y : " + currentStickYAxis);
+            //Debug.Log("Current Y : " + currentStickYAxis);
             switch (currentStickYAxis)
             {
                 case 1:

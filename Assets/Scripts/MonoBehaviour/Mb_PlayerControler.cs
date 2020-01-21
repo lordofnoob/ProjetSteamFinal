@@ -8,8 +8,7 @@ public class Mb_PlayerControler : MonoBehaviour
 {
     [Header("Manette")]
     public PlayerIndex playerIndex;
-    [HideInInspector] public GamePadState controlerUsedState;
-    GamePadState controlerUsedOldState;
+    [HideInInspector]public Ma_InputController inputController;
 
     [Header("Movement")]
     [SerializeField] Sc_PlayerCharact playerCharacts;
@@ -54,14 +53,11 @@ public class Mb_PlayerControler : MonoBehaviour
         // rAnimator = transform.GetChild(0).GetComponent<Animator>();
         liveParameters = playerCharacts.baseCharacterMovement;
 
-        controlerUsedState = GamePad.GetState(playerIndex);
         UpdateThrowUI();
     }
 
     void Update()
     {
-        controlerUsedOldState = controlerUsedState;
-        controlerUsedState = GamePad.GetState(playerIndex);
 
         //recup des inputs a la frame
         if (canMove == true)
@@ -125,7 +121,7 @@ public class Mb_PlayerControler : MonoBehaviour
     private void APress()
     {
 
-        if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
+        if (inputController.AButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed
             && CurrentTrialsOverlaped.Count > 0  && usedTrial().CanInterract() == true)
         {
             Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
@@ -136,7 +132,7 @@ public class Mb_PlayerControler : MonoBehaviour
         }
 
 
-       else if (controlerUsedOldState.Buttons.A == ButtonState.Released && controlerUsedState.Buttons.A == ButtonState.Pressed
+       else if (inputController.OldAButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed
        && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
         {
             print("uesg");
@@ -155,7 +151,7 @@ public class Mb_PlayerControler : MonoBehaviour
         }
 
 
-        else if (controlerUsedOldState.Buttons.A == ButtonState.Pressed && controlerUsedState.Buttons.A == ButtonState.Pressed
+        else if (inputController.OldAButton == ButtonState.Pressed && inputController.AButton == ButtonState.Pressed
         && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() == true)
         {
             //setup du trigger de l anim si tu porte un objet ou pas
@@ -178,13 +174,13 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void XPress()
     {
-        if (itemHold != null && controlerUsedOldState.Buttons.X == ButtonState.Pressed
-            && controlerUsedState.Buttons.X == ButtonState.Pressed && CurrentTrialsOverlaped.Count == 0)
+        if (itemHold != null && inputController.OldXButton == ButtonState.Pressed
+            && inputController.XButton == ButtonState.Pressed && CurrentTrialsOverlaped.Count == 0)
         {
             PrepThrowItem();
         }
-        else if (itemHold != null && controlerUsedOldState.Buttons.X == ButtonState.Pressed
-            && controlerUsedState.Buttons.X == ButtonState.Released && CurrentTrialsOverlaped.Count == 0)
+        else if (itemHold != null && inputController.OldXButton == ButtonState.Pressed
+            && inputController.XButton == ButtonState.Released && CurrentTrialsOverlaped.Count == 0)
         {
             ThrowItem();
         }
@@ -192,7 +188,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void BPress()
     {
-        if (controlerUsedOldState.Buttons.B == ButtonState.Released && controlerUsedState.Buttons.B == ButtonState.Pressed)
+        if (inputController.OldBButton == ButtonState.Released && inputController.BButton == ButtonState.Pressed)
         {
             // DO SHIT 
         }
@@ -328,7 +324,7 @@ public class Mb_PlayerControler : MonoBehaviour
             return new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         }
         else*/
-        return new Vector3(controlerUsedState.ThumbSticks.Left.X, 0, controlerUsedState.ThumbSticks.Left.Y);
+        return new Vector3(inputController.LeftThumbStick.x, 0, inputController.LeftThumbStick.z);
     }
 
     public Vector3 CurrentStickDirectionNormalized()
@@ -338,16 +334,16 @@ public class Mb_PlayerControler : MonoBehaviour
             return Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
         }/*
         else*/
-            return Vector3.Normalize(new Vector3(controlerUsedState.ThumbSticks.Left.X, 0, controlerUsedState.ThumbSticks.Left.Y));
+            return Vector3.Normalize(new Vector3(inputController.LeftThumbStick.x, 0, inputController.LeftThumbStick.z));
     }
 
     public Vector3 OldStickDirection()
     {
-        return new Vector3(controlerUsedOldState.ThumbSticks.Left.X, 0, controlerUsedOldState.ThumbSticks.Left.Y);
+        return new Vector3(inputController.OldLeftThumbStick.x, 0, inputController.OldLeftThumbStick.z);
     }
     public Vector3 OldStickDirectionNormalized()
     {
-        return Vector3.Normalize(new Vector3(controlerUsedOldState.ThumbSticks.Left.X, 0, controlerUsedOldState.ThumbSticks.Left.Y));
+        return Vector3.Normalize(new Vector3(inputController.OldLeftThumbStick.x, 0, inputController.OldLeftThumbStick.z));
     }
     #endregion
 

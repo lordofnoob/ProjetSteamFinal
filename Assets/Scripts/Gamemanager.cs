@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using XInputDotNetPure;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -11,7 +12,13 @@ public class Gamemanager : MonoBehaviour
     float moneyStolen;
     float timeRemaining;
     bool isPause;
-   
+
+    [Header("Input Controllers")]
+    private Ma_InputController[] inputControllers;
+
+    [Header("All Players")]
+    public Mb_PlayerControler[] players;
+    public bool LoadSkinAndMask = true;
 
     [Header("DoorEvent")]
     public Mb_Door[] doorToCloseOnEvent;
@@ -32,7 +39,43 @@ public class Gamemanager : MonoBehaviour
         else
             Destroy(this);
 
+        inputControllers = GetComponentsInChildren<Ma_InputController>();
+
+        for(int i = 0; i < players.Length; i++)
+        {
+            switch (players[i].playerIndex)
+            {
+                case PlayerIndex.One:
+                    players[i].inputController = inputControllers[0];
+                    break;
+
+                case PlayerIndex.Two:
+                    players[i].inputController = inputControllers[1];
+                    break;
+
+                case PlayerIndex.Three:
+                    players[i].inputController = inputControllers[2];
+                    break;
+
+                case PlayerIndex.Four:
+                    players[i].inputController = inputControllers[3];
+                    break;
+
+            } 
+        }
+
         timeRemaining = levelParameters.timeToDoTheLevel;
+    }
+
+    private void Start()
+    {
+        if (LoadSkinAndMask)
+        {
+            foreach (Mb_PlayerControler player in players)
+            {
+                player.GetComponent<Mb_LoadSkinAndMask>().LoadSkinAndMask();
+            }
+        }
     }
 
     public void CheckItemToGet(Mb_Item itemStolen)
