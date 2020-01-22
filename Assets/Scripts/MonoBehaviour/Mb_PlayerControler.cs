@@ -70,7 +70,7 @@ public class Mb_PlayerControler : MonoBehaviour
     {
         APress();
         XPress();
-        BPress();
+     //   BPress();
       /*  InterractiveInput();
         DeposeInput();
         ThrowInput();*/
@@ -263,9 +263,17 @@ public class Mb_PlayerControler : MonoBehaviour
     private void ThrowItem()
     {
         RaycastHit hit;
-        bool didHit = Physics.Raycast(transform.position, transform.position - placeToThrow.position, out hit, 2, ~(1 << 9 |10 ));
+        //Debug.DrawRay(placeToThrow.position, transform.forward, Color.red, 0.5f); //out hit, 2, ~(1 << 9 | 10));
+       
+        bool didHit = Physics.Raycast(placeToThrow.position, transform.forward, out hit, 2, ~(1 << 9 | 1 <<10 ));
+        
         if (didHit)
-            itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, hit.transform.position);
+        {
+            print(hit.collider.gameObject.name);
+            print(hit.transform.position);
+                itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, hit.point);
+        }
+           
         else
             itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, placeToThrow.position);
 

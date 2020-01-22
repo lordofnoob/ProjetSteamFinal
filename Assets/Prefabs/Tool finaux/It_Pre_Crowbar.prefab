@@ -39,11 +39,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1578613452815996823}
     m_Modifications:
-    - target: {fileID: 5580236710283130774, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: transformToFollow
-      value: 
-      objectReference: {fileID: 1026591035104337687}
     - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Name
@@ -170,6 +165,11 @@ PrefabInstance:
       propertyPath: transformToFollow
       value: 
       objectReference: {fileID: 1026591035104337687}
+    - target: {fileID: 5580236710283130774, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 1026591035104337687}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
 --- !u!224 &3676654720768876575 stripped
@@ -227,12 +227,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1578613452815996823}
     m_Modifications:
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: spriteOfTheItem
-      value: 
-      objectReference: {fileID: 21300000, guid: f4fc1bc6708943546a0f44ca3e206bb4,
-        type: 3}
     - target: {fileID: 7066737649914922598, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -288,16 +282,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1145053446194594856, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
-        type: 3}
-      propertyPath: m_Name
-      value: ToolInteraction (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145053446194594856, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 3790185394171470718, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -338,20 +322,30 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
+    - target: {fileID: 1145053446194594856, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
+        type: 3}
+      propertyPath: m_Name
+      value: ToolInteraction (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145053446194594856, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7012269122581665809, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8106479941857107587, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4550056407323716281, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
         type: 3}
       propertyPath: m_Center.x
-      value: 0.1
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4550056407323716281, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
         type: 3}
@@ -376,8 +370,14 @@ PrefabInstance:
     - target: {fileID: 4550056407323716281, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4550056407323716281, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e887fc4811623684d95c5e4dccec8a62,
+        type: 2}
     - target: {fileID: 623295665270533790, guid: 7c0bacf630093ff4a9dce2dc7ed11db3,
         type: 3}
       propertyPath: uiAnimator
@@ -419,6 +419,12 @@ PrefabInstance:
       propertyPath: PositionToLookAndPut
       value: 
       objectReference: {fileID: 1578613452815996823}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: spriteOfTheItem
+      value: 
+      objectReference: {fileID: 21300000, guid: f4fc1bc6708943546a0f44ca3e206bb4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c0bacf630093ff4a9dce2dc7ed11db3, type: 3}
 --- !u!4 &1026591035104337687 stripped

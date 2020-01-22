@@ -119,6 +119,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3160366786804545617, guid: 8906f5e0e1eefae4f867e64e497cc810,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e887fc4811623684d95c5e4dccec8a62,
+        type: 2}
     - target: {fileID: 3297605485043243584, guid: 8906f5e0e1eefae4f867e64e497cc810,
         type: 3}
       propertyPath: uiToFill
@@ -185,11 +191,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8861652799414605815}
     m_Modifications:
-    - target: {fileID: 5580236710283130774, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: transformToFollow
-      value: 
-      objectReference: {fileID: 3773701133056599677}
     - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Name
@@ -319,6 +320,11 @@ PrefabInstance:
     - target: {fileID: 9085445533082485328, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: itemToFollow
+      value: 
+      objectReference: {fileID: 3773701133056599677}
+    - target: {fileID: 5580236710283130774, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
       value: 
       objectReference: {fileID: 3773701133056599677}
     m_RemovedComponents: []

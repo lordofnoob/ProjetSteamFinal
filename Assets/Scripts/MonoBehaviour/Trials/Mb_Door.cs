@@ -6,7 +6,7 @@ using DG.Tweening;
 public class Mb_Door : Mb_Trial
 {
     [Header("TrialEffect")]
-    [SerializeField] Transform[] doorToMove;
+    public Transform[] doorToMove;
     [SerializeField] Transform[] desynchronisedDoor;
     [SerializeField] float yToAdd;
     [SerializeField] float timeToDo;
