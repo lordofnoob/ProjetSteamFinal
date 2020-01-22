@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
-  inputController: {fileID: 0}
+  inputController: {fileID: 4571607271017390138}
   playerCharacts: {fileID: 11400000, guid: 31028255549a5fd4198f5d8bcc188a9c, type: 2}
   itemHold: {fileID: 0}
   placeToThrow: {fileID: 8451626645360395799}
@@ -864,12 +864,12 @@ PrefabInstance:
     - target: {fileID: 2511838956497101384, guid: 0c66b83c72e0ae44db338c697defdc3f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.801
+      value: -0.948
       objectReference: {fileID: 0}
     - target: {fileID: 2511838956497101384, guid: 0c66b83c72e0ae44db338c697defdc3f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.4
+      value: -0.016
       objectReference: {fileID: 0}
     - target: {fileID: 2511838956497101384, guid: 0c66b83c72e0ae44db338c697defdc3f,
         type: 3}
@@ -937,6 +937,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: aa34c773d1e3989449ce5f830b590173,
         type: 3}
+    - target: {fileID: 1979000188406806977, guid: 0c66b83c72e0ae44db338c697defdc3f,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c66b83c72e0ae44db338c697defdc3f, type: 3}
 --- !u!4 &1696695483114223101 stripped

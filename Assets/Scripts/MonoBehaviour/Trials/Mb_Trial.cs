@@ -13,7 +13,7 @@ public class Mb_Trial : MonoBehaviour
     public float trialAccomplishment;
     public List<Mb_PlayerControler> listOfUser;
     public animationInteractionType animationType;
-    [SerializeField] Animator animatorAssociated;
+    public Animator animatorAssociated;
     [SerializeField] Animator uiAnimator;
     [Header("UIPART")]
     [SerializeField] Image uiToFill;
@@ -39,7 +39,8 @@ public class Mb_Trial : MonoBehaviour
     {
         if (animatorAssociated!= null)
             animatorAssociated.SetTrigger("DoThings");
-        UiDisaparence();
+        if (listOfUser.Count ==0)
+            UiDisaparence();
         ResetAccomplishment();
     }
 
@@ -96,7 +97,7 @@ public class Mb_Trial : MonoBehaviour
 
         else if (trialRules.trialType == TrialType.Mashing)
         {
-            trialAccomplishment += trialRules.accomplishmentToAdd;
+            trialAccomplishment +=1;
         }
 
         if (trialAccomplishment >= trialRules.accomplishmentNeeded)

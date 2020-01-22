@@ -13,6 +13,11 @@ public class Mb_InGameInterface : MonoBehaviour
     private void Awake()
 
     {
+        UpdatePlayerUiItem(PlayerIndex.One, null);
+        UpdatePlayerUiItem(PlayerIndex.Two, null);
+        UpdatePlayerUiItem(PlayerIndex.Three, null);
+        UpdatePlayerUiItem(PlayerIndex.Four, null);
+
         if (instance == null)
             instance = this;
         else

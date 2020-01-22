@@ -8,7 +8,7 @@ public class Mb_PlayerControler : MonoBehaviour
 {
     [Header("Manette")]
     [HideInInspector] public PlayerIndex playerIndex;
-    [HideInInspector]public Ma_InputController inputController;
+    public Ma_InputController inputController;
 
     [Header("Movement")]
     [SerializeField] Sc_PlayerCharact playerCharacts;
@@ -135,7 +135,7 @@ public class Mb_PlayerControler : MonoBehaviour
        else if (inputController.OldAButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed
        && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
         {
-            print("uesg");
+
             //setup du trigger de l anim si tu porte un objet ou pas
             if (itemHold != null)
             {
