@@ -6,9 +6,11 @@ public class Mb_DoorTiming : Mb_Door
 {
     [SerializeField] float timeBeforeClose;
     [SerializeField] Animator feedBackTime;
+    public Mb_DoorTiming[] doorTouched;
     float timing = 0;
     bool counting = false;
     bool canTrigger=true;
+    public bool isOpen = false;
 
     public override bool CanInterract()
     {
@@ -31,6 +33,11 @@ public class Mb_DoorTiming : Mb_Door
 
         else if (counting == true)
         {
+            isOpen = !isOpen;
+            for (int i = 0; i < doorTouched.Length; i++)
+            {
+                doorTouched[i].isOpen = !doorTouched[i].isOpen;
+            }
             DoThings();
             canTrigger = true;
             timing = 0;
@@ -54,7 +61,16 @@ public class Mb_DoorTiming : Mb_Door
 
     public override void DoThings()
     {
-        counting = !counting;
+        if (isOpen == false)
+        {
+            isOpen = !isOpen;
+            for (int i = 0; i < doorTouched.Length; i++)
+            {
+                doorTouched[i].isOpen = !doorTouched[i].isOpen;
+            }
+
+            counting = !counting;
+        }
         base.DoThings();
     }
 
