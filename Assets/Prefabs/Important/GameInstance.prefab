@@ -56,8 +56,19 @@ MonoBehaviour:
   DpadRight: 0
   DpadDown: 0
   DpadLeft: 0
+  OldAButton: 0
+  OldBButton: 0
+  OldXButton: 0
+  OldYButton: 0
+  OldStartButton: 0
+  OldDPadUp: 0
+  OldDpadRight: 0
+  OldDpadDown: 0
+  OldDpadLeft: 0
   LeftThumbStick: {x: 0, y: 0, z: 0}
   RightThumbStick: {x: 0, y: 0, z: 0}
+  OldLeftThumbStick: {x: 0, y: 0, z: 0}
+  OldRightThumbStick: {x: 0, y: 0, z: 0}
 --- !u!114 &1928052300597575881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,8 +91,19 @@ MonoBehaviour:
   DpadRight: 0
   DpadDown: 0
   DpadLeft: 0
+  OldAButton: 0
+  OldBButton: 0
+  OldXButton: 0
+  OldYButton: 0
+  OldStartButton: 0
+  OldDPadUp: 0
+  OldDpadRight: 0
+  OldDpadDown: 0
+  OldDpadLeft: 0
   LeftThumbStick: {x: 0, y: 0, z: 0}
   RightThumbStick: {x: 0, y: 0, z: 0}
+  OldLeftThumbStick: {x: 0, y: 0, z: 0}
+  OldRightThumbStick: {x: 0, y: 0, z: 0}
 --- !u!114 &25990755449682983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,8 +126,19 @@ MonoBehaviour:
   DpadRight: 0
   DpadDown: 0
   DpadLeft: 0
+  OldAButton: 0
+  OldBButton: 0
+  OldXButton: 0
+  OldYButton: 0
+  OldStartButton: 0
+  OldDPadUp: 0
+  OldDpadRight: 0
+  OldDpadDown: 0
+  OldDpadLeft: 0
   LeftThumbStick: {x: 0, y: 0, z: 0}
   RightThumbStick: {x: 0, y: 0, z: 0}
+  OldLeftThumbStick: {x: 0, y: 0, z: 0}
+  OldRightThumbStick: {x: 0, y: 0, z: 0}
 --- !u!114 &2632642607107075098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,8 +161,19 @@ MonoBehaviour:
   DpadRight: 0
   DpadDown: 0
   DpadLeft: 0
+  OldAButton: 0
+  OldBButton: 0
+  OldXButton: 0
+  OldYButton: 0
+  OldStartButton: 0
+  OldDPadUp: 0
+  OldDpadRight: 0
+  OldDpadDown: 0
+  OldDpadLeft: 0
   LeftThumbStick: {x: 0, y: 0, z: 0}
   RightThumbStick: {x: 0, y: 0, z: 0}
+  OldLeftThumbStick: {x: 0, y: 0, z: 0}
+  OldRightThumbStick: {x: 0, y: 0, z: 0}
 --- !u!1 &2062821809714424632
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelParameters: {fileID: 11400000, guid: 61b7cba2bd8694043b4e9988aac564c4, type: 2}
+  playerWhoPressedStart: {fileID: 0}
+  players: []
+  LoadSkinAndMask: 1
   doorToCloseOnEvent: []
   allLightToSwitchOff: []
   waitBeforeLight: 0
@@ -592,6 +639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 0 $
+      objectReference: {fileID: 0}
+    - target: {fileID: 772907383663349380, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 560081143956990215, guid: 88b2222699746d9448b2550ce91a8b29, type: 3}

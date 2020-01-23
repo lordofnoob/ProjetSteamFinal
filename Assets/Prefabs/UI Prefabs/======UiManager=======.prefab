@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inGameCanvas: {fileID: 8935603140147177867}
   StartCanvas: {fileID: 0}
+  PauseCanvas: {fileID: 5037472926014421488}
   EndCanvas: {fileID: 3141402643727171331}
   TimeBar: {fileID: 9205780088329570167}
   moneyText: {fileID: 560081143956990214}
@@ -217,6 +218,31 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7937920816729823039, guid: 81033f7319addf84a8bbd09793427d9d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768604172961543021, guid: 81033f7319addf84a8bbd09793427d9d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971693395492340761, guid: 81033f7319addf84a8bbd09793427d9d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971693395492340761, guid: 81033f7319addf84a8bbd09793427d9d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971693395492340761, guid: 81033f7319addf84a8bbd09793427d9d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81033f7319addf84a8bbd09793427d9d, type: 3}
 --- !u!224 &1513260248560603394 stripped
@@ -255,6 +281,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5037472926014421488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4768604172961543021, guid: 81033f7319addf84a8bbd09793427d9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 560081143629466269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2773234245860613727
 PrefabInstance:
   m_ObjectHideFlags: 0

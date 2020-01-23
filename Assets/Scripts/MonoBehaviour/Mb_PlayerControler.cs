@@ -58,12 +58,26 @@ public class Mb_PlayerControler : MonoBehaviour
 
     void Update()
     {
+        if (!Gamemanager.instance.IsGamePause())
+        {
+            //recup des inputs a la frame
+            if (canMove == true)
+                Move();
+            else
+                body.velocity = moveInfluence.strengthApplied;
+        }
 
-        //recup des inputs a la frame
-        if (canMove == true)
-            Move();
-        else
-            body.velocity = moveInfluence.strengthApplied;
+        if (inputController.StartButton == ButtonState.Pressed && inputController.OldStartButton == ButtonState.Released)
+        {
+            if (!Gamemanager.instance.IsGamePause())
+            {
+                Gamemanager.instance.GamePause(inputController);
+            }
+            else if (Gamemanager.instance.IsGamePause() && playerIndex == Gamemanager.instance.playerWhoPressedStart.playerIndex)
+            {
+                Gamemanager.instance.GameResume();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -135,7 +149,7 @@ public class Mb_PlayerControler : MonoBehaviour
        else if (inputController.OldAButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed
        && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
         {
-
+            print("uesg");
             //setup du trigger de l anim si tu porte un objet ou pas
             if (itemHold != null)
             {
