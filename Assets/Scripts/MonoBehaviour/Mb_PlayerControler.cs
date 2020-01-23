@@ -8,7 +8,7 @@ public class Mb_PlayerControler : MonoBehaviour
 {
     [Header("Manette")]
     [HideInInspector] public PlayerIndex playerIndex;
-    [HideInInspector]public Ma_InputController inputController;
+    public Ma_InputController inputController;
 
     [Header("Movement")]
     [SerializeField] Sc_PlayerCharact playerCharacts;
@@ -58,19 +58,33 @@ public class Mb_PlayerControler : MonoBehaviour
 
     void Update()
     {
+        if (!Gamemanager.instance.IsGamePause())
+        {
+            //recup des inputs a la frame
+            if (canMove == true)
+                Move();
+            else
+                body.velocity = moveInfluence.strengthApplied;
+        }
 
-        //recup des inputs a la frame
-        if (canMove == true)
-            Move();
-        else
-            body.velocity = moveInfluence.strengthApplied;
+        if (inputController.StartButton == ButtonState.Pressed && inputController.OldStartButton == ButtonState.Released)
+        {
+            if (!Gamemanager.instance.IsGamePause())
+            {
+                Gamemanager.instance.GamePause(inputController);
+            }
+            else if (Gamemanager.instance.IsGamePause() && playerIndex == Gamemanager.instance.playerWhoPressedStart.playerIndex)
+            {
+                Gamemanager.instance.GameResume();
+            }
+        }
     }
 
     private void FixedUpdate()
     {
         APress();
         XPress();
-        BPress();
+     //   BPress();
       /*  InterractiveInput();
         DeposeInput();
         ThrowInput();*/
@@ -263,9 +277,17 @@ public class Mb_PlayerControler : MonoBehaviour
     private void ThrowItem()
     {
         RaycastHit hit;
-        bool didHit = Physics.Raycast(transform.position, transform.position - placeToThrow.position, out hit, 2, ~(1 << 9 |10 ));
+        //Debug.DrawRay(placeToThrow.position, transform.forward, Color.red, 0.5f); //out hit, 2, ~(1 << 9 | 10));
+       
+        bool didHit = Physics.Raycast(placeToThrow.position, transform.forward, out hit, 2, ~(1 << 9 | 1 <<10 ));
+        
         if (didHit)
-            itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, hit.transform.position);
+        {
+            print(hit.collider.gameObject.name);
+            print(hit.transform.position);
+                itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, hit.point);
+        }
+           
         else
             itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, placeToThrow.position);
 

@@ -63,12 +63,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 271631b8898158f43a6fccac5bf69d50, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4408e33bfb8856488be243a0e2a8dfd, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: 0.8
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 5107057508230559539}
   - component: {fileID: 2489779910401288905}
   - component: {fileID: 2911681783612762112}
+  - component: {fileID: 9085445533082485328}
   m_Layer: 0
   m_Name: TrialUI
   m_TagString: Untagged
@@ -206,6 +207,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UiScale: 50
+  itemToFollow: {fileID: 0}
+--- !u!114 &9085445533082485328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658906820054824294}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d9acc9c06255a41b4e84ff432fd01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToFollow: {fileID: 0}
 --- !u!1 &3963614026357529125
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +430,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5b059bcb2babde4ebb397c3d33652dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4fc1bc6708943546a0f44ca3e206bb4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -493,7 +508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fb4b7a901ce39e441972b267872d247a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5971be30365854a43841dda2c8e32b22, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -566,7 +581,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 2 / 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -635,13 +650,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5312130281264582935}
-    characterCount: 0
+    characterCount: 5
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 2
+    wordCount: 2
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

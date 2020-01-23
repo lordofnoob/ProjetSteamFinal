@@ -29,7 +29,8 @@ public class Mb_TrialCollider : MonoBehaviour
         {
             if (currentUser == null)
             {
-                trialAssociated.UiAppearence(); trialAssociated.UiActivate();
+                trialAssociated.UiAppearence();
+                trialAssociated.UiActivate();
                 playerOccupying.AddOverlapedTrial(trialAssociated);
                 currentUser = playerOccupying;
                 trialAssociated.AddUser(currentUser);
@@ -66,7 +67,7 @@ public class Mb_TrialCollider : MonoBehaviour
     {
             if (currentUser.inputController.AButton == ButtonState.Pressed)
             {
-                currentUser.transform.DORotate(new Vector3(0, Mathf.Atan2(PositionToLookAndPut.rotation.x, PositionToLookAndPut.rotation.z) * Mathf.Rad2Deg + 90,0), .5f);
+                currentUser.transform.DOLookAt(new Vector3(trialAssociated.transform.position.x,currentUser.transform.position.y, trialAssociated.transform.position.z),.5f);
                 currentUser.transform.DOMove(new Vector3(PositionToLookAndPut.transform.position.x, currentUser.transform.position.y, PositionToLookAndPut.transform.position.z), 0.5f);
             }
         

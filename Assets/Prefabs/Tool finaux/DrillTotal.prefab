@@ -104,6 +104,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2762809260966265486, guid: 8906f5e0e1eefae4f867e64e497cc810,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762809260966265486, guid: 8906f5e0e1eefae4f867e64e497cc810,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762809260966265486, guid: 8906f5e0e1eefae4f867e64e497cc810,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160366786804545617, guid: 8906f5e0e1eefae4f867e64e497cc810,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e887fc4811623684d95c5e4dccec8a62,
+        type: 2}
     - target: {fileID: 3297605485043243584, guid: 8906f5e0e1eefae4f867e64e497cc810,
         type: 3}
       propertyPath: uiToFill
@@ -128,7 +149,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spriteOfTheItem
       value: 
-      objectReference: {fileID: 21300000, guid: 0345cf9de9284a440b2c33a301e73ff2,
+      objectReference: {fileID: 21300000, guid: b07502f6bf4dde047abfd3ef1512fcf4,
         type: 3}
     - target: {fileID: 3297605485043243584, guid: 8906f5e0e1eefae4f867e64e497cc810,
         type: 3}
@@ -170,11 +191,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8861652799414605815}
     m_Modifications:
-    - target: {fileID: 5580236710283130774, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: transformToFollow
-      value: 
-      objectReference: {fileID: 3773701133056599677}
     - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Name
@@ -290,6 +306,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9085445533082485328, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: itemToFollow
+      value: 
+      objectReference: {fileID: 3773701133056599677}
+    - target: {fileID: 9085445533082485328, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911681783612762112, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: itemToFollow
+      value: 
+      objectReference: {fileID: 3773701133056599677}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
@@ -297,6 +328,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 0345cf9de9284a440b2c33a301e73ff2,
         type: 3}
     - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 3773701133056599677}
+    - target: {fileID: 5580236710283130774, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: transformToFollow
       value: 
