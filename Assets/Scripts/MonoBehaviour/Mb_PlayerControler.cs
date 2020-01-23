@@ -134,52 +134,54 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void APress()
     {
-
-        if (inputController.AButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed
-            && CurrentTrialsOverlaped.Count > 0  && usedTrial().CanInterract() == true)
+        Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
+        if (CurrentTrialsOverlaped.Count > 0 && usedTrial().CanInterract() == true)
         {
-            Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
-            if (isItem == null)
-                SetCanMove(false);
-            StartCoroutine(WaitAfterInteract());
-            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
-        }
 
-
-       else if (inputController.OldAButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed
-       && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
-        {
-            print("uesg");
-            //setup du trigger de l anim si tu porte un objet ou pas
-            if (itemHold != null)
+            if (inputController.AButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed && isItem)
             {
-                SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+
+                if (isItem == null)
+                    SetCanMove(false);
+                StartCoroutine(WaitAfterInteract());
+                usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
             }
-            else
-                SetAnimTrigger(ItemType.Null, usedTrial().animationType);
+           else if (inputController.OldAButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed
+            && usedTrial().trialRules.trialType == TrialType.Mashing )
+            {
+
+                if (itemHold != null)
+                {
+                    SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+                }
+                else
+                    SetAnimTrigger(ItemType.Null, usedTrial().animationType);
 
 
-            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
+                usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
 
-            StartCoroutine(WaitAfterInteract());
-        }
+                StartCoroutine(WaitAfterInteract());
+            }
+    
 
 
-        else if (inputController.OldAButton == ButtonState.Pressed && inputController.AButton == ButtonState.Pressed
-        && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() == true)
-        {
-            //setup du trigger de l anim si tu porte un objet ou pas
-            if (itemHold != null)
-                SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
-            else
-                SetAnimTrigger(ItemType.Null, usedTrial().animationType);
+            else if (inputController.OldAButton == ButtonState.Pressed && inputController.AButton == ButtonState.Pressed
+            && usedTrial().trialRules.trialType == TrialType.Time )
+            {
 
-            
-            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
+                if (itemHold != null)
+                    SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+                else
+                    SetAnimTrigger(ItemType.Null, usedTrial().animationType);
 
-            StartCoroutine(WaitAfterInteract());
+
+                usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
+
+                StartCoroutine(WaitAfterInteract());
+            }
         }
     }
+
     IEnumerator WaitAfterInteract()
     {
         yield return new WaitForSeconds(0.2f);
@@ -189,12 +191,12 @@ public class Mb_PlayerControler : MonoBehaviour
     private void XPress()
     {
         if (itemHold != null && inputController.OldXButton == ButtonState.Pressed
-            && inputController.XButton == ButtonState.Pressed && CurrentTrialsOverlaped.Count == 0)
+            && inputController.XButton == ButtonState.Pressed)
         {
             PrepThrowItem();
         }
         else if (itemHold != null && inputController.OldXButton == ButtonState.Pressed
-            && inputController.XButton == ButtonState.Released && CurrentTrialsOverlaped.Count == 0)
+            && inputController.XButton == ButtonState.Released)
         {
             ThrowItem();
         }
