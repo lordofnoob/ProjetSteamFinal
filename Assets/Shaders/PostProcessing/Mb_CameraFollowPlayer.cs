@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Mb_CameraFollowPlayer : MonoBehaviour
 {
-    [SerializeField] Transform itemToFollow;
+    public Transform itemToFollow;
     private Vector3 offset;
 
     private void Awake()

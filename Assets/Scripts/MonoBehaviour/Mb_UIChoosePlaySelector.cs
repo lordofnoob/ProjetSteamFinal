@@ -70,7 +70,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
 
             if (currentStickXAxis != 0 && currentStickXAxis != oldStickXAxis)
             {
-                Debug.Log("CurrentXAxis : " + currentStickXAxis + ", OldXAxis : " + oldStickXAxis);
+                //Debug.Log("CurrentXAxis : " + currentStickXAxis + ", OldXAxis : " + oldStickXAxis);
                 if (activeArrows == skinArrowsPanel)
                 {
                     if (listOfAllSkins.IndexOf(activeSkin) == listOfAllSkins.Count - 1 && currentStickXAxis == 1)
@@ -131,6 +131,16 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         //Debug.Log("CHANGER DE SKIN : activeSkinIndex : " + listOfAllSkins.IndexOf(activeSkin));
     }
 
+    public int GetActiveSkin()
+    {
+        return listOfAllSkins.IndexOf(activeSkin);
+    }
+
+    public int GetActiveMask()
+    {
+        return activeMaskHolder.listOfAllMasks.IndexOf(activeMaskHolder.GetActiveMask());
+    } 
+
     public void SetActiveArrows(GameObject activePanel)
     {
         if(activeArrows != null)
@@ -157,7 +167,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
     {
         scriptable.skinIndex = listOfAllSkins.IndexOf(activeSkin);
         scriptable.maskIndex = activeMaskHolder.listOfAllMasks.IndexOf(activeMaskHolder.GetActiveMask());
-        Debug.Log("Skin & Mask SAVED for Player " + (int)playerIndex);
+        //Debug.Log("Skin & Mask SAVED for Player " + (int)playerIndex);
     }
 
     //VECTOR GAMEPAD REGION

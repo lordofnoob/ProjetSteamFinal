@@ -152,7 +152,7 @@ public class Mb_Trial : MonoBehaviour
     }
 
     //UIFUNCTIONS
-    public void UiAppearence()
+    public virtual void UiAppearence()
     {
          uiToTrigger.transform.DOScaleY(1, appearenceTime);
     }
