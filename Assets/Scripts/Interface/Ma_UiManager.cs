@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class Ma_UiManager : MonoBehaviour
 {
+    public static Ma_UiManager instance;
+
     public Canvas inGameCanvas;
     [SerializeField] GameObject StartCanvas;
     [SerializeField] GameObject PauseCanvas;
     [SerializeField] GameObject EndCanvas;
     [SerializeField] Image TimeBar;
     public TextMeshProUGUI moneyText;
-    public static Ma_UiManager instance;
+  
+    float currentMoneyDisplay;
+    float finalMoneyToDisplay = 0;
+    bool haveTriggerStars = false;
+
 
     private void Awake()
 
@@ -75,13 +82,52 @@ public class Ma_UiManager : MonoBehaviour
             TimeBar.fillAmount = fillAmount;
     }
 
-    public void SetupEndPannel(float moneyAmount, bool firstObjective, bool secondObjectve, bool thirdObjective)
+    public void SetupEndPannel(float moneyAmount, bool firstObjective, bool secondObjectve, bool thirdObjective, int numberOfFailToEscape)
     {
-        Mb_EndPannel.instance.objectiveText.text = "Steal at least" + Gamemanager.instance.levelParameters.moneyToSteal + " $";
-        Mb_EndPannel.instance.moneySpot.text = moneyAmount + "$ Stolen";
-        Mb_EndPannel.instance.firstStar.gameObject.SetActive(firstObjective);
-        Mb_EndPannel.instance.secondStar.gameObject.SetActive(secondObjectve);
-        Mb_EndPannel.instance.thirdStar.gameObject.SetActive(thirdObjective);
+        Mb_EndPannel.instance.objectiveText.text = Gamemanager.instance.levelParameters.moneyToSteal + " $";
+        finalMoneyToDisplay = moneyAmount;
+
+        
+
+   
+    }
+
+    void SetupMoneyCount()
+    {
+        if (currentMoneyDisplay < finalMoneyToDisplay)
+        {
+            if (finalMoneyToDisplay / 1000 > 1)
+            {
+                currentMoneyDisplay += 1000 + Random.Range(3, 9);
+            }
+            else if (currentMoneyDisplay / 100 > 1)
+            {
+                currentMoneyDisplay += 100 + Random.Range(3, 9);
+            }
+            else
+            {
+                currentMoneyDisplay += 1;
+            }
+        }
+        else
+            haveTriggerStars = true;
+
+
+        Mb_EndPannel.instance.moneySpot.text = currentMoneyDisplay + "$ Stolen";
+    }
+
+    void SetupStars()
+    {
+
+    }
+
+    private void Update()
+    {
+        if (haveTriggerStars == false)
+            SetupMoneyCount();
+        
+        if (currentMoneyDisplay >= finalMoneyToDisplay && haveTriggerStars == false)
+            SetupStars();
     }
 
     public void UpdateMoney(float moneyAmount)

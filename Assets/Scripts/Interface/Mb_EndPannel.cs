@@ -20,4 +20,5 @@ public class Mb_EndPannel : MonoBehaviour
             Destroy(this);
     }
 
+    
 }
