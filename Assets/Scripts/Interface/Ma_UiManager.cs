@@ -8,6 +8,7 @@ public class Ma_UiManager : MonoBehaviour
 {
     public Canvas inGameCanvas;
     [SerializeField] GameObject StartCanvas;
+    [SerializeField] GameObject PauseCanvas;
     [SerializeField] GameObject EndCanvas;
     [SerializeField] Image TimeBar;
     public TextMeshProUGUI moneyText;
@@ -36,6 +37,23 @@ public class Ma_UiManager : MonoBehaviour
     public void SetDesactiveStartCanvas()
     {
         StartCanvas.SetActive(false);
+    }
+
+    public void SetActivePauseCanvas()
+    {
+        PauseCanvas.SetActive(true);
+        Mb_PauseMenu pauseMenu = PauseCanvas.GetComponent<Mb_PauseMenu>();
+        pauseMenu.SetActiveButton(pauseMenu.cursorSpots[0]);
+        pauseMenu.inThisMenu = true;
+        pauseMenu.inputController = Gamemanager.instance.playerWhoPressedStart;
+    }
+
+    public void SetDesActivePauseCanvas()
+    {
+        PauseCanvas.SetActive(false);
+        Mb_PauseMenu pauseMenu = PauseCanvas.GetComponent<Mb_PauseMenu>();
+        pauseMenu.SetActiveButton(null);
+        pauseMenu.inThisMenu = false;
     }
 
     public void UpdateTimeRemainingText(float remainingTime)

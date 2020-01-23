@@ -12,6 +12,7 @@ public class Gamemanager : MonoBehaviour
     float moneyStolen;
     float timeRemaining;
     bool isPause;
+    [HideInInspector] public Ma_InputController playerWhoPressedStart = null;
 
     [Header("Input Controllers")]
     private Ma_InputController[] inputControllers;
@@ -137,14 +138,25 @@ public class Gamemanager : MonoBehaviour
         Ma_UiManager.instance.SetActiveEndCanvas();
     }
 
-    public void PauseTimer()
+    public void GamePause(Ma_InputController playerWhoPressedStart)
     {
         isPause = true;
+        Time.timeScale = 0;
+        this.playerWhoPressedStart = playerWhoPressedStart;
+        Ma_UiManager.instance.SetActivePauseCanvas();
     }
 
-    public void ResumeGame()
+    public void GameResume()
     {
         isPause = false;
+        Time.timeScale = 1;
+        Ma_UiManager.instance.SetDesActivePauseCanvas();
+        playerWhoPressedStart = null;
+    }
+
+    public bool IsGamePause()
+    {
+        return isPause;
     }
 
     void CheckEvent()
