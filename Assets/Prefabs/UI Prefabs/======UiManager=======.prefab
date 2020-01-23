@@ -216,15 +216,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2773234244000102047}
     m_Modifications:
-    - target: {fileID: 9062040827671932628, guid: d1657d475170e514f981a3a8aa47bba1,
+    - target: {fileID: 5113516382630283963, guid: d1657d475170e514f981a3a8aa47bba1,
         type: 3}
-      propertyPath: m_Name
-      value: EndPannel - Master
+      propertyPath: m_RootOrder
+      value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 9062040827671932628, guid: d1657d475170e514f981a3a8aa47bba1,
+    - target: {fileID: 1080859579662771043, guid: d1657d475170e514f981a3a8aa47bba1,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_RootOrder
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5624405828643960304, guid: d1657d475170e514f981a3a8aa47bba1,
         type: 3}
@@ -281,6 +281,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9062040827671932628, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_Name
+      value: EndPannel - Master
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062040827671932628, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4928971807957810964, guid: d1657d475170e514f981a3a8aa47bba1,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -339,36 +349,6 @@ PrefabInstance:
     - target: {fileID: 4928971807957810964, guid: d1657d475170e514f981a3a8aa47bba1,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6727694427730872333, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_Name
-      value: Star ========
-      objectReference: {fileID: 0}
-    - target: {fileID: 6727694427730872333, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7223754357049609901, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_Name
-      value: Star Diamond ========
-      objectReference: {fileID: 0}
-    - target: {fileID: 7223754357049609901, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429670674465339379, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_Name
-      value: Star Rubis ======
-      objectReference: {fileID: 0}
-    - target: {fileID: 429670674465339379, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 734587764018856998, guid: d1657d475170e514f981a3a8aa47bba1,
@@ -471,11 +451,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4197435083281476524, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.8627451
-      objectReference: {fileID: 0}
     - target: {fileID: 6308529159352964936, guid: d1657d475170e514f981a3a8aa47bba1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -490,41 +465,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -241
-      objectReference: {fileID: 0}
-    - target: {fileID: 2140177906757817643, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -76.89999
-      objectReference: {fileID: 0}
-    - target: {fileID: 2140177906757817643, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -330.50006
-      objectReference: {fileID: 0}
-    - target: {fileID: 2140177906757817643, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 460
-      objectReference: {fileID: 0}
-    - target: {fileID: 3018644814171378062, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_text
-      value: 'Miss the escape :'
-      objectReference: {fileID: 0}
-    - target: {fileID: 3018644814171378062, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 3018644814171378062, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2014624532996440737, guid: d1657d475170e514f981a3a8aa47bba1,
-        type: 3}
-      propertyPath: m_Name
-      value: Text - MoneyObj=======
       objectReference: {fileID: 0}
     - target: {fileID: 1406895511314425045, guid: d1657d475170e514f981a3a8aa47bba1,
         type: 3}
@@ -561,6 +501,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 204
       objectReference: {fileID: 0}
+    - target: {fileID: 2014624532996440737, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_Name
+      value: Text - MoneyObj=======
+      objectReference: {fileID: 0}
     - target: {fileID: 4463351532214198870, guid: d1657d475170e514f981a3a8aa47bba1,
         type: 3}
       propertyPath: m_text
@@ -587,6 +532,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.spaceCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197435083281476524, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.8627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223754357049609901, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_Name
+      value: Star Diamond ========
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223754357049609901, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727694427730872333, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_Name
+      value: Star ========
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727694427730872333, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429670674465339379, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_Name
+      value: Star Rubis ======
+      objectReference: {fileID: 0}
+    - target: {fileID: 429670674465339379, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018644814171378062, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_text
+      value: 'Miss the escape :'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018644814171378062, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018644814171378062, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1657d475170e514f981a3a8aa47bba1, type: 3}
@@ -615,16 +610,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2773234244000102047}
     m_Modifications:
-    - target: {fileID: 2098028896028578303, guid: cb3e11d0b88106147a42b598f2bd83af,
-        type: 3}
-      propertyPath: m_Name
-      value: GLOBAL UI PROTECT
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098028896028578303, guid: cb3e11d0b88106147a42b598f2bd83af,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5692587736172749998, guid: cb3e11d0b88106147a42b598f2bd83af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -728,6 +713,16 @@ PrefabInstance:
     - target: {fileID: 5692587736172749998, guid: cb3e11d0b88106147a42b598f2bd83af,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098028896028578303, guid: cb3e11d0b88106147a42b598f2bd83af,
+        type: 3}
+      propertyPath: m_Name
+      value: GLOBAL UI PROTECT
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098028896028578303, guid: cb3e11d0b88106147a42b598f2bd83af,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4503339998449563025, guid: cb3e11d0b88106147a42b598f2bd83af,
