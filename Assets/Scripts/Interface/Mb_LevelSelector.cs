@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using XInputDotNetPure;
 
 public class Mb_LevelSelector : MonoBehaviour
 {
+    public Sc_SelectedLevel selectedLevel;
     public List<Image> cursorSpots = new List<Image>();
     public Ma_InputController inputController;
+    public bool inThisMenu = false;
+    public Mb_MainMenu mainMenu;
+    public bool playerCanSelect = false;
 
     private Dictionary<Image, Button> levels = new Dictionary<Image, Button>();
     private Image activeButton;
@@ -33,7 +38,8 @@ public class Mb_LevelSelector : MonoBehaviour
 
     private void Start()
     {
-        SetActiveButton(cursorSpots[0]);
+        if(inThisMenu)
+            SetActiveButton(cursorSpots[0]);
     }
 
     // Update is called once per frame
@@ -44,24 +50,41 @@ public class Mb_LevelSelector : MonoBehaviour
         int oldStickYAxis = OldYAxis();
         int oldStickXAxis = OldXAxis();
 
-        if (currentStickYAxis != 0 && currentStickYAxis != oldStickYAxis)
+        if (inThisMenu)
         {
-            //Debug.Log("Current Y : " + currentStickYAxis);
-            switch (currentStickYAxis)
+            if (currentStickYAxis != 0 && currentStickYAxis != oldStickYAxis)
             {
-                case 1:
-                    if (cursorSpots.IndexOf(activeButton) == 0)
-                        SetActiveButton(cursorSpots[cursorSpots.Count - 1]);
-                    else
-                        SetActiveButton(cursorSpots[cursorSpots.IndexOf(activeButton) - 1]);
-                    break;
+                //Debug.Log("Current Y : " + currentStickYAxis);
+                switch (currentStickYAxis)
+                {
+                    case 1:
+                        if (cursorSpots.IndexOf(activeButton) == 0)
+                            SetActiveButton(cursorSpots[cursorSpots.Count - 1]);
+                        else
+                            SetActiveButton(cursorSpots[cursorSpots.IndexOf(activeButton) - 1]);
+                        break;
 
-                case -1:
-                    if (cursorSpots.IndexOf(activeButton) == cursorSpots.Count - 1)
-                        SetActiveButton(cursorSpots[0]);
-                    else
-                        SetActiveButton(cursorSpots[cursorSpots.IndexOf(activeButton) + 1]);
-                    break;
+                    case -1:
+                        if (cursorSpots.IndexOf(activeButton) == cursorSpots.Count - 1)
+                            SetActiveButton(cursorSpots[0]);
+                        else
+                            SetActiveButton(cursorSpots[cursorSpots.IndexOf(activeButton) + 1]);
+                        break;
+                }
+            }
+
+            if(inputController.BButton == ButtonState.Pressed && inputController.OldBButton == ButtonState.Released)
+            {
+                inThisMenu = false;
+                mainMenu.transform.parent.gameObject.SetActive(true);
+                mainMenu.SetActiveButton(mainMenu.cursorSpots[0]);
+                SetActiveButton(null);
+            }
+
+            if(inputController.AButton == ButtonState.Pressed && inputController.OldAButton == ButtonState.Released)
+            {
+                if(playerCanSelect)
+                    activeButton.GetComponentInParent<Button>().onClick.Invoke();
             }
         }
     }
@@ -71,9 +94,16 @@ public class Mb_LevelSelector : MonoBehaviour
         if(activeButton != null)
             activeButton.gameObject.SetActive(false);
         activeButton = newActiveButton;
-        activeButton.gameObject.SetActive(true);
+        if(activeButton != null)
+            activeButton.gameObject.SetActive(true);
         levels[activeButton].Select();
         levels[activeButton].onClick.Invoke();
+    }
+
+    public void SelectLevel(int levelIndex)
+    {
+        selectedLevel.selectedLevelIndex = levelIndex;
+        SceneManager.LoadScene(1);
     }
 
     #region
@@ -103,7 +133,7 @@ public class Mb_LevelSelector : MonoBehaviour
         {
             res = 1;
         }
-        else if (inputController.OldLeftThumbStick.x < 0 || inputController.OldDpadRight == ButtonState.Pressed)
+        else if (inputController.OldLeftThumbStick.x < 0 || inputController.OldDpadLeft == ButtonState.Pressed)
         {
             res = -1;
         }
