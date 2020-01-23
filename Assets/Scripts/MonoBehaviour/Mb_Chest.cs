@@ -61,7 +61,12 @@ public class Mb_Chest : Mb_Trial
         if (currentInteractionIndex < allItemToDrop.Length)
             animatorAssociated.SetBool("StillFull", true);
         else
+        {
             animatorAssociated.SetBool("StillFull", false);
+            UiDisactivate();
+            Destroy(uiToTrigger);
+        }
+    
 
         base.DoThings();
     }

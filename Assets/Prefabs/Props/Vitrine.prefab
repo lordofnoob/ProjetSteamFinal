@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4596326915011933147}
   - component: {fileID: 2411442636026767652}
   - component: {fileID: 6976475989787711641}
-  - component: {fileID: 4317821729477392364}
   m_Layer: 0
   m_Name: LightFake_Contour
   m_TagString: Untagged
@@ -80,20 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &4317821729477392364
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371150364720715481}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &641131420766935216
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +90,6 @@ GameObject:
   - component: {fileID: 6225667205704693553}
   - component: {fileID: 800941323658881064}
   - component: {fileID: 902051016317271552}
-  - component: {fileID: 6610001001619233940}
   m_Layer: 0
   m_Name: Bars
   m_TagString: Untagged
@@ -173,19 +157,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6610001001619233940
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641131420766935216}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &810286228419304068
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +168,6 @@ GameObject:
   - component: {fileID: 7452123526523013876}
   - component: {fileID: 4234566295679359162}
   - component: {fileID: 724948922203806059}
-  - component: {fileID: 3999503975790838638}
   m_Layer: 0
   m_Name: LightFake_Contour
   m_TagString: Untagged
@@ -266,20 +236,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &3999503975790838638
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810286228419304068}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &898172542601640463
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +247,6 @@ GameObject:
   - component: {fileID: 812045739786487993}
   - component: {fileID: 9080247044750003870}
   - component: {fileID: 6579540968434180214}
-  - component: {fileID: 4783684741374660737}
   m_Layer: 0
   m_Name: LightFake
   m_TagString: Untagged
@@ -360,20 +315,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &4783684741374660737
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898172542601640463}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1679409062976828003
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +326,6 @@ GameObject:
   - component: {fileID: 8423189922919419779}
   - component: {fileID: 4270743490901531314}
   - component: {fileID: 50426215794413282}
-  - component: {fileID: 6468775086299566058}
   m_Layer: 0
   m_Name: Bars
   m_TagString: Untagged
@@ -453,19 +393,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6468775086299566058
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679409062976828003}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2006350229350027111
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +404,6 @@ GameObject:
   - component: {fileID: 6936179293192563169}
   - component: {fileID: 8195803000243481472}
   - component: {fileID: 4338489029147994127}
-  - component: {fileID: 4564052487386751503}
   m_Layer: 0
   m_Name: LightFake_Contour
   m_TagString: Untagged
@@ -546,20 +472,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &4564052487386751503
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006350229350027111}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2239138329689245017
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +483,6 @@ GameObject:
   - component: {fileID: 7838228989231016159}
   - component: {fileID: 3242338088436706715}
   - component: {fileID: 5313455240423241947}
-  - component: {fileID: 8339752787958475488}
   m_Layer: 0
   m_Name: LightFake
   m_TagString: Untagged
@@ -640,20 +551,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &8339752787958475488
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2239138329689245017}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2511978068778302322
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,14 +562,13 @@ GameObject:
   - component: {fileID: 8538561901914272530}
   - component: {fileID: 4639107853605936854}
   - component: {fileID: 477274275498847630}
-  - component: {fileID: 594475738159559160}
   m_Layer: 0
   m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8538561901914272530
 Transform:
   m_ObjectHideFlags: 0
@@ -733,19 +629,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &594475738159559160
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2511978068778302322}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2931925470287459523
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,7 +713,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1025,7 +908,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1147,7 +1030,6 @@ GameObject:
   - component: {fileID: 3027144328750688495}
   - component: {fileID: 3027144328750688494}
   - component: {fileID: 3027144328750688493}
-  - component: {fileID: 3027144328750688492}
   m_Layer: 0
   m_Name: void
   m_TagString: Untagged
@@ -1215,19 +1097,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3027144328750688492
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3027144328750688491}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3759548843909960772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1108,6 @@ GameObject:
   - component: {fileID: 6631821487657610242}
   - component: {fileID: 4724290743856507108}
   - component: {fileID: 2926492017865021329}
-  - component: {fileID: 7775065159440301441}
   m_Layer: 0
   m_Name: LightFake_Contour
   m_TagString: Untagged
@@ -1308,20 +1176,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &7775065159440301441
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3759548843909960772}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4054964056400740578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1259,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1527,14 +1381,13 @@ GameObject:
   - component: {fileID: 2466519238313421539}
   - component: {fileID: 7833607528278743336}
   - component: {fileID: 296800690905141621}
-  - component: {fileID: 4474115055994345731}
   m_Layer: 0
   m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2466519238313421539
 Transform:
   m_ObjectHideFlags: 0
@@ -1595,19 +1448,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4474115055994345731
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4179405843641845675}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5386317107269512393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1459,6 @@ GameObject:
   - component: {fileID: 6770583739514455107}
   - component: {fileID: 3573605305585373960}
   - component: {fileID: 345020566786783014}
-  - component: {fileID: 3271455040097131505}
   m_Layer: 0
   m_Name: LightFake
   m_TagString: Untagged
@@ -1688,20 +1527,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &3271455040097131505
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5386317107269512393}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &5411150244237941536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1611,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1997,8 +1822,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.9651525, z: 1}
+  m_Center: {x: 0, y: 0.48257625, z: 0}
 --- !u!1 &6415580235424233669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,7 +1835,6 @@ GameObject:
   - component: {fileID: 2993103682852929621}
   - component: {fileID: 2020261382070900241}
   - component: {fileID: 807329827715289448}
-  - component: {fileID: 4186690265869149137}
   m_Layer: 0
   m_Name: LightFake
   m_TagString: Untagged
@@ -2079,20 +1903,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &4186690265869149137
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6415580235424233669}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &7004951366809826208
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,7 +1987,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2299,7 +2109,6 @@ GameObject:
   - component: {fileID: 4734993632164919877}
   - component: {fileID: 3184084964306615080}
   - component: {fileID: 4716302736163313952}
-  - component: {fileID: 1659999900895238639}
   m_Layer: 0
   m_Name: Vitrine - Vitre
   m_TagString: Untagged
@@ -2370,19 +2179,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1659999900895238639
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7321585259876742791}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7481031440431470707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,7 +2190,6 @@ GameObject:
   - component: {fileID: 929662589916244570}
   - component: {fileID: 6370148623568354003}
   - component: {fileID: 646557834751581203}
-  - component: {fileID: 3538653022443969662}
   m_Layer: 0
   m_Name: Bars
   m_TagString: Untagged
@@ -2462,19 +2257,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3538653022443969662
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7481031440431470707}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7747491046797427585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,7 +2268,6 @@ GameObject:
   - component: {fileID: 2368069964518830757}
   - component: {fileID: 4706579925317361505}
   - component: {fileID: 2525240267966973434}
-  - component: {fileID: 3475211315555369654}
   m_Layer: 0
   m_Name: Bars
   m_TagString: Untagged
@@ -2554,19 +2335,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3475211315555369654
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747491046797427585}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7805007730519228778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,7 +2346,6 @@ GameObject:
   - component: {fileID: 3139338797047086763}
   - component: {fileID: 2883854523890191250}
   - component: {fileID: 2464338378589325049}
-  - component: {fileID: 6538946967928925441}
   m_Layer: 0
   m_Name: Screen-contour
   m_TagString: Untagged
@@ -2646,19 +2413,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6538946967928925441
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7805007730519228778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8084122877872596956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,7 +2424,6 @@ GameObject:
   - component: {fileID: 3262717312555109928}
   - component: {fileID: 364243002344833262}
   - component: {fileID: 4609867944356134817}
-  - component: {fileID: 5898977194153550500}
   m_Layer: 0
   m_Name: Bars
   m_TagString: Untagged
@@ -2738,19 +2491,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5898977194153550500
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8084122877872596956}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8106130657943243003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,7 +2502,6 @@ GameObject:
   - component: {fileID: 1981563089773350632}
   - component: {fileID: 2817249946565127790}
   - component: {fileID: 68206254373855170}
-  - component: {fileID: 8907586355707258971}
   m_Layer: 0
   m_Name: Bars
   m_TagString: Untagged
@@ -2830,19 +2569,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8907586355707258971
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8106130657943243003}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9058798016550627996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,7 +2580,6 @@ GameObject:
   - component: {fileID: 3946574419596890375}
   - component: {fileID: 1171316391708529939}
   - component: {fileID: 8745572958632463616}
-  - component: {fileID: 1046924936744090080}
   m_Layer: 0
   m_Name: Screen
   m_TagString: Untagged
@@ -2923,19 +2648,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1046924936744090080
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9058798016550627996}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9149439909764576252
 GameObject:
   m_ObjectHideFlags: 0
@@ -3021,6 +2733,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1096793674893398666}
     m_Modifications:
+    - target: {fileID: 1252625041272323684, guid: 6cd2ad906cf41374fa06b063f9156643,
+        type: 3}
+      propertyPath: m_Name
+      value: Diamond
+      objectReference: {fileID: 0}
     - target: {fileID: 2826411249479011447, guid: 6cd2ad906cf41374fa06b063f9156643,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3091,11 +2808,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.19616894
       objectReference: {fileID: 0}
-    - target: {fileID: 1252625041272323684, guid: 6cd2ad906cf41374fa06b063f9156643,
-        type: 3}
-      propertyPath: m_Name
-      value: Diamond
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd2ad906cf41374fa06b063f9156643, type: 3}
 --- !u!1001 &5350888543809124752
@@ -3105,6 +2817,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4734993632164919877}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 0c750708e67e67e448c365ea19d0356f,
+        type: 3}
+      propertyPath: m_Name
+      value: EcrinDiams
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0c750708e67e67e448c365ea19d0356f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3174,11 +2891,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 0c750708e67e67e448c365ea19d0356f,
-        type: 3}
-      propertyPath: m_Name
-      value: EcrinDiams
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750708e67e67e448c365ea19d0356f, type: 3}

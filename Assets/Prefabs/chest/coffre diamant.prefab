@@ -69,7 +69,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8392177507749747456}
-  - component: {fileID: 8521807158821637774}
   m_Layer: 0
   m_Name: coffre diamant
   m_TagString: Untagged
@@ -96,21 +95,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &8521807158821637774
+--- !u!114 &7404889997477260315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4498074343985250660}
+  m_GameObject: {fileID: 7960316342727090387}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6f699b2e9097334e8ae09d337a35a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trialRules: {fileID: 11400000, guid: f1d14329442c31c4991b061d702b3877, type: 2}
+  trialRules: {fileID: 11400000, guid: 0046052dc2812e44fa0df6a7fc26bd8b, type: 2}
   trialAccomplishment: 0
-  listOfUser: []
+  listOfUser:
+  - {fileID: 0}
   animationType: 1
   animatorAssociated: {fileID: 0}
   uiAnimator: {fileID: 6477419654300172854}
@@ -118,7 +118,9 @@ MonoBehaviour:
   textUser: {fileID: 3661823561488824808}
   uiToTrigger: {fileID: 2300851164458454986}
   appearenceTime: 0.5
-  allItemToDrop: []
+  allItemToDrop:
+  - itemToDrop:
+    - {fileID: 1592025203033125531, guid: 610143c4cda6bee4c936505e4d8b65dc, type: 3}
   itemCreationSpot: {fileID: 7665697197454894472}
   dropSpot: {fileID: 1280494560946369468}
   randomRangePosition: 0.5
@@ -132,8 +134,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1959531664879764906}
-  - component: {fileID: 2433559740372603121}
-  - component: {fileID: 669939257286967133}
   - component: {fileID: 5784455006357719792}
   - component: {fileID: 2275867921334196055}
   - component: {fileID: 3677369870100105740}
@@ -158,52 +158,6 @@ Transform:
   m_Father: {fileID: 8392177507749747456}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2433559740372603121
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8612924494774165144}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &669939257286967133
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8612924494774165144}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!65 &5784455006357719792
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -229,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543bdb5e91be2344bbe552a30a3d9782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trialAssociated: {fileID: 8521807158821637774}
+  trialAssociated: {fileID: 7404889997477260315}
   PositionToLookAndPut: {fileID: 1280494560946369468}
   currentUser: {fileID: 0}
 --- !u!114 &3677369870100105740
@@ -383,6 +337,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97fcf7e77f1b5f429bc8eae4ede13c3, type: 3}
+--- !u!1 &7960316342727090387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5862679244604991412, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4549992695019358055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4147061386348554149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 480056002650775746, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
