@@ -163,7 +163,7 @@ public class Gamemanager : MonoBehaviour
 
     void RandomEvent()
     {
-       int eventToTrigger = Random.Range(0, 1);
+       int eventToTrigger = Random.Range(0, 2);
 
         if (eventToTrigger == 0)
             CloseDoor();

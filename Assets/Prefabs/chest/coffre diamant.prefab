@@ -261,6 +261,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8392177507749747456}
     m_Modifications:
+    - target: {fileID: 5862679244604991412, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
+        type: 3}
+      propertyPath: m_Name
+      value: Vitrine
+      objectReference: {fileID: 0}
     - target: {fileID: 480056002650775746, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -300,11 +305,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5862679244604991412, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
-        type: 3}
-      propertyPath: m_Name
-      value: Vitrine
       objectReference: {fileID: 0}
     - target: {fileID: 3208227012825105531, guid: b97fcf7e77f1b5f429bc8eae4ede13c3,
         type: 3}
@@ -501,17 +501,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0345cf9de9284a440b2c33a301e73ff2,
-        type: 3}
-    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: transformToFollow
-      value: 
-      objectReference: {fileID: 8392177507749747456}
     - target: {fileID: 4895995507470802420, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
@@ -529,6 +518,22 @@ PrefabInstance:
       propertyPath: itemToFollow
       value: 
       objectReference: {fileID: 4147061386348554149}
+    - target: {fileID: 2911681783612762112, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: itemToFollow
+      value: 
+      objectReference: {fileID: 4147061386348554149}
+    - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0345cf9de9284a440b2c33a301e73ff2,
+        type: 3}
+    - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: transformToFollow
+      value: 
+      objectReference: {fileID: 8392177507749747456}
     m_RemovedComponents:
     - {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 176652a470417194c82f0c5bcac95a05, type: 3}

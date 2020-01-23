@@ -5,11 +5,11 @@ using UnityEngine;
 public class Mb_Project_UI_OnScreen : MonoBehaviour
 {
     public float UiScale = 50f;
-    protected Transform UIWorldTransform;
-
+    // protected Transform UIWorldTransform;
+    [SerializeField] Transform itemToFollow;
     private void Start()
     {
-        UIWorldTransform = Instantiate(new GameObject(), transform.position, Quaternion.identity, transform.parent).transform;
+        //UIWorldTransform = Instantiate(new GameObject(), transform.position, Quaternion.identity, transform.parent).transform;
         transform.SetParent(Ma_UiManager.instance.inGameCanvas.transform);
         transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
         transform.localScale = new Vector3(UiScale, UiScale);
@@ -18,6 +18,6 @@ public class Mb_Project_UI_OnScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Camera.main.WorldToScreenPoint(UIWorldTransform.position);
+        transform.position = Camera.main.WorldToScreenPoint(itemToFollow.position);
     }
 }
