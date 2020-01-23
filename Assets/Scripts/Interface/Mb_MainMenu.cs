@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XInputDotNetPure;
+using DG.Tweening;
 
 public class Mb_MainMenu : MonoBehaviour
 {
@@ -82,10 +83,10 @@ public class Mb_MainMenu : MonoBehaviour
     public void EnterLevelSelectionMenu()
     {
         SetActiveButton(null);
-        transform.parent.gameObject.SetActive(false);
         levelSelector.inThisMenu = true;
         levelSelector.SetActiveButton(levelSelector.cursorSpots[0]);
-        levelSelector.playerCanSelect = true;
+        StartCoroutine(EnterLevelSelectionDelay());
+        transform.parent.gameObject.SetActive(false);
     }
 
     public void EnterSettingsMenu()
@@ -94,6 +95,12 @@ public class Mb_MainMenu : MonoBehaviour
         settingsMenu.SetActiveButton(settingsMenu.cursorSpots[0]);
         settingsMenu.inThisMenu = true;
         transform.gameObject.SetActive(false);
+    }
+
+    IEnumerator EnterLevelSelectionDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        levelSelector.playerCanSelect = true;
     }
 
     public void ExitTheGame()
