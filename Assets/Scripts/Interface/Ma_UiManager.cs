@@ -112,8 +112,8 @@ public class Ma_UiManager : MonoBehaviour
         else
             haveTriggerStars = true;
 
+      //  Mb_EndPannel.instance.moneySpot.text = currentMoneyDisplay + "$ Stolen";
 
-        Mb_EndPannel.instance.moneySpot.text = currentMoneyDisplay + "$ Stolen";
     }
 
     void SetupStars()
