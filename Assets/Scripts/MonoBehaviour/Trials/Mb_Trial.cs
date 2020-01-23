@@ -10,7 +10,7 @@ public class Mb_Trial : MonoBehaviour
     //trials parameters
     [Header("Trial Parameters")]
     public Sc_TrialParameters trialRules;
-    public float trialAccomplishment;
+    public float trialAccomplishment = 0;
     public List<Mb_PlayerControler> listOfUser;
     public animationInteractionType animationType;
     public Animator animatorAssociated;
@@ -31,6 +31,7 @@ public class Mb_Trial : MonoBehaviour
     
     public virtual void Awake()
     {
+        trialAccomplishment = 0;
         listOfUser = new List<Mb_PlayerControler>();
     }
 
@@ -120,7 +121,7 @@ public class Mb_Trial : MonoBehaviour
     {
         //si l accomplissement est superieur a zero on tente de le decay si le decay est ready
         timeBeforeDecay += Time.fixedDeltaTime;
-        if (trialAccomplishment >= 0)
+        if (trialAccomplishment > 0)
         {
             if (timeBeforeDecay >= trialRules.timeToWaitBeforeDecay)
             {

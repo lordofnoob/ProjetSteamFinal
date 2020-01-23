@@ -19,7 +19,7 @@ public class Mb_PlayerControler : MonoBehaviour
     bool canMove = true;
 
     [Header("InteractionPart")]
-    List<Mb_Trial> CurrentTrialsOverlaped = new List<Mb_Trial>();
+    public List<Mb_Trial> CurrentTrialsOverlaped = new List<Mb_Trial>();
     public Mb_Item itemHold;
     float throwTime;
 
@@ -134,10 +134,10 @@ public class Mb_PlayerControler : MonoBehaviour
 
     private void APress()
     {
-        Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
+
         if (CurrentTrialsOverlaped.Count > 0 && usedTrial().CanInterract() == true)
         {
-
+            Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
             if (inputController.AButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed && isItem)
             {
 

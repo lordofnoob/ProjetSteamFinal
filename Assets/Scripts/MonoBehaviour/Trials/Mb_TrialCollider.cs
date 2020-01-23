@@ -27,13 +27,26 @@ public class Mb_TrialCollider : MonoBehaviour
       
         if (playerOccupying != null)
         {
-            if (currentUser == null)
+            if (currentUser == null )
             {
-                trialAssociated.UiAppearence();
-                trialAssociated.UiActivate();
+             
                 playerOccupying.AddOverlapedTrial(trialAssociated);
                 currentUser = playerOccupying;
                 trialAssociated.AddUser(currentUser);
+                if (currentUser.CurrentTrialsOverlaped[0] == trialAssociated )
+                {
+                    trialAssociated.UiAppearence();
+                    trialAssociated.UiActivate();
+                }
+                if (currentUser.CurrentTrialsOverlaped.Count > 1)
+                {
+                    if (currentUser.CurrentTrialsOverlaped[1] == trialAssociated)
+                    {
+                        trialAssociated.UiAppearence();
+                        trialAssociated.UiActivate();
+                    }
+                }
+           
             }
         }
     }
