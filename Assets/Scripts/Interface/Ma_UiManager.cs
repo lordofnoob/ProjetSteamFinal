@@ -17,6 +17,7 @@ public class Ma_UiManager : MonoBehaviour
     public Image TimeBar;
     [SerializeField] GameObject timeFeedBack;
     [SerializeField] Mb_Fade fadeBetweenScene;
+    [SerializeField] GameObject[] portraits;
     public TextMeshProUGUI moneyText;
 
     float currentMoneyDisplay;
@@ -150,7 +151,6 @@ public class Ma_UiManager : MonoBehaviour
         fadeBetweenScene.FadeToLevel(levelIndex);
     }
 
-
     void UpdateMoneyDisplay()
     {
         Mb_EndPannel.instance.moneySpot.text = currentMoneyDisplay + "$ Stollen";
@@ -172,4 +172,18 @@ public class Ma_UiManager : MonoBehaviour
         timeFeedBack.SetActive(true);
     }
 
+    public void UpdateNumberPlayerPortrait(int nbrPlayer)
+    {
+        for(int i = 0; i < portraits.Length; i++)
+        {
+            if(i < nbrPlayer)
+            {
+                portraits[i].SetActive(true);
+            }
+            else
+            {
+                portraits[i].SetActive(false);
+            }
+        }
+    }
 }
