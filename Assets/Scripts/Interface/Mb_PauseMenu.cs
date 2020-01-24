@@ -90,10 +90,6 @@ public class Mb_PauseMenu : MonoBehaviour
         mainPauseMenu.SetActive(false);
     }
 
-    public void LoadScene(int sceneIndex)
-    {
-        SceneManager.LoadScene(sceneIndex);
-    }
 
     public void ExitTheGame()
     {

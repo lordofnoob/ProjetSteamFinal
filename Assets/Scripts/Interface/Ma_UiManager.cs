@@ -13,6 +13,7 @@ public class Ma_UiManager : MonoBehaviour
     [SerializeField] GameObject StartCanvas;
     [SerializeField] GameObject PauseCanvas;
     [SerializeField] GameObject EndCanvas;
+    [SerializeField] Mb_Fade fadeBetweenScene;
     [SerializeField] Image TimeBar;
     public TextMeshProUGUI moneyText;
   
@@ -119,6 +120,11 @@ public class Ma_UiManager : MonoBehaviour
     void SetupStars()
     {
 
+    }
+
+    public void FadeToLevel(int levelIndex)
+    {
+        fadeBetweenScene.FadeToLevel(levelIndex);
     }
 
     private void Update()

@@ -20,7 +20,7 @@ public class Mb_LoadSkinAndMask : MonoBehaviour
     {
         for(int i = 0; i < allSkins.Count; i++)
         {
-            Debug.Log((int)playerController.inputController.playerIndex);
+            //Debug.Log((int)playerController.inputController.playerIndex);
             if(allScriptable[(int)playerController.inputController.playerIndex].skinIndex != -1)
             {
                 if (allScriptable[(int)playerController.inputController.playerIndex].skinIndex == i)
