@@ -37,7 +37,7 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] float timeSpentEvent1, timeSpentEvent2, timeSpentEvent3;
     [HideInInspector] public bool gameIsEnded=false;
     int securisedPlayer=1;
-    int numberOfPlayer=2;
+    public static int numberOfPlayer=2;
     
 
     private void Awake()

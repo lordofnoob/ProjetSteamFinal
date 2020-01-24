@@ -9,11 +9,6 @@ public class Mb_Fade : MonoBehaviour
 
     private int levelToLoad;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void FadeToLevel(int levelIndex)
     {

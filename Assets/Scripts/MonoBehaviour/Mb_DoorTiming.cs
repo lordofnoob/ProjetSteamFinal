@@ -33,17 +33,17 @@ public class Mb_DoorTiming : Mb_Door
 
         else if (counting == true)
         {
-            isOpen = !isOpen;
             for (int i = 0; i < doorTouched.Length; i++)
             {
                 doorTouched[i].isOpen = !doorTouched[i].isOpen;
             }
             DoThings();
+
             canTrigger = true;
             timing = 0;
         }
 
-        if (timing > timeBeforeClose - 5 && canTrigger == true)
+        if (timing > timeBeforeClose - 5 && canTrigger == true && isOpen ==true)
         {
             feedBackTime.SetTrigger("DoThings");
             canTrigger = false;
@@ -61,22 +61,23 @@ public class Mb_DoorTiming : Mb_Door
 
     public override void DoThings()
     {
+        counting = !counting;
         if (isOpen == false)
         {
             isOpen = !isOpen;
+            
             for (int i = 0; i < doorTouched.Length; i++)
             {
                 doorTouched[i].isOpen = !doorTouched[i].isOpen;
             }
 
-            counting = !counting;
+         
         }
         base.DoThings();
     }
 
     public override void ResetParameters()
     {
-        counting = false;
         timing = 0;
         base.ResetParameters();
     }
