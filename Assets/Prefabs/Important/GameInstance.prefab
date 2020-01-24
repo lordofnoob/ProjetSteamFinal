@@ -1,179 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &521194763660030967
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7640882074010886968}
-  - component: {fileID: 4084206803368822977}
-  - component: {fileID: 1928052300597575881}
-  - component: {fileID: 25990755449682983}
-  - component: {fileID: 2632642607107075098}
-  m_Layer: 0
-  m_Name: ======GamepadManager======
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7640882074010886968
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521194763660030967}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6577050875705239864}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4084206803368822977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521194763660030967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707fe551f60742b4c949164674205519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerIndex: 0
-  AButton: 0
-  BButton: 0
-  XButton: 0
-  YButton: 0
-  StartButton: 0
-  DPadUp: 0
-  DpadRight: 0
-  DpadDown: 0
-  DpadLeft: 0
-  OldAButton: 0
-  OldBButton: 0
-  OldXButton: 0
-  OldYButton: 0
-  OldStartButton: 0
-  OldDPadUp: 0
-  OldDpadRight: 0
-  OldDpadDown: 0
-  OldDpadLeft: 0
-  LeftThumbStick: {x: 0, y: 0, z: 0}
-  RightThumbStick: {x: 0, y: 0, z: 0}
-  OldLeftThumbStick: {x: 0, y: 0, z: 0}
-  OldRightThumbStick: {x: 0, y: 0, z: 0}
---- !u!114 &1928052300597575881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521194763660030967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707fe551f60742b4c949164674205519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerIndex: 1
-  AButton: 0
-  BButton: 0
-  XButton: 0
-  YButton: 0
-  StartButton: 0
-  DPadUp: 0
-  DpadRight: 0
-  DpadDown: 0
-  DpadLeft: 0
-  OldAButton: 0
-  OldBButton: 0
-  OldXButton: 0
-  OldYButton: 0
-  OldStartButton: 0
-  OldDPadUp: 0
-  OldDpadRight: 0
-  OldDpadDown: 0
-  OldDpadLeft: 0
-  LeftThumbStick: {x: 0, y: 0, z: 0}
-  RightThumbStick: {x: 0, y: 0, z: 0}
-  OldLeftThumbStick: {x: 0, y: 0, z: 0}
-  OldRightThumbStick: {x: 0, y: 0, z: 0}
---- !u!114 &25990755449682983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521194763660030967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707fe551f60742b4c949164674205519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerIndex: 2
-  AButton: 0
-  BButton: 0
-  XButton: 0
-  YButton: 0
-  StartButton: 0
-  DPadUp: 0
-  DpadRight: 0
-  DpadDown: 0
-  DpadLeft: 0
-  OldAButton: 0
-  OldBButton: 0
-  OldXButton: 0
-  OldYButton: 0
-  OldStartButton: 0
-  OldDPadUp: 0
-  OldDpadRight: 0
-  OldDpadDown: 0
-  OldDpadLeft: 0
-  LeftThumbStick: {x: 0, y: 0, z: 0}
-  RightThumbStick: {x: 0, y: 0, z: 0}
-  OldLeftThumbStick: {x: 0, y: 0, z: 0}
-  OldRightThumbStick: {x: 0, y: 0, z: 0}
---- !u!114 &2632642607107075098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521194763660030967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707fe551f60742b4c949164674205519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerIndex: 3
-  AButton: 0
-  BButton: 0
-  XButton: 0
-  YButton: 0
-  StartButton: 0
-  DPadUp: 0
-  DpadRight: 0
-  DpadDown: 0
-  DpadLeft: 0
-  OldAButton: 0
-  OldBButton: 0
-  OldXButton: 0
-  OldYButton: 0
-  OldStartButton: 0
-  OldDPadUp: 0
-  OldDpadRight: 0
-  OldDpadDown: 0
-  OldDpadLeft: 0
-  LeftThumbStick: {x: 0, y: 0, z: 0}
-  RightThumbStick: {x: 0, y: 0, z: 0}
-  OldLeftThumbStick: {x: 0, y: 0, z: 0}
-  OldRightThumbStick: {x: 0, y: 0, z: 0}
 --- !u!1 &2062821809714424632
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelParameters: {fileID: 11400000, guid: 61b7cba2bd8694043b4e9988aac564c4, type: 2}
   playerWhoPressedStart: {fileID: 0}
+  inputControllers: []
   players: []
   LoadSkinAndMask: 1
   doorToCloseOnEvent:
@@ -401,7 +228,6 @@ Transform:
   - {fileID: 4241296129973437570}
   - {fileID: 2062821810203415517}
   - {fileID: 2062821809714424638}
-  - {fileID: 7640882074010886968}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -487,16 +313,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7604332838988465331, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5305862941768381905, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5305862941768381905, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 420864948542128262}
     - target: {fileID: 5305862941768381905, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -507,11 +333,31 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5305862941768381905, guid: 88b2222699746d9448b2550ce91a8b29,
+    - target: {fileID: 7604332838988465331, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1747257920904866539, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: fadeBetweenScene
       value: 
-      objectReference: {fileID: 420864948542128262}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464131278486833323, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464131278048723404, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464131278048723408, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88b2222699746d9448b2550ce91a8b29, type: 3}
 --- !u!4 &4241296129973437570 stripped

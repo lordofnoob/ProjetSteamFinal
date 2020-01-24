@@ -8,6 +8,8 @@ using XInputDotNetPure;
 public class Mb_LevelSelector : MonoBehaviour
 {
     public Sc_SelectedLevel selectedLevel;
+    public Mb_Fade fadeBetweenScene;
+    public LevelSelection_RightPanelManager rightPanel;
     public List<Image> cursorSpots = new List<Image>();
     public Ma_InputController inputController;
     public bool inThisMenu = false;
@@ -83,6 +85,7 @@ public class Mb_LevelSelector : MonoBehaviour
 
             if(inputController.AButton == ButtonState.Pressed && inputController.OldAButton == ButtonState.Released)
             {
+                //Debug.Log(inputController.AButton + " ; " + inputController.OldAButton);
                 if(playerCanSelect)
                     activeButton.GetComponentInParent<Button>().onClick.Invoke();
             }
@@ -97,13 +100,13 @@ public class Mb_LevelSelector : MonoBehaviour
         if(activeButton != null)
             activeButton.gameObject.SetActive(true);
         levels[activeButton].Select();
-        levels[activeButton].onClick.Invoke();
+        rightPanel.UpdateLevelSelection(cursorSpots.IndexOf(activeButton));
     }
 
     public void SelectLevel(int levelIndex)
     {
         selectedLevel.selectedLevelIndex = levelIndex;
-        SceneManager.LoadScene(1);
+        fadeBetweenScene.FadeToLevel(1);
     }
 
     #region

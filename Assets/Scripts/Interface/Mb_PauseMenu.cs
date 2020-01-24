@@ -90,10 +90,13 @@ public class Mb_PauseMenu : MonoBehaviour
         mainPauseMenu.SetActive(false);
     }
 
-    public void LoadScene(int sceneIndex)
+    public void ExitToMainMenu()
     {
-        SceneManager.LoadScene(sceneIndex);
+        //Debug.Log("Exit to mainMenu");
+        Time.timeScale = 1f;
+        Ma_UiManager.instance.FadeToLevel(0);
     }
+
 
     public void ExitTheGame()
     {

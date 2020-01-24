@@ -38,12 +38,17 @@ public class Mb_PlayerControler : MonoBehaviour
 
     float floorAnim = 0.5f;
 
- /*   [Header("Input")]
-    [SerializeField] KeyCode interactInput, throwInput, deposeInput;*/
+    /*   [Header("Input")]
+       [SerializeField] KeyCode interactInput, throwInput, deposeInput;*/
 
     //A SUPPR APRES 
-   // float throwTimePressed;
+    // float throwTimePressed;
 
+
+    private void Awake()
+    {
+        inputController = GetComponent<Ma_InputController>();
+    }
 
     void Start()
     {

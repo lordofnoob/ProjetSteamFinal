@@ -22,6 +22,7 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
     [Header("Scene to Load")]
     public Sc_SelectedLevel selectedLevel;
+    public Mb_Fade fadeBetweenScene;
 
     [Header("Scriptables Player Skin & Mask")]
     public Sc_PlayerSkinAndMask[] scriptables;
@@ -101,8 +102,8 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
             skinsAndMasksSaved = true;
 
-            if(selectedLevel.selectedLevelIndex != -1)
-                SceneManager.LoadScene(selectedLevel.selectedLevelIndex);
+            if (selectedLevel.selectedLevelIndex != -1)
+                fadeBetweenScene.FadeToLevel(selectedLevel.selectedLevelIndex);
 
             //TEST &DEBUG
             /*foreach(Mb_LoadSkinAndMask player in players)

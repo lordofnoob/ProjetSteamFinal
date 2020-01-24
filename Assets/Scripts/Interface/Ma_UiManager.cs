@@ -16,6 +16,7 @@ public class Ma_UiManager : MonoBehaviour
     public Image TimeBar;
     [SerializeField] GameObject timeFeedBack;
 
+    [SerializeField] Mb_Fade fadeBetweenScene;
     public TextMeshProUGUI moneyText;
 
     float currentMoneyDisplay;
@@ -141,6 +142,11 @@ public class Ma_UiManager : MonoBehaviour
     void UpdateMoneyDisplay()
     {
         Mb_EndPannel.instance.moneySpot.text = currentMoneyDisplay + "$ Stollen";
+    }
+
+    public void FadeToLevel(int levelIndex)
+    {
+        fadeBetweenScene.FadeToLevel(levelIndex);
     }
 
     private void Update()
