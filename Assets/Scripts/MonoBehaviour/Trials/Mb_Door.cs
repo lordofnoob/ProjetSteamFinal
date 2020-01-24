@@ -24,8 +24,8 @@ public class Mb_Door : Mb_Trial
     List<Vector3> beginPoseDesynch = new List<Vector3>();
 
     float timing = 0;
-    bool counting, open, canTrigger = false;  
-    public bool isOpen = false;
+    bool open, canTrigger = false;  
+    public bool counting, isOpen = false;
 
     public override void Awake()
     {
