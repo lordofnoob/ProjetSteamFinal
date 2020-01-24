@@ -83,7 +83,7 @@ public class Mb_Door : Mb_Trial
         open = !open;
     }
 
-    public virtual void ResetParameters()
+   public virtual void ResetParameters()
     {
 
     }
