@@ -28,6 +28,7 @@ public class Mb_Door : Mb_Trial
         if (desynchronisedDoor.Length >0)
             for (int i = 0; i < doorToMove.Length; i++)
             {
+                print(desynchronisedDoor[i].position - new Vector3(0, yToAdd, 0));
                 endPoseDesynch.Add(desynchronisedDoor[i].position - new Vector3(0, yToAdd, 0));
                 beginPoseDesynch.Add(desynchronisedDoor[i].position);
             }
@@ -62,11 +63,14 @@ public class Mb_Door : Mb_Trial
         for (int i = 0; i < doorToMove.Length; i++)
             doorToMove[i].DOMove(endPose[i], timeToDo);
 
-        if (desynchronisedDoor.Length>0)
+        if (desynchronisedDoor.Length > 0)
             for (int i = 0; i < doorToMove.Length; i++)
-                desynchronisedDoor[i].DOMove(beginPoseDesynch[i], timeToDo);
+            {
+                desynchronisedDoor[i].DOMove(endPoseDesynch[i], timeToDo);
+            }
         open = !open;
     }
+
     public void CloseDoor()
     {
         for (int i = 0; i < doorToMove.Length; i++)
@@ -74,7 +78,7 @@ public class Mb_Door : Mb_Trial
 
         if (desynchronisedDoor.Length > 0)
             for (int i = 0; i < doorToMove.Length; i++)
-                desynchronisedDoor[i].DOMove(endPoseDesynch[i], timeToDo);
+                desynchronisedDoor[i].DOMove(beginPoseDesynch[i], timeToDo);
 
         open = !open;
     }
