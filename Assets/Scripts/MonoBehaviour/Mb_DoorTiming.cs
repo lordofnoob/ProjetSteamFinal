@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mb_DoorTiming : Mb_Door
 {
     [SerializeField] float timeBeforeClose;
-    [SerializeField] Animator feedBackTime;
+    [SerializeField] Animator[]  feedBackTime;
     public Mb_DoorTiming[] doorTouched;
     float timing = 0;
     bool counting = false;
@@ -45,7 +45,11 @@ public class Mb_DoorTiming : Mb_Door
 
         if (timing > timeBeforeClose - 5 && canTrigger == true && isOpen ==true)
         {
-            feedBackTime.SetTrigger("DoThings");
+            for (int i =0; i < feedBackTime.Length; i++)
+            {
+                feedBackTime[i].SetTrigger("DoThings");
+            }
+           
             canTrigger = false;
         }
 
