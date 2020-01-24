@@ -5,18 +5,27 @@ using DG.Tweening;
 
 public class Mb_Door : Mb_Trial
 {
-    [Header("TrialEffect")]
+    [Header("DoorToOpen")]
+    public bool isTimingDoor;
+    private float timeBeforeReactivation;
     public Transform[] doorToMove;
-    [SerializeField] Transform[] desynchronisedDoor;
+    public Transform[] desynchronisedDoor;
     [SerializeField] float yToAdd;
     [SerializeField] float timeToDo;
+
+    [Header("FeedBacksAssociated")]
+    [SerializeField] Animator[] animToTrigger;
+
+
     List<Vector3> endPose = new List<Vector3>();
     List<Vector3> beginPose = new List<Vector3>();
 
     List<Vector3> endPoseDesynch = new List<Vector3>();
     List<Vector3> beginPoseDesynch = new List<Vector3>();
 
-    bool open = false;
+    float timing = 0;
+    bool counting, open, canTrigger = false;  
+    public bool isOpen = false;
 
     public override void Awake()
     {
@@ -83,8 +92,46 @@ public class Mb_Door : Mb_Trial
         open = !open;
     }
 
-   public virtual void ResetParameters()
+    public virtual void ResetParameters()
     {
+
+    }
+
+    public void OpenTimingDoor(float timeBeforeClose)
+    {
+        DoThings();
+        if (open == true)
+        {
+            open = true;
+            timeBeforeReactivation = timeBeforeClose;
+            canTrigger = true;
+            counting = true;
+            timing = 0;
+        }
+    }
+
+    public override void FixedUpdate()
+    {
+        if (timing < timeBeforeReactivation && open == true)
+        {
+            timing += Time.fixedDeltaTime;
+        }
+
+        else if (open == true)
+        {
+           DoThings();
+           open = false;
+        }
+
+        if (timing > timeBeforeReactivation - 5 && canTrigger == true)
+        {
+            for (int i = 0; i < animToTrigger.Length; i++)
+            {
+                animToTrigger[i].SetTrigger("DoThings");
+            }
+            
+            canTrigger = false;
+        }
 
     }
 }
