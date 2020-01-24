@@ -290,7 +290,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7966433378149928931}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e887fc4811623684d95c5e4dccec8a62, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
@@ -328,6 +328,7 @@ MonoBehaviour:
   playerIndex: 0
   inputController: {fileID: 4571607271017390138}
   playerCharacts: {fileID: 11400000, guid: 31028255549a5fd4198f5d8bcc188a9c, type: 2}
+  CurrentTrialsOverlaped: []
   itemHold: {fileID: 0}
   placeToThrow: {fileID: 8451626645360395799}
   itemHandle: {fileID: 8639714626401042817}
@@ -374,6 +375,7 @@ MonoBehaviour:
   - {fileID: 1755881557312609541}
   - {fileID: 1678963776802333134}
   - {fileID: 1845539125979663151}
+  playerController: {fileID: 0}
 --- !u!114 &4571607271017390138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,16 +644,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2503304816357340617}
     m_Modifications:
-    - target: {fileID: 1942234842283379037, guid: 2d378e9dc3006504e96f746e1b6b8301,
-        type: 3}
-      propertyPath: m_Name
-      value: Character_Male_Overall_01_Rigged
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942234842283379037, guid: 2d378e9dc3006504e96f746e1b6b8301,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3219912743618804558, guid: 2d378e9dc3006504e96f746e1b6b8301,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -721,6 +713,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0581435
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942234842283379037, guid: 2d378e9dc3006504e96f746e1b6b8301,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_Male_Overall_01_Rigged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942234842283379037, guid: 2d378e9dc3006504e96f746e1b6b8301,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d378e9dc3006504e96f746e1b6b8301, type: 3}
@@ -957,16 +959,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2503304816357340617}
     m_Modifications:
-    - target: {fileID: 3298061214999730969, guid: 41a176dfff31372499df2af210ac7833,
-        type: 3}
-      propertyPath: m_Name
-      value: Character_Male_FBI_Rigged
-      objectReference: {fileID: 0}
-    - target: {fileID: 3298061214999730969, guid: 41a176dfff31372499df2af210ac7833,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1990108261916584202, guid: 41a176dfff31372499df2af210ac7833,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1037,6 +1029,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0581435
       objectReference: {fileID: 0}
+    - target: {fileID: 3298061214999730969, guid: 41a176dfff31372499df2af210ac7833,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_Male_FBI_Rigged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298061214999730969, guid: 41a176dfff31372499df2af210ac7833,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41a176dfff31372499df2af210ac7833, type: 3}
 --- !u!1 &1933020452721353820 stripped
@@ -1058,16 +1060,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2503304816357340617}
     m_Modifications:
-    - target: {fileID: 2846343332305659259, guid: 41e26c9eb8c04d4419ed708c4fe276da,
-        type: 3}
-      propertyPath: m_Name
-      value: Character_Male_Shirt_01_Rigged
-      objectReference: {fileID: 0}
-    - target: {fileID: 2846343332305659259, guid: 41e26c9eb8c04d4419ed708c4fe276da,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1286736428855170920, guid: 41e26c9eb8c04d4419ed708c4fe276da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1137,6 +1129,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0581435
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846343332305659259, guid: 41e26c9eb8c04d4419ed708c4fe276da,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_Male_Shirt_01_Rigged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846343332305659259, guid: 41e26c9eb8c04d4419ed708c4fe276da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41e26c9eb8c04d4419ed708c4fe276da, type: 3}
@@ -1260,16 +1262,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2503304816357340617}
     m_Modifications:
-    - target: {fileID: 116395586543259951, guid: 1a24dcb0ba785fa41a929758e4cc2623,
-        type: 3}
-      propertyPath: m_Name
-      value: Character_Female_Shirt_01_Rigged
-      objectReference: {fileID: 0}
-    - target: {fileID: 116395586543259951, guid: 1a24dcb0ba785fa41a929758e4cc2623,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4019142656843277116, guid: 1a24dcb0ba785fa41a929758e4cc2623,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1339,6 +1331,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0581435
+      objectReference: {fileID: 0}
+    - target: {fileID: 116395586543259951, guid: 1a24dcb0ba785fa41a929758e4cc2623,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_Female_Shirt_01_Rigged
+      objectReference: {fileID: 0}
+    - target: {fileID: 116395586543259951, guid: 1a24dcb0ba785fa41a929758e4cc2623,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a24dcb0ba785fa41a929758e4cc2623, type: 3}
@@ -1462,16 +1464,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2503304816357340617}
     m_Modifications:
-    - target: {fileID: 2315715616515401750, guid: 2205411f66b8b204799e1bda95a3977f,
-        type: 3}
-      propertyPath: m_Name
-      value: Character_Female_SuitVest_01_Rigged
-      objectReference: {fileID: 0}
-    - target: {fileID: 2315715616515401750, guid: 2205411f66b8b204799e1bda95a3977f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1619126312191875589, guid: 2205411f66b8b204799e1bda95a3977f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1541,6 +1533,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0581435
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315715616515401750, guid: 2205411f66b8b204799e1bda95a3977f,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_Female_SuitVest_01_Rigged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315715616515401750, guid: 2205411f66b8b204799e1bda95a3977f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2205411f66b8b204799e1bda95a3977f, type: 3}
