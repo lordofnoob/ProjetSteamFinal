@@ -13,6 +13,7 @@ public class Ma_UiManager : MonoBehaviour
     [SerializeField] GameObject StartCanvas;
     [SerializeField] GameObject PauseCanvas;
     [SerializeField] GameObject EndCanvas;
+    [SerializeField] GameObject TutorialPanel;
     [SerializeField] Mb_Fade fadeBetweenScene;
     [SerializeField] Image TimeBar;
     public TextMeshProUGUI moneyText;
@@ -62,6 +63,11 @@ public class Ma_UiManager : MonoBehaviour
         Mb_PauseMenu pauseMenu = PauseCanvas.GetComponent<Mb_PauseMenu>();
         pauseMenu.SetActiveButton(null);
         pauseMenu.inThisMenu = false;
+    }
+
+    public void SetActivateTutorialPanel()
+    {
+        TutorialPanel.SetActive(true);
     }
 
     public void UpdateTimeRemainingText(float remainingTime)

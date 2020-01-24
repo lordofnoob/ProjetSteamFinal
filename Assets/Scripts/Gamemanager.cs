@@ -11,7 +11,7 @@ public class Gamemanager : MonoBehaviour
     bool objectiveItem1, objectiveItem2, objectiveMoney;
     float moneyStolen;
     float timeRemaining;
-    bool isPause;
+    bool isPause = true;
     [HideInInspector] public Ma_InputController playerWhoPressedStart = null;
 
     [Header("Input Controllers")]
@@ -46,6 +46,10 @@ public class Gamemanager : MonoBehaviour
         }
 
         timeRemaining = levelParameters.timeToDoTheLevel;
+
+        //Begin Tutorial
+        isPause = true;
+        Ma_UiManager.instance.SetActivateTutorialPanel();
     }
 
     private void Start()
@@ -137,6 +141,11 @@ public class Gamemanager : MonoBehaviour
     public bool IsGamePause()
     {
         return isPause;
+    }
+
+    public void SetGamePause(bool isPause)
+    {
+        this.isPause = isPause;
     }
 
     void CheckEvent()
