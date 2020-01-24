@@ -48,6 +48,7 @@ public class Mb_PlayerControler : MonoBehaviour
     private void Awake()
     {
         inputController = GetComponent<Ma_InputController>();
+        playerIndex = inputController.playerIndex;
     }
 
     void Start()
@@ -366,7 +367,7 @@ public class Mb_PlayerControler : MonoBehaviour
     //UI UPDATE
     public void UpdateThrowUI()
     {
-        strengthBar.fillAmount = playerCharacts.throwGrowingStrengh.Evaluate(throwTime);
+        //strengthBar.fillAmount = playerCharacts.throwGrowingStrengh.Evaluate(throwTime);
     }
 
   
