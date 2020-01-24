@@ -9,9 +9,9 @@ public class Gamemanager : MonoBehaviour
     public static Gamemanager instance;
     public Sc_LevelParameters levelParameters;
     public bool objectiveItem1, objectiveItem2, objectiveMoney;
-    public float moneyStolen= 35000;
+    public float moneyStolen= 0;
     float timeRemaining;
-    bool isPause = true;
+    bool isPause = false;
     [HideInInspector] public Ma_InputController playerWhoPressedStart = null;
 
     [Header("Input Controllers")]
@@ -36,8 +36,8 @@ public class Gamemanager : MonoBehaviour
     
     [SerializeField] float timeSpentEvent1, timeSpentEvent2, timeSpentEvent3;
     [HideInInspector] public bool gameIsEnded=false;
-    int securisedPlayer=1;
-    public static int numberOfPlayer=2;
+    int securisedPlayer=0;
+    public static int numberOfPlayer=4;
     
 
     private void Awake()
@@ -57,8 +57,8 @@ public class Gamemanager : MonoBehaviour
         timeRemaining = levelParameters.timeToDoTheLevel;
 
         //Begin Tutorial
-        isPause = true;
-        Ma_UiManager.instance.SetActivateTutorialPanel();
+        //   isPause = true;
+        //     Ma_UiManager.instance.SetActivateTutorialPanel();
     }
 
     private void Start()
