@@ -70,6 +70,9 @@ public class Gamemanager : MonoBehaviour
                 player.GetComponent<Mb_LoadSkinAndMask>().LoadSkinAndMask();
             }
         }
+
+        isPause = true;
+        Ma_UiManager.instance.SetActivateTutorialPanel();
     }
 
     public void CheckItemToGet(Mb_Item itemStolen)

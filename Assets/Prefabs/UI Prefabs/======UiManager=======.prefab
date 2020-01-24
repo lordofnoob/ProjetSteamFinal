@@ -51,8 +51,9 @@ MonoBehaviour:
   PauseCanvas: {fileID: 4513598043029834401}
   EndCanvas: {fileID: 5266748778882277994}
   TutorialPanel: {fileID: 6059796404094369353}
-  fadeBetweenScene: {fileID: 9009761272338330082}
   TimeBar: {fileID: 9165675095994713380}
+  timeFeedBack: {fileID: 0}
+  fadeBetweenScene: {fileID: 9009761272338330082}
   moneyText: {fileID: 519965724977146709}
 --- !u!1 &5264327665117700860
 GameObject:
@@ -700,16 +701,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2773234244000102047}
     m_Modifications:
-    - target: {fileID: 2098028896028578303, guid: cb3e11d0b88106147a42b598f2bd83af,
-        type: 3}
-      propertyPath: m_Name
-      value: GLOBAL UI PROTECT
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098028896028578303, guid: cb3e11d0b88106147a42b598f2bd83af,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5692587736172749998, guid: cb3e11d0b88106147a42b598f2bd83af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -814,6 +805,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074724449771735478, guid: cb3e11d0b88106147a42b598f2bd83af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098028896028578303, guid: cb3e11d0b88106147a42b598f2bd83af,
+        type: 3}
+      propertyPath: m_Name
+      value: GLOBAL UI PROTECT
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098028896028578303, guid: cb3e11d0b88106147a42b598f2bd83af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4503339998449563025, guid: cb3e11d0b88106147a42b598f2bd83af,
         type: 3}
