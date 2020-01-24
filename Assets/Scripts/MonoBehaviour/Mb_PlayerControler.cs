@@ -38,12 +38,17 @@ public class Mb_PlayerControler : MonoBehaviour
 
     float floorAnim = 0.5f;
 
- /*   [Header("Input")]
-    [SerializeField] KeyCode interactInput, throwInput, deposeInput;*/
+    /*   [Header("Input")]
+       [SerializeField] KeyCode interactInput, throwInput, deposeInput;*/
 
     //A SUPPR APRES 
-   // float throwTimePressed;
+    // float throwTimePressed;
 
+
+    private void Awake()
+    {
+        inputController = GetComponent<Ma_InputController>();
+    }
 
     void Start()
     {
@@ -308,18 +313,44 @@ public class Mb_PlayerControler : MonoBehaviour
     //INTERACTIONPART
     Mb_Trial usedTrial()
     {
-        if (CurrentTrialsOverlaped.Count != 0)
+        if (itemHold == null)
         {
-            Mb_Trial trial = CurrentTrialsOverlaped[0]; ;
-            for (int i = 0; i < CurrentTrialsOverlaped.Count; i++) 
+            if (CurrentTrialsOverlaped.Count != 0)
             {
-                if (trial.trialRules.trialPriority <= CurrentTrialsOverlaped[i].trialRules.trialPriority)
+                Mb_Trial trial = CurrentTrialsOverlaped[0]; ;
+                for (int i = 0; i < CurrentTrialsOverlaped.Count; i++)
+                {
+                    if (trial.trialRules.trialPriority <= CurrentTrialsOverlaped[i].trialRules.trialPriority)
+                        trial = CurrentTrialsOverlaped[i];
+                }
+                return trial;
+            }
+            else
+                return null;
+        }
+        else
+        {
+            List<Mb_Trial> trialAvaible = new List<Mb_Trial>();
+
+            for (int i = 0; i < CurrentTrialsOverlaped.Count; i++)
+            {
+                if (CurrentTrialsOverlaped[i].GetComponent<Mb_Item>() ==false)
+                {
+                    trialAvaible.Add(CurrentTrialsOverlaped[i]);
+                }
+            }
+
+            Mb_Trial trial = trialAvaible[0];
+
+            for (int i = 0; i < trialAvaible.Count; i++)
+            {
+                if (trial.trialRules.trialPriority <= trialAvaible[i].trialRules.trialPriority)
                     trial = CurrentTrialsOverlaped[i];
             }
             return trial;
         }
-        else
-            return null;
+          
+       
     }
 
     public void AddOverlapedTrial(Mb_Trial trialToAdd)

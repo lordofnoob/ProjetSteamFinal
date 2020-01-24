@@ -22,6 +22,7 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
     [Header("Scene to Load")]
     public Sc_SelectedLevel selectedLevel;
+    public Mb_Fade fadeBetweenScene;
 
     [Header("Scriptables Player Skin & Mask")]
     public Sc_PlayerSkinAndMask[] scriptables;
@@ -79,7 +80,7 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
         APress();
 
-        Debug.Log("ReadyPlayerNbr : " + readyPlayerNbr + "/" + GetConnectedPlayerNbr());
+     //Debug.Log("ReadyPlayerNbr : " + readyPlayerNbr + "/" + GetConnectedPlayerNbr());
         if (!skinsAndMasksSaved && readyPlayerNbr != 0 && readyPlayerNbr == GetConnectedPlayerNbr())
         {
             for(int i = 0; i < playerList.Length; i++)
@@ -101,8 +102,12 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
             skinsAndMasksSaved = true;
 
-            if(selectedLevel.selectedLevelIndex != -1)
-                SceneManager.LoadScene(selectedLevel.selectedLevelIndex);
+            if (selectedLevel.selectedLevelIndex != -1)
+            {
+               Gamemanager.numberOfPlayer = GetConnectedPlayerNbr();
+               fadeBetweenScene.FadeToLevel(selectedLevel.selectedLevelIndex);
+            }
+              
 
             //TEST &DEBUG
             /*foreach(Mb_LoadSkinAndMask player in players)
