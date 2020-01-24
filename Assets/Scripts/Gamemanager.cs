@@ -8,8 +8,8 @@ public class Gamemanager : MonoBehaviour
 {
     public static Gamemanager instance;
     public Sc_LevelParameters levelParameters;
-    bool objectiveItem1, objectiveItem2, objectiveMoney;
-    float moneyStolen;
+    public bool objectiveItem1, objectiveItem2, objectiveMoney;
+    public float moneyStolen= 35000;
     float timeRemaining;
     bool isPause;
     [HideInInspector] public Ma_InputController playerWhoPressedStart = null;
@@ -31,7 +31,14 @@ public class Gamemanager : MonoBehaviour
     [Header("WallToDeploy")]
     [SerializeField] Mb_Door[] wallToGetUp;
 
+    [Header("EndGameColl")]
+    [SerializeField] GameObject endGameColl;
+    
     [SerializeField] float timeSpentEvent1, timeSpentEvent2, timeSpentEvent3;
+    [HideInInspector] public bool gameIsEnded=false;
+    int securisedPlayer=1;
+    int numberOfPlayer=2;
+    
 
     private void Awake()
     {
@@ -64,6 +71,8 @@ public class Gamemanager : MonoBehaviour
 
             } 
         }
+
+        endGameColl.SetActive(false);
 
         timeRemaining = levelParameters.timeToDoTheLevel;
     }
@@ -104,6 +113,8 @@ public class Gamemanager : MonoBehaviour
         {
             objectiveMoney = true;
         }
+        else
+            objectiveMoney = false;
     }
 
     private void Update()
@@ -121,8 +132,14 @@ public class Gamemanager : MonoBehaviour
             Ma_UiManager.instance.UpdateTimeRemainingText(timeRemaining);
             Ma_UiManager.instance.UpdateTimeBar(timeRemaining / levelParameters.timeToDoTheLevel);
             CheckEvent();
+
+            if (timeRemaining < 15)
+            {
+                Ma_UiManager.instance.AppearTimeFeedBack();
+                Ma_UiManager.instance.TimeBar.DOColor(Color.red, 1);
+            }
         }
-        else
+        else if (gameIsEnded == false)
             EndGame();
 
     }
@@ -134,9 +151,57 @@ public class Gamemanager : MonoBehaviour
 
     void EndGame()
     {
-     //   Ma_UiManager.instance.SetupEndPannel(moneyStolen, objectiveItem1, objectiveItem2, objectiveMoney);
-        Ma_UiManager.instance.SetActiveEndCanvas();
+        if (gameIsEnded== false)
+        {
+            StartCoroutine("StarApparition");
+            gameIsEnded = true;
+            
+            Ma_UiManager.instance.SetupEndMoney(moneyStolen);
+            Ma_UiManager.instance.SetActiveEndCanvas();
+        }
+  
+        //rajouter le truc pour le nombre d'échapper
+  
     }
+
+    IEnumerator StarApparition()
+    {
+        yield return new WaitForSecondsRealtime(5);
+        Mb_EndPannel.instance.escapedPlayer.text = (numberOfPlayer - securisedPlayer).ToString();
+
+        yield return new WaitForSecondsRealtime(1);
+        {
+            AddMoney((numberOfPlayer - securisedPlayer) * 10000);
+            Ma_UiManager.instance.SetupEndMoney(moneyStolen);
+            CheckMoney();
+        }
+
+        yield return new WaitForSecondsRealtime(3);
+        if (objectiveMoney == true)
+        {
+
+            Mb_EndPannel.instance.firstStar.gameObject.SetActive(true);
+            Mb_EndPannel.instance.firstStar.SetTrigger("DoThings");
+        }
+
+        yield return new WaitForSecondsRealtime(1);
+        if (objectiveItem1 == true)
+        {
+            Mb_EndPannel.instance.secondStar.gameObject.SetActive(true);
+            Mb_EndPannel.instance.secondStar.SetTrigger("DoThings");
+        }
+          
+
+        yield return new WaitForSecondsRealtime(1);
+        if (objectiveItem2 == true)
+        {
+            Mb_EndPannel.instance.thirdStar.gameObject.SetActive(true);
+            Mb_EndPannel.instance.thirdStar.SetTrigger("DoThings");
+        }
+      
+     
+    }
+
 
     public void GamePause(Ma_InputController playerWhoPressedStart)
     {
@@ -197,6 +262,21 @@ public class Gamemanager : MonoBehaviour
         {
             wallToGetUp[i].CloseDoor();
         }
+    }
+
+    void ColliderActivation()
+    {
+        endGameColl.SetActive(true);
+    }
+
+    public void addSecuredPlayer()
+    {
+        securisedPlayer += 1;
+    }
+
+    public void removeSecuredPlayer()
+    {
+        securisedPlayer -= 1;
     }
     //Light Event
     #region

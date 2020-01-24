@@ -412,6 +412,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6577050875705239864}
     m_Modifications:
+    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: moneySpot
+      value: 
+      objectReference: {fileID: 8614543101480055856}
+    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: objectiveText
+      value: 
+      objectReference: {fileID: 1550374141691370741}
     - target: {fileID: 2773234244000102045, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_Name
@@ -516,3 +526,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2062821810316866077}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1550374141691370741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 658814793958452968, guid: 88b2222699746d9448b2550ce91a8b29,
+    type: 3}
+  m_PrefabInstance: {fileID: 2062821810316866077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8614543101480055856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7723001348024682029, guid: 88b2222699746d9448b2550ce91a8b29,
+    type: 3}
+  m_PrefabInstance: {fileID: 2062821810316866077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

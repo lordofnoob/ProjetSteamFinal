@@ -8,8 +8,8 @@ public class Mb_EndPannel : MonoBehaviour
 {
     public static Mb_EndPannel instance;
 
-    public Image firstStar, secondStar, thirdStar;
-    public TextMeshProUGUI objectiveText;
+    public Animator firstStar, secondStar, thirdStar;
+    public TextMeshProUGUI objectiveText, escapedPlayer;
     public TextMeshProUGUI moneySpot;
 
     private void Awake()
