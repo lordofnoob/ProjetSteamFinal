@@ -592,6 +592,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4104815830249467136, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: objectiveText
+      value: 
+      objectReference: {fileID: 658814793958452968}
+    - target: {fileID: 4104815830249467136, guid: d1657d475170e514f981a3a8aa47bba1,
+        type: 3}
+      propertyPath: moneySpot
+      value: 
+      objectReference: {fileID: 7723001348024682029}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1657d475170e514f981a3a8aa47bba1, type: 3}
 --- !u!1 &5266748778882277994 stripped
@@ -612,6 +622,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3807113998029606078}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &658814793958452968 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4463351532214198870, guid: d1657d475170e514f981a3a8aa47bba1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3807113998029606078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3826651844358468796
 PrefabInstance:
   m_ObjectHideFlags: 0

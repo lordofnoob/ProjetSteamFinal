@@ -38,9 +38,9 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] GameObject endGameColl;
     
     [SerializeField] float timeSpentEvent1, timeSpentEvent2, timeSpentEvent3;
-    [HideInInspector] public bool gameIsEnded=false;
+    [HideInInspector] public bool gameIsEnded, canEscape=false;
     int securisedPlayer=0;
-    public static int numberOfPlayer=4;
+    public static int numberOfPlayer=0;
     
 
     private void Awake()
@@ -50,7 +50,9 @@ public class Gamemanager : MonoBehaviour
         else
             Destroy(this);
 
-        for(int i = 0; i < players.Length; i++)
+       // endGameColl.SetActive(false);
+
+        for (int i = 0; i < players.Length; i++)
         {
             inputControllers.Add(players[i].inputController);
             if(i >= numberOfPlayer)
@@ -62,8 +64,6 @@ public class Gamemanager : MonoBehaviour
                 players[i].gameObject.SetActive(true);
             }
         }
-
-        endGameColl.SetActive(false);
 
         timeRemaining = levelParameters.timeToDoTheLevel;
 
@@ -85,10 +85,6 @@ public class Gamemanager : MonoBehaviour
                     players[i].GetComponent<Mb_LoadSkinAndMask>().LoadSkinAndMask();
             }
         }
-
-        isPause = true;
-        Ma_UiManager.instance.SetActivateTutorialPanel();
-
         Ma_UiManager.instance.UpdateNumberPlayerPortrait(numberOfPlayer);
     }
 
@@ -107,6 +103,7 @@ public class Gamemanager : MonoBehaviour
     public void AddMoney(int moneyToAdd)
     {
         moneyStolen += moneyToAdd;
+        moneyStolen= Mathf.Clamp(moneyStolen,0, 100000000000);
         Ma_UiManager.instance.UpdateMoney(moneyStolen);
         CheckMoney();
     }
@@ -139,12 +136,17 @@ public class Gamemanager : MonoBehaviour
 
             if (timeRemaining < 15)
             {
+                canEscape = true;
+                endGameColl.SetActive(true);
+          
                 Ma_UiManager.instance.AppearTimeFeedBack();
                 Ma_UiManager.instance.TimeBar.DOColor(Color.red, 1);
             }
         }
         else if (gameIsEnded == false)
+        {
             EndGame();
+        }
 
     }
 
@@ -175,7 +177,7 @@ public class Gamemanager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1);
         {
-            AddMoney((numberOfPlayer - securisedPlayer) * 10000);
+            AddMoney((numberOfPlayer - securisedPlayer) * -2000);
             Ma_UiManager.instance.SetupEndMoney(moneyStolen);
             CheckMoney();
         }

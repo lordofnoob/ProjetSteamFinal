@@ -24,6 +24,7 @@ public class Ma_UiManager : MonoBehaviour
     float finalMoneyToDisplay = 0;
     bool haveTriggerStars, procked = false;
     int insecuredPlayer;
+  
 
     private void Awake()
 

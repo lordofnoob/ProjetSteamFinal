@@ -39,11 +39,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6522061746511979955}
     m_Modifications:
-    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
+    - target: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
-      propertyPath: m_Name
-      value: TrialUI
-      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb4b7a901ce39e441972b267872d247a,
+        type: 3}
+    - target: {fileID: 4895995507470802420, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 271631b8898158f43a6fccac5bf69d50,
+        type: 3}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -154,29 +161,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4895995507470802420, guid: 176652a470417194c82f0c5bcac95a05,
+    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 271631b8898158f43a6fccac5bf69d50,
-        type: 3}
-    - target: {fileID: 7243847078638151477, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fb4b7a901ce39e441972b267872d247a,
-        type: 3}
-    - target: {fileID: 9085445533082485328, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: itemToFollow
-      value: 
-      objectReference: {fileID: 7845503363808641479}
+      propertyPath: m_Name
+      value: TrialUI
+      objectReference: {fileID: 0}
     - target: {fileID: 3140866078930579409, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f42c5fbc382e01d4e9d9334966c35b0a,
         type: 3}
+    - target: {fileID: 9085445533082485328, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: itemToFollow
+      value: 
+      objectReference: {fileID: 7845503363808641479}
     - target: {fileID: 794263356474266504, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: transformToFollow
@@ -244,6 +244,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6522061746511979955}
     m_Modifications:
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: trialRules
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f86b12653502c144ae394a692abe8a4,
+        type: 2}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: uiToFill
+      value: 
+      objectReference: {fileID: 5421380889228244111}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: uiToTrigger
+      value: 
+      objectReference: {fileID: 7803010002792517198}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: textUser
+      value: 
+      objectReference: {fileID: 4717228758948509804}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: triggerCollider
+      value: 
+      objectReference: {fileID: 8302363968442773348}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: itemValue
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: spriteOfTheItem
+      value: 
+      objectReference: {fileID: 21300000, guid: e14afdccde87cb241a91256c40f22019,
+        type: 3}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: animationType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: uiAnimator
+      value: 
+      objectReference: {fileID: 3045547615667192754}
     - target: {fileID: 8937344457059923798, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: m_Name
@@ -329,53 +376,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: trialRules
-      value: 
-      objectReference: {fileID: 11400000, guid: 7f86b12653502c144ae394a692abe8a4,
-        type: 2}
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: uiToFill
-      value: 
-      objectReference: {fileID: 5421380889228244111}
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: uiToTrigger
-      value: 
-      objectReference: {fileID: 7803010002792517198}
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: textUser
-      value: 
-      objectReference: {fileID: 4717228758948509804}
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: triggerCollider
-      value: 
-      objectReference: {fileID: 8302363968442773348}
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: itemValue
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: spriteOfTheItem
-      value: 
-      objectReference: {fileID: 21300000, guid: e14afdccde87cb241a91256c40f22019,
-        type: 3}
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: animationType
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7344893106205094129, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: uiAnimator
-      value: 
-      objectReference: {fileID: 3045547615667192754}
     - target: {fileID: 6268436400815273782, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: m_Layer
@@ -397,6 +397,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a5a654b3112e368428a3a35a0017e728, type: 2}
+    - target: {fileID: 8575954221443330989, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9dabb62b900ede43857624cfe2e0344, type: 3}
 --- !u!4 &7845503363808641479 stripped

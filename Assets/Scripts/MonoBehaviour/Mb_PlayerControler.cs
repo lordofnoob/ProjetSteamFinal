@@ -340,8 +340,11 @@ public class Mb_PlayerControler : MonoBehaviour
                     trialAvaible.Add(CurrentTrialsOverlaped[i]);
                 }
             }
-
-            Mb_Trial trial = trialAvaible[0];
+            Mb_Trial trial;
+            if (trialAvaible.Count > 0)
+                trial = trialAvaible[0];
+            else
+                trial = null;
 
             for (int i = 0; i < trialAvaible.Count; i++)
             {
