@@ -110,11 +110,11 @@ public class Ma_UiManager : MonoBehaviour
         {
             if (finalMoneyToDisplay / 1000 > 1)
             {
-                currentMoneyDisplay += 250 + Random.Range(3, 9);
+                currentMoneyDisplay += 100 + Random.Range(3, 9);
             }
             else if (currentMoneyDisplay / 150 > 1)
             {
-                currentMoneyDisplay += 25 + Random.Range(3, 9);
+                currentMoneyDisplay += 10 + Random.Range(3, 9);
             }
             else
             {
@@ -126,7 +126,7 @@ public class Ma_UiManager : MonoBehaviour
             haveTriggerStars = true;
             if (currentMoneyDisplay - finalMoneyToDisplay > 100)
             {
-                currentMoneyDisplay -= 50 + Random.Range(3, 9);
+                currentMoneyDisplay -= 25 + Random.Range(3, 9);
             }
             else if (currentMoneyDisplay - finalMoneyToDisplay > 10)
             {
@@ -165,7 +165,7 @@ public class Ma_UiManager : MonoBehaviour
 
     public void UpdateMoney(float moneyAmount)
     {
-        moneyText.text = moneyAmount.ToString();
+        moneyText.text = moneyAmount + "$";
     }
 
     public void AppearTimeFeedBack()

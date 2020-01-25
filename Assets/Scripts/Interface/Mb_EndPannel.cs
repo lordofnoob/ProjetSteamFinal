@@ -30,7 +30,6 @@ public class Mb_EndPannel : MonoBehaviour
         else
             Destroy(this);
 
-        appreciation.gameObject.SetActive(false);
     }
 
     private void Start()
