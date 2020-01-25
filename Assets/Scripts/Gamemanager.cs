@@ -14,8 +14,11 @@ public class Gamemanager : MonoBehaviour
     bool isPause = false;
     [HideInInspector] public Ma_InputController playerWhoPressedStart = null;
 
+    [Header("Launch Tutorial")]
+    public bool activateTuto = true;
+
     [Header("Input Controllers")]
-    public List<Ma_InputController> inputControllers = new List<Ma_InputController>();
+    [HideInInspector] public List<Ma_InputController> inputControllers = new List<Ma_InputController>();
 
     [Header("All Players")]
     public Mb_PlayerControler[] players;
@@ -50,6 +53,14 @@ public class Gamemanager : MonoBehaviour
         for(int i = 0; i < players.Length; i++)
         {
             inputControllers.Add(players[i].inputController);
+            if(i >= numberOfPlayer)
+            {
+                players[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                players[i].gameObject.SetActive(true);
+            }
         }
 
         endGameColl.SetActive(false);
@@ -57,19 +68,28 @@ public class Gamemanager : MonoBehaviour
         timeRemaining = levelParameters.timeToDoTheLevel;
 
         //Begin Tutorial
-        //   isPause = true;
-        //     Ma_UiManager.instance.SetActivateTutorialPanel();
+        if (activateTuto)
+        {
+            isPause = true;
+            Ma_UiManager.instance.SetActivateTutorialPanel();
+        }
     }
 
     private void Start()
     {
         if (LoadSkinAndMask)
         {
-            foreach (Mb_PlayerControler player in players)
+            for (int i = 0; i < players.Length; i++)
             {
-                player.GetComponent<Mb_LoadSkinAndMask>().LoadSkinAndMask();
+                if(players[i].gameObject.activeInHierarchy)
+                    players[i].GetComponent<Mb_LoadSkinAndMask>().LoadSkinAndMask();
             }
         }
+
+        isPause = true;
+        Ma_UiManager.instance.SetActivateTutorialPanel();
+
+        Ma_UiManager.instance.UpdateNumberPlayerPortrait(numberOfPlayer);
     }
 
     public void CheckItemToGet(Mb_Item itemStolen)
