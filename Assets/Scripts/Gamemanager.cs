@@ -164,12 +164,14 @@ public class Gamemanager : MonoBehaviour
     {
         if (gameIsEnded== false)
         {
+            Ma_UiManager.instance.SetActiveEndCanvas();
             Mb_EndPannel.instance.bestScoreSpot.text = levelParameters.bestScore + "$";
+            Ma_UiManager.instance.SetupEndMoney(moneyStolen);
             StartCoroutine("StarApparition");
             gameIsEnded = true;
             
-            Ma_UiManager.instance.SetupEndMoney(moneyStolen);
-            Ma_UiManager.instance.SetActiveEndCanvas();
+         
+       
         }
   
         //rajouter le truc pour le nombre d'échapper
@@ -201,25 +203,51 @@ public class Gamemanager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
         if (objectiveMoney == true)
         {
-
             Mb_EndPannel.instance.firstStar.gameObject.SetActive(true);
             Mb_EndPannel.instance.firstStar.SetTrigger("DoThings");
+
+            if (objectiveItem1 == true)
+            {
+                yield return new WaitForSecondsRealtime(1);
+            
+                Mb_EndPannel.instance.secondStar.gameObject.SetActive(true);
+                Mb_EndPannel.instance.secondStar.SetTrigger("DoThings");
+                if (objectiveItem2 == true)
+                {
+                    yield return new WaitForSecondsRealtime(1);
+           
+            
+                    Mb_EndPannel.instance.thirdStar.gameObject.SetActive(true);
+                    Mb_EndPannel.instance.thirdStar.SetTrigger("DoThings");
+                }
+            }
         }
 
-        yield return new WaitForSecondsRealtime(1);
-        if (objectiveItem1 == true)
+        else if (objectiveItem1 == true)
         {
+            yield return new WaitForSecondsRealtime(1);
+       
             Mb_EndPannel.instance.secondStar.gameObject.SetActive(true);
             Mb_EndPannel.instance.secondStar.SetTrigger("DoThings");
-        }
-          
 
-        yield return new WaitForSecondsRealtime(1);
-        if (objectiveItem2 == true)
-        {
-            Mb_EndPannel.instance.thirdStar.gameObject.SetActive(true);
-            Mb_EndPannel.instance.thirdStar.SetTrigger("DoThings");
+            if (objectiveItem2 == true)
+                yield return new WaitForSecondsRealtime(1);
+            {
+                Mb_EndPannel.instance.thirdStar.gameObject.SetActive(true);
+                Mb_EndPannel.instance.thirdStar.SetTrigger("DoThings");
+            }
         }
+         
+        else if (objectiveItem2 == true)
+        {
+            yield return new WaitForSecondsRealtime(1);
+            {
+                Mb_EndPannel.instance.thirdStar.gameObject.SetActive(true);
+                Mb_EndPannel.instance.thirdStar.SetTrigger("DoThings");
+            }
+        }
+
+    
 
         yield return new WaitForSecondsRealtime(1);
         {

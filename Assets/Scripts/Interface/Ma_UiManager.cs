@@ -10,7 +10,6 @@ public class Ma_UiManager : MonoBehaviour
     public static Ma_UiManager instance;
 
     public Canvas inGameCanvas;
-    [SerializeField] GameObject StartCanvas;
     [SerializeField] GameObject PauseCanvas;
     [SerializeField] GameObject EndCanvas;
     [SerializeField] GameObject TutorialPanel;
@@ -23,7 +22,7 @@ public class Ma_UiManager : MonoBehaviour
 
     float currentMoneyDisplay;
     float finalMoneyToDisplay = 0;
-    bool haveTriggerStars, procked = false;
+    bool  procked = false;
     int insecuredPlayer;
   
 
@@ -44,15 +43,6 @@ public class Ma_UiManager : MonoBehaviour
         EndCanvas.SetActive(true);
     }
 
-    public void SetActiveStartCanvas()
-    {
-        StartCanvas.SetActive(true);
-    }
-
-    public void SetDesactiveStartCanvas()
-    {
-        StartCanvas.SetActive(false);
-    }
 
     public void SetActivePauseCanvas()
     {
@@ -126,7 +116,6 @@ public class Ma_UiManager : MonoBehaviour
         }
         else if (currentMoneyDisplay > finalMoneyToDisplay)
         {
-            haveTriggerStars = true;
             if (currentMoneyDisplay - finalMoneyToDisplay > 100)
             {
                 currentMoneyDisplay -= 25 + Random.Range(3, 9);
@@ -139,12 +128,6 @@ public class Ma_UiManager : MonoBehaviour
             {
                 currentMoneyDisplay -= 1;
             }
-        }
-
-        //  Mb_EndPannel.instance.moneySpot.text = currentMoneyDisplay + "$ Stolen";
-        else
-        {
-            haveTriggerStars = true;
         }
 
 
