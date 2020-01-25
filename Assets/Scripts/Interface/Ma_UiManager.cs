@@ -73,6 +73,8 @@ public class Ma_UiManager : MonoBehaviour
     public void SetActivateTutorialPanel()
     {
         TutorialPanel.SetActive(true);
+        Mb_TutorialMenu tuto = TutorialPanel.GetComponent<Mb_TutorialMenu>();
+        tuto.SetAcivePanel(tuto.allPanelTuto[0]);
     }
 
     public void UpdateTimeRemainingText(float remainingTime)

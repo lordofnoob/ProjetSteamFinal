@@ -150,9 +150,10 @@ public class Gamemanager : MonoBehaviour
 
     }
 
-    void StartGame()
+    public void StartGame()
     {
-
+        isPause = false;
+        Ma_UiManager.instance.inGameCanvas.gameObject.SetActive(true);
     }
 
     void EndGame()

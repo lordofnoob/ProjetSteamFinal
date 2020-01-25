@@ -37,6 +37,7 @@ public class Mb_EndPannel : MonoBehaviour
     {
         if (inThisMenu)
             SetActiveButton(cursorSpots[0]);
+        inputController = Gamemanager.instance.inputControllers[0];
     }
 
     void Update()
