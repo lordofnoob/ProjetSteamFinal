@@ -159,6 +159,7 @@ public class Gamemanager : MonoBehaviour
     {
         if (gameIsEnded== false)
         {
+            Mb_EndPannel.instance.bestScoreSpot.text = levelParameters.bestScore + "$";
             StartCoroutine("StarApparition");
             gameIsEnded = true;
             
@@ -172,6 +173,14 @@ public class Gamemanager : MonoBehaviour
 
     IEnumerator StarApparition()
     {
+        int objectiveCompleted = 0;
+        if (objectiveMoney)
+            objectiveCompleted++;
+        if (objectiveItem1)
+            objectiveCompleted++;
+        if (objectiveItem2)
+            objectiveCompleted++;
+
         yield return new WaitForSecondsRealtime(5);
         Mb_EndPannel.instance.escapedPlayer.text = (numberOfPlayer - securisedPlayer).ToString();
 
@@ -204,7 +213,43 @@ public class Gamemanager : MonoBehaviour
             Mb_EndPannel.instance.thirdStar.gameObject.SetActive(true);
             Mb_EndPannel.instance.thirdStar.SetTrigger("DoThings");
         }
-      
+
+        yield return new WaitForSecondsRealtime(1);
+        {
+            if (moneyStolen < 3000)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Was this even worth it?";
+            }
+           else if (moneyStolen < 3000 && objectiveCompleted >=1)
+            {
+                Mb_EndPannel.instance.appreciation.text = "At least you got something.";
+            }   
+            else if (moneyStolen >= 3000 && objectiveCompleted < 1)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Nice money.";
+            }
+            else if (moneyStolen >= 3000 && objectiveCompleted >= 1)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Nice loot!";
+            }
+            else if (moneyStolen >= 6000 && objectiveCompleted == 2)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Great job!";
+            }
+            else if (moneyStolen >= 6000 && objectiveCompleted == 3)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Perfect Heist!";
+            }
+            
+        }
+
+        yield return new WaitForSecondsRealtime(2);
+        if (moneyStolen > levelParameters.bestScore)
+        {
+            levelParameters.bestScore = moneyStolen;
+            Mb_EndPannel.instance.bestScoreSpot.text = moneyStolen + "$";
+            Mb_EndPannel.instance.animationBestScore.SetTrigger("DoThings");
+        }
      
     }
 

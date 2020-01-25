@@ -12,7 +12,9 @@ public class Mb_EndPannel : MonoBehaviour
 
     public Animator firstStar, secondStar, thirdStar;
     public TextMeshProUGUI objectiveText, escapedPlayer;
-    public TextMeshProUGUI moneySpot;
+    public TextMeshProUGUI appreciation,moneySpot, bestScoreSpot;
+    public Animator animationBestScore;
+ 
 
     [Header("Cursor")]
     public List<Image> cursorSpots = new List<Image>();
@@ -27,6 +29,8 @@ public class Mb_EndPannel : MonoBehaviour
             instance = this;
         else
             Destroy(this);
+
+        appreciation.gameObject.SetActive(false);
     }
 
     private void Start()

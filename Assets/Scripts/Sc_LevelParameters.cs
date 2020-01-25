@@ -9,5 +9,6 @@ public class Sc_LevelParameters : ScriptableObject
     public Sc_TrialParameters itemToGet1, itemToGet2;
     public int moneyToSteal;
     public float timeToDoTheLevel;
+    public float bestScore=0;
 
 }
