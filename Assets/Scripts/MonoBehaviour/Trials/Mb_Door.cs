@@ -119,6 +119,7 @@ public class Mb_Door : Mb_Trial
 
         else if (open == true)
         {
+            counting = false;
            DoThings();
            open = false;
         }

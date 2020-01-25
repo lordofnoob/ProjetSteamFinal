@@ -26,6 +26,4 @@ public class Mb_DoorTiming : Mb_Trial
             DoorTouched.OpenTimingDoor(timeBeforeReactivation);
         base.DoThings();
     }
-
-
 }

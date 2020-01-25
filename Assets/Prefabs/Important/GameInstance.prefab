@@ -49,6 +49,7 @@ MonoBehaviour:
   objectiveMoney: 0
   moneyStolen: 35000
   playerWhoPressedStart: {fileID: 0}
+  activateTuto: 1
   inputControllers: []
   players: []
   LoadSkinAndMask: 1
@@ -244,36 +245,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6577050875705239864}
     m_Modifications:
-    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: moneySpot
-      value: 
-      objectReference: {fileID: 8614543101480055856}
-    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: objectiveText
-      value: 
-      objectReference: {fileID: 1550374141691370741}
-    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: firstStar
-      value: 
-      objectReference: {fileID: 956523471930102826}
-    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: secondStar
-      value: 
-      objectReference: {fileID: 3656575149226168872}
-    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: thirdStar
-      value: 
-      objectReference: {fileID: 1824793269943524997}
-    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: escapedPlayer
-      value: 
-      objectReference: {fileID: 7488636604106079797}
     - target: {fileID: 2773234244000102045, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_Name
@@ -334,20 +305,85 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1581514344959300433, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5183426163810264576, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009761271635589254, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 519965724728637485, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059796404094369353, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: moneySpot
+      value: 
+      objectReference: {fileID: 8614543101480055856}
+    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: objectiveText
+      value: 
+      objectReference: {fileID: 1550374141691370741}
+    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: firstStar
+      value: 
+      objectReference: {fileID: 956523471930102826}
+    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: secondStar
+      value: 
+      objectReference: {fileID: 3656575149226168872}
+    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: thirdStar
+      value: 
+      objectReference: {fileID: 1824793269943524997}
+    - target: {fileID: 874448457867436478, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: escapedPlayer
+      value: 
+      objectReference: {fileID: 7488636604106079797}
     - target: {fileID: 1747257920904866539, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: fadeBetweenScene
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774001702339925699, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774001702339925699, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774001702339925699, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774001702339925699, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4457010870836276136, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
@@ -379,11 +415,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 9009761271635589254, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4464131278486833323, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_RootOrder
@@ -397,26 +428,6 @@ PrefabInstance:
     - target: {fileID: 4464131278048723408, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5774001702339925699, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5774001702339925699, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5774001702339925699, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5774001702339925699, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
