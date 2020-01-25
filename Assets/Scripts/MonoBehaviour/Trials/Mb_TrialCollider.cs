@@ -21,7 +21,7 @@ public class Mb_TrialCollider : MonoBehaviour
     }
 
 
-    private void OnTriggerStay (Collider other)
+    private void OnTriggerEnter (Collider other)
     {
         Mb_PlayerControler playerOccupying = other.GetComponent<Mb_PlayerControler>();
       
