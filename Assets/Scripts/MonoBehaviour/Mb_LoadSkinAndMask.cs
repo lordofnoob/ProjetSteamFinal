@@ -9,9 +9,9 @@ public class Mb_LoadSkinAndMask : MonoBehaviour
     [Header("All Skins")]
     public List<GameObject> allSkins = new List<GameObject>();
 
-    private Mb_PlayerControler playerController;
+    public Mb_PlayerControler playerController;
 
-    public void Start()
+    public void Awake()
     {
         playerController = GetComponent<Mb_PlayerControler>();
     }
@@ -20,20 +20,21 @@ public class Mb_LoadSkinAndMask : MonoBehaviour
     {
         for(int i = 0; i < allSkins.Count; i++)
         {
-            if(allScriptable[(int)playerController.playerIndex].skinIndex != -1)
+            //Debug.Log((int)playerController.inputController.playerIndex);
+            if(allScriptable[(int)playerController.inputController.playerIndex].skinIndex != -1)
             {
-                if (allScriptable[(int)playerController.playerIndex].skinIndex == i)
+                if (allScriptable[(int)playerController.inputController.playerIndex].skinIndex == i)
                 {
                     allSkins[i].SetActive(true);
                     Mb_HoldingMasks maskHolder = allSkins[i].GetComponent<Mb_HoldingMasks>();
                     playerController.itemHandle = maskHolder.handler;
                     playerController.rAnimator = maskHolder.animator;
 
-                    for (int y = 0; y < allSkins.Count; y++)
+                    for (int y = 0; y < maskHolder.listOfAllMasks.Count; y++)
                     {
-                        if(allScriptable[(int)playerController.playerIndex].maskIndex != -1)
+                        if(allScriptable[(int)playerController.inputController.playerIndex].maskIndex != -1)
                         {
-                            if (allScriptable[(int)playerController.playerIndex].maskIndex == y)
+                            if (allScriptable[(int)playerController.inputController.playerIndex].maskIndex == y)
                             {
                                 maskHolder.listOfAllMasks[y].SetActive(true);
                             }
@@ -42,7 +43,7 @@ public class Mb_LoadSkinAndMask : MonoBehaviour
                                 maskHolder.listOfAllMasks[y].SetActive(false);
                             }
                         }
-                        else if(allScriptable[(int)playerController.playerIndex].maskIndex == -1)
+                        else if(allScriptable[(int)playerController.inputController.playerIndex].maskIndex == -1)
                         {
                             gameObject.SetActive(false);
                         }
@@ -53,10 +54,51 @@ public class Mb_LoadSkinAndMask : MonoBehaviour
                     allSkins[i].SetActive(false);
                 }
             }
-            else if(allScriptable[(int)playerController.playerIndex].skinIndex == -1)
+            else if(allScriptable[(int)playerController.inputController.playerIndex].skinIndex == -1)
             {
                 gameObject.SetActive(false);
             }
         }
+
+        /*for (int i = 0; i < allSkins.Count; i++)
+        {
+            if (CrossSceneInformation.selectedPlayersSkins[(int)playerController.playerIndex] != -1)
+            {
+                if (CrossSceneInformation.selectedPlayersSkins[(int)playerController.playerIndex] == i)
+                {
+                    allSkins[i].SetActive(true);
+                    Mb_HoldingMasks maskHolder = allSkins[i].GetComponent<Mb_HoldingMasks>();
+                    playerController.itemHandle = maskHolder.handler;
+                    playerController.rAnimator = maskHolder.animator;
+
+                    for (int y = 0; y < maskHolder.listOfAllMasks.Count; y++)
+                    {
+                        if (CrossSceneInformation.selectedPlayersMasks[(int)playerController.playerIndex] != -1)
+                        {
+                            if (CrossSceneInformation.selectedPlayersMasks[(int)playerController.playerIndex] == y)
+                            {
+                                maskHolder.listOfAllMasks[y].SetActive(true);
+                            }
+                            else
+                            {
+                                maskHolder.listOfAllMasks[y].SetActive(false);
+                            }
+                        }
+                        else if (CrossSceneInformation.selectedPlayersMasks[(int)playerController.playerIndex] == -1)
+                        {
+                            gameObject.SetActive(false);
+                        }
+                    }
+                }
+                else
+                {
+                    allSkins[i].SetActive(false);
+                }
+            }
+            else if (CrossSceneInformation.selectedPlayersSkins[(int)playerController.playerIndex] == -1)
+            {
+                gameObject.SetActive(false);
+            }
+        }*/
     }
 }

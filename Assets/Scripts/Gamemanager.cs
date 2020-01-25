@@ -8,13 +8,17 @@ public class Gamemanager : MonoBehaviour
 {
     public static Gamemanager instance;
     public Sc_LevelParameters levelParameters;
-    bool objectiveItem1, objectiveItem2, objectiveMoney;
-    float moneyStolen;
+    public bool objectiveItem1, objectiveItem2, objectiveMoney;
+    public float moneyStolen= 0;
     float timeRemaining;
-    bool isPause;
+    bool isPause = false;
+    [HideInInspector] public Ma_InputController playerWhoPressedStart = null;
+
+    [Header("Launch Tutorial")]
+    public bool activateTuto = true;
 
     [Header("Input Controllers")]
-    private Ma_InputController[] inputControllers;
+    [HideInInspector] public List<Ma_InputController> inputControllers = new List<Ma_InputController>();
 
     [Header("All Players")]
     public Mb_PlayerControler[] players;
@@ -30,7 +34,14 @@ public class Gamemanager : MonoBehaviour
     [Header("WallToDeploy")]
     [SerializeField] Mb_Door[] wallToGetUp;
 
+    [Header("EndGameColl")]
+    [SerializeField] GameObject endGameColl;
+    
     [SerializeField] float timeSpentEvent1, timeSpentEvent2, timeSpentEvent3;
+    [HideInInspector] public bool gameIsEnded, canEscape=false;
+    int securisedPlayer=0;
+    public static int numberOfPlayer=0;
+    
 
     private void Awake()
     {
@@ -39,43 +50,46 @@ public class Gamemanager : MonoBehaviour
         else
             Destroy(this);
 
-        inputControllers = GetComponentsInChildren<Ma_InputController>();
+       // endGameColl.SetActive(false);
 
-        for(int i = 0; i < players.Length; i++)
+        for (int i = 0; i < players.Length; i++)
         {
-            switch (players[i].playerIndex)
+            inputControllers.Add(players[i].inputController);
+            if(i >= numberOfPlayer)
             {
-                case PlayerIndex.One:
-                    players[i].inputController = inputControllers[0];
-                    break;
-
-                case PlayerIndex.Two:
-                    players[i].inputController = inputControllers[1];
-                    break;
-
-                case PlayerIndex.Three:
-                    players[i].inputController = inputControllers[2];
-                    break;
-
-                case PlayerIndex.Four:
-                    players[i].inputController = inputControllers[3];
-                    break;
-
-            } 
+                players[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                players[i].gameObject.SetActive(true);
+            }
         }
 
         timeRemaining = levelParameters.timeToDoTheLevel;
+
+        //Begin Tutorial
+        isPause = true;
+        if (activateTuto)
+        {
+            Ma_UiManager.instance.SetActivateTutorialPanel();
+        }
+        else
+        {
+            Ma_UiManager.instance.countDown.LaunchCountdown();
+        }
     }
 
     private void Start()
     {
         if (LoadSkinAndMask)
         {
-            foreach (Mb_PlayerControler player in players)
+            for (int i = 0; i < players.Length; i++)
             {
-                player.GetComponent<Mb_LoadSkinAndMask>().LoadSkinAndMask();
+                if(players[i].gameObject.activeInHierarchy)
+                    players[i].GetComponent<Mb_LoadSkinAndMask>().LoadSkinAndMask();
             }
         }
+        Ma_UiManager.instance.UpdateNumberPlayerPortrait(numberOfPlayer);
     }
 
     public void CheckItemToGet(Mb_Item itemStolen)
@@ -93,6 +107,7 @@ public class Gamemanager : MonoBehaviour
     public void AddMoney(int moneyToAdd)
     {
         moneyStolen += moneyToAdd;
+        moneyStolen= Mathf.Clamp(moneyStolen,0, 100000000000);
         Ma_UiManager.instance.UpdateMoney(moneyStolen);
         CheckMoney();
     }
@@ -103,6 +118,8 @@ public class Gamemanager : MonoBehaviour
         {
             objectiveMoney = true;
         }
+        else
+            objectiveMoney = false;
     }
 
     private void Update()
@@ -120,31 +137,159 @@ public class Gamemanager : MonoBehaviour
             Ma_UiManager.instance.UpdateTimeRemainingText(timeRemaining);
             Ma_UiManager.instance.UpdateTimeBar(timeRemaining / levelParameters.timeToDoTheLevel);
             CheckEvent();
+
+            if (timeRemaining < 15)
+            {
+                canEscape = true;
+                endGameColl.SetActive(true);
+          
+                Ma_UiManager.instance.AppearTimeFeedBack();
+                Ma_UiManager.instance.TimeBar.DOColor(Color.red, 1);
+            }
         }
-        else
+        else if (gameIsEnded == false)
+        {
             EndGame();
+        }
 
     }
 
-    void StartGame()
+    public void StartGame()
     {
-
+        isPause = false;
+        Ma_UiManager.instance.inGameCanvas.gameObject.SetActive(true);
     }
 
     void EndGame()
     {
-        Ma_UiManager.instance.SetupEndPannel(moneyStolen, objectiveItem1, objectiveItem2, objectiveMoney);
-        Ma_UiManager.instance.SetActiveEndCanvas();
+        if (gameIsEnded== false)
+        {
+            Mb_EndPannel.instance.bestScoreSpot.text = levelParameters.bestScore + "$";
+            StartCoroutine("StarApparition");
+            gameIsEnded = true;
+            
+            Ma_UiManager.instance.SetupEndMoney(moneyStolen);
+            Ma_UiManager.instance.SetActiveEndCanvas();
+        }
+  
+        //rajouter le truc pour le nombre d'échapper
+  
     }
 
-    public void PauseTimer()
+    IEnumerator StarApparition()
+    {
+        int objectiveCompleted = 0;
+        if (objectiveMoney)
+            objectiveCompleted++;
+        if (objectiveItem1)
+            objectiveCompleted++;
+        if (objectiveItem2)
+            objectiveCompleted++;
+
+        Mb_EndPannel.instance.bestScoreSpot.text = levelParameters.bestScore+ "$";
+
+        yield return new WaitForSecondsRealtime(5);
+        Mb_EndPannel.instance.escapedPlayer.text = (numberOfPlayer - securisedPlayer).ToString();
+
+        yield return new WaitForSecondsRealtime(1);
+        {
+            AddMoney((numberOfPlayer - securisedPlayer) * -2000);
+            Ma_UiManager.instance.SetupEndMoney(moneyStolen);
+            CheckMoney();
+        }
+
+        yield return new WaitForSecondsRealtime(3);
+        if (objectiveMoney == true)
+        {
+
+            Mb_EndPannel.instance.firstStar.gameObject.SetActive(true);
+            Mb_EndPannel.instance.firstStar.SetTrigger("DoThings");
+        }
+
+        yield return new WaitForSecondsRealtime(1);
+        if (objectiveItem1 == true)
+        {
+            Mb_EndPannel.instance.secondStar.gameObject.SetActive(true);
+            Mb_EndPannel.instance.secondStar.SetTrigger("DoThings");
+        }
+          
+
+        yield return new WaitForSecondsRealtime(1);
+        if (objectiveItem2 == true)
+        {
+            Mb_EndPannel.instance.thirdStar.gameObject.SetActive(true);
+            Mb_EndPannel.instance.thirdStar.SetTrigger("DoThings");
+        }
+
+        yield return new WaitForSecondsRealtime(1);
+        {
+            print("IsRenseigned"+Mb_EndPannel.instance.appreciation);
+            if (moneyStolen < 3000)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Was this even worth it?";
+            }
+            else if (moneyStolen < 3000 && objectiveCompleted >= 1)
+            {
+                Mb_EndPannel.instance.appreciation.text = "At least you got something.";
+            }
+            else if (moneyStolen>=3000 && objectiveCompleted ==0)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Well that's something.";
+            }
+            else if (moneyStolen >= 3000 && objectiveCompleted < 1)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Nice money.";
+            }
+            else if (moneyStolen >= 3000 && objectiveCompleted >= 1)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Nice loot!";
+            }
+            else if (moneyStolen >= 6000 && objectiveCompleted == 2)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Great job!";
+            }
+            else if (moneyStolen >= 6000 && objectiveCompleted == 3)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Perfect Heist!";
+            }
+            
+        }
+
+        yield return new WaitForSecondsRealtime(2);
+        if (moneyStolen > levelParameters.bestScore)
+        {
+            levelParameters.bestScore = moneyStolen;
+            Mb_EndPannel.instance.bestScoreSpot.text = moneyStolen + "$";
+            Mb_EndPannel.instance.animationBestScore.SetTrigger("DoThings");
+        }
+     
+    }
+
+
+    public void GamePause(Ma_InputController playerWhoPressedStart)
     {
         isPause = true;
+        Time.timeScale = 0;
+        this.playerWhoPressedStart = playerWhoPressedStart;
+        Ma_UiManager.instance.SetActivePauseCanvas();
     }
 
-    public void ResumeGame()
+    public void GameResume()
     {
         isPause = false;
+        Time.timeScale = 1;
+        Ma_UiManager.instance.SetDesActivePauseCanvas();
+        playerWhoPressedStart = null;
+    }
+
+    public bool IsGamePause()
+    {
+        return isPause;
+    }
+
+    public void SetGamePause(bool isPause)
+    {
+        this.isPause = isPause;
     }
 
     void CheckEvent()
@@ -185,6 +330,21 @@ public class Gamemanager : MonoBehaviour
         {
             wallToGetUp[i].CloseDoor();
         }
+    }
+
+    void ColliderActivation()
+    {
+        endGameColl.SetActive(true);
+    }
+
+    public void addSecuredPlayer()
+    {
+        securisedPlayer += 1;
+    }
+
+    public void removeSecuredPlayer()
+    {
+        securisedPlayer -= 1;
     }
     //Light Event
     #region

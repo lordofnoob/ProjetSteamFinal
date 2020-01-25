@@ -3,15 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class Ma_UiManager : MonoBehaviour
 {
+    public static Ma_UiManager instance;
+
     public Canvas inGameCanvas;
     [SerializeField] GameObject StartCanvas;
+    [SerializeField] GameObject PauseCanvas;
     [SerializeField] GameObject EndCanvas;
-    [SerializeField] Image TimeBar;
+    [SerializeField] GameObject TutorialPanel;
+    public Image TimeBar;
+    [SerializeField] GameObject timeFeedBack;
+    [SerializeField] Mb_Fade fadeBetweenScene;
+    [SerializeField] GameObject[] portraits;
     public TextMeshProUGUI moneyText;
-    public static Ma_UiManager instance;
+    public Mb_CountDown countDown;
+
+    float currentMoneyDisplay;
+    float finalMoneyToDisplay = 0;
+    bool haveTriggerStars, procked = false;
+    int insecuredPlayer;
+  
 
     private void Awake()
 
@@ -20,6 +34,8 @@ public class Ma_UiManager : MonoBehaviour
             instance = this;
         else
             Destroy(this);
+
+        timeFeedBack.SetActive(false);
     }
 
     public void SetActiveEndCanvas()
@@ -38,6 +54,30 @@ public class Ma_UiManager : MonoBehaviour
         StartCanvas.SetActive(false);
     }
 
+    public void SetActivePauseCanvas()
+    {
+        PauseCanvas.SetActive(true);
+        Mb_PauseMenu pauseMenu = PauseCanvas.GetComponent<Mb_PauseMenu>();
+        pauseMenu.SetActiveButton(pauseMenu.cursorSpots[0]);
+        pauseMenu.inThisMenu = true;
+        pauseMenu.inputController = Gamemanager.instance.playerWhoPressedStart;
+    }
+
+    public void SetDesActivePauseCanvas()
+    {
+        PauseCanvas.SetActive(false);
+        Mb_PauseMenu pauseMenu = PauseCanvas.GetComponent<Mb_PauseMenu>();
+        pauseMenu.SetActiveButton(null);
+        pauseMenu.inThisMenu = false;
+    }
+
+    public void SetActivateTutorialPanel()
+    {
+        TutorialPanel.SetActive(true);
+        Mb_TutorialMenu tuto = TutorialPanel.GetComponent<Mb_TutorialMenu>();
+        tuto.SetAcivePanel(tuto.allPanelTuto[0]);
+    }
+
     public void UpdateTimeRemainingText(float remainingTime)
     {
         float minuteRemaining, secondsRemaining;
@@ -51,25 +91,103 @@ public class Ma_UiManager : MonoBehaviour
             timeSpentToDisplay = minuteRemaining + " : 0" + secondsRemaining;
     }
 
-   public  void UpdateTimeBar(float fillAmount)
+    public void UpdateTimeBar(float fillAmount)
     {
-        if(TimeBar != null)
+        if (TimeBar != null)
             TimeBar.fillAmount = fillAmount;
     }
 
-    public void SetupEndPannel(float moneyAmount, bool firstObjective, bool secondObjectve, bool thirdObjective)
+    public void SetupEndMoney(float moneyAmount)
     {
-        Mb_EndPannel.instance.objectiveText.text = "Steal at least" + Gamemanager.instance.levelParameters.moneyToSteal + " $";
-        Mb_EndPannel.instance.moneySpot.text = moneyAmount + "$ Stolen";
-        Mb_EndPannel.instance.firstStar.gameObject.SetActive(firstObjective);
-        Mb_EndPannel.instance.secondStar.gameObject.SetActive(secondObjectve);
-        Mb_EndPannel.instance.thirdStar.gameObject.SetActive(thirdObjective);
+        Mb_EndPannel.instance.objectiveText.text = Gamemanager.instance.levelParameters.moneyToSteal + " $";
+
+        finalMoneyToDisplay = moneyAmount;
+    }
+
+    void SetupMoneyCount()
+    {
+
+        UpdateMoneyDisplay();
+
+        if (currentMoneyDisplay < finalMoneyToDisplay)
+        {
+            if (finalMoneyToDisplay / 1000 > 1)
+            {
+                currentMoneyDisplay += 100 + Random.Range(3, 9);
+            }
+            else if (currentMoneyDisplay / 150 > 1)
+            {
+                currentMoneyDisplay += 10 + Random.Range(3, 9);
+            }
+            else
+            {
+                currentMoneyDisplay += 1;
+            }
+        }
+        else if (currentMoneyDisplay > finalMoneyToDisplay)
+        {
+            haveTriggerStars = true;
+            if (currentMoneyDisplay - finalMoneyToDisplay > 100)
+            {
+                currentMoneyDisplay -= 25 + Random.Range(3, 9);
+            }
+            else if (currentMoneyDisplay - finalMoneyToDisplay > 10)
+            {
+                currentMoneyDisplay -= 5;
+            }
+            else
+            {
+                currentMoneyDisplay -= 1;
+            }
+        }
+
+        //  Mb_EndPannel.instance.moneySpot.text = currentMoneyDisplay + "$ Stolen";
+        else
+        {
+            haveTriggerStars = true;
+        }
+
+
+    }
+
+    public void FadeToLevel(int levelIndex)
+    {
+        fadeBetweenScene.FadeToLevel(levelIndex);
+    }
+
+    void UpdateMoneyDisplay()
+    {
+        Mb_EndPannel.instance.moneySpot.text = currentMoneyDisplay + "$ Stollen";
+    }
+
+    private void Update()
+    {
+        if (Gamemanager.instance.gameIsEnded)
+            SetupMoneyCount();
     }
 
     public void UpdateMoney(float moneyAmount)
     {
-        moneyText.text = moneyAmount.ToString();
-        print("moneyAmount");
+        moneyText.text = moneyAmount + "$";
     }
 
+    public void AppearTimeFeedBack()
+    {
+        timeFeedBack.SetActive(true);
+    }
+
+    public void UpdateNumberPlayerPortrait(int nbrPlayer)
+    {
+        for(int i = 0; i < portraits.Length; i++)
+        {
+            if(i < nbrPlayer)
+            {
+                portraits[i].SetActive(true);
+            }
+            else
+            {
+                portraits[i].SetActive(false);
+            }
+        }
+    }
 }

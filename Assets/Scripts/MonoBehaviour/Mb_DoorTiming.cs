@@ -2,66 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mb_DoorTiming : Mb_Door
+public class Mb_DoorTiming : Mb_Trial
 {
-    [SerializeField] float timeBeforeClose;
-    [SerializeField] Animator feedBackTime;
-    float timing = 0;
-    bool counting = false;
-    bool canTrigger=true;
-
-    public override bool CanInterract()
-    {
-        if (counting == true)
-            return false;
-        return base.CanInterract();
-    }
+    [SerializeField] Mb_Door DoorTouched;
+    [SerializeField] float timeBeforeReactivation;
 
     public override void Awake()
     {
         base.Awake();
     }
 
-    public override void FixedUpdate()
+    public override bool CanInterract()
     {
-        if (timing < timeBeforeClose && counting == true)
-        {
-            timing += Time.fixedDeltaTime;
-        }
-
-        else if (counting == true)
-        {
-            DoThings();
-            canTrigger = true;
-            timing = 0;
-        }
-
-        if (timing > timeBeforeClose - 5 && canTrigger == true)
-        {
-            feedBackTime.SetTrigger("DoThings");
-            canTrigger = false;
-        }
-
-    }
-
-    public override void UiAppearence()
-    {
-        if (counting == false)
-        {
-            base.UiAppearence();
-        }
+        if (DoorTouched.counting == false && base.CanInterract())
+            return true;
+        else
+            return false;
     }
 
     public override void DoThings()
     {
-        counting = !counting;
+        if (DoorTouched.counting == false)
+            DoorTouched.OpenTimingDoor(timeBeforeReactivation);
         base.DoThings();
-    }
-
-    public override void ResetParameters()
-    {
-        counting = false;
-        timing = 0;
-        base.ResetParameters();
     }
 }

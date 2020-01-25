@@ -70,7 +70,7 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
 
             if (currentStickXAxis != 0 && currentStickXAxis != oldStickXAxis)
             {
-                Debug.Log("CurrentXAxis : " + currentStickXAxis + ", OldXAxis : " + oldStickXAxis);
+                //Debug.Log("CurrentXAxis : " + currentStickXAxis + ", OldXAxis : " + oldStickXAxis);
                 if (activeArrows == skinArrowsPanel)
                 {
                     if (listOfAllSkins.IndexOf(activeSkin) == listOfAllSkins.Count - 1 && currentStickXAxis == 1)
@@ -131,6 +131,16 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         //Debug.Log("CHANGER DE SKIN : activeSkinIndex : " + listOfAllSkins.IndexOf(activeSkin));
     }
 
+    public int GetActiveSkin()
+    {
+        return listOfAllSkins.IndexOf(activeSkin);
+    }
+
+    public int GetActiveMask()
+    {
+        return activeMaskHolder.listOfAllMasks.IndexOf(activeMaskHolder.GetActiveMask());
+    } 
+
     public void SetActiveArrows(GameObject activePanel)
     {
         if(activeArrows != null)
@@ -153,11 +163,16 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         return playerIsReady;
     }
 
+    public void SetPlayerIsReady(bool isReady)
+    {
+        playerIsReady = isReady;
+    }
+
     public void SaveSkinAndMask(Sc_PlayerSkinAndMask scriptable)
     {
         scriptable.skinIndex = listOfAllSkins.IndexOf(activeSkin);
         scriptable.maskIndex = activeMaskHolder.listOfAllMasks.IndexOf(activeMaskHolder.GetActiveMask());
-        Debug.Log("Skin & Mask SAVED for Player " + (int)playerIndex);
+        //Debug.Log("Skin & Mask SAVED for Player " + (int)playerIndex);
     }
 
     //VECTOR GAMEPAD REGION
@@ -252,25 +267,28 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
 
     public void BPress()
     {
-        if(inputController.BButton == ButtonState.Released && inputController.OldBButton == ButtonState.Pressed)
+        if (!Mb_GamepadManagerMenu.instance.inConfirmation)
         {
-            if (playerIsReady)
+            if (inputController.BButton == ButtonState.Pressed && inputController.OldBButton == ButtonState.Released)
             {
-                playerIsReady = false;
-                
-                Mb_GamepadManagerMenu.instance.readyPlayerNbr--;
-                playerIsNotReadyPanel.SetActive(true);
-                playerIsReadyPanel.SetActive(false);
+                if (playerIsReady)
+                {
+                    playerIsReady = false;
 
-                maskArrowsPanel.SetActive(true);
-                skinArrowsPanel.SetActive(true);
+                    Mb_GamepadManagerMenu.instance.readyPlayerNbr--;
+                    playerIsNotReadyPanel.SetActive(true);
+                    playerIsReadyPanel.SetActive(false);
 
-            }
-            else if (playerIsConnected)
-            {
-                playerIsConnected = false;
-                Mb_GamepadManagerMenu.instance.aPressed[(int)playerIndex] = false;
-                Mb_GamepadManagerMenu.instance.UpdatePlayerSelectorPanel();
+                    maskArrowsPanel.SetActive(true);
+                    skinArrowsPanel.SetActive(true);
+
+                }
+                else if (playerIsConnected)
+                {
+                    playerIsConnected = false;
+                    Mb_GamepadManagerMenu.instance.aPressed[(int)playerIndex] = false;
+                    Mb_GamepadManagerMenu.instance.UpdatePlayerSelectorPanel();
+                }
             }
         }
     }

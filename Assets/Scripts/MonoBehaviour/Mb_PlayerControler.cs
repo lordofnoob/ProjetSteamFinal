@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Mb_PlayerControler : MonoBehaviour
 {
     [Header("Manette")]
-    [HideInInspector] public PlayerIndex playerIndex;
+    public PlayerIndex playerIndex;
     public Ma_InputController inputController;
 
     [Header("Movement")]
@@ -19,7 +19,7 @@ public class Mb_PlayerControler : MonoBehaviour
     bool canMove = true;
 
     [Header("InteractionPart")]
-    List<Mb_Trial> CurrentTrialsOverlaped = new List<Mb_Trial>();
+    public List<Mb_Trial> CurrentTrialsOverlaped = new List<Mb_Trial>();
     public Mb_Item itemHold;
     float throwTime;
 
@@ -38,12 +38,18 @@ public class Mb_PlayerControler : MonoBehaviour
 
     float floorAnim = 0.5f;
 
- /*   [Header("Input")]
-    [SerializeField] KeyCode interactInput, throwInput, deposeInput;*/
+    /*   [Header("Input")]
+       [SerializeField] KeyCode interactInput, throwInput, deposeInput;*/
 
     //A SUPPR APRES 
-   // float throwTimePressed;
+    // float throwTimePressed;
 
+
+    private void Awake()
+    {
+        inputController = GetComponent<Ma_InputController>();
+        playerIndex = inputController.playerIndex;
+    }
 
     void Start()
     {
@@ -58,12 +64,26 @@ public class Mb_PlayerControler : MonoBehaviour
 
     void Update()
     {
+        if (!Gamemanager.instance.IsGamePause())
+        {
+            //recup des inputs a la frame
+            if (canMove == true)
+                Move();
+            else
+                body.velocity = moveInfluence.strengthApplied;
+        }
 
-        //recup des inputs a la frame
-        if (canMove == true)
-            Move();
-        else
-            body.velocity = moveInfluence.strengthApplied;
+        if (inputController.StartButton == ButtonState.Pressed && inputController.OldStartButton == ButtonState.Released)
+        {
+            if (!Gamemanager.instance.IsGamePause())
+            {
+                Gamemanager.instance.GamePause(inputController);
+            }
+            else if (Gamemanager.instance.IsGamePause() && playerIndex == Gamemanager.instance.playerWhoPressedStart.playerIndex)
+            {
+                Gamemanager.instance.GameResume();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -121,51 +141,53 @@ public class Mb_PlayerControler : MonoBehaviour
     private void APress()
     {
 
-        if (inputController.AButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed
-            && CurrentTrialsOverlaped.Count > 0  && usedTrial().CanInterract() == true)
+        if (CurrentTrialsOverlaped.Count > 0 && usedTrial().CanInterract() == true)
         {
             Mb_Item isItem = usedTrial().GetComponent<Mb_Item>();
-            if (isItem == null)
-                SetCanMove(false);
-            StartCoroutine(WaitAfterInteract());
-            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
-        }
-
-
-       else if (inputController.OldAButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed
-       && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Mashing && usedTrial().CanInterract() == true)
-        {
-
-            //setup du trigger de l anim si tu porte un objet ou pas
-            if (itemHold != null)
+            if (inputController.AButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed && isItem)
             {
-                SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+
+                if (isItem == null)
+                    SetCanMove(false);
+                StartCoroutine(WaitAfterInteract());
+                usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
             }
-            else
-                SetAnimTrigger(ItemType.Null, usedTrial().animationType);
+           else if (inputController.OldAButton == ButtonState.Released && inputController.AButton == ButtonState.Pressed
+            && usedTrial().trialRules.trialType == TrialType.Mashing )
+            {
+
+                if (itemHold != null)
+                {
+                    SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+                }
+                else
+                    SetAnimTrigger(ItemType.Null, usedTrial().animationType);
 
 
-            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
+                usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd);
 
-            StartCoroutine(WaitAfterInteract());
-        }
+                StartCoroutine(WaitAfterInteract());
+            }
+    
 
 
-        else if (inputController.OldAButton == ButtonState.Pressed && inputController.AButton == ButtonState.Pressed
-        && CurrentTrialsOverlaped.Count > 0 && usedTrial().trialRules.trialType == TrialType.Time && usedTrial().CanInterract() == true)
-        {
-            //setup du trigger de l anim si tu porte un objet ou pas
-            if (itemHold != null)
-                SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
-            else
-                SetAnimTrigger(ItemType.Null, usedTrial().animationType);
+            else if (inputController.OldAButton == ButtonState.Pressed && inputController.AButton == ButtonState.Pressed
+            && usedTrial().trialRules.trialType == TrialType.Time )
+            {
 
-            
-            usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
+                if (itemHold != null)
+                    SetAnimTrigger(itemHold.itemType, usedTrial().animationType);
+                else
+                    SetAnimTrigger(ItemType.Null, usedTrial().animationType);
 
-            StartCoroutine(WaitAfterInteract());
+
+                usedTrial().AddAvancement(usedTrial().trialRules.accomplishmentToAdd * Time.fixedDeltaTime);
+
+                StartCoroutine(WaitAfterInteract());
+            }
         }
     }
+
     IEnumerator WaitAfterInteract()
     {
         yield return new WaitForSeconds(0.2f);
@@ -175,12 +197,12 @@ public class Mb_PlayerControler : MonoBehaviour
     private void XPress()
     {
         if (itemHold != null && inputController.OldXButton == ButtonState.Pressed
-            && inputController.XButton == ButtonState.Pressed && CurrentTrialsOverlaped.Count == 0)
+            && inputController.XButton == ButtonState.Pressed)
         {
             PrepThrowItem();
         }
         else if (itemHold != null && inputController.OldXButton == ButtonState.Pressed
-            && inputController.XButton == ButtonState.Released && CurrentTrialsOverlaped.Count == 0)
+            && inputController.XButton == ButtonState.Released)
         {
             ThrowItem();
         }
@@ -269,7 +291,6 @@ public class Mb_PlayerControler : MonoBehaviour
         
         if (didHit)
         {
-            print(hit.collider.gameObject.name);
             print(hit.transform.position);
                 itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, hit.point);
         }
@@ -292,18 +313,47 @@ public class Mb_PlayerControler : MonoBehaviour
     //INTERACTIONPART
     Mb_Trial usedTrial()
     {
-        if (CurrentTrialsOverlaped.Count != 0)
+        if (itemHold == null)
         {
-            Mb_Trial trial = CurrentTrialsOverlaped[0]; ;
-            for (int i = 0; i < CurrentTrialsOverlaped.Count; i++) 
+            if (CurrentTrialsOverlaped.Count != 0)
             {
-                if (trial.trialRules.trialPriority <= CurrentTrialsOverlaped[i].trialRules.trialPriority)
+                Mb_Trial trial = CurrentTrialsOverlaped[0]; ;
+                for (int i = 0; i < CurrentTrialsOverlaped.Count; i++)
+                {
+                    if (trial.trialRules.trialPriority <= CurrentTrialsOverlaped[i].trialRules.trialPriority)
+                        trial = CurrentTrialsOverlaped[i];
+                }
+                return trial;
+            }
+            else
+                return null;
+        }
+        else
+        {
+            List<Mb_Trial> trialAvaible = new List<Mb_Trial>();
+
+            for (int i = 0; i < CurrentTrialsOverlaped.Count; i++)
+            {
+                if (CurrentTrialsOverlaped[i].GetComponent<Mb_Item>() ==false)
+                {
+                    trialAvaible.Add(CurrentTrialsOverlaped[i]);
+                }
+            }
+            Mb_Trial trial;
+            if (trialAvaible.Count > 0)
+                trial = trialAvaible[0];
+            else
+                trial = null;
+
+            for (int i = 0; i < trialAvaible.Count; i++)
+            {
+                if (trial.trialRules.trialPriority <= trialAvaible[i].trialRules.trialPriority)
                     trial = CurrentTrialsOverlaped[i];
             }
             return trial;
         }
-        else
-            return null;
+          
+       
     }
 
     public void AddOverlapedTrial(Mb_Trial trialToAdd)
@@ -319,7 +369,7 @@ public class Mb_PlayerControler : MonoBehaviour
     //UI UPDATE
     public void UpdateThrowUI()
     {
-        strengthBar.fillAmount = playerCharacts.throwGrowingStrengh.Evaluate(throwTime);
+        //strengthBar.fillAmount = playerCharacts.throwGrowingStrengh.Evaluate(throwTime);
     }
 
   

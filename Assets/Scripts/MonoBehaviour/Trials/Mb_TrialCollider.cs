@@ -21,19 +21,32 @@ public class Mb_TrialCollider : MonoBehaviour
     }
 
 
-    private void OnTriggerStay (Collider other)
+    private void OnTriggerEnter (Collider other)
     {
         Mb_PlayerControler playerOccupying = other.GetComponent<Mb_PlayerControler>();
       
         if (playerOccupying != null)
         {
-            if (currentUser == null)
+            if (currentUser == null )
             {
-                trialAssociated.UiAppearence();
-                trialAssociated.UiActivate();
+             
                 playerOccupying.AddOverlapedTrial(trialAssociated);
                 currentUser = playerOccupying;
                 trialAssociated.AddUser(currentUser);
+                if (currentUser.CurrentTrialsOverlaped[0] == trialAssociated )
+                {
+                    trialAssociated.UiAppearence();
+                    trialAssociated.UiActivate();
+                }
+                if (currentUser.CurrentTrialsOverlaped.Count > 1)
+                {
+                    if (currentUser.CurrentTrialsOverlaped[1] == trialAssociated)
+                    {
+                        trialAssociated.UiAppearence();
+                        trialAssociated.UiActivate();
+                    }
+                }
+           
             }
         }
     }
@@ -41,8 +54,11 @@ public class Mb_TrialCollider : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Mb_PlayerControler playerLeaving = other.GetComponent<Mb_PlayerControler>();
-        trialAssociated.RemoveUser(playerLeaving);
-        playerLeaving.RemoveOverlapedTrial(trialAssociated);
+        if (playerLeaving == true)
+        {
+            trialAssociated.RemoveUser(playerLeaving);
+            playerLeaving.RemoveOverlapedTrial(trialAssociated);
+        }
 
         if (currentUser == playerLeaving)
         {
