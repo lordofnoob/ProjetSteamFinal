@@ -6,11 +6,13 @@ public class Mb_EscapeZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Gamemanager.instance.addSecuredPlayer();
+        if (GetComponent<Mb_PlayerControler>())
+            Gamemanager.instance.addSecuredPlayer();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Gamemanager.instance.removeSecuredPlayer();
+        if (GetComponent<Mb_PlayerControler>())
+            Gamemanager.instance.removeSecuredPlayer();
     }
 }

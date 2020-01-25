@@ -21,7 +21,7 @@ public class Mb_TrialCollider : MonoBehaviour
     }
 
 
-    private void OnTriggerStay (Collider other)
+    private void OnTriggerEnter (Collider other)
     {
         Mb_PlayerControler playerOccupying = other.GetComponent<Mb_PlayerControler>();
       
@@ -54,8 +54,11 @@ public class Mb_TrialCollider : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Mb_PlayerControler playerLeaving = other.GetComponent<Mb_PlayerControler>();
-        trialAssociated.RemoveUser(playerLeaving);
-        playerLeaving.RemoveOverlapedTrial(trialAssociated);
+        if (playerLeaving == true)
+        {
+            trialAssociated.RemoveUser(playerLeaving);
+            playerLeaving.RemoveOverlapedTrial(trialAssociated);
+        }
 
         if (currentUser == playerLeaving)
         {
