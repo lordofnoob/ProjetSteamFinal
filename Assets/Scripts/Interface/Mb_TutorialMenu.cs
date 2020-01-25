@@ -13,8 +13,6 @@ public class Mb_TutorialMenu : MonoBehaviour
     public GameObject leftArrow, rightArrow;
     public TextMeshProUGUI activePanelNbr, allPanelNbr;
 
-    public Mb_CountDown countDown;
-
     private GameObject activePanel;
     void Awake()
     {
@@ -52,8 +50,8 @@ public class Mb_TutorialMenu : MonoBehaviour
 
         if(allPanelTuto.IndexOf(activePanel) == allPanelTuto.Count - 1 && inputController.AButton == ButtonState.Pressed && inputController.OldAButton == ButtonState.Released)
         {
-            Debug.Log("LANCER DECOMPT");
-            countDown.LaunchCountdown();
+            //Debug.Log("LANCER DECOMPT");
+            Ma_UiManager.instance.countDown.LaunchCountdown();
             gameObject.SetActive(false);
         }
     }

@@ -68,10 +68,14 @@ public class Gamemanager : MonoBehaviour
         timeRemaining = levelParameters.timeToDoTheLevel;
 
         //Begin Tutorial
+        isPause = true;
         if (activateTuto)
         {
-            isPause = true;
             Ma_UiManager.instance.SetActivateTutorialPanel();
+        }
+        else
+        {
+            Ma_UiManager.instance.countDown.LaunchCountdown();
         }
     }
 

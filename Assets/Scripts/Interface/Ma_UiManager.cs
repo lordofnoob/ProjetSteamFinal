@@ -19,6 +19,7 @@ public class Ma_UiManager : MonoBehaviour
     [SerializeField] Mb_Fade fadeBetweenScene;
     [SerializeField] GameObject[] portraits;
     public TextMeshProUGUI moneyText;
+    public Mb_CountDown countDown;
 
     float currentMoneyDisplay;
     float finalMoneyToDisplay = 0;
