@@ -182,6 +182,8 @@ public class Gamemanager : MonoBehaviour
         if (objectiveItem2)
             objectiveCompleted++;
 
+        Mb_EndPannel.instance.bestScoreSpot.text = levelParameters.bestScore+ "$";
+
         yield return new WaitForSecondsRealtime(5);
         Mb_EndPannel.instance.escapedPlayer.text = (numberOfPlayer - securisedPlayer).ToString();
 
@@ -217,14 +219,19 @@ public class Gamemanager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1);
         {
+            print("IsRenseigned"+Mb_EndPannel.instance.appreciation);
             if (moneyStolen < 3000)
             {
                 Mb_EndPannel.instance.appreciation.text = "Was this even worth it?";
             }
-           else if (moneyStolen < 3000 && objectiveCompleted >=1)
+            else if (moneyStolen < 3000 && objectiveCompleted >= 1)
             {
                 Mb_EndPannel.instance.appreciation.text = "At least you got something.";
-            }   
+            }
+            else if (moneyStolen>=3000 && objectiveCompleted ==0)
+            {
+                Mb_EndPannel.instance.appreciation.text = "Well that's something.";
+            }
             else if (moneyStolen >= 3000 && objectiveCompleted < 1)
             {
                 Mb_EndPannel.instance.appreciation.text = "Nice money.";

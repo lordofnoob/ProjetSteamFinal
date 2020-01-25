@@ -291,7 +291,6 @@ public class Mb_PlayerControler : MonoBehaviour
         
         if (didHit)
         {
-            print(hit.collider.gameObject.name);
             print(hit.transform.position);
                 itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, hit.point);
         }
