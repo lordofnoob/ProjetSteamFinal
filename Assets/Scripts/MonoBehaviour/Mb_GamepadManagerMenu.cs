@@ -14,10 +14,14 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
     [Header("Player Selection Menu List")]
     public Mb_UIChoosePlaySelector[] playerList = new Mb_UIChoosePlaySelector[4];
     [HideInInspector]public bool[] aPressed = { false, false, false, false };
+    private Ma_InputController[] inputControllers;
     GamePadState[] gamepadsState = new GamePadState[4];
     GamePadState[] prevGamepadsState = new GamePadState[4];
 
+    [Header("Player Info")]
     [HideInInspector] public int readyPlayerNbr = 0;
+    public GameObject readyConfirmationCanvas;
+    public bool inConfirmation = false;
     private bool skinsAndMasksSaved = false;
 
     [Header("Scene to Load")]
@@ -34,8 +38,9 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
             instance = this;
         }
 
-        Ma_InputController[] inputControllers = GetComponents<Ma_InputController>();
-        for(int i = 0; i < inputControllers.Length; i++)
+        inputControllers = GetComponents<Ma_InputController>();
+
+        for (int i = 0; i < inputControllers.Length; i++)
         {
             switch (inputControllers[i].playerIndex)
             {
@@ -79,8 +84,9 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
         }
 
         APress();
+        BPress();
 
-     //Debug.Log("ReadyPlayerNbr : " + readyPlayerNbr + "/" + GetConnectedPlayerNbr());
+        Debug.Log("ReadyPlayerNbr : " + readyPlayerNbr + "/" + GetConnectedPlayerNbr());
         if (!skinsAndMasksSaved && readyPlayerNbr != 0 && readyPlayerNbr == GetConnectedPlayerNbr())
         {
             for(int i = 0; i < playerList.Length; i++)
@@ -102,12 +108,8 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
             skinsAndMasksSaved = true;
 
-            if (selectedLevel.selectedLevelIndex != -1)
-            {
-               Gamemanager.numberOfPlayer = GetConnectedPlayerNbr();
-               fadeBetweenScene.FadeToLevel(selectedLevel.selectedLevelIndex);
-            }
-              
+            readyConfirmationCanvas.SetActive(true);
+            inConfirmation = true;
 
             //TEST &DEBUG
             /*foreach(Mb_LoadSkinAndMask player in players)
@@ -141,12 +143,47 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
     public void APress()
     {
-        for(int i = 0; i < 4; i++)
+        //Debug.Log(inConfirmation);
+        for (int i = 0; i < 4; i++)
         {
-            if (gamepadsState[i].Buttons.A == ButtonState.Pressed)
+            if (inConfirmation)
+            {
+                if (inputControllers[i].AButton == ButtonState.Pressed && inputControllers[i].OldAButton == ButtonState.Released)
+                {
+                    Gamemanager.numberOfPlayer = GetConnectedPlayerNbr();
+                    Debug.Log("Load Scene " + selectedLevel.selectedLevelIndex + "; number of player : " + Gamemanager.numberOfPlayer);
+                    fadeBetweenScene.FadeToLevel(selectedLevel.selectedLevelIndex);
+                }
+            }
+            else if (gamepadsState[i].Buttons.A == ButtonState.Pressed)
             {
                 aPressed[i] = true;
                 UpdatePlayerSelectorPanel();
+            }
+        }
+    }
+
+    public void BPress()
+    {
+        if (inConfirmation)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (inputControllers[i].BButton == ButtonState.Pressed && inputControllers[i].OldBButton == ButtonState.Released)
+                {
+                    playerList[i].SetPlayerIsReady(false);
+                    readyConfirmationCanvas.SetActive(false);
+                    skinsAndMasksSaved = false;
+                    inConfirmation = false;
+
+                    Mb_GamepadManagerMenu.instance.readyPlayerNbr--;
+                    playerList[i].playerIsNotReadyPanel.SetActive(true);
+                    playerList[i].playerIsReadyPanel.SetActive(false);
+
+                    playerList[i].maskArrowsPanel.SetActive(true);
+                    playerList[i].skinArrowsPanel.SetActive(true);
+
+                }
             }
         }
     }

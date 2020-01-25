@@ -18,7 +18,7 @@ public class Mb_TutorialMenu : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-       // SetAcivePanel(allPanelTuto[0]);
+       SetAcivePanel(allPanelTuto[0]);
     }
 
     private void Start()

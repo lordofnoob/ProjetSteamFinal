@@ -163,6 +163,11 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         return playerIsReady;
     }
 
+    public void SetPlayerIsReady(bool isReady)
+    {
+        playerIsReady = isReady;
+    }
+
     public void SaveSkinAndMask(Sc_PlayerSkinAndMask scriptable)
     {
         scriptable.skinIndex = listOfAllSkins.IndexOf(activeSkin);
@@ -262,25 +267,28 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
 
     public void BPress()
     {
-        if(inputController.BButton == ButtonState.Released && inputController.OldBButton == ButtonState.Pressed)
+        if (!Mb_GamepadManagerMenu.instance.inConfirmation)
         {
-            if (playerIsReady)
+            if (inputController.BButton == ButtonState.Pressed && inputController.OldBButton == ButtonState.Released)
             {
-                playerIsReady = false;
-                
-                Mb_GamepadManagerMenu.instance.readyPlayerNbr--;
-                playerIsNotReadyPanel.SetActive(true);
-                playerIsReadyPanel.SetActive(false);
+                if (playerIsReady)
+                {
+                    playerIsReady = false;
 
-                maskArrowsPanel.SetActive(true);
-                skinArrowsPanel.SetActive(true);
+                    Mb_GamepadManagerMenu.instance.readyPlayerNbr--;
+                    playerIsNotReadyPanel.SetActive(true);
+                    playerIsReadyPanel.SetActive(false);
 
-            }
-            else if (playerIsConnected)
-            {
-                playerIsConnected = false;
-                Mb_GamepadManagerMenu.instance.aPressed[(int)playerIndex] = false;
-                Mb_GamepadManagerMenu.instance.UpdatePlayerSelectorPanel();
+                    maskArrowsPanel.SetActive(true);
+                    skinArrowsPanel.SetActive(true);
+
+                }
+                else if (playerIsConnected)
+                {
+                    playerIsConnected = false;
+                    Mb_GamepadManagerMenu.instance.aPressed[(int)playerIndex] = false;
+                    Mb_GamepadManagerMenu.instance.UpdatePlayerSelectorPanel();
+                }
             }
         }
     }

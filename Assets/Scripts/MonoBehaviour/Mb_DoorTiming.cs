@@ -12,9 +12,18 @@ public class Mb_DoorTiming : Mb_Trial
         base.Awake();
     }
 
+    public override bool CanInterract()
+    {
+        if (DoorTouched.counting == false && base.CanInterract())
+            return true;
+        else
+            return false;
+    }
+
     public override void DoThings()
     {
-        DoorTouched.OpenTimingDoor(timeBeforeReactivation);
+        if (DoorTouched.counting == false)
+            DoorTouched.OpenTimingDoor(timeBeforeReactivation);
         base.DoThings();
     }
 
