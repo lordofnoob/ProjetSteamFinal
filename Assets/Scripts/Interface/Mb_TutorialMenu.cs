@@ -50,8 +50,8 @@ public class Mb_TutorialMenu : MonoBehaviour
 
         if(allPanelTuto.IndexOf(activePanel) == allPanelTuto.Count - 1 && inputController.AButton == ButtonState.Pressed && inputController.OldAButton == ButtonState.Released)
         {
-            Debug.Log("LANCER DECOMPT");
-            Gamemanager.instance.SetGamePause(false);
+            //Debug.Log("LANCER DECOMPT");
+            Ma_UiManager.instance.countDown.LaunchCountdown();
             gameObject.SetActive(false);
         }
     }

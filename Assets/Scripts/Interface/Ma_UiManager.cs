@@ -19,6 +19,7 @@ public class Ma_UiManager : MonoBehaviour
     [SerializeField] Mb_Fade fadeBetweenScene;
     [SerializeField] GameObject[] portraits;
     public TextMeshProUGUI moneyText;
+    public Mb_CountDown countDown;
 
     float currentMoneyDisplay;
     float finalMoneyToDisplay = 0;
@@ -73,6 +74,8 @@ public class Ma_UiManager : MonoBehaviour
     public void SetActivateTutorialPanel()
     {
         TutorialPanel.SetActive(true);
+        Mb_TutorialMenu tuto = TutorialPanel.GetComponent<Mb_TutorialMenu>();
+        tuto.SetAcivePanel(tuto.allPanelTuto[0]);
     }
 
     public void UpdateTimeRemainingText(float remainingTime)
