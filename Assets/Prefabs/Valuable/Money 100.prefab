@@ -52,11 +52,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1557725946944923172}
     m_Modifications:
-    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
-        type: 3}
-      propertyPath: m_Name
-      value: TrialUI
-      objectReference: {fileID: 0}
     - target: {fileID: 4042313938001152999, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -161,6 +156,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 658906820054824294, guid: 176652a470417194c82f0c5bcac95a05,
+        type: 3}
+      propertyPath: m_Name
+      value: TrialUI
       objectReference: {fileID: 0}
     - target: {fileID: 8165662012216527944, guid: 176652a470417194c82f0c5bcac95a05,
         type: 3}
@@ -295,7 +295,7 @@ PrefabInstance:
     - target: {fileID: 8937344457059923798, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5181828979722577526, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
@@ -366,6 +366,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358715126715680981, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358715126715680981, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358715126715680981, guid: d9dabb62b900ede43857624cfe2e0344,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6964443440883828005, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
@@ -524,21 +539,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 60d108c1758e69f4b9a274acaffda3f2, type: 2}
-    - target: {fileID: 6358715126715680981, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358715126715680981, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358715126715680981, guid: d9dabb62b900ede43857624cfe2e0344,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2161071232825507603, guid: d9dabb62b900ede43857624cfe2e0344,
         type: 3}
       propertyPath: m_Mesh
