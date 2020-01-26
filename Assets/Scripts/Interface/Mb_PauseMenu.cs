@@ -60,7 +60,8 @@ public class Mb_PauseMenu : MonoBehaviour
 
             if (inputController.AButton == ButtonState.Pressed && inputController.OldAButton == ButtonState.Released)
             {
-                activeButton.GetComponentInParent<Button>().onClick.Invoke();
+                Debug.Log("PressA");
+                activeButton.transform.parent.GetComponentInParent<Button>().onClick.Invoke();
             }
 
         }

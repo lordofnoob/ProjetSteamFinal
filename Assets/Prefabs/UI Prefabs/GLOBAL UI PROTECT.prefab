@@ -4253,16 +4253,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5692587736172749998}
     m_Modifications:
-    - target: {fileID: 6741460909762399104, guid: 6f679c054d885434e9c6e3ae655ac859,
-        type: 3}
-      propertyPath: m_Name
-      value: PauseMenu_BG
-      objectReference: {fileID: 0}
-    - target: {fileID: 6741460909762399104, guid: 6f679c054d885434e9c6e3ae655ac859,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8181402444586856402, guid: 6f679c054d885434e9c6e3ae655ac859,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4367,6 +4357,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741460909762399104, guid: 6f679c054d885434e9c6e3ae655ac859,
+        type: 3}
+      propertyPath: m_Name
+      value: PauseMenu_BG
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741460909762399104, guid: 6f679c054d885434e9c6e3ae655ac859,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1513568888910520023, guid: 6f679c054d885434e9c6e3ae655ac859,
         type: 3}
@@ -4707,6 +4707,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986186832267601561, guid: d8b5495e8118f9c48a74100b64db1570,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8b5495e8118f9c48a74100b64db1570, type: 3}
