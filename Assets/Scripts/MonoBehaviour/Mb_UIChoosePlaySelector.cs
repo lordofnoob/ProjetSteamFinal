@@ -168,6 +168,24 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
         playerIsReady = isReady;
     }
 
+    public void AddPlayer()
+    {
+        playerConnectedPanel.SetActive(true);
+        playerIsConnected = true;
+        playerNotConnectedPanel.SetActive(false);
+        SetActiveArrows(skinArrowsPanel);
+        SetActiveSkin(listOfAllSkins[listOfAllSkins.IndexOf(activeSkin)]);
+        activeMaskHolder.SetActiveMask(activeMaskHolder.listOfAllMasks[listOfAllSkins.IndexOf(activeSkin)]);
+    }
+
+    public void RemovePlayer()
+    {
+        playerConnectedPanel.SetActive(false);
+        playerIsConnected = false;
+        playerNotConnectedPanel.SetActive(true);
+
+    }
+
     public void SaveSkinAndMask(Sc_PlayerSkinAndMask scriptable)
     {
         scriptable.skinIndex = listOfAllSkins.IndexOf(activeSkin);
@@ -287,7 +305,11 @@ public class Mb_UIChoosePlaySelector : MonoBehaviour
                 {
                     playerIsConnected = false;
                     Mb_GamepadManagerMenu.instance.aPressed[(int)playerIndex] = false;
-                    Mb_GamepadManagerMenu.instance.UpdatePlayerSelectorPanel();
+                    Mb_GamepadManagerMenu.instance.RemovePlayerPanel((int)playerIndex);
+                }
+                else if(!playerIsConnected && !playerIsReady)
+                {
+                    Mb_GamepadManagerMenu.instance.fadeBetweenScene.FadeToLevel(0);
                 }
             }
         }
