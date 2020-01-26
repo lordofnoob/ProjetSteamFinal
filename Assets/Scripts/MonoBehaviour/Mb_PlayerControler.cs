@@ -278,7 +278,7 @@ public class Mb_PlayerControler : MonoBehaviour
     public void PrepThrowItem()
     {
         throwTime += Time.fixedDeltaTime;
-        UpdateThrowUI();
+        //UpdateThrowUI();
 
     }
 
@@ -291,7 +291,6 @@ public class Mb_PlayerControler : MonoBehaviour
         
         if (didHit)
         {
-            print(hit.transform.position);
                 itemHold.Throw(transform.forward, playerCharacts.throwGrowingStrengh.Evaluate(throwTime) * playerCharacts.throwMaxStrengh, hit.point);
         }
            
@@ -300,7 +299,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
         itemHold = null;
         throwTime = 0;
-        UpdateThrowUI();
+        //UpdateThrowUI();
     }
 
     //MOVINGWAIT

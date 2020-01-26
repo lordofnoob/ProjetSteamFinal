@@ -24,7 +24,13 @@ public class Gamemanager : MonoBehaviour
     public Mb_PlayerControler[] players;
     public bool LoadSkinAndMask = true;
 
-    [Header("DoorEvent")]
+    [Header("CameraEvent")]
+    [SerializeField] float timeBeforeEvent;
+    bool eventProcked = false;
+    [SerializeField] GameObject[] collCameraToProck;
+    [SerializeField] Animator[] animToProckCamera;
+
+   [Header("DoorEvent")]
     public Mb_Door[] doorToCloseOnEvent;
 
     [Header("LightEvent")]
@@ -137,6 +143,16 @@ public class Gamemanager : MonoBehaviour
             Ma_UiManager.instance.UpdateTimeRemainingText(timeRemaining);
             Ma_UiManager.instance.UpdateTimeBar(timeRemaining / levelParameters.timeToDoTheLevel);
             CheckEvent();
+
+            if (timeRemaining < timeBeforeEvent && eventProcked == false)
+            {
+                eventProcked = true;
+                StartCoroutine("CameraActivation");
+                for (int i = 0; i < collCameraToProck.Length; i++)
+                {
+                    animToProckCamera[i].SetTrigger("DoThings");
+                }
+            }
 
             if (timeRemaining < 15)
             {
@@ -345,6 +361,15 @@ public class Gamemanager : MonoBehaviour
     public void removeSecuredPlayer()
     {
         securisedPlayer -= 1;
+    }
+
+    IEnumerator CameraActivation()
+    {
+        yield return new WaitForSeconds(3);
+        for (int i = 0; i < collCameraToProck.Length; i++)
+        {
+            collCameraToProck[i].SetActive(true);
+        }
     }
     //Light Event
     #region

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mb_Camera : MonoBehaviour
 {
-    [SerializeField] Mb_Door[] trialToActivate;
+    [SerializeField] Mb_Door trialToActivate;
     [SerializeField] Animator anim;
     [SerializeField] int timeBeforeReactivate;
     bool canSee = true;
@@ -13,26 +13,13 @@ public class Mb_Camera : MonoBehaviour
     {
         if (canSee == true)
         {
-
-           canSee = false;
-           ActivateDoor();
-            // anim.SetTrigger("DoThings");
-            StartCoroutine("WaitBeforeReactivation");
-
+            ResetDoor();
         }
     }
 
-    void ActivateDoor()
-    {
-        for (int i = 0; i < trialToActivate.Length; i++)
-            trialToActivate[i].DoThings();
-      
-    }
 
-    IEnumerator WaitBeforeReactivation()
+    void ResetDoor()
     {
-        yield return new WaitForSeconds(timeBeforeReactivate);
-        ActivateDoor();
-        canSee = true;
+        trialToActivate.ResetDoor();
     }
 }
