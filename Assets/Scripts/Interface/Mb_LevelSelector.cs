@@ -86,8 +86,11 @@ public class Mb_LevelSelector : MonoBehaviour
             if(inputController.AButton == ButtonState.Pressed && inputController.OldAButton == ButtonState.Released)
             {
                 //Debug.Log(inputController.AButton + " ; " + inputController.OldAButton);
-                if(playerCanSelect)
-                    activeButton.GetComponentInParent<Button>().onClick.Invoke();
+                if (playerCanSelect)
+                {
+                    levels[activeButton].Select();
+                    levels[activeButton].onClick.Invoke();
+                }
             }
         }
     }
@@ -95,11 +98,15 @@ public class Mb_LevelSelector : MonoBehaviour
     public void SetActiveButton(Image newActiveButton)
     {
         if(activeButton != null)
+        {
+            levels[activeButton].interactable = false;
             activeButton.gameObject.SetActive(false);
+        }
         activeButton = newActiveButton;
         if(activeButton != null)
             activeButton.gameObject.SetActive(true);
-        levels[activeButton].Select();
+        //Debug.Log("ChangeActiveButton : " + activeButton);
+        levels[activeButton].interactable = true;
         rightPanel.UpdateLevelSelection(cursorSpots.IndexOf(activeButton));
     }
 
@@ -107,6 +114,12 @@ public class Mb_LevelSelector : MonoBehaviour
     {
         selectedLevel.selectedLevelIndex = levelIndex;
         fadeBetweenScene.FadeToLevel(1);
+    }
+
+    public IEnumerator ActiveLevelSelection()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerCanSelect = true;
     }
 
     #region

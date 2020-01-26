@@ -81,7 +81,6 @@ public class Mb_Chest : Mb_Trial
             particleSystemToSpawn.Play();
         }
     
-
         base.DoThings();
     }
 
