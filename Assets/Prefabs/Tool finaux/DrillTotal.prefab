@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4218666620011460439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.93, y: 0.6761986, z: -24.516506}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3773701133056599677}
@@ -161,6 +161,11 @@ PrefabInstance:
       propertyPath: uiAnimator
       value: 
       objectReference: {fileID: 4294653093160423775}
+    - target: {fileID: 3297605485043243584, guid: 8906f5e0e1eefae4f867e64e497cc810,
+        type: 3}
+      propertyPath: particleToSpawnOnThrown
+      value: 
+      objectReference: {fileID: 1205935973577170159}
     - target: {fileID: 6348416353887148769, guid: 8906f5e0e1eefae4f867e64e497cc810,
         type: 3}
       propertyPath: m_Layer
@@ -186,6 +191,12 @@ PrefabInstance:
 --- !u!4 &3773701133056599677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2762809260966265486, guid: 8906f5e0e1eefae4f867e64e497cc810,
+    type: 3}
+  m_PrefabInstance: {fileID: 1299738524578096371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1205935973577170159 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 195274560775436316, guid: 8906f5e0e1eefae4f867e64e497cc810,
     type: 3}
   m_PrefabInstance: {fileID: 1299738524578096371}
   m_PrefabAsset: {fileID: 0}
