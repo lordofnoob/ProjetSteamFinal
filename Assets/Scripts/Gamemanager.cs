@@ -144,14 +144,11 @@ public class Gamemanager : MonoBehaviour
             Ma_UiManager.instance.UpdateTimeBar(timeRemaining / levelParameters.timeToDoTheLevel);
             CheckEvent();
 
-            if (timeRemaining < timeBeforeEvent && eventProcked == false)
+            if (timeRemaining < levelParameters.timeToDoTheLevel - timeBeforeEvent && eventProcked == false)
             {
                 eventProcked = true;
                 StartCoroutine("CameraActivation");
-                for (int i = 0; i < collCameraToProck.Length; i++)
-                {
-                    animToProckCamera[i].SetTrigger("DoThings");
-                }
+             
             }
 
             if (timeRemaining < 15)
@@ -365,10 +362,15 @@ public class Gamemanager : MonoBehaviour
 
     IEnumerator CameraActivation()
     {
-        yield return new WaitForSeconds(3);
+        for (int i = 0; i < collCameraToProck.Length; i++)
+        {
+            animToProckCamera[i].SetTrigger("DoThings");
+        }
+        yield return new WaitForSeconds(5);
         for (int i = 0; i < collCameraToProck.Length; i++)
         {
             collCameraToProck[i].SetActive(true);
+            animToProckCamera[i].SetTrigger("DoThings");
         }
     }
     //Light Event
