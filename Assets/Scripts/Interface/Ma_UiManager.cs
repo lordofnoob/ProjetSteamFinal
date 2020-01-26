@@ -176,18 +176,8 @@ public class Ma_UiManager : MonoBehaviour
         timeFeedBack.SetActive(true);
     }
 
-    public void UpdateNumberPlayerPortrait(int nbrPlayer)
+    public void AdaptPortraitToNbrPlayer()
     {
-        for(int i = 0; i < portraits.Length; i++)
-        {
-            if(i < nbrPlayer)
-            {
-                portraits[i].SetActive(true);
-            }
-            else
-            {
-                portraits[i].SetActive(false);
-            }
-        }
+        inGameCanvas.GetComponent<Mb_InGameInterface>().AdaptPortraitToNbrPlayer();
     }
 }

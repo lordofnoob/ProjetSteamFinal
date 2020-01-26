@@ -95,4 +95,20 @@ public class Mb_InGameInterface : MonoBehaviour
         }
 
     }
+
+    public void AdaptPortraitToNbrPlayer()
+    {
+        int nbPlayer = Gamemanager.numberOfPlayer;
+        for(int i = 0; i < allPlayerPicture.Length; i++)
+        {
+            if(i < nbPlayer)
+            {
+                allPlayerPicture[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                allPlayerPicture[i].gameObject.SetActive(false);
+            }
+        }
+    }
 }
