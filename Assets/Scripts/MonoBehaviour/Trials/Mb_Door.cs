@@ -135,4 +135,18 @@ public class Mb_Door : Mb_Trial
         }
 
     }
+
+    public void ResetDoor()
+    {
+        if (open == true)
+        {
+            for (int i = 0; i < doorToMove.Length; i++)
+            {
+                timing = 0;
+                counting = false;
+                CloseDoor();
+                open = false;
+            }
+        }
+    }
 }
