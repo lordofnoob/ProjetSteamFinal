@@ -23,6 +23,8 @@ public class Mb_Door : Mb_Trial
     List<Vector3> endPoseDesynch = new List<Vector3>();
     List<Vector3> beginPoseDesynch = new List<Vector3>();
 
+    [SerializeField] AudioClip soundToPlay;
+
     float timing = 0;
     bool open, canTrigger = false;  
     public bool counting, isOpen = false;

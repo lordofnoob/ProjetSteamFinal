@@ -222,7 +222,7 @@ public class Gamemanager : MonoBehaviour
         }
 
         yield return new WaitForSecondsRealtime(1);
-        if (objectiveItem1 == true)
+        if (objectiveItem2 == true)
         {
             Mb_EndPannel.instance.secondStar.gameObject.SetActive(true);
             Mb_EndPannel.instance.secondStar.SetTrigger("DoThings");
@@ -230,7 +230,7 @@ public class Gamemanager : MonoBehaviour
           
 
         yield return new WaitForSecondsRealtime(1);
-        if (objectiveItem2 == true)
+        if (objectiveItem1 == true)
         {
             Mb_EndPannel.instance.thirdStar.gameObject.SetActive(true);
             Mb_EndPannel.instance.thirdStar.SetTrigger("DoThings");
@@ -238,7 +238,7 @@ public class Gamemanager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1);
         {
-            print("IsRenseigned"+Mb_EndPannel.instance.appreciation);
+
             if (moneyStolen < 3000)
             {
                 Mb_EndPannel.instance.appreciation.text = "Was this even worth it?";
