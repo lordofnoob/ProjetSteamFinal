@@ -62,10 +62,12 @@ public class Mb_Chest : Mb_Trial
         currentItemIndex = currentItemToGiveIndex;
         currentInteractionIndex++;
         if (currentInteractionIndex < allItemToDrop.Length)
-            animatorAssociated.SetBool("StillFull", true);
+            if(animatorAssociated != null)
+                animatorAssociated.SetBool("StillFull", true);
         else
         {
-            animatorAssociated.SetBool("StillFull", false);
+            if (animatorAssociated != null)
+                animatorAssociated.SetBool("StillFull", false);
             UiDisactivate();
             Destroy(uiToTrigger);
         }
@@ -76,6 +78,7 @@ public class Mb_Chest : Mb_Trial
             {
                 obj.SetActive(false);
             }
+            particleSystemToSpawn.Play();
         }
     
 

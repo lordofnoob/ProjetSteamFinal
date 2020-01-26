@@ -32,7 +32,7 @@ RectTransform:
   m_Children:
   - {fileID: 6752582377534418866}
   m_Father: {fileID: 5692587736172749998}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -275,7 +275,7 @@ RectTransform:
   m_Children:
   - {fileID: 4391053301473253174}
   m_Father: {fileID: 5692587736172749998}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -363,7 +363,7 @@ RectTransform:
   m_Children:
   - {fileID: 2114059870172651600}
   m_Father: {fileID: 5692587736172749998}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -813,10 +813,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 6073368595725923672}
-  - {fileID: 5101021939620323268}
-  - {fileID: 3893051835371598833}
-  - {fileID: 4186226102560133012}
   - {fileID: 6284804227755967493}
+  - {fileID: 4186226102560133012}
+  - {fileID: 3893051835371598833}
+  - {fileID: 5101021939620323268}
   - {fileID: 6452531121798069593}
   - {fileID: 3528520843685340015}
   - {fileID: 3745817496288505579}
@@ -1041,7 +1041,7 @@ RectTransform:
   m_Children:
   - {fileID: 1430978005419120493}
   m_Father: {fileID: 5692587736172749998}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -4524,11 +4524,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5692587736172749998}
     m_Modifications:
-    - target: {fileID: 8241118186245771989, guid: d8b5495e8118f9c48a74100b64db1570,
-        type: 3}
-      propertyPath: m_Name
-      value: Tutorial
-      objectReference: {fileID: 0}
     - target: {fileID: 2273835889883008335, guid: d8b5495e8118f9c48a74100b64db1570,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4633,6 +4628,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241118186245771989, guid: d8b5495e8118f9c48a74100b64db1570,
+        type: 3}
+      propertyPath: m_Name
+      value: Tutorial
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8b5495e8118f9c48a74100b64db1570, type: 3}

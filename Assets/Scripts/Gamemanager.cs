@@ -95,7 +95,7 @@ public class Gamemanager : MonoBehaviour
                     players[i].GetComponent<Mb_LoadSkinAndMask>().LoadSkinAndMask();
             }
         }
-        Ma_UiManager.instance.UpdateNumberPlayerPortrait(numberOfPlayer);
+        Ma_UiManager.instance.AdaptPortraitToNbrPlayer();
     }
 
     public void CheckItemToGet(Mb_Item itemStolen)
