@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ma_SoundManager : MonoBehaviour
 {
     public static Ma_SoundManager instance;
-    SoundManager
+    //SoundManager
 
     private void Awake()
     {
@@ -15,5 +15,5 @@ public class Ma_SoundManager : MonoBehaviour
             Destroy(this);
     }
 
-    public void PlaySound()
+  //  public void PlaySound()
 }
