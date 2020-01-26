@@ -84,6 +84,7 @@ public class Mb_MainMenu : MonoBehaviour
     {
         SetActiveButton(null);
         levelSelector.inThisMenu = true;
+        levelSelector.StartCoroutine(levelSelector.ActiveLevelSelection());
         levelSelector.SetActiveButton(levelSelector.cursorSpots[0]);
         StartCoroutine(EnterLevelSelectionDelay());
         transform.parent.gameObject.SetActive(false);
