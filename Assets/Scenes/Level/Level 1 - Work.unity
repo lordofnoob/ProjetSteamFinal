@@ -29829,6 +29829,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 30.000061
       objectReference: {fileID: 0}
+    - target: {fileID: 1189574534845354915, guid: a1c18a491010ff849b5f8a510c26c8b7,
+        type: 3}
+      propertyPath: appreciation
+      value: 
+      objectReference: {fileID: 2062821809777150789}
+    - target: {fileID: 1189574534845354915, guid: a1c18a491010ff849b5f8a510c26c8b7,
+        type: 3}
+      propertyPath: bestScoreSpot
+      value: 
+      objectReference: {fileID: 2062821809777150787}
+    - target: {fileID: 1189574534845354915, guid: a1c18a491010ff849b5f8a510c26c8b7,
+        type: 3}
+      propertyPath: animationBestScore
+      value: 
+      objectReference: {fileID: 2062821809777150788}
     - target: {fileID: 6793864380250060271, guid: a1c18a491010ff849b5f8a510c26c8b7,
         type: 3}
       propertyPath: m_Name
@@ -29842,6 +29857,36 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4431815996311461001, guid: a1c18a491010ff849b5f8a510c26c8b7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a1c18a491010ff849b5f8a510c26c8b7, type: 3}
+--- !u!114 &2062821809777150787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3130503841119861029, guid: a1c18a491010ff849b5f8a510c26c8b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2062821809777150786}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &2062821809777150788 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7810139497497103467, guid: a1c18a491010ff849b5f8a510c26c8b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2062821809777150786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2062821809777150789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5607544309273307134, guid: a1c18a491010ff849b5f8a510c26c8b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2062821809777150786}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2192219495843651156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31041,6 +31086,9 @@ MonoBehaviour:
     - {fileID: 2136875877617730632, guid: 80ba7c01a21fe9648b1965b00f0cb28e, type: 3}
   itemCreationSpot: {fileID: 7754023353469840523}
   dropSpot: {fileID: 1170072580659460799}
+  isDiamondChest: 0
+  particleSystemToSpawn: {fileID: 0}
+  objectsToDisableOnTrialDone: []
   randomRangePosition: 2
   timeToGetToSpot: 1
 --- !u!1001 &8672295524188562241
