@@ -11,6 +11,11 @@ public class Mb_EscapeZone : MonoBehaviour
         {
             print("Puck");
             Gamemanager.instance.addSecuredPlayer();
+
+            if (Gamemanager.instance.securisedPlayer >= Gamemanager.numberOfPlayer)
+            {
+
+            }
         }
             
     }
@@ -18,6 +23,13 @@ public class Mb_EscapeZone : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.GetComponent<Mb_PlayerControler>())
+        {
             Gamemanager.instance.removeSecuredPlayer();
+            if (Gamemanager.instance.securisedPlayer < Gamemanager.numberOfPlayer)
+            {
+
+            }
+        }
+
     }
 }
