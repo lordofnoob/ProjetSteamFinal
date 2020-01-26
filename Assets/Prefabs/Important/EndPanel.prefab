@@ -291,7 +291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6915717707253371917
 RectTransform:
   m_ObjectHideFlags: 0
@@ -384,11 +384,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88d40cd049ae194ea7d96d094d8df8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstStar: {fileID: 5637244042756410077}
-  secondStar: {fileID: 7721283819014262254}
-  thirdStar: {fileID: 2954363349709383752}
+  firstStar: {fileID: 0}
+  secondStar: {fileID: 0}
+  thirdStar: {fileID: 0}
   objectiveText: {fileID: 3866216864001674711}
+  escapedPlayer: {fileID: 0}
+  appreciation: {fileID: 0}
   moneySpot: {fileID: 1015215932797357892}
+  bestScoreSpot: {fileID: 0}
+  animationBestScore: {fileID: 0}
+  cursorSpots: []
+  inputController: {fileID: 0}
+  inThisMenu: 0
 --- !u!1 &2421323478850366231
 GameObject:
   m_ObjectHideFlags: 0
