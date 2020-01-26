@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
             Destroy(this);
 
         source = GetComponent<AudioSource>();
+        source.volume = soundParameters.musicVolume;
     }
 
     public void PlaySound(AudioClip soundToPlay, float volume)
