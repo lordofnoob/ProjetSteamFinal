@@ -11,6 +11,9 @@ public class Mb_Chest : Mb_Trial
     [Header("ResolutionPart Travel")]
     [SerializeField] Transform itemCreationSpot;
     [SerializeField] Transform dropSpot;
+    [SerializeField] bool isDiamondChest = false;
+    [SerializeField] ParticleSystem particleSystemToSpawn;
+    [SerializeField] GameObject[] objectsToDisableOnTrialDone;
     [SerializeField] float randomRangePosition;
     [SerializeField] float timeToGetToSpot;
     bool used = false;
@@ -65,6 +68,14 @@ public class Mb_Chest : Mb_Trial
             animatorAssociated.SetBool("StillFull", false);
             UiDisactivate();
             Destroy(uiToTrigger);
+        }
+
+        if (isDiamondChest)
+        {
+            foreach(GameObject obj in objectsToDisableOnTrialDone)
+            {
+                obj.SetActive(false);
+            }
         }
     
 

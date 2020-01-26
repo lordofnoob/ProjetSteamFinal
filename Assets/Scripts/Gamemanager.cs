@@ -40,7 +40,7 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] float timeSpentEvent1, timeSpentEvent2, timeSpentEvent3;
     [HideInInspector] public bool gameIsEnded, canEscape=false;
     int securisedPlayer=0;
-    public static int numberOfPlayer=0;
+    public static int numberOfPlayer = 1;
     
 
     private void Awake()
