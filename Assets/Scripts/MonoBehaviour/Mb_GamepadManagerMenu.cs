@@ -66,7 +66,10 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
 
     public void Start()
     {
-        UpdatePlayerSelectorPanel();
+        for (int i = 0; i < 4; ++i)
+        {
+            RemovePlayerPanel(i);
+        }
     }
 
     public void Update()
@@ -79,14 +82,14 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
             if (gamepadsState[i].IsConnected != prevGamepadsState[i].IsConnected && !gamepadsState[i].IsConnected)
             {
                 aPressed[i] = false;
-                UpdatePlayerSelectorPanel();
+                RemovePlayerPanel(i);
             }
         }
 
         APress();
         BPress();
 
-        Debug.Log("ReadyPlayerNbr : " + readyPlayerNbr + "/" + GetConnectedPlayerNbr());
+        //Debug.Log("ReadyPlayerNbr : " + readyPlayerNbr + "/" + GetConnectedPlayerNbr());
         if (!skinsAndMasksSaved && readyPlayerNbr != 0 && readyPlayerNbr == GetConnectedPlayerNbr())
         {
             for(int i = 0; i < playerList.Length; i++)
@@ -119,26 +122,15 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
         }
     }
 
-    public void UpdatePlayerSelectorPanel()
+    public void AddPlayerPanel(int playerIndex)
     {
         //Debug.Log(gamepadConnected);
-        for(int i = 0; i < 4; i++)
-        {
-            if(aPressed[i])
-            {
-                //PlayerConnectedPanel TRUE
-                playerList[i].playerConnectedPanel.SetActive(true);
-                playerList[i].playerIsConnected = true;
-                playerList[i].playerNotConnectedPanel.SetActive(false);
-            }
-            else
-            {
-                //PlayerConnectedPanel FALSE
-                playerList[i].playerConnectedPanel.SetActive(false);
-                playerList[i].playerIsConnected = false;
-                playerList[i].playerNotConnectedPanel.SetActive(true);
-            }
-        }
+        playerList[playerIndex].AddPlayer();
+    }
+
+    public void RemovePlayerPanel(int playerIndex)
+    {
+        playerList[playerIndex].RemovePlayer();
     }
 
     public void APress()
@@ -158,7 +150,7 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
             else if (gamepadsState[i].Buttons.A == ButtonState.Pressed)
             {
                 aPressed[i] = true;
-                UpdatePlayerSelectorPanel();
+                AddPlayerPanel(i);
             }
         }
     }
@@ -176,7 +168,7 @@ public class Mb_GamepadManagerMenu : MonoBehaviour
                     skinsAndMasksSaved = false;
                     inConfirmation = false;
 
-                    Mb_GamepadManagerMenu.instance.readyPlayerNbr--;
+                    readyPlayerNbr--;
                     playerList[i].playerIsNotReadyPanel.SetActive(true);
                     playerList[i].playerIsReadyPanel.SetActive(false);
 
