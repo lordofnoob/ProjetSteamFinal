@@ -16,6 +16,7 @@ public class Mb_Item : Mb_Trial
     public int itemValue;
    //[HideInInspector]
     public bool thrown = false;
+    [SerializeField] ParticleSystem particleToSpawnOnThrown;
     Mb_Speedable speedInfluencer;
 
     [Header("ItemSprite")]
@@ -33,6 +34,11 @@ public class Mb_Item : Mb_Trial
     {
         SetThrown(false);
         //transform.DOMove(new Vector3(transform.position.x, 1, transform.position.z), 1);
+
+        if(collision.gameObject.tag == "Ground")
+        {
+            particleToSpawnOnThrown.Play();
+        }
     }
 
     public override void DoThings()
