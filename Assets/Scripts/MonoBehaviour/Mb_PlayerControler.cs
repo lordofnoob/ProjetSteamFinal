@@ -64,7 +64,7 @@ public class Mb_PlayerControler : MonoBehaviour
 
     void Update()
     {
-        if (!Gamemanager.instance.IsGamePause())
+        if (!Gamemanager.instance.IsGamePause() && !Gamemanager.instance.gameIsEnded)
         {
             //recup des inputs a la frame
             if (canMove == true)

@@ -42,6 +42,9 @@ public class Ma_UiManager : MonoBehaviour
     {
         inGameCanvas.gameObject.SetActive(false);
         EndCanvas.SetActive(true);
+        Mb_EndPannel endPanel = EndCanvas.GetComponent<Mb_EndPannel>();
+        endPanel.inThisMenu = true;
+        endPanel.SetActiveButton(endPanel.cursorSpots[0]);
     }
 
     public void SetActiveStartCanvas()
@@ -176,18 +179,8 @@ public class Ma_UiManager : MonoBehaviour
         timeFeedBack.SetActive(true);
     }
 
-    public void UpdateNumberPlayerPortrait(int nbrPlayer)
+    public void AdaptPortraitToNbrPlayer()
     {
-        for(int i = 0; i < portraits.Length; i++)
-        {
-            if(i < nbrPlayer)
-            {
-                portraits[i].SetActive(true);
-            }
-            else
-            {
-                portraits[i].SetActive(false);
-            }
-        }
+        inGameCanvas.GetComponent<Mb_InGameInterface>().AdaptPortraitToNbrPlayer();
     }
 }

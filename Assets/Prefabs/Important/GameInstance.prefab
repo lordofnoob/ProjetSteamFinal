@@ -53,6 +53,9 @@ MonoBehaviour:
   inputControllers: []
   players: []
   LoadSkinAndMask: 1
+  timeBeforeEvent: 0
+  collCameraToProck: []
+  animToProckCamera: []
   doorToCloseOnEvent:
   - {fileID: 0}
   allLightToSwitchOff: []
@@ -330,6 +333,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3340287209536858920, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5183426163810264576, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_IsActive
@@ -348,13 +356,8 @@ PrefabInstance:
     - target: {fileID: 5266748778882277994, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2437936006407605722, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: animationBestScore
-      value: 
-      objectReference: {fileID: 7810139497497103467}
     - target: {fileID: 9009761272338330087, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_IsActive
@@ -370,65 +373,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_text
-      value: eazeaze
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6059796404094369353, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8421521686029116461, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_Name
-      value: E======BESTSOCRE
-      objectReference: {fileID: 0}
     - target: {fileID: 1747257920904866539, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: fadeBetweenScene
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4854944973335359754, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_Name
-      value: APPRECIATION ========
       objectReference: {fileID: 0}
     - target: {fileID: 5774001702339925699, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
@@ -495,6 +448,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4854944973335359754, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_Name
+      value: APPRECIATION ========
+      objectReference: {fileID: 0}
     - target: {fileID: 1045312729236230429, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_Name
@@ -505,25 +463,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8831647168017133622, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1153267351984017062, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5305862941768381905, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5305862941768381905, guid: 88b2222699746d9448b2550ce91a8b29,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5305862941768381905, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
@@ -532,9 +475,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5305862941768381905, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 5868579915487696355, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868579915487696355, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868579915487696355, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868579915487696355, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -113.93369
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868579915487696355, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -229.0068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8421521686029116461, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_Name
+      value: E======BESTSOCRE
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_text
+      value: eazeaze
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022089579471080248, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437936006407605722, guid: 88b2222699746d9448b2550ce91a8b29,
+        type: 3}
+      propertyPath: animationBestScore
+      value: 
+      objectReference: {fileID: 7810139497497103467}
     - target: {fileID: 4464131278486833323, guid: 88b2222699746d9448b2550ce91a8b29,
         type: 3}
       propertyPath: m_RootOrder
