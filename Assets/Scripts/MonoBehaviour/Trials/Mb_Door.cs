@@ -43,6 +43,8 @@ public class Mb_Door : Mb_Trial
             }
         base.Awake();
 
+
+
     }
     public override void DoThings()
     {
