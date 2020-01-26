@@ -29,8 +29,9 @@ public class Gamemanager : MonoBehaviour
     bool eventProcked = false;
     [SerializeField] GameObject[] collCameraToProck;
     [SerializeField] Animator[] animToProckCamera;
+    [SerializeField] Animator[] animationMovement;
 
-   [Header("DoorEvent")]
+    [Header("DoorEvent")]
     public Mb_Door[] doorToCloseOnEvent;
 
     [Header("LightEvent")]
@@ -369,6 +370,7 @@ public class Gamemanager : MonoBehaviour
         yield return new WaitForSeconds(5);
         for (int i = 0; i < collCameraToProck.Length; i++)
         {
+            animationMovement[i].SetTrigger("DoThings");
             collCameraToProck[i].SetActive(true);
             animToProckCamera[i].SetTrigger("DoThings");
         }
