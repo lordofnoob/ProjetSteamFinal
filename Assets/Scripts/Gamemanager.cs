@@ -24,7 +24,13 @@ public class Gamemanager : MonoBehaviour
     public Mb_PlayerControler[] players;
     public bool LoadSkinAndMask = true;
 
-    [Header("DoorEvent")]
+    [Header("CameraEvent")]
+    [SerializeField] float timeBeforeEvent;
+    bool eventProcked = false;
+    [SerializeField] GameObject[] collCameraToProck;
+    [SerializeField] Animator[] animToProckCamera;
+
+   [Header("DoorEvent")]
     public Mb_Door[] doorToCloseOnEvent;
 
     [Header("LightEvent")]
@@ -40,7 +46,7 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] float timeSpentEvent1, timeSpentEvent2, timeSpentEvent3;
     [HideInInspector] public bool gameIsEnded, canEscape=false;
     int securisedPlayer=0;
-    public static int numberOfPlayer=0;
+    public static int numberOfPlayer = 1;
     
 
     private void Awake()
@@ -137,6 +143,13 @@ public class Gamemanager : MonoBehaviour
             Ma_UiManager.instance.UpdateTimeRemainingText(timeRemaining);
             Ma_UiManager.instance.UpdateTimeBar(timeRemaining / levelParameters.timeToDoTheLevel);
             CheckEvent();
+
+            if (timeRemaining < levelParameters.timeToDoTheLevel - timeBeforeEvent && eventProcked == false)
+            {
+                eventProcked = true;
+                StartCoroutine("CameraActivation");
+             
+            }
 
             if (timeRemaining < 15)
             {
@@ -345,6 +358,20 @@ public class Gamemanager : MonoBehaviour
     public void removeSecuredPlayer()
     {
         securisedPlayer -= 1;
+    }
+
+    IEnumerator CameraActivation()
+    {
+        for (int i = 0; i < collCameraToProck.Length; i++)
+        {
+            animToProckCamera[i].SetTrigger("DoThings");
+        }
+        yield return new WaitForSeconds(5);
+        for (int i = 0; i < collCameraToProck.Length; i++)
+        {
+            collCameraToProck[i].SetActive(true);
+            animToProckCamera[i].SetTrigger("DoThings");
+        }
     }
     //Light Event
     #region

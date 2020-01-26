@@ -4,35 +4,18 @@ using UnityEngine;
 
 public class Mb_Camera : MonoBehaviour
 {
-    [SerializeField] Mb_Door[] trialToActivate;
-    [SerializeField] Animator anim;
-    [SerializeField] int timeBeforeReactivate;
-    bool canSee = true;
+    [SerializeField] Mb_Door trialToActivate;
+  //  bool canSee = true;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (canSee == true)
-        {
-
-           canSee = false;
-           ActivateDoor();
-            // anim.SetTrigger("DoThings");
-            StartCoroutine("WaitBeforeReactivation");
-
-        }
+        if (other.GetComponent<Mb_PlayerControler>())
+        ResetDoor();
     }
 
-    void ActivateDoor()
-    {
-        for (int i = 0; i < trialToActivate.Length; i++)
-            trialToActivate[i].DoThings();
-      
-    }
 
-    IEnumerator WaitBeforeReactivation()
+    void ResetDoor()
     {
-        yield return new WaitForSeconds(timeBeforeReactivate);
-        ActivateDoor();
-        canSee = true;
+        trialToActivate.ResetDoor();
     }
 }
