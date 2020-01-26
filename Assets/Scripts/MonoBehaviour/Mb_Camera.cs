@@ -17,6 +17,15 @@ public class Mb_Camera : MonoBehaviour
             ResetDoor();
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Mb_PlayerControler>())
+        {
+            particleToPop.transform.position = other.transform.position;
+            particleToPop.Play();
+            ResetDoor();
+        }
+    }
 
 
     void ResetDoor()
