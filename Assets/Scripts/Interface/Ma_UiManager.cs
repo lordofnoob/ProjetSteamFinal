@@ -42,6 +42,9 @@ public class Ma_UiManager : MonoBehaviour
     {
         inGameCanvas.gameObject.SetActive(false);
         EndCanvas.SetActive(true);
+        Mb_EndPannel endPanel = EndCanvas.GetComponent<Mb_EndPannel>();
+        endPanel.inThisMenu = true;
+        endPanel.SetActiveButton(endPanel.cursorSpots[0]);
     }
 
     public void SetActiveStartCanvas()
