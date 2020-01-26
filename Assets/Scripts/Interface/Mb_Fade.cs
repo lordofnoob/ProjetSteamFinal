@@ -10,14 +10,16 @@ public class Mb_Fade : MonoBehaviour
     private int levelToLoad;
 
 
-    public void FadeToLevel(int levelIndex)
+    public void FadeToLevel(int levelToLoadIndex)
     {
-        levelToLoad = levelIndex;
+        levelToLoad = levelToLoadIndex;
         animator.SetTrigger("FadeOut");
         animator.speed = fadeDuration;
     }
 
     public void OnFadeComplete()
     {
-        SceneManager.LoadScene(levelToLoad);    }
+        SceneManager.LoadScene(levelToLoad);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+    }
 }
