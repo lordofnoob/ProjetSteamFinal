@@ -105,7 +105,7 @@ public class Mb_LevelSelector : MonoBehaviour
         activeButton = newActiveButton;
         if(activeButton != null)
             activeButton.gameObject.SetActive(true);
-        Debug.Log("ChangeActiveButton : " + activeButton);
+        //Debug.Log("ChangeActiveButton : " + activeButton);
         levels[activeButton].interactable = true;
         rightPanel.UpdateLevelSelection(cursorSpots.IndexOf(activeButton));
     }
