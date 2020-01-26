@@ -344,11 +344,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6029328737080670826}
     m_Modifications:
-    - target: {fileID: 6388956179237688929, guid: 0b8af7e870623f646b531181ce423ae6,
-        type: 3}
-      propertyPath: particleToPop
-      value: 
-      objectReference: {fileID: 7303975439093637849}
+    - target: {fileID: 129204, guid: 0b8af7e870623f646b531181ce423ae6, type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_Camera_01
+      objectReference: {fileID: 0}
     - target: {fileID: 455394, guid: 0b8af7e870623f646b531181ce423ae6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.117
@@ -405,10 +404,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 129204, guid: 0b8af7e870623f646b531181ce423ae6, type: 3}
-      propertyPath: m_Name
-      value: SM_Prop_Camera_01
-      objectReference: {fileID: 0}
     - target: {fileID: 450684, guid: 0b8af7e870623f646b531181ce423ae6, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.00090411317
@@ -437,6 +432,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -1.0890001
       objectReference: {fileID: 0}
+    - target: {fileID: 1947378408485098987, guid: 0b8af7e870623f646b531181ce423ae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388956179237688929, guid: 0b8af7e870623f646b531181ce423ae6,
+        type: 3}
+      propertyPath: particleToPop
+      value: 
+      objectReference: {fileID: 7303975439093637849}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b8af7e870623f646b531181ce423ae6, type: 3}
 --- !u!1 &1179890840011015186 stripped

@@ -171,6 +171,7 @@ public class Gamemanager : MonoBehaviour
     public void StartGame()
     {
         isPause = false;
+        GameResume();
         Ma_UiManager.instance.inGameCanvas.gameObject.SetActive(true);
     }
 
