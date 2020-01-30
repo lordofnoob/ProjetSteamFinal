@@ -31,10 +31,18 @@ public class Ma_UiManager : MonoBehaviour
 
     {
         if (instance == null)
+        {
             instance = this;
-        else
-            Destroy(this);
 
+        }
+        else
+        {
+            Destroy(this);
+            print("there is only 2");
+        }
+
+        AdaptPortraitToNbrPlayer();
+        SetActivateTutorialPanel();
         timeFeedBack.SetActive(false);
     }
 
@@ -42,7 +50,7 @@ public class Ma_UiManager : MonoBehaviour
     {
         inGameCanvas.gameObject.SetActive(false);
         EndCanvas.SetActive(true);
-        Mb_EndPannel endPanel = EndCanvas.GetComponent<Mb_EndPannel>();
+        Mb_EndPannel endPanel = GetComponent<Mb_EndPannel>();
         endPanel.inThisMenu = true;
         endPanel.SetActiveButton(endPanel.cursorSpots[0]);
     }

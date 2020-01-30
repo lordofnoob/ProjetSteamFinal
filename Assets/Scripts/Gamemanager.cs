@@ -52,6 +52,8 @@ public class Gamemanager : MonoBehaviour
 
     private void Awake()
     {
+        print("DOTHIS");
+
         if (instance == null)
             instance = this;
         else
@@ -76,18 +78,11 @@ public class Gamemanager : MonoBehaviour
 
         //Begin Tutorial
         isPause = true;
-        if (activateTuto)
-        {
-            Ma_UiManager.instance.SetActivateTutorialPanel();
-        }
-        else
-        {
-            Ma_UiManager.instance.countDown.LaunchCountdown();
-        }
     }
 
     private void Start()
     {
+
         if (LoadSkinAndMask)
         {
             for (int i = 0; i < players.Length; i++)
@@ -133,11 +128,11 @@ public class Gamemanager : MonoBehaviour
     {
         if (isPause == false)
             DecreaseTimer();
-
     }
 
     void DecreaseTimer()
     {
+        print(timeRemaining);
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
@@ -170,6 +165,7 @@ public class Gamemanager : MonoBehaviour
 
     public void StartGame()
     {
+        Ma_UiManager.instance.AdaptPortraitToNbrPlayer();
         isPause = false;
         GameResume();
         Ma_UiManager.instance.inGameCanvas.gameObject.SetActive(true);

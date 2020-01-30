@@ -88,8 +88,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 3}
+  m_Center: {x: 0, y: 0, z: 1.5}
 --- !u!114 &8896037143204588950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +104,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repulsionSpot: {fileID: 2528319723830508126}
   particleToPop: {fileID: 3346426843234509526}
+--- !u!65 &8424697505024288307
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755377203625200601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 1, z: 0.99999994}
+  m_Center: {x: 0, y: 0.00000017881393, z: -0.0000009536743}
+--- !u!114 &5638092010455130744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755377203625200601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499058977d4914d468c22c013eaa4024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3245070028931342438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,6 +2030,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b174931b5389303409680c9bb0261603, type: 3}
+--- !u!1 &2755377203625200601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 588798745105780540, guid: b174931b5389303409680c9bb0261603,
+    type: 3}
+  m_PrefabInstance: {fileID: 3321059070956520677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2755377203625200597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 588798745105780528, guid: b174931b5389303409680c9bb0261603,
